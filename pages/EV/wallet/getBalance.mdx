@@ -1,0 +1,36 @@
+---
+name: getBalance
+type: http
+seq: 2
+---
+
+# getBalance API
+
+The `getBalance` API allows you to retrieve the balance of a user's wallet.
+
+## HTTP GET Request
+
+**URL:** `http://localhost:3000/v1/wallet/get`
+
+**Method:** GET
+
+**Body:** None
+
+**Authentication:** Bearer Token
+
+## Authentication
+
+To use this API, you need to include a bearer token in the authorization header of your HTTP request. Below is an example token:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
+```
+
+## Example Request
+
+```http
+GET http://localhost:3000/v1/wallet/get
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
+```
+
+Make sure to replace the example token with a valid token.

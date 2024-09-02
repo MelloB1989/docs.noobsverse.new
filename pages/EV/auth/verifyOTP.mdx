@@ -1,0 +1,43 @@
+---
+title: "verifyOTP API"
+---
+
+# verifyOTP API
+
+## Overview
+
+The `verifyOTP` API endpoint is used to verify a One-Time Password (OTP) sent to a user's phone number. It is part of the authentication process.
+
+## HTTP Method
+
+**POST**
+
+## Endpoint
+
+```http
+POST http://localhost:3000/v1/auth/verify_otp
+```
+
+## Request Body
+
+The request body should be in JSON format and include the following fields:
+
+```json
+{
+  "phone": "+919812940706",
+  "otp": "815897"
+}
+```
+
+### Fields
+
+- `phone` (string): The phone number to which the OTP was sent. It should be in international format.
+- `otp` (string): The One-Time Password sent to the user's phone.
+
+## Authentication
+
+No authentication is required for this endpoint.
+
+---
+
+This documentation provides a clear overview of how to use the `verifyOTP` API. Ensure that your request body matches the specified format to successfully verify the OTP.

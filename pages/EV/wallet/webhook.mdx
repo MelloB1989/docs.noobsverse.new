@@ -1,0 +1,45 @@
+---
+name: webhook
+type: http
+seq: 4
+---
+
+# Webhook API
+
+This API allows you to trigger a webhook with specific parameters. It is an HTTP-based API which requires Bearer authentication.
+
+## Endpoint
+
+### GET Request
+```
+GET http://localhost:3000/v1/wallet/webhook
+```
+
+### Query Parameters
+
+| Name         | Type   | Description                              |
+| ------------ | ------ | ---------------------------------------- |
+| `uid`        | string | Unique identifier for the user           |
+| `balance`    | number | The balance amount                       |
+| `webhook_key`| string | Key specifically used for webhook access |
+
+**Example URL:**
+```
+http://localhost:3000/v1/wallet/webhook?uid=5geapgapxs&balance=10000000000&webhook_key=coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda
+```
+
+## Authentication
+
+### Bearer Token
+
+To access this endpoint, you need a Bearer token. Include it in the `Authorization` header in the format:
+
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
+```
+
+### Token Details
+
+| Token                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------- |
+| `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I` |

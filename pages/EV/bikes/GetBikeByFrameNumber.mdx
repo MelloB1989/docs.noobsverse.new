@@ -1,0 +1,37 @@
+---
+name: GetBikeByFrameNumber
+type: http
+seq: 4
+---
+
+# GetBikeByFrameNumber API
+
+This API allows you to retrieve bike details based on the frame number.
+
+## HTTP Request
+
+**GET** `http://localhost:3000/v1/bikes/get/frame/FR123456789`
+
+## Authorization
+
+This endpoint requires a Bearer token for authorization.
+
+### Bearer Token
+
+Pass the following Bearer token in the Authorization header:
+
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+## Request Body
+
+None.
+
+## Example Request
+
+```http
+GET http://localhost:3000/v1/bikes/get/frame/FR123456789
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+

@@ -1,0 +1,48 @@
+---
+title: GetFastestBike API Documentation
+order: 9
+---
+
+# GetFastestBike API
+
+The `GetFastestBike` API allows you to fetch the details of the fastest bike available.
+
+## Endpoint
+
+### HTTP Request
+
+`GET http://localhost:3000/v1/bikes/get/speed/fastest`
+
+### Authentication
+
+This API endpoint requires Bearer Token authentication.
+
+#### Bearer Token
+
+`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
+
+### Request Parameters
+
+- **URL:** `http://localhost:3000/v1/bikes/get/speed/fastest`
+- **Method:** GET
+- **Body:** None
+- **Headers:**
+  - `Authorization: Bearer <token>`
+
+Replace `<token>` with your actual Bearer Token.
+
+### Example Request
+
+```HTTP
+GET /v1/bikes/get/speed/fastest HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+### Response
+
+The response will contain details of the fastest bike. The format will depend on the implementation.
+
+## Conclusion
+
+This API endpoint is used to retrieve information about the fastest bike. Ensure to use the provided Bearer token for authentication.

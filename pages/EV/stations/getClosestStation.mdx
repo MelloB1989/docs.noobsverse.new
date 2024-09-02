@@ -1,0 +1,56 @@
+---
+name: getClosestStation
+type: http
+---
+
+# getClosestStation API
+
+## Description
+
+The `getClosestStation` API retrieves information about the closest EV charging stations based on the specified latitude and longitude. It allows you to define the maximum number of stations to be returned in the response.
+
+## Endpoint
+
+### GET
+```
+https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby?lat=40&lon=-70&limit=2
+```
+
+## Parameters
+
+### Query Parameters
+
+| Name  | Type | Required | Description                             |
+|-------|------|----------|-----------------------------------------|
+| lat   | float| Yes      | Latitude to search for nearby stations. |
+| lon   | float| Yes      | Longitude to search for nearby stations.|
+| limit | int  | No       | Number of stations to return (default: 2)|
+
+Example:
+```
+lat=40&lon=-70&limit=2
+```
+
+## Headers
+
+### Required Headers
+
+| Name                | Value                                  | Description                 |
+|---------------------|----------------------------------------|-----------------------------|
+| X-Karma-Admin-Auth  | ajbkbakweiuy387yeuqqwfahdjhsabd        | Admin authentication token. |
+
+## Request Body
+
+No request body required.
+
+## Authentication
+
+No additional authentication required beyond the `X-Karma-Admin-Auth` header.
+
+## Example Request
+
+### CURL
+```bash
+curl -X GET "https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby?lat=40&lon=-70&limit=2" \
+     -H "X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd"
+```

@@ -1,0 +1,59 @@
+---
+title: getStation API Documentation
+---
+
+# getStation
+
+The `getStation` API is an HTTP endpoint used to retrieve details of a specific station. Below are the full details on how to interact with this endpoint.
+
+## Endpoint Information
+
+### Method: GET
+
+### URL
+
+```plaintext
+http://localhost:3000/v1/stations/get/wxyoqxff83
+```
+
+### Request Body
+
+None.
+
+### Authentication
+
+None required.
+
+## Headers
+
+This API requires a specific header for authentication:
+
+- **X-Karma-Admin-Auth**: `ajbkbakweiuy387yeuqqwfahdjhsabd`
+
+Ensure to include this header in your request to successfully authenticate when calling the `getStation` endpoint.
+
+## Sequence
+
+This is the 3rd endpoint in a sequence of API calls or interactions related to station information.
+
+## Usage Example
+
+Here is an example of how to make a request to the `getStation` API using `curl`:
+
+```shell
+curl -X GET \
+  http://localhost:3000/v1/stations/get/wxyoqxff83 \
+  -H "X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd"
+```
+
+Make sure to replace the placeholder values in the example with actual values where necessary before making the request.
+
+## Response
+
+A successful request returns the details of the specified station. The actual structure and content of the response are dependent on the API's implementation and the data associated with the station ID provided.
+
+Consult the full API documentation or a JSON schema if you need more details on the possible responses and their structures.
+
+---
+
+End of the `getStation` API documentation.

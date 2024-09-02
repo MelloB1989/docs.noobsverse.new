@@ -1,0 +1,33 @@
+---
+id: getBikeByID
+title: Get Bike by ID
+---
+
+## getBikeByID
+
+### Type
+- HTTP
+
+### Sequence
+- 2
+
+## HTTP Request
+
+### GET
+- **URL**: `http://localhost:3000/v1/bikes/get/jruefu191e`
+- **Body**: None required
+- **Authentication**: Bearer token required
+
+## Authentication
+
+### Bearer Token
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+### Example Request
+
+```http
+GET http://localhost:3000/v1/bikes/get/jruefu191e
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```

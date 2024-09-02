@@ -1,0 +1,79 @@
+---
+title: getAllBikes API Documentation
+meta:
+  name: getAllBikes
+  type: http
+  seq: 3
+---
+
+# getAllBikes API
+
+The `getAllBikes` API is used to fetch all the bike data from the server.
+
+## Endpoint
+
+**GET** `http://localhost:3000/v1/bikes/get`
+
+## Authorization
+
+This API requires a Bearer token for authorization.
+
+### Bearer Token
+
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+## Request Structure
+
+### URL
+
+```plaintext
+http://localhost:3000/v1/bikes/get
+```
+
+### Method
+
+```plaintext
+GET
+```
+
+### Body
+
+The request does not require a body.
+
+## Response Structure
+
+The response will contain the bike data in a structured format. The exact schema of the response is not provided within this documentation, but typically, it will be JSON data containing details of all bikes.
+
+## Usage Example
+
+#### Request
+
+```plaintext
+GET http://localhost:3000/v1/bikes/get
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+#### Response
+
+The response will be a list of bikes in JSON format.
+
+```json
+[
+  {
+    "id": 1,
+    "model": "Mountain Bike",
+    "brand": "Brand A"
+  },
+  {
+    "id": 2,
+    "model": "Road Bike",
+    "brand": "Brand B"
+  }
+]
+```
+
+## Conclusion
+
+The `getAllBikes` API is a straightforward API to fetch all the bikes available in the inventory. It requires a GET request and a Bearer token for authorization. Make sure to replace the provided token with a valid one when making requests.

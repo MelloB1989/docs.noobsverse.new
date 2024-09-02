@@ -1,0 +1,64 @@
+---
+meta:
+  name: get
+  type: http
+  seq: 2
+---
+
+# GET User Subscription API
+
+This API retrieves the details of a user subscription.
+
+## Endpoint
+
+`GET https://ev-backend.app.k8s.coffeecodes.in/v1/user_subscription/get`
+
+## Authorization
+
+This endpoint requires a Bearer token for authorization.
+
+**Bearer Token:**
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Request Body
+
+The request body should be in JSON format and contain the following fields:
+
+```json
+{
+  "subscription_id": "ftx0li8efd",
+  "start_date": "27/11/2004",
+  "end_date": "27/11/2004"
+}
+```
+
+## Example Request
+
+```http
+GET /v1/user_subscription/get HTTP/1.1
+Host: ev-backend.app.k8s.coffeecodes.in
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+Content-Type: application/json
+
+{
+  "subscription_id": "ftx0li8efd",
+  "start_date": "27/11/2004",
+  "end_date": "27/11/2004"
+}
+```
+
+## Response
+
+The response will contain the details of the user subscription. The structure of the response depends on the implementation of the API and should be referred to in the API's reference document.
+
+## Notes
+
+- Ensure the Bearer token is valid and has not expired.
+- The date format should be `DD/MM/YYYY`.
+
+---
+
+This documentation provides the necessary information to interact with the **GET User Subscription API** effectively. If additional information or clarification is required, please refer to the full API documentation or contact support.

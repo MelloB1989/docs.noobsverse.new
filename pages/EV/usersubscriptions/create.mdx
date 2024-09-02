@@ -1,0 +1,43 @@
+---
+title: Create User Subscription API
+---
+
+## Overview
+
+This API allows you to create a new user subscription.
+
+## Endpoint
+
+### HTTP Request
+
+```http
+POST http://localhost:3000/v1/user_subscription/create
+```
+
+### Authentication
+
+This endpoint uses Bearer Token authentication.
+
+### Bearer Token
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Request Body
+
+The request body should be in JSON format.
+
+### JSON Body Example
+
+```json
+{
+  "subscription_id": "qcxt0ky6xg",
+  "start_date": "27/11/2004",
+  "end_date": "27/11/2004"
+}
+```
+
+## Sequence
+
+Order: 1

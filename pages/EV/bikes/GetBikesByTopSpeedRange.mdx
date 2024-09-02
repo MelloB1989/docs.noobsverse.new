@@ -1,0 +1,69 @@
+---
+title: GetBikesByTopSpeedRange API
+---
+
+## GetBikesByTopSpeedRange
+
+The `GetBikesByTopSpeedRange` API allows you to fetch a list of bikes within a specified top speed range.
+
+---
+
+### Metadata
+
+- **Name:** GetBikesByTopSpeedRange
+- **Type:** HTTP
+- **Sequence:** 6
+
+---
+
+### HTTP Request
+
+- **Method:** GET
+- **URL:** `http://localhost:3000/v1/bikes/get/speed/50/47`
+- **Body:** None
+- **Authentication:** Bearer Token
+
+---
+
+### Authentication
+
+This endpoint requires a Bearer Token for authentication.
+
+- **Bearer Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
+
+---
+
+### Example Request
+
+```http
+GET http://localhost:3000/v1/bikes/get/speed/50/47
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+---
+
+### Example Response
+
+```json
+{
+  "bikes": [
+    {
+      "id": "bike1",
+      "model": "XYZ100",
+      "topSpeed": 48
+    },
+    {
+      "id": "bike2",
+      "model": "ABC200",
+      "topSpeed": 49
+    }
+  ]
+}
+```
+
+---
+
+### Notes
+
+- Ensure the bearer token provided is valid and has the necessary permissions to access the endpoint.
+- The URL parameters `{50}` and `{47}` in the URL specify the top speed range. Adjust these values as needed to set the desired range for querying bikes.

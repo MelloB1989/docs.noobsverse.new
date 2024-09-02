@@ -1,0 +1,79 @@
+---
+title: "API Documentation - createSubscription"
+meta:
+  name: createSubscription
+  type: http
+  seq: 1
+---
+
+## Create Subscription
+
+### Endpoint
+`POST http://localhost:3000/v1/subscriptions/create`
+
+### Description
+This endpoint allows the creation of new subscriptions.
+
+### Header
+```json
+{
+  "X-Karma-Admin-Auth": "CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab"
+}
+```
+
+### Request Body
+The request body should be in JSON format and contains a list of subscription objects.
+
+#### Example
+```json
+[
+  {
+    "id": "sub_001",
+    "monthly_fee": 29.99,
+    "discount": 5.00,
+    "name": "Standard Plan",
+    "bike_id": "01rvo0_nbh",
+    "type": "monthly",
+    "security_deposit": 10
+  },
+  {
+    "id": "sub_002",
+    "monthly_fee": 39.99,
+    "discount": 10.00,
+    "name": "Premium Plan",
+    "bike_id": "9tkdp5ra3p",
+    "type": "monthly",
+    "security_deposit": 10
+  },
+  {
+    "id": "sub_003",
+    "monthly_fee": 19.99,
+    "discount": 0.00,
+    "name": "Basic Plan",
+    "bike_id": "2_vnd6qjv1",
+    "type": "monthly",
+    "security_deposit": 10
+  },
+  {
+    "id": "sub_004",
+    "monthly_fee": 49.99,
+    "discount": 15.00,
+    "name": "Ultimate Plan",
+    "bike_id": "vu1v4kb4s6",
+    "type": "annual",
+    "security_deposit": 10
+  },
+  {
+    "id": "sub_005",
+    "monthly_fee": 25.99,
+    "discount": 5.00,
+    "name": "Student Plan",
+    "bike_id": "01rvo0_nbh",
+    "type": "monthly",
+    "security_deposit": 10
+  }
+]
+```
+
+### Authentication
+No authentication is required for this endpoint.
