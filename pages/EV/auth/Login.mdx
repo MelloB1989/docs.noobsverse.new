@@ -1,29 +1,43 @@
 ---
 title: Login API
-type: http
-sequence: 1
+description: Endpoint for user login
 ---
 
-# Login API
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Endpoint
+## Login API
 
-`POST http://127.0.0.1:3000/v1/auth/login`
+### Meta
+**Name**: Login  
+**Type**: HTTP  
+**Sequence**: 1
 
-## Headers
+### HTTP Request
+**Method**: POST  
+**URL**: `http://127.0.0.1:3000/v1/auth/login`  
+**Body Format**: JSON  
+**Authentication**: None
 
-| Header                  | Value                                |
-|-------------------------|--------------------------------------|
-| X-Karma-Admin-Auth      | ajbkbakweiuy387yeuqqwfahdjhsabd      |
+### Headers
+| Key                   | Value                                  |
+|-----------------------|----------------------------------------|
+| `X-Karma-Admin-Auth`  | `ajbkbakweiuy387yeuqqwfahdjhsabd`      |
 
-## Request Body
-
+### Request Body
 ```json
 {
-    "phone": "+919812940706"
+  "phone": "+919812940706"
 }
 ```
 
-## Authentication
+### Example Request
+```http
+POST http://127.0.0.1:3000/v1/auth/login
+Content-Type: application/json
+X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
 
-No authentication is required for this endpoint.
+{
+  "phone": "+919812940706"
+}
+```

@@ -1,48 +1,67 @@
 ---
 title: GetFastestBike API Documentation
-order: 9
 ---
 
-# GetFastestBike API
+import { Meta } from '@mdx-js/react';
 
-The `GetFastestBike` API allows you to fetch the details of the fastest bike available.
+<Meta
+  name="GetFastestBike"
+  type="http"
+  seq={9}
+/>
 
-## Endpoint
+## GetFastestBike API
+
+### Overview
+
+This API endpoint retrieves the fastest bike available in the system.
 
 ### HTTP Request
 
-`GET http://localhost:3000/v1/bikes/get/speed/fastest`
+#### GET
+**URL:** `http://localhost:3000/v1/bikes/get/speed/fastest`
 
-### Authentication
+### Request Headers
 
-This API endpoint requires Bearer Token authentication.
+- **Authorization:** Bearer Token (required)
 
-#### Bearer Token
-
-`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
-
-### Request Parameters
-
-- **URL:** `http://localhost:3000/v1/bikes/get/speed/fastest`
-- **Method:** GET
-- **Body:** None
-- **Headers:**
-  - `Authorization: Bearer <token>`
-
-Replace `<token>` with your actual Bearer Token.
-
-### Example Request
-
-```HTTP
-GET /v1/bikes/get/speed/fastest HTTP/1.1
-Host: localhost:3000
+```json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
+### Request Body
+
+None.
+
 ### Response
 
-The response will contain details of the fastest bike. The format will depend on the implementation.
+The response includes details about the fastest bike in the system.
 
-## Conclusion
+### Authentication
 
-This API endpoint is used to retrieve information about the fastest bike. Ensure to use the provided Bearer token for authentication.
+This endpoint requires a Bearer token for authorization.
+
+**Example Token:**
+
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+### Example Request
+
+```http
+GET http://localhost:3000/v1/bikes/get/speed/fastest
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+### Example Response
+
+```json
+{
+  "bikeId": "12345",
+  "model": "Speedster",
+  "maxSpeed": "50 km/h"
+}
+```
+
+This document provides all the necessary details to interact with the GetFastestBike API endpoint. Ensure you have the correct Bearer token before making a request.

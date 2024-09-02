@@ -1,30 +1,39 @@
 ---
 name: getSubscription
-type: http
-seq: 2
+type: HTTP
+sequence: 2
 ---
 
-# getSubscription API
+# Get Subscription API Documentation
 
-## HTTP GET Request
+## Overview
 
-**URL:** `http://localhost:3000/v1/subscriptions/get`
+The `getSubscription` API allows you to retrieve subscription details. You need to include the required headers and authentication token to make a successful request.
 
-**Body Format:** JSON
+## Endpoint
 
+**URL:** `http://localhost:3000/v1/subscriptions/get`  
+**Method:** `GET`  
+**Request Body:** JSON  
 **Authentication:** Bearer Token
 
 ## Headers
 
-- `X-Karma-Admin-Auth`: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
+| Key                     | Value                                                                                                                                                      |
+|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `X-Karma-Admin-Auth`    | `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`                                                                           |
 
-## Bearer Authentication
+### Authentication Token
+
+Use the following Bearer token for authentication:
 
 ```plaintext
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
 
-## JSON Body Example
+## Request Body
+
+The request body should be in JSON format and contain the subscription details.
 
 ```json
 [
@@ -70,3 +79,60 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI
     }
 ]
 ```
+
+## Example Response
+
+**Status Code:** 200 OK
+
+```json
+[
+    {
+        "id": "sub_001",
+        "monthly_fee": 29.99,
+        "discount": 5.00,
+        "name": "Standard Plan",
+        "bike_id": "01rvo0_nbh",
+        "type": "monthly"
+    },
+    {
+        "id": "sub_002",
+        "monthly_fee": 39.99,
+        "discount": 10.00,
+        "name": "Premium Plan",
+        "bike_id": "9tkdp5ra3p",
+        "type": "monthly"
+    },
+    {
+        "id": "sub_003",
+        "monthly_fee": 19.99,
+        "discount": 0.00,
+        "name": "Basic Plan",
+        "bike_id": "2_vnd6qjv1",
+        "type": "monthly"
+    },
+    {
+        "id": "sub_004",
+        "monthly_fee": 49.99,
+        "discount": 15.00,
+        "name": "Ultimate Plan",
+        "bike_id": "vu1v4kb4s6",
+        "type": "annual"
+    },
+    {
+        "id": "sub_005",
+        "monthly_fee": 25.99,
+        "discount": 5.00,
+        "name": "Student Plan",
+        "bike_id": "01rvo0_nbh",
+        "type": "monthly"
+    }
+]
+```
+
+## Notes
+
+- Ensure that the `X-Karma-Admin-Auth` header and the Bearer token are valid and match the required format.
+- The required fields for each subscription record are `id`, `monthly_fee`, `discount`, `name`, `bike_id`, and `type`.
+- The `type` field specifies the subscription type and can be either `monthly` or `annual`.
+
+For any further questions or support, please contact the API administration team.

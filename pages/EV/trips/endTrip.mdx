@@ -1,0 +1,76 @@
+---
+title: "endTrip API Documentation"
+---
+
+## endTrip API
+
+This document provides details about the `endTrip` API used to mark the end of a trip.
+
+### Metadata
+- **Name:** endTrip
+- **Type:** HTTP
+- **Sequence:** 2
+
+### Endpoint
+- **Method:** POST
+- **URL:** `http://localhost:3000/v1/trips/end`
+- **Body Type:** JSON
+- **Authentication:** Bearer Token
+
+### Authentication
+The `endTrip` API requires a Bearer Token for authentication. 
+
+- **Token:**
+  ```
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+  ```
+
+### Request Body (JSON)
+
+The following JSON object should be sent in the body of the POST request:
+
+```json
+{
+    "id": "ulj1iq0-0w",
+    "bike_id": "i6bjwk0yhu",
+    "station_id": "a2m392c58f",
+    "start_timestamp": "2024-09-02T07:15:00Z",
+    "end_timestamp": "2024-09-02T07:50:00Z",
+    "distance": 15.8,
+    "duration": 35.0,
+    "average_speed": 27.1,
+    "path": "base64_encoded_path_data_3"
+}
+```
+
+### Fields in the Request Body
+
+- **id**: *(string)* The unique identifier for the trip.
+- **bike_id**: *(string)* The unique identifier for the bike.
+- **station_id**: *(string)* The unique identifier for the station where the trip ended.
+- **start_timestamp**: *(string, ISO 8601 format)* The timestamp when the trip started.
+- **end_timestamp**: *(string, ISO 8601 format)* The timestamp when the trip ended.
+- **distance**: *(number)* The distance covered during the trip in kilometers.
+- **duration**: *(number)* The duration of the trip in minutes.
+- **average_speed**: *(number)* The average speed during the trip in km/h.
+- **path**: *(string)* The base64 encoded path data of the trip.
+
+### Example Request
+
+```http
+POST http://localhost:3000/v1/trips/end
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+Content-Type: application/json
+
+{
+    "id": "ulj1iq0-0w",
+    "bike_id": "i6bjwk0yhu",
+    "station_id": "a2m392c58f",
+    "start_timestamp": "2024-09-02T07:15:00Z",
+    "end_timestamp": "2024-09-02T07:50:00Z",
+    "distance": 15.8,
+    "duration": 35.0,
+    "average_speed": 27.1,
+    "path": "base64_encoded_path_data_3"
+}
+```

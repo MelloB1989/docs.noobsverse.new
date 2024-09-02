@@ -1,0 +1,59 @@
+---
+title: "getTransactions API Documentation"
+---
+
+# getTransactions API
+
+## Overview
+The `getTransactions` API is an HTTP endpoint that retrieves a list of transactions. It requires bearer token authentication to access.
+
+## Endpoint Details
+
+### HTTP Method
+**GET**
+
+### URL
+```
+http://localhost:3000/v1/transactions
+```
+
+### Request Body
+None
+
+### Authentication
+Bearer token authentication is required to access this endpoint. 
+
+#### Token
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Sequence
+1
+
+## Example Request
+```http
+GET http://localhost:3000/v1/transactions
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Example Response
+```json
+{
+  "transactions": [
+    {
+      "id": "123456",
+      "amount": 250.00,
+      "date": "2023-10-01T12:34:56"
+    },
+    {
+      "id": "789012",
+      "amount": 100.00,
+      "date": "2023-10-02T14:56:78"
+    }
+  ]
+}
+```
+
+## Notes
+Ensure that the bearer token provided is correct and valid to prevent unauthorized access errors.

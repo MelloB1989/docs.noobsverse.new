@@ -4,48 +4,38 @@ type: http
 seq: 7
 ---
 
-# GetBikesByTopSpeedLT API
+# GetBikesByTopSpeedLT API Documentation
 
 ## Description
+The GetBikesByTopSpeedLT API retrieves a list of bikes with a top speed less than a specified value. In this instance, the maximum speed is set to 50 units.
 
-Retrieve bikes with a top speed less than 50 km/h.
-
-## HTTP Request
-
-### Method
-
-`GET`
-
-### URL
-
+## Endpoint
+### HTTP GET
 `http://localhost:3000/v1/bikes/get/speed_lt/50`
 
-## Request Body
-
-None
-
 ## Authentication
+This endpoint requires Bearer Token authentication.
 
-This endpoint uses Bearer Token Authentication.
-
-### Token Example
-
-```plaintext
+### Bearer Token
+```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-## Usage Example
+## Request
+### URL
+`http://localhost:3000/v1/bikes/get/speed_lt/50`
 
-To use this endpoint, include the provided Bearer Token in the Authorization header of your HTTP request.
+### Method
+GET
 
+### Body
+None
+
+### Authentication
+Bearer Token
+
+## Example Request
 ```http
-GET /v1/bikes/get/speed_lt/50 HTTP/1.1
-Host: localhost:3000
+GET http://localhost:3000/v1/bikes/get/speed_lt/50
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
-
-## Response
-
-The response will contain a list of bikes with a top speed less than 50 km/h.
-
-Ensure your request includes the correct Bearer Token to access the resource.

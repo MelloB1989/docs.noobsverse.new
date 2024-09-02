@@ -1,70 +1,69 @@
 ---
-name: Create Station
-type: HTTP
+name: createStation
+type: http
 seq: 1
 ---
 
-## Create Station API
+# createStation API
 
-### Endpoint
-**POST** `http://localhost:3000/v1/stations/create`
+## Endpoint
 
-### Authentication
-None required.
+**POST** 
 
-### Headers
-| Key                    | Value                                                                                                       |
-|------------------------|-------------------------------------------------------------------------------------------------------------|
-| `X-Karma-Admin-Auth`   | `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`                             |
+```
+http://localhost:3000/v1/stations/create
+```
 
-### Request Body
-The request body should be a JSON array containing station details. Each station object should have the following fields:
+## Authentication
 
-| Field               | Type    | Description                        |
-|---------------------|---------|------------------------------------|
-| `name`              | string  | The name of the station            |
-| `location_latitude` | string  | The latitude of the station's location |
-| `location_longitude`| string  | The longitude of the station's location|
-| `capacity`          | number  | The capacity of the station        |
-| `current_capacity`  | number  | The current capacity of the station |
+No authentication needed.
 
-### Sample Request Body
+## Headers
+
+- `X-Karma-Admin-Auth`: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
+
+## Request Body
+
+The request body should be in JSON format. Below is an example:
+
 ```json
 [
-    {
-        "name": "Central Station",
-        "location_latitude": "40.712776",
-        "location_longitude": "-74.005974",
-        "capacity": 100,
-        "current_capacity": 75
-    },
-    {
-        "name": "Downtown Station",
-        "location_latitude": "34.052235",
-        "location_longitude": "-118.243683",
-        "capacity": 150,
-        "current_capacity": 90
-    },
-    {
-        "name": "Uptown Station",
-        "location_latitude": "51.507351",
-        "location_longitude": "-0.127758",
-        "capacity": 200,
-        "current_capacity": 120
-    },
-    {
-        "name": "Westside Station",
-        "location_latitude": "35.689487",
-        "location_longitude": "139.691711",
-        "capacity": 180,
-        "current_capacity": 160
-    },
-    {
-        "name": "Eastside Station",
-        "location_latitude": "48.856613",
-        "location_longitude": "2.352222",
-        "capacity": 250,
-        "current_capacity": 200
-    }
+  {
+    "name": "Central Station",
+    "location_latitude": "40.712776",
+    "location_longitude": "-74.005974",
+    "capacity": 100,
+    "current_capacity": 75
+  },
+  {
+    "name": "Downtown Station",
+    "location_latitude": "34.052235",
+    "location_longitude": "-118.243683",
+    "capacity": 150,
+    "current_capacity": 90
+  },
+  {
+    "name": "Uptown Station",
+    "location_latitude": "51.507351",
+    "location_longitude": "-0.127758",
+    "capacity": 200,
+    "current_capacity": 120
+  },
+  {
+    "name": "Westside Station",
+    "location_latitude": "35.689487",
+    "location_longitude": "139.691711",
+    "capacity": 180,
+    "current_capacity": 160
+  },
+  {
+    "name": "Eastside Station",
+    "location_latitude": "48.856613",
+    "location_longitude": "2.352222",
+    "capacity": 250,
+    "current_capacity": 200
+  }
 ]
 ```
+
+Make sure to replace the example values with actual data as needed.

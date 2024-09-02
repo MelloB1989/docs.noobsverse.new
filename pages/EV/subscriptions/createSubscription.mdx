@@ -1,30 +1,28 @@
 ---
-title: "API Documentation - createSubscription"
-meta:
-  name: createSubscription
-  type: http
-  seq: 1
+title: "createSubscription API Documentation"
 ---
 
-## Create Subscription
+# createSubscription
 
-### Endpoint
-`POST http://localhost:3000/v1/subscriptions/create`
+The `createSubscription` API endpoint allows for the creation of new subscription plans. Below are the details needed to make a request to this endpoint.
 
-### Description
-This endpoint allows the creation of new subscriptions.
+## Endpoint
 
-### Header
-```json
-{
-  "X-Karma-Admin-Auth": "CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab"
-}
-```
+**URL:** `http://localhost:3000/v1/subscriptions/create`  
+**Type:** `POST`  
+**Body format:** `JSON`  
+**Auth:** None required
 
-### Request Body
-The request body should be in JSON format and contains a list of subscription objects.
+## Request Headers
 
-#### Example
+Include the following header in your request:
+
+- `X-Karma-Admin-Auth`: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
+
+## Request Body
+
+The body of the request should be a JSON array containing the details of the subscription plans you wish to create. Each subscription plan object should have the following structure:
+
 ```json
 [
   {
@@ -75,5 +73,14 @@ The request body should be in JSON format and contains a list of subscription ob
 ]
 ```
 
-### Authentication
-No authentication is required for this endpoint.
+### Fields
+
+- **id**: (String) A unique identifier for the subscription.
+- **monthly_fee**: (Number) Monthly fee for the subscription.
+- **discount**: (Number) Discount applied to the subscription.
+- **name**: (String) Name of the subscription plan.
+- **bike_id**: (String) Identifier for the bike associated with the subscription.
+- **type**: (String) Type of subscription (e.g., "monthly" or "annual").
+- **security_deposit**: (Number) Security deposit for the subscription.
+
+Use this information to interact with the `createSubscription` endpoint, ensuring that the structure and details of your request adhere to the specified format.

@@ -1,55 +1,49 @@
 ---
 name: signup
 type: http
-sequence: 3
+seq: 3
 ---
 
 # Signup API
 
-The Signup API allows users to register by providing their personal and contact information.
+This API endpoint allows a new user to sign up by providing necessary details.
 
-## POST Request
+## Endpoint
 
-**URL**: `http://localhost:3000/v1/auth/signup`
+**POST** `http://localhost:3000/v1/auth/signup`
 
-**Body Format**: JSON
+## Request
 
-**Authentication**: None required
+### Headers
 
-## Request Body
+No authentication required.
 
-The following fields should be included in the JSON body of the POST request:
+### Body
 
-| Field          | Type   | Description                                | Example                    |
-|----------------|--------|--------------------------------------------|----------------------------|
-| `phone`        | string | User's phone number (with country code)    | `"+919812940706"`          |
-| `otp`          | string | OTP received by the user                   | `"316892"`                 |
-| `email`        | string | User's email address                       | `"mellob.mailer@gmail.com"`|
-| `first_name`   | string | User's first name                          | `"Kartik"`                 |
-| `last_name`    | string | User's last name                           | `"Deshmukh"`               |
-| `date_of_birth`| string | User's date of birth (dd/mm/yyyy)          | `"27/11/2004"`             |
-| `password`     | string | User's password                            | `"password"`               |
-| `type`         | string | Type of user ("student" or other types)    | `"student"`                |
-| `employee_id`  | string | Employee ID (if applicable)                | `""`                       |
-| `company`      | string | Company name (if applicable)               | `""`                       |
-| `college`      | string | College name (if applicable)               | `"AU"`                     |
-| `student_id`   | string | Student ID (if applicable)                 | `"34"`                     |
-
-## Example Request
+The body of the request should be in JSON format and contain the following fields:
 
 ```json
 {
-  "phone": "+919812940706",
-  "otp": "316892",
-  "email": "mellob.mailer@gmail.com",
-  "first_name": "Kartik",
-  "last_name": "Deshmukh",
-  "date_of_birth": "27/11/2004",
-  "password": "password",
-  "type": "student",
-  "employee_id": "",
-  "company": "",
-  "college": "AU",
-  "student_id": "34"
+  "phone": "+919812940706",          // The user's phone number.
+  "otp": "316892",                   // The one-time password sent to the user's phone.
+  "email": "mellob.mailer@gmail.com",// The user's email address.
+  "first_name": "Kartik",            // The user's first name.
+  "last_name": "Deshmukh",           // The user's last name.
+  "date_of_birth": "27/11/2004",     // The user's date of birth.
+  "password": "password",            // The user's chosen password.
+  "type": "student",                 // The account type, either 'student' or other types.
+  "employee_id": "",                 // The employee ID, empty if not applicable.
+  "company": "",                     // The company name, empty if not applicable.
+  "college": "AU",                   // The college name.
+  "student_id": "34"                 // The student's ID.
 }
 ```
+
+Make sure all required fields are correctly provided to ensure successful signup.
+
+## Notes
+
+- The `phone` field must follow the international phone number format.
+- The `type` of account requires specific values like `student`. Ensure to follow the predefined account types.
+- If the user is not a student or the `type` differs, additional fields like `employee_id` and `company` might need to be filled accordingly.
+- The OTP should be verified and correctly match the one sent to user's phone before making the request.

@@ -1,0 +1,48 @@
+---
+name: GetUserTripsByLongestDistance
+type: http
+seq: 6
+---
+
+# GetUserTripsByLongestDistance
+
+## Overview
+The `GetUserTripsByLongestDistance` API endpoint retrieves a list of user trips sorted by the longest distance. The response is limited to a specified number of trips.
+
+## HTTP Request
+
+### GET
+```http
+GET http://localhost:3000/v1/trips/distance/longest?limit=10
+```
+
+## Query Parameters
+
+| Parameter | Type   | Description                             |
+|-----------|--------|-----------------------------------------|
+| limit     | Number | (Optional) Limits the number of results |
+
+- **Default value:** 10
+
+## Authentication
+
+This endpoint uses Bearer Token authentication. Include the following token in the `Authorization` header:
+
+### Bearer Token
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZCI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Example Request
+
+```http
+GET http://localhost:3000/v1/trips/distance/longest?limit=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZCI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Response
+The response will return a list of trips ordered by the longest distance first.
+
+## Notes
+- Ensure that the bearer token is valid and not expired to access the endpoint.
+- The `limit` parameter can be adjusted to retrieve a different number of trips.

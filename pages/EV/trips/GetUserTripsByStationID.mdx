@@ -1,0 +1,48 @@
+---
+name: GetUserTripsByStationID
+type: http
+seq: 4
+---
+
+# GetUserTripsByStationID API
+
+This API endpoint retrieves trips for a specific station by its ID.
+
+## HTTP Method
+
+`GET`
+
+## URL
+
+```
+http://localhost:3000/v1/trips/station/a2m392c58f
+```
+
+## Request Body
+
+None.
+
+## Authentication
+
+Bearer token is required for this endpoint.
+
+**Token:**
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+**Header Example:**
+
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Example Request
+
+```http
+GET http://localhost:3000/v1/trips/station/a2m392c58f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+Make sure to include the Bearer token in the `Authorization` header when making the request.

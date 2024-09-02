@@ -1,0 +1,39 @@
+---
+title: "startTrip API Documentation"
+---
+
+## startTrip
+This API endpoint is used to start a trip.
+
+### HTTP Method
+`POST`
+
+### Endpoint
+`http://localhost:3000/v1/trips/start`
+
+### Request Authentication
+Bearer token is required for authentication.
+
+#### Bearer Token
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+### Request Body
+The request body should be in JSON format.
+
+#### JSON Structure
+```json
+{
+    "bike_id": "i6bjwk0yhu",
+    "station_id": "a2m392c58f",
+    "start_timestamp": "2024-09-02T07:15:00Z"
+}
+```
+
+### Sequence
+1
+
+---
+
+For further assistance, please refer to the full API documentation or contact the support team.

@@ -1,0 +1,35 @@
+---
+meta:
+  name: GetUserTripsByBikeID
+  type: http
+  seq: 5
+---
+
+# GetUserTripsByBikeID API Documentation
+
+## Endpoint
+**GET** `http://localhost:3000/v1/trips/bike/i6bjwk0yhu`
+
+## Authentication
+This endpoint requires a Bearer Token.
+
+### Example Token
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Request Body
+None
+
+## Response
+The response will contain the trips associated with the specified `bikeID`.
+
+## Sequence
+5
+
+## Additional Information
+Make sure that you have a valid bearer token before making a request to this endpoint. You can attach the token to your request headers as follows:
+
+```
+Authorization: Bearer <your-token>
+```

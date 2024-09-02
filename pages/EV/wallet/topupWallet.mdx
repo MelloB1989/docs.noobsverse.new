@@ -1,32 +1,34 @@
 ---
-title: Top Up Wallet API
+title: API Documentation - Topup Wallet
 ---
 
-## Overview
+import { Meta } from '@mdx-js/react';
 
-The `topupWallet` API endpoint allows you to top up a wallet by increasing its balance. This endpoint requires authentication through a Bearer token.
+<Meta name="topupWallet" type="http" seq="3" />
+
+# topupWallet
+
+This endpoint allows you to top up a wallet with a specified balance.
 
 ## Endpoint
 
-- **URL:** `http://localhost:3000/v1/wallet/topup`
-- **Method:** POST
-- **Authentication:** Bearer Token
+**URL:** `http://localhost:3000/v1/wallet/topup`
 
-## Authentication
+**Method:** POST
 
-To authenticate, include the following Bearer token in the request header:
+**Authentication:** Bearer Token
 
-```plaintext
+## Request Headers
+
+Include the following bearer token in the request header for authentication:
+
+```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
 
 ## Request Body
 
-The request body must be in JSON format and should contain the following field:
-
-- `balance`: A string representing the amount to top up the wallet balance.
-
-### Example Request Body
+Send a JSON object in the body of the request with the structure below:
 
 ```json
 {
@@ -34,20 +36,4 @@ The request body must be in JSON format and should contain the following field:
 }
 ```
 
-## Sequence
-
-- **API Sequence ID:** 3
-
-## Example Request
-
-```http
-POST http://localhost:3000/v1/wallet/topup
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
-Content-Type: application/json
-
-{
-  "balance": "20"
-}
-```
-
-Ensure the Bearer token and balance value are correctly set as per your requirements.
+- `balance`: The amount to top up the wallet.

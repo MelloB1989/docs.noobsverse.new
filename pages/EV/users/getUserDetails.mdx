@@ -1,35 +1,25 @@
 ---
-name: getUserDetails
-type: http
-seq: 1
+title: getUserDetails API Documentation
 ---
 
-# getUserDetails API
+## API Name: `getUserDetails`
+* Type: `HTTP`
+* Sequence: `1`
 
-This API endpoint is used to retrieve user details.
+## Endpoint
+### GET Request
+* **URL**: `http://localhost:3000/v1/user/get`
+* **Body**: None required
+* **Authentication**: Bearer Token
 
-## GET Request
+## Authentication
+* Type: Bearer Token
+* **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
 
-- **URL:** `http://localhost:3000/v1/user/get`
-- **Body:** None
-- **Authentication:** Bearer Token
-
-### Authentication
-
-To authenticate your request, you need to include the bearer token in the Authorization header.
-
-- **Token:**
-  ```
-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-  ```
-
-### Example Request
-
+## Example Request
 ```http
 GET http://localhost:3000/v1/user/get
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-### Response
-
-The response will contain user details if the provided bearer token is valid. The response structure will be defined by the server handling the request.
+This documentation provides all necessary details to authenticate and interact with the getUserDetails API. Make sure to replace the token with an appropriate value if generating a new one.

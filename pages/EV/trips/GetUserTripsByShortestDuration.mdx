@@ -1,0 +1,59 @@
+---
+name: GetUserTripsByShortestDuration
+type: http
+sequence: 9
+---
+
+# GetUserTripsByShortestDuration
+
+## Endpoint
+
+GET `http://localhost:3000/v1/trips/duration/shortest`
+
+## Description
+
+Retrieve user trips ordered by the shortest duration.
+
+## Parameters
+
+### Query Parameters
+
+- `limit`: Maximum number of trips to retrieve. Default is `10`.
+
+```http
+GET /v1/trips/duration/shortest?limit=10
+```
+
+## Headers
+
+### Authentication
+
+This API uses Bearer Token for authorization.
+
+```http
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Responses
+
+### Success
+
+- **Status Code:** `200 OK`
+- **Response Body:** A JSON array of trip objects ordered by shortest duration.
+
+### Error
+
+- **Status Code:** `401 Unauthorized`
+- **Response Body:** An error message indicating authentication failure.
+
+## Example Request
+
+```http
+GET http://localhost:3000/v1/trips/duration/shortest?limit=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Notes
+
+- Ensure the bearer token is valid and not expired.
+- The `limit` parameter is optional and defaults to `10` if not provided.

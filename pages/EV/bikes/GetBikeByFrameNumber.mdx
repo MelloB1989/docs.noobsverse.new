@@ -1,37 +1,46 @@
 ---
 name: GetBikeByFrameNumber
-type: http
+type: HTTP
 seq: 4
 ---
 
 # GetBikeByFrameNumber API
 
-This API allows you to retrieve bike details based on the frame number.
+## Endpoint Description
+
+The `GetBikeByFrameNumber` API retrieves details about a bike using the specified frame number. Authentication is required via a bearer token.
 
 ## HTTP Request
 
-**GET** `http://localhost:3000/v1/bikes/get/frame/FR123456789`
+### GET
 
-## Authorization
-
-This endpoint requires a Bearer token for authorization.
-
-### Bearer Token
-
-Pass the following Bearer token in the Authorization header:
-
-```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```http
+GET http://localhost:3000/v1/bikes/get/frame/FR123456789
 ```
 
-## Request Body
+- **Body:** None
+- **Authentication:** Bearer token
 
-None.
+### Authentication
+
+Use the bearer token to authenticate the request:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
 
 ## Example Request
 
 ```http
-GET http://localhost:3000/v1/bikes/get/frame/FR123456789
+GET /v1/bikes/get/frame/FR123456789 HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
+## Response
+
+The API will return the bike details associated with the specified frame number. The response will be in JSON format.
+
+---
+
+For security reasons, ensure that your token is kept confidential and never shared in public repositories or platforms.

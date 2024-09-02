@@ -6,40 +6,54 @@ seq: 4
 
 # Webhook API
 
-This API allows you to trigger a webhook with specific parameters. It is an HTTP-based API which requires Bearer authentication.
+The Webhook API allows you to interact with the wallet system by providing necessary information via an HTTP GET request.
 
 ## Endpoint
 
-### GET Request
-```
-GET http://localhost:3000/v1/wallet/webhook
-```
+**GET** `http://localhost:3000/v1/wallet/webhook`
 
 ### Query Parameters
 
-| Name         | Type   | Description                              |
-| ------------ | ------ | ---------------------------------------- |
-| `uid`        | string | Unique identifier for the user           |
-| `balance`    | number | The balance amount                       |
-| `webhook_key`| string | Key specifically used for webhook access |
+| Parameter      | Type   | Description                            |
+| -------------- | ------ | -------------------------------------- |
+| `uid`          | string | Unique identifier of the user          |
+| `balance`      | string | The user's balance                     |
+| `webhook_key`  | string | The key for validating the webhook     |
 
-**Example URL:**
+Example request:
+
 ```
-http://localhost:3000/v1/wallet/webhook?uid=5geapgapxs&balance=10000000000&webhook_key=coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda
+GET http://localhost:3000/v1/wallet/webhook?uid=5geapgapxs&balance=10000000000&webhook_key=coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda
 ```
 
 ## Authentication
 
+This endpoint requires a Bearer token for authentication.
+
 ### Bearer Token
 
-To access this endpoint, you need a Bearer token. Include it in the `Authorization` header in the format:
+| Type   | Description    |
+| ------ | -------------- |
+| Bearer | A valid JWT token |
+
+Example token:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
+```
+
+Ensure you include the token in the Authorization header of your request:
 
 ```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
 
-### Token Details
+## Example Request
 
-| Token                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------- |
-| `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I` |
+```http
+GET /v1/wallet/webhook?uid=5geapgapxs&balance=10000000000&webhook_key=coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
+```
+
+No request body is required for this endpoint.

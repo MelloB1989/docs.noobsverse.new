@@ -1,59 +1,58 @@
 ---
-title: getStation API Documentation
+name: getStation
+type: http
+seq: 3
 ---
 
-# getStation
+# API Documentation: getStation
 
-The `getStation` API is an HTTP endpoint used to retrieve details of a specific station. Below are the full details on how to interact with this endpoint.
+## Overview
 
-## Endpoint Information
+The `getStation` API is an HTTP endpoint designed to retrieve details about a specific station. This endpoint does not require any body parameters or authentication mechanisms. However, it does require specific headers to be included in the request.
 
-### Method: GET
+## HTTP GET Request
 
 ### URL
 
-```plaintext
+```
 http://localhost:3000/v1/stations/get/wxyoqxff83
 ```
 
-### Request Body
+### Method
 
-None.
-
-### Authentication
-
-None required.
-
-## Headers
-
-This API requires a specific header for authentication:
-
-- **X-Karma-Admin-Auth**: `ajbkbakweiuy387yeuqqwfahdjhsabd`
-
-Ensure to include this header in your request to successfully authenticate when calling the `getStation` endpoint.
-
-## Sequence
-
-This is the 3rd endpoint in a sequence of API calls or interactions related to station information.
-
-## Usage Example
-
-Here is an example of how to make a request to the `getStation` API using `curl`:
-
-```shell
-curl -X GET \
-  http://localhost:3000/v1/stations/get/wxyoqxff83 \
-  -H "X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd"
+```
+GET
 ```
 
-Make sure to replace the placeholder values in the example with actual values where necessary before making the request.
+### Body
+
+```
+None
+```
+
+## Request Headers
+
+| Header Name              | Value                                 |
+|--------------------------|---------------------------------------|
+| `X-Karma-Admin-Auth`     | `ajbkbakweiuy387yeuqqwfahdjhsabd`     |
+
+Ensure that the `X-Karma-Admin-Auth` header is included in the request, as it is required for the endpoint to properly authenticate and process the request.
+
+## Authentication
+
+No additional authentication is required beyond the headers mentioned above.
+
+## Example Request
+
+```http
+GET http://localhost:3000/v1/stations/get/wxyoqxff83
+X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
+```
 
 ## Response
 
-A successful request returns the details of the specified station. The actual structure and content of the response are dependent on the API's implementation and the data associated with the station ID provided.
-
-Consult the full API documentation or a JSON schema if you need more details on the possible responses and their structures.
+The response will contain the details of the requested station. The exact structure of the response JSON object will depend on the implementation of the endpoint.
 
 ---
 
-End of the `getStation` API documentation.
+This documentation provides all necessary details to interact with the `getStation` API endpoint effectively. Make sure to include the required headers to avoid any authorization issues.

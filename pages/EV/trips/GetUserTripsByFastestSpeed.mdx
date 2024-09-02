@@ -1,0 +1,79 @@
+---
+title: GetUserTripsByFastestSpeed API Documentation
+---
+
+<GetUserTripsByFastestSpeed />
+
+## Endpoint Overview
+
+### Name
+GetUserTripsByFastestSpeed
+
+### Type
+HTTP
+
+### Sequence
+10
+
+## HTTP Method
+`GET`
+
+## URL
+```
+http://localhost:3000/v1/trips/speed/fastest?limit=10
+```
+
+## Description
+This endpoint retrieves a list of user trips sorted by the fastest speed, limited to a specified number of records.
+
+## Request Details
+
+### Query Parameters
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| limit     | int  | true     | The maximum number of trips to retrieve. Default is 10. |
+
+Example:
+```
+?limit=10
+```
+
+## Authentication
+
+### Type
+Bearer Token
+
+### Token
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+This token must be included in the `Authorization` header of the request.
+
+Example:
+```http
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Example Request
+```
+GET http://localhost:3000/v1/trips/speed/fastest?limit=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Response
+The response will include a list of trips sorted by the fastest speed, up to the number specified in the `limit` query parameter. 
+
+```json
+{
+  "trips": [
+    {
+      "tripId": "exampleTripId1",
+      "userId": "exampleUserId1",
+      "speed": 120,
+      // other trip details
+    },
+    // additional trips
+  ]
+}
+```

@@ -1,91 +1,34 @@
 ---
-title: "GetBikesByStationID API Documentation"
-meta:
-  name: GetBikesByStationID
-  type: http
-  seq: 5
+title: GetBikesByStationID API
 ---
 
-# GetBikesByStationID API
+import { Meta } from '@mdx-deck/themes'
 
-This API endpoint allows you to retrieve a list of bikes by the station's ID.
+<Meta name="GetBikesByStationID" type="http" seq={5} />
 
-## HTTP Request
+## GetBikesByStationID API
 
-### GET 
+### Endpoint
 
-```http
-GET https://ev-backend.app.k8s.coffeecodes.in/v1/bikes/get/station/e6j_2fyc23
-```
-
-### Query Parameters
-
-This endpoint does not accept any query parameters.
-
-### Request Body
-
-This endpoint does not require a request body.
+`GET https://ev-backend.app.k8s.coffeecodes.in/v1/bikes/get/station/e6j_2fyc23`
 
 ### Authentication
 
-This endpoint uses Bearer Token authentication. You must include a valid Bearer Token in the `Authorization` header of your request.
+This endpoint requires a Bearer token for authentication.
 
 #### Bearer Token
-
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-## Example Request
+### Request Body
+
+None.
+
+### Usage
 
 ```
-curl -X GET https://ev-backend.app.k8s.coffeecodes.in/v1/bikes/get/station/e6j_2fyc23 \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0"
+curl -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0" \
+     -X GET https://ev-backend.app.k8s.coffeecodes.in/v1/bikes/get/station/e6j_2fyc23
 ```
 
-## Response
-
-A successful response contains:
-
-### Status Code
-
-200 OK
-
-### Example Response Body
-
-```json
-[
-  {
-    "bike_id": "bike123",
-    "status": "available",
-    "location": "Station A",
-    "last_used": "2023-10-02T10:20:30Z"
-  },
-  {
-    "bike_id": "bike124",
-    "status": "in_use",
-    "location": "Station A",
-    "last_used": "2023-10-02T11:10:45Z"
-  }
-]
-```
-
-## Error Codes
-
-Below are the possible error codes and responses:
-
-- `401 Unauthorized`: Returned if the Bearer Token is invalid or missing.
-- `404 Not Found`: Returned if no bikes are found for the specified station ID.
-- `500 Internal Server Error`: Returned if there is an issue on the server side.
-
-## Summary
-
-- **Endpoint:** `GET /v1/bikes/get/station/{station_id}`
-- **Authentication:** Bearer Token
-- **Response:** JSON array of bike objects
-
-Be sure to replace `{station_id}` with the actual station ID you are querying.
-
----
-
-For further assistance, refer to the official API documentation or contact support.

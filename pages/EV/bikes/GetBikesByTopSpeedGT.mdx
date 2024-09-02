@@ -1,63 +1,74 @@
 ---
-title: "GetBikesByTopSpeedGT API Documentation"
+title: GetBikesByTopSpeedGT API Documentation
 ---
 
 ## GetBikesByTopSpeedGT
 
-Fetches bikes with top speeds greater than a specified value.
+### Description
 
-### API Type
+The `GetBikesByTopSpeedGT` API endpoint retrieves a list of bikes whose top speed is greater than 50 km/h. It is a useful endpoint for applications that need to filter bikes based on their performance specifications.
 
-HTTP
+### Endpoint
 
-### Sequence
-
-8
-
-## GET Request
-
-### URL
-
-`http://localhost:3000/v1/bikes/get/speed_gt/50`
-
-### Request Body
-
-None
+- **Type:** HTTP
+- **Method:** GET
+- **URL:** `http://localhost:3000/v1/bikes/get/speed_gt/50`
 
 ### Authentication
 
-Bearer Token
+This endpoint requires bearer token authentication. Include the token in the `Authorization` header of the request.
 
-### Bearer Token Example
-
+**Authorization Header:**
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-Please ensure you replace the example token with your actual bearer token for authorization.  
+### Request
+
+- **URL:** `http://localhost:3000/v1/bikes/get/speed_gt/50`
+- **Method:** GET
+- **Body:** None
 
 ### Example Request
 
-```bash
-curl -X GET "http://localhost:3000/v1/bikes/get/speed_gt/50" -H "Authorization: Bearer YOUR_BEARER_TOKEN"
+```http
+GET /v1/bikes/get/speed_gt/50 HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-Replace `YOUR_BEARER_TOKEN` with your actual token.
+### Response
 
-## Response
+The response will contain a JSON array of bike objects which have a top speed greater than 50 km/h.
 
-### Success
+**Response Example:**
 
-- **Code**: 200 OK
-- **Content**: List of bikes with top speeds greater than the specified value
+```json
+[
+  {
+    "id": "bike123",
+    "model": "Speedster",
+    "top_speed": 60,
+    "color": "red"
+  },
+  {
+    "id": "bike456",
+    "model": "Flash",
+    "top_speed": 70,
+    "color": "blue"
+  }
+]
+```
 
-### Error
+### Error Handling
 
-- **Code**: 401 Unauthorized
-- **Content**: Unauthorized error due to missing or invalid token
+- **401 Unauthorized:** If the token is missing or invalid.
+- **500 Internal Server Error:** If there is a problem with the server.
 
-Make sure your requests are authenticated using a valid bearer token.
+### Sequence
 
-## Summary
+- **Sequence ID:** 8
 
-The `GetBikesByTopSpeedGT` API fetches bikes whose top speeds exceed a specified value. To use this API, make a GET request to the provided URL with the appropriate bearer token for authentication. Responses will vary based on whether the token is valid or not.
+### Terms of Use
+
+Please ensure you adhere to the API usage policies and terms of service. Unauthorized usage or distribution of the API token is strictly prohibited.
