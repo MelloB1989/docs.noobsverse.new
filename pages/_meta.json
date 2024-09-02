@@ -5,5 +5,8 @@
     "type": "page",
     "href": "https://www.linkedin.com/company/noobsverse",
     "newWindow": true
+  },
+  "KarmaPay": {
+    "display": "hidden"
   }
 }

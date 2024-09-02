@@ -17,9 +17,24 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: "https://github.com/mellob1989/docs.noobsverse.new",
   footer: {
-    text: "CoffeeCodes API Docs",
+    text: (
+      <span>
+        MIT {new Date().getFullYear()} ©{" "}
+        <a href="https://coffeecodes.in" target="_blank">
+          CoffeeCodes API Docs
+        </a>
+        .
+      </span>
+    ),
   },
   faviconGlyph: "📚",
+  sidebar: {
+    toggleButton: true,
+    defaultMenuCollapseLevel: 1,
+  },
+  toc: {
+    float: true,
+  },
   banner: {
     key: "Hackspace Launch",
     text: (
