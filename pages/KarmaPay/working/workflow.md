@@ -7,7 +7,7 @@ KarmaPay is designed to simplify the integration of multiple payment gateways in
 KarmaPay acts as a "payment gateway of payment gateways," abstracting away the complexities involved in integrating and managing multiple payment gateways. By interfacing with KarmaPay, developers can use a single API endpoint to access a variety of payment services. This approach minimizes the client-side code needed for payment integration, shifting most of the payment handling logic to the server side, where it can be managed more securely and efficiently.
 
 ## Workflow
-![workflow](../../../static/img/workflow.png)
+![workflow](https://github.com/MelloB1989/docs.noobsverse/raw/main/static/img/workflow.png)
 
 
 ## Step-by-Step Workflow
