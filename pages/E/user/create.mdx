@@ -1,0 +1,90 @@
+```mdx
+---
+title: "Create User Subscription API"
+---
+
+# Create User Subscription API
+
+This document provides comprehensive information on how to create a user subscription using our API. The API endpoint allows you to add a new subscription for a user identified by `user_id`.
+
+## Endpoint Details
+
+### Method and Endpoint
+
+- **Method:** `POST`
+- **Endpoint:** `http://localhost:3000/v1/user_subscription/create`
+
+### Authentication
+
+The API requires Bearer Token authentication.
+
+- **Authorization Header:**
+  ```
+  Authorization: Bearer {token}
+  ```
+- **Sample Token:**
+  ```
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
+  ```
+
+### Request Body
+
+The request body should be in JSON format.
+
+- **Content-Type:** `application/json`
+- **Body Parameters:**
+  - `subscription_id` (string): The unique identifier for the subscription.
+  - `start_date` (string): The start date of the subscription in `dd/mm/yyyy` format.
+  - `end_date` (string): The end date of the subscription in `dd/mm/yyyy` format.
+
+#### Example JSON Body:
+```json
+{
+  "subscription_id": "ftx0li8efd",
+  "start_date": "27/11/2004",
+  "end_date": "27/11/2004"
+}
+```
+
+## Example Request
+
+Here is an example of how to use the API with `curl`:
+
+```bash
+curl -X POST "http://localhost:3000/v1/user_subscription/create" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I" \
+-H "Content-Type: application/json" \
+-d '{
+  "subscription_id": "ftx0li8efd",
+  "start_date": "27/11/2004",
+  "end_date": "27/11/2004"
+}'
+```
+
+## Response
+
+The API will respond with a status code indicating the success or failure of the request. Include any relevant data or messages related to the request.
+
+- **Success Response: 201 Created**
+  ```json
+  {
+    "success": true,
+    "message": "Subscription created successfully."
+  }
+  ```
+
+- **Error Response: 4xx/5xx Errors**
+  ```json
+  {
+    "success": false,
+    "message": "Error message describing what went wrong."
+  }
+  ```
+
+## Notes
+
+- Ensure that the date format follows `dd/mm/yyyy`.
+- The `subscription_id` should be unique for each subscription.
+
+By following the details provided in this documentation, you should be able to successfully create user subscriptions using our API. If you encounter any issues, please refer to the error messages for guidance or contact our support team.
+```
