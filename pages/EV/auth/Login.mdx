@@ -1,27 +1,31 @@
 ---
-title: Login API
-description: Endpoint for user login
+title: Login API Documentation
 ---
 
 ## Login API
 
-### Meta
-**Name**: Login  
-**Type**: HTTP  
-**Sequence**: 1
+The Login API allows users to authenticate by providing their phone number. Below are the detailed specifications for making a request to this API.
 
 ### HTTP Request
-**Method**: POST  
-**URL**: `http://127.0.0.1:3000/v1/auth/login`  
-**Body Format**: JSON  
-**Authentication**: None
+
+**Method**: POST
+
+**URL**: `http://127.0.0.1:3000/v1/auth/login`
+
+### Authorization
+
+No authentication is required to access this endpoint.
 
 ### Headers
-| Key                   | Value                                  |
-|-----------------------|----------------------------------------|
-| `X-Karma-Admin-Auth`  | `ajbkbakweiuy387yeuqqwfahdjhsabd`      |
+
+Include the following header in your request:
+
+- `X-Karma-Admin-Auth`: `ajbkbakweiuy387yeuqqwfahdjhsabd`
 
 ### Request Body
+
+The request body should be in JSON format and include the following field:
+
 ```json
 {
   "phone": "+919812940706"
@@ -29,8 +33,10 @@ description: Endpoint for user login
 ```
 
 ### Example Request
-```http
-POST http://127.0.0.1:3000/v1/auth/login
+
+```json
+POST /v1/auth/login HTTP/1.1
+Host: 127.0.0.1:3000
 Content-Type: application/json
 X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
 
@@ -38,3 +44,5 @@ X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
   "phone": "+919812940706"
 }
 ```
+
+Make sure to replace `+919812940706` with the actual phone number of the user trying to log in.

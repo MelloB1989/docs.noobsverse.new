@@ -6,54 +6,23 @@ seq: 4
 
 # Webhook API
 
-The Webhook API allows you to interact with the wallet system by providing necessary information via an HTTP GET request.
+## GET Request
 
-## Endpoint
+### URL
+`http://localhost:3000/v1/wallet/webhook?uid=5geapgapxs&balance=10000000000&webhook_key=coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda`
 
-**GET** `http://localhost:3000/v1/wallet/webhook`
+### Body
+None
+
+### Authentication
+Bearer Token
+
+## Parameters
 
 ### Query Parameters
+- **uid**: `5geapgapxs`
+- **balance**: `10000000000`
+- **webhook_key**: `coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda`
 
-| Parameter      | Type   | Description                            |
-| -------------- | ------ | -------------------------------------- |
-| `uid`          | string | Unique identifier of the user          |
-| `balance`      | string | The user's balance                     |
-| `webhook_key`  | string | The key for validating the webhook     |
-
-Example request:
-
-```
-GET http://localhost:3000/v1/wallet/webhook?uid=5geapgapxs&balance=10000000000&webhook_key=coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda
-```
-
-## Authentication
-
-This endpoint requires a Bearer token for authentication.
-
-### Bearer Token
-
-| Type   | Description    |
-| ------ | -------------- |
-| Bearer | A valid JWT token |
-
-Example token:
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
-```
-
-Ensure you include the token in the Authorization header of your request:
-
-```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
-```
-
-## Example Request
-
-```http
-GET /v1/wallet/webhook?uid=5geapgapxs&balance=10000000000&webhook_key=coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
-```
-
-No request body is required for this endpoint.
+## Bearer Authentication
+- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I`

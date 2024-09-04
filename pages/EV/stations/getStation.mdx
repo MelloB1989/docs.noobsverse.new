@@ -1,58 +1,53 @@
 ---
-name: getStation
-type: http
-seq: 3
+title: API Documentation for getStation
+description: Detailed documentation for the getStation API endpoint.
 ---
 
-# API Documentation: getStation
+# getStation API
 
 ## Overview
 
-The `getStation` API is an HTTP endpoint designed to retrieve details about a specific station. This endpoint does not require any body parameters or authentication mechanisms. However, it does require specific headers to be included in the request.
+The `getStation` API allows clients to retrieve information about a specific station. This API endpoint is a part of the HTTP type services.
 
-## HTTP GET Request
+## HTTP Method
 
-### URL
+- **GET**
+
+## Endpoint
 
 ```
 http://localhost:3000/v1/stations/get/wxyoqxff83
 ```
 
-### Method
-
-```
-GET
-```
-
-### Body
-
-```
-None
-```
-
-## Request Headers
-
-| Header Name              | Value                                 |
-|--------------------------|---------------------------------------|
-| `X-Karma-Admin-Auth`     | `ajbkbakweiuy387yeuqqwfahdjhsabd`     |
-
-Ensure that the `X-Karma-Admin-Auth` header is included in the request, as it is required for the endpoint to properly authenticate and process the request.
-
 ## Authentication
 
-No additional authentication is required beyond the headers mentioned above.
+- **None required**
 
-## Example Request
+## Headers
+
+To access the `getStation` API, the following header is required:
+
+- `X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd`
+
+## Request Body
+
+- **None**
+
+## Usage Example
 
 ```http
 GET http://localhost:3000/v1/stations/get/wxyoqxff83
 X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
 ```
 
-## Response
+## Sequence
 
-The response will contain the details of the requested station. The exact structure of the response JSON object will depend on the implementation of the endpoint.
+- **3**
+
+## Notes
+
+Make sure to replace the `X-Karma-Admin-Auth` value with the appropriate authentication token if you're using a different environment or updating the token for security purposes.
 
 ---
 
-This documentation provides all necessary details to interact with the `getStation` API endpoint effectively. Make sure to include the required headers to avoid any authorization issues.
+For further details or queries, please refer to our [official documentation](https://docs.example.com/getStation) or contact our support team.

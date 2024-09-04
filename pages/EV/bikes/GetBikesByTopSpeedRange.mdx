@@ -1,43 +1,58 @@
 ---
-name: GetBikesByTopSpeedRange
-type: http
-seq: 6
+title: GetBikesByTopSpeedRange API
 ---
 
-# GetBikesByTopSpeedRange API
+import DocSubtitle from './components/DocSubtitle'
 
-Retrieve a list of bikes within a specified top speed range.
+<DocSubtitle name="GetBikesByTopSpeedRange" type="http" seq="6" />
 
-## Request
+## Endpoint
 
-**HTTP GET**
+`GET http://localhost:3000/v1/bikes/get/speed/50/47`
 
-### URL
+## Authentication
 
-`http://localhost:3000/v1/bikes/get/speed/50/47`
+Bearer Token required.
 
-### Headers
+### Token
 
-- Authorization: Bearer `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
-
-### Body
-
-None
-
-### Authentication
-
-**Bearer Token**
-
-Example token:
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
+## Request Body
+
+None required.
+
 ## Response
 
-The response will include a list of bikes filtered by the desired top speed range.
+The API will return a list of bikes whose top speeds fall within the specified range. 
 
----
+## Example Request
 
-Ensure the bearer token provided is valid and has the necessary permissions to access the endpoint. The speed range specified (`50` and `47` in this case) will determine which bikes are retrieved based on their top speed.
+```http
+GET http://localhost:3000/v1/bikes/get/speed/50/47
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
 
+## Example Response
+
+```json
+[
+  {
+    "id": "bike_1",
+    "model": "Speedster 3000",
+    "topSpeed": 48
+  },
+  {
+    "id": "bike_2",
+    "model": "Velocity X2",
+    "topSpeed": 46
+  }
+]
+```
+
+## Notes
+
+- Replace the placeholder URL and token with real values in production.
+- Ensure proper handling of the authentication token.

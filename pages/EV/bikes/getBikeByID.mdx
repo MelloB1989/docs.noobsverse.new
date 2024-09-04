@@ -1,47 +1,37 @@
 ---
-name: getBikeByID
-type: http
-seq: 2
+title: "getBikeByID API Documentation"
+meta:
+  - name: getBikeByID
+  - type: http
+  - seq: 2
 ---
 
-# getBikeByID API Endpoint
+## getBikeByID
 
-The `getBikeByID` API endpoint retrieves details of a specific bike based on its ID.
+### HTTP Type
+- **Type:** HTTP
+- **Sequence:** 2
 
-## Endpoint Details
-
-### HTTP Method
-
-`GET`
-
-### URL
-
-`http://localhost:3000/v1/bikes/get/jruefu191e`
-
-### Body
-
-None
+### Endpoint Information
+- **URL:** `http://localhost:3000/v1/bikes/get/jruefu191e`
+- **Method:** GET
+- **Body:** None
 
 ### Authentication
+- **Type:** Bearer Token
+- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
 
-`Bearer` token is required for authentication.
+### Usage
 
-## Authentication Details
-
-An authenticated request must include the following Bearer token:
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
-
-Ensure the token is included in the `Authorization` header of the HTTP request like so:
-
-```
+```http
+GET http://localhost:3000/v1/bikes/get/jruefu191e
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-## Response
+### Response
 
-The API returns the details of the bike with the specified ID.
+The response will contain the details of the bike with ID `jruefu191e`.
 
-Ensure your request is properly authenticated to avoid authorization errors.
+---
+
+For further queries, please contact the support team.

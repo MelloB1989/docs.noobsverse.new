@@ -1,59 +1,42 @@
 ---
-title: GetUserTripsBySlowestSpeed API Documentation
+name: GetUserTripsBySlowestSpeed
+type: http
+seq: 11
 ---
 
-## API Overview
+## GetUserTripsBySlowestSpeed API
 
-`GetUserTripsBySlowestSpeed` is an HTTP GET API that retrieves a list of user trips sorted by the slowest speed. The endpoint allows you to specify the number of trips to retrieve via a query parameter.
+This API endpoint retrieves user trips sorted by the slowest speed, with a specified limit on the number of trips returned.
 
----
+### HTTP Request
 
-## Endpoint
+**GET** `http://localhost:3000/v1/trips/speed/slowest?limit=10`
 
-- **URL:** `http://localhost:3000/v1/trips/speed/slowest?limit=10`
-- **Method:** `GET`
-- **Authentication:** Bearer Token
-- **Request Body:** None
+### Parameters
 
----
+| Name  | Type   | Location | Description                 |
+|-------|--------|----------|-----------------------------|
+| limit | number | query    | Maximum number of trips to return. Default is 10. |
 
-## Query Parameters
+### Request Body
 
-| Name  | Type | Description               | Required | Default |
-|-------|------|---------------------------|----------|---------|
-| limit | int  | Number of trips to return | Yes      | 10      |
+This endpoint does not require a request body.
 
-- **`limit`**: Specifies the number of trips to be retrieved. The default value is `10`.
+### Authentication
 
----
+This endpoint requires Bearer Token authentication.
 
-## Authentication
+#### Bearer Token
 
-This API requires a Bearer Token for authentication. Include it in the request headers as shown below:
+`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+
+### Example Request
 
 ```http
+GET http://localhost:3000/v1/trips/speed/slowest?limit=10
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+### Response
 
----
-
-## Example Request
-
-```http
-GET /v1/trips/speed/slowest?limit=10 HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
----
-
-## Summary
-
-- **API Name:** GetUserTripsBySlowestSpeed
-- **Type:** HTTP GET
-- **Sequence:** 11
-- **Required Auth:** Bearer Token
-
-Make sure to replace the example token with an actual valid token before making a request.
+The response will return a list of user trips sorted by the slowest speed, up to the specified limit.

@@ -1,28 +1,38 @@
 ---
-title: "startTrip API Documentation"
+name: startTrip
+type: http
+seq: 1
 ---
 
-## startTrip
-This API endpoint is used to start a trip.
+# Start Trip API
 
-### HTTP Method
-`POST`
+This endpoint is used to initiate a bike trip. It requires authentication and specific JSON data in the request body.
 
-### Endpoint
+## HTTP Request
+
+### POST
 `http://localhost:3000/v1/trips/start`
 
-### Request Authentication
-Bearer token is required for authentication.
+### Authentication
 
-#### Bearer Token
+This endpoint requires a bearer token for authentication.
+
+#### Bearer Token:
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ### Request Body
-The request body should be in JSON format.
 
-#### JSON Structure
+The request body must be in JSON format and include the following fields:
+
+| Field           | Type   | Description                                |
+|-----------------|--------|--------------------------------------------|
+| `bike_id`       | string | The unique identifier for the bike.        |
+| `station_id`    | string | The unique identifier for the station.     |
+| `start_timestamp` | string | The timestamp marking the trip's start time in ISO 8601 format. |
+
+#### Example JSON Body:
 ```json
 {
     "bike_id": "i6bjwk0yhu",
@@ -30,10 +40,3 @@ The request body should be in JSON format.
     "start_timestamp": "2024-09-02T07:15:00Z"
 }
 ```
-
-### Sequence
-1
-
----
-
-For further assistance, please refer to the full API documentation or contact the support team.

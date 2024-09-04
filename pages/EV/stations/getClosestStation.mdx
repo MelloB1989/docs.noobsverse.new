@@ -1,31 +1,57 @@
 ---
 name: getClosestStation
 type: http
-seq: 4
+sequence: 4
 ---
 
-# API Documentation: `getClosestStation`
+# API Documentation: getClosestStation
 
-## Endpoint
-**GET** `https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby?lat=40&lon=-70&limit=2`
+## Endpoint Details
 
-## Description
-Fetches the closest electric vehicle charging stations based on provided latitude, longitude, and limit.
+**Method**: GET
 
-## Parameters
+**URL**: `https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby?lat=40&lon=-70&limit=2`
+
+## Request Parameters
 
 ### Query Parameters
-- `lat`: Latitude (e.g., `40`)
-- `lon`: Longitude (e.g., `-70`)
-- `limit`: Number of nearby stations to retrieve (e.g., `2`)
+| Parameter | Type | Description           | Example       |
+|-----------|------|-----------------------|---------------|
+| `lat`     | float| Latitude of the area  | `40`          |
+| `lon`     | float| Longitude of the area | `-70`         |
+| `limit`   | int  | Number of stations to be retrieved | `2`         |
 
-## Headers
-- `X-Karma-Admin-Auth`: `ajbkbakweiuy387yeuqqwfahdjhsabd`
+## Request Headers
 
-### Example Request
+| Header                   | Value                                 | Description                       |
+|--------------------------|---------------------------------------|-----------------------------------|
+| `X-Karma-Admin-Auth`     | `ajbkbakweiuy387yeuqqwfahdjhsabd`     | Authentication token for the API  |
+
+## Authentication
+
+No additional authentication is required beyond the `X-Karma-Admin-Auth` header provided above.
+
+## Request Body
+
+None.
+
+## Response
+
+The API will return the closest electric vehicle stations based on the provided latitude and longitude, limited to the specified number of stations. The response content and structure are not detailed in this documentation.
+
+## Example Request
+
 ```http
 GET https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby?lat=40&lon=-70&limit=2
 X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
 ```
 
-No request body is required for this endpoint. No authentication is required beyond the specified header.
+## Notes
+
+- Ensure the `lat` and `lon` parameters are valid coordinates.
+- The `limit` parameter controls the number of stations returned and should be a positive integer.
+
+This endpoint is designed to quickly retrieve nearby stations based on geographic coordinates provided.
+
+---
+

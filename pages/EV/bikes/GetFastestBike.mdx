@@ -1,59 +1,84 @@
 ---
-title: GetFastestBike API Documentation
+meta:
+  name: GetFastestBike
+  type: http
+  seq: 9
 ---
 
-## GetFastestBike API
+# GetFastestBike API Documentation
 
-### Overview
+## Endpoint
 
-This API endpoint retrieves the fastest bike available in the system.
+### GET /v1/bikes/get/speed/fastest
 
-### HTTP Request
+#### URL
+`http://localhost:3000/v1/bikes/get/speed/fastest`
 
-#### GET
-**URL:** `http://localhost:3000/v1/bikes/get/speed/fastest`
+#### Method
+`GET`
 
-### Request Headers
+## Request
 
-- **Authorization:** Bearer Token (required)
+### Headers
+- **Authorization**: `Bearer <token>`
 
-```json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
+#### Body
+No body required.
 
-### Request Body
+## Authentication
+To access this endpoint, a Bearer token is required.
 
-None.
-
-### Response
-
-The response includes details about the fastest bike in the system.
-
-### Authentication
-
-This endpoint requires a Bearer token for authorization.
-
-**Example Token:**
+### Bearer Token
+The following is an example of the Bearer token used for authentication purposes:
 
 ```plaintext
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-### Example Request
+## Response
+
+The API will return a JSON object containing the details of the fastest bike.
+
+## Example Request
 
 ```http
 GET http://localhost:3000/v1/bikes/get/speed/fastest
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-### Example Response
+## Example Response
 
 ```json
 {
-  "bikeId": "12345",
-  "model": "Speedster",
-  "maxSpeed": "50 km/h"
+  "bike_id": "b123",
+  "model": "FastModel 2023",
+  "speed": 45.5,
+  "unit": "km/h"
 }
 ```
 
-This document provides all the necessary details to interact with the GetFastestBike API endpoint. Ensure you have the correct Bearer token before making a request.
+## Error Handling
+
+### 401 Unauthorized
+- **Description**: Invalid or missing Bearer token.
+- **Response**:
+
+```json
+{
+  "error": "Unauthorized",
+  "message": "Invalid or missing Bearer token"
+}
+```
+
+### 500 Internal Server Error
+- **Description**: An unexpected error occurred on the server.
+- **Response**:
+
+```json
+{
+  "error": "Internal Server Error",
+  "message": "An unexpected error occurred. Please try again later."
+}
+```
+
+Ensure proper error handling and include the Bearer token in your requests to successfully access the endpoint.

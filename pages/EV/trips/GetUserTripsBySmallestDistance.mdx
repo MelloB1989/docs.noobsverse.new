@@ -1,73 +1,34 @@
 ---
-id: GetUserTripsBySmallestDistance
 title: GetUserTripsBySmallestDistance
-sidebar_label: GetUserTripsBySmallestDistance
+type: http
+sequence: 7
 ---
 
 ## GetUserTripsBySmallestDistance
 
-`GetUserTripsBySmallestDistance` is an HTTP GET API used to retrieve a list of user trips sorted by the smallest distance.
+This API retrieves user trips ordered by the shortest distance.
 
 ### Endpoint
 
-- **URL:** `http://localhost:3000/v1/trips/distance/shortest?limit=10`
-- **Method:** `GET`
+`GET http://localhost:3000/v1/trips/distance/shortest`
 
 ### Query Parameters
 
-| Parameter | Type   | Description          | Required | Default |
-|-----------|--------|----------------------|----------|---------|
-| limit     | number | Number of trips to return | No       | 10      |
+| Name | Type | Description                    | Required | Default |
+|------|------|--------------------------------|----------|---------|
+| limit| int  | The number of trips to retrieve| No       | 10      |
 
 ### Authentication
 
-This endpoint requires Bearer Token authentication.
+This endpoint requires a bearer token.
 
-- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+### Bearer Token Example
 
-### Request Headers
-
-Include the following header in the request:
-
-| Header           | Value                         |
-|------------------|-------------------------------|
-| Authorization    | Bearer YOUR_TOKEN_HERE        |
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
 
 ### Response
 
-The response contains a JSON array of trip objects ordered by smallest distance.
+A successful response returns JSON containing an array of user trips ordered by the shortest distance.
 
-##### Example Response
-
-```json
-[
-    {
-        "tripId": "1",
-        "distance": "5",
-        "details": "Trip details here"
-    },
-    {
-        "tripId": "2",
-        "distance": "7",
-        "details": "More trip details here"
-    }
-]
-```
-
-### Usage
-
-To fetch the list of trips with the shortest distance, make an HTTP GET request to the specified endpoint with the necessary query parameters and authentication token.
-
-**Example Request:**
-
-```http
-GET http://localhost:3000/v1/trips/distance/shortest?limit=10
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-### Additional Information
-
-- Ensure your Bearer Token is valid and not expired.
-- Adjust the `limit` parameter as needed to retrieve the desired number of trips.
-
-For further questions or issues, please refer to the API documentation or contact the support team.

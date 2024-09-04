@@ -1,32 +1,45 @@
 ---
-name: "API Documentation"
+title: API Documentation
 ---
 
-## API Endpoint: Get User Subscription
+# API Documentation
+
+## Endpoint: Retrieve User Subscription
 
 ### Meta Information
-- **Name**: `get`
-- **Type**: `http`
-- **Sequence**: `2`
 
-### HTTP Request
+- **Name**: get
+- **Type**: HTTP
+- **Sequence**: 2
 
-#### URL
+### Overview
+
+This API endpoint is used to retrieve the details of a user's subscription.
+
+### HTTP Method
+
+**GET**
+
+### URL 
+
 ```
-https://ev-backend.app.k8s.coffeecodes.in/v1/user_subscription/get
+http://localhost:3000/v1/user_subscription/get
 ```
 
-#### Method
-`POST`
+### Headers
 
-#### Headers
-- **Authorization**: `Bearer`
-  - **Token**: 
-    ```
-    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-    ```
+- **Authorization**: Bearer token required
 
-#### Body
+#### Bearer Token
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+### Request Body
+
+Format: JSON
+
 ```json
 {
   "subscription_id": "ftx0li8efd",
@@ -37,20 +50,8 @@ https://ev-backend.app.k8s.coffeecodes.in/v1/user_subscription/get
 
 ### Authentication
 
-This endpoint requires a Bearer token for authentication. Ensure the token is included in the request's Authorization header.
+The endpoint requires a Bearer token for authentication. Include the token in the `Authorization` header of your HTTP request.
 
-### Example cURL Command
-```bash
-curl -X POST "https://ev-backend.app.k8s.coffeecodes.in/v1/user_subscription/get" \
--H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw" \
--H "Content-Type: application/json" \
--d '{
-  "subscription_id": "ftx0li8efd",
-  "start_date": "27/11/2004",
-  "end_date": "27/11/2004"
-}'
-```
+---
 
-### Response
-
-Successful requests will receive a JSON formatted response containing the user subscription details based on the provided `subscription_id`.
+Make sure to replace the placeholder values with actual data when making requests to this endpoint. This documentation provides the necessary details for integrating with the retrieve user subscription API endpoint effectively.

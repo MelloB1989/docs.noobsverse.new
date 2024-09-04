@@ -1,50 +1,36 @@
 ---
 name: GetUserTripsByShortestDuration
 type: http
-sequence: 9
+seq: 9
 ---
 
-# GetUserTripsByShortestDuration
-
-## Endpoint
-
-GET `http://localhost:3000/v1/trips/duration/shortest`
+# GetUserTripsByShortestDuration API
 
 ## Description
 
-Retrieve user trips ordered by the shortest duration.
+This API endpoint retrieves user trips sorted by the shortest duration. It allows you to limit the number of results returned.
 
-## Parameters
+## Endpoint
 
-### Query Parameters
+### GET
 
-- `limit`: Maximum number of trips to retrieve. Default is `10`.
+`http://localhost:3000/v1/trips/duration/shortest?limit=10`
 
-```http
-GET /v1/trips/duration/shortest?limit=10
+## Query Parameters
+
+| Name  | Type | Required | Description                          |
+|-------|------|----------|--------------------------------------|
+| limit | int  | No       | The maximum number of trips to return (default: 10) |
+
+## Authentication
+
+This endpoint requires bearer token authentication.
+
+### Bearer Token
+
 ```
-
-## Headers
-
-### Authentication
-
-This API uses Bearer Token for authorization.
-
-```http
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-
-## Responses
-
-### Success
-
-- **Status Code:** `200 OK`
-- **Response Body:** A JSON array of trip objects ordered by shortest duration.
-
-### Error
-
-- **Status Code:** `401 Unauthorized`
-- **Response Body:** An error message indicating authentication failure.
 
 ## Example Request
 
@@ -53,7 +39,25 @@ GET http://localhost:3000/v1/trips/duration/shortest?limit=10
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
+## Response
+
+The response will contain an array of trips sorted by the shortest duration:
+
+```json
+[
+  {
+    "tripId": "1234",
+    "duration": 45,
+    "startLocation": "Location A",
+    "endLocation": "Location B",
+    "userId": "user123"
+    ...
+  },
+  ...
+]
+```
+
 ## Notes
 
-- Ensure the bearer token is valid and not expired.
-- The `limit` parameter is optional and defaults to `10` if not provided.
+- Ensure that you replace the example bearer token with a valid token for the authenticated user.
+- Adjust the `limit` query parameter as needed to retrieve a different number of trips.

@@ -1,54 +1,48 @@
 ---
-id: getStations
-title: getStations API Reference
-description: Documentation for the getStations HTTP API.
+title: getStations API Documentation
+order: 2
 ---
 
 # getStations API
 
-## Overview
+The `getStations` API retrieves a list of stations. This document provides the necessary details to use this API effectively.
 
-The `getStations` API endpoint retrieves a list of stations from the server.
+## Endpoint
 
-- **Type**: `HTTP`
-- **Sequence**: `2`
+### GET Request
 
-## HTTP GET Request
-
-### URL
-
-```plaintext
-http://localhost:3000/v1/stations/get
-```
+- **URL**: `http://localhost:3000/v1/stations/get`
+- **Method**: `GET`
+- **Body**: None
+- **Authentication**: None
 
 ### Headers
 
-The following headers are required when making a request to the `getStations` API:
+To successfully call this API, include the following header:
 
-| Header                 | Value                                 |
-| ---------------------- | ------------------------------------- |
-| `X-Karma-Admin-Auth`   | ajbkbakweiuy387yeuqqwfahdjhsabd       |
-
-### Request Body
-
-None.
-
-### Authentication
-
-None.
+- **X-Karma-Admin-Auth**: `ajbkbakweiuy387yeuqqwfahdjhsabd`
 
 ## Example Request
 
 ```http
-GET /v1/stations/get HTTP/1.1
-Host: localhost:3000
+GET http://localhost:3000/v1/stations/get
 X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
 ```
 
-## Response
+## Responses
 
-The API will return a JSON response containing the list of stations.
+### Success
 
-## Conclusion
+- **Status Code**: `200 OK`
+- **Description**: Successfully retrieved the list of stations.
+- **Body**: A JSON array containing station details.
 
-The `getStations` API provides a straightforward way to retrieve station data without requiring any authentication. Ensure to include the necessary headers as specified to successfully access the endpoint.
+### Error
+
+- **Status Code**: `401 Unauthorized`
+- **Description**: Headers are missing or the authentication token is invalid.
+- **Body**: An error message explaining the issue.
+
+---
+
+Ensure you replace the placeholder authentication token with a valid one provided to you.

@@ -2,76 +2,60 @@
 title: GetUserTripsByFastestSpeed API Documentation
 ---
 
-## Endpoint Overview
+## GetUserTripsByFastestSpeed
 
-### Name
-GetUserTripsByFastestSpeed
+The `GetUserTripsByFastestSpeed` API endpoint retrieves the user's trips ordered by the fastest speed.
 
-### Type
-HTTP
+### HTTP Method
 
-### Sequence
-10
-
-## HTTP Method
 `GET`
 
-## URL
+### Endpoint
+
 ```
 http://localhost:3000/v1/trips/speed/fastest?limit=10
 ```
 
-## Description
-This endpoint retrieves a list of user trips sorted by the fastest speed, limited to a specified number of records.
-
-## Request Details
-
 ### Query Parameters
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| limit     | int  | true     | The maximum number of trips to retrieve. Default is 10. |
 
-Example:
+| Parameter | Type   | Description                          |
+|-----------|--------|--------------------------------------|
+| limit     | Number | The number of trips to retrieve. Default is `10`. |
+
+### Authentication
+
+This endpoint requires Bearer Token authentication.
+
+**Header**
+
 ```
-?limit=10
+Authorization: Bearer <token>
 ```
 
-## Authentication
+**Example Token**
 
-### Type
-Bearer Token
-
-### Token
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-This token must be included in the `Authorization` header of the request.
+### Example Request
 
-Example:
 ```http
+GET /v1/trips/speed/fastest?limit=10 HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Example Request
-```
-GET http://localhost:3000/v1/trips/speed/fastest?limit=10
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+### Response
 
-## Response
-The response will include a list of trips sorted by the fastest speed, up to the number specified in the `limit` query parameter.
+On success, the API returns a `200 OK` status with the list of trips ordered by the fastest speed.
 
-```json
-{
-  "trips": [
-    {
-      "tripId": "exampleTripId1",
-      "userId": "exampleUserId1",
-      "speed": 120,
-      // other trip details
-    },
-    // additional trips
-  ]
-}
-```
+### Error Codes
+
+| Status Code | Description         |
+|-------------|---------------------|
+| 401         | Unauthorized access |
+| 400         | Bad request         |
+| 500         | Internal server error |
+
+Make sure to replace the example token with a valid authentication token to access the endpoint.

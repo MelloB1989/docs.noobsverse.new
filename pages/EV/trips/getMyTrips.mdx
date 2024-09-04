@@ -1,60 +1,38 @@
 ---
-title: getMyTrips API Documentation
-type: HTTP
-sequence: 3
+name: getMyTrips
+type: http
+seq: 3
 ---
 
-## getMyTrips API
+# Get My Trips API
 
-The `getMyTrips` API allows you to retrieve a list of trips associated with the authenticated user.
+The `getMyTrips` API allows you to retrieve the list of trips for a user. This is an HTTP GET request requiring Bearer Token authentication.
 
-### HTTP Method
+## Endpoint
 
-`GET`
+`GET http://localhost:3000/v1/trips`
 
-### Endpoint
+### URL
+- **Method**: GET
+- **Endpoint**: `http://localhost:3000/v1/trips`
+- **Request Body**: None
+- **Authentication**: Bearer Token
 
-```
-http://localhost:3000/v1/trips
-```
+## Authentication
 
-### Request
+To access the `getMyTrips` API, you must include a valid Bearer Token in the request headers. Below is an example of the Bearer Token format:
 
-#### Headers
-
-- `Authorization`: `Bearer <token>`
-
-#### Body
-
-No request body required.
-
-### Authentication
-
-This endpoint requires a Bearer token for authentication. 
-
-**Example token**:
-
+### Bearer Token
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Include this token in the `Authorization` header of your request:
-
-```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-### Example Request
+## Example Request
 
 ```http
-GET http://localhost:3000/v1/trips
+GET /v1/trips HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Response
-
-The response will contain the list of trips associated with the authenticated user.
-
----
-
-This concludes the documentation for the `getMyTrips` API endpoint.
+This request will return the list of trips associated with the authenticated user. Ensure that the Bearer Token is valid and has not expired to successfully retrieve the trip information.

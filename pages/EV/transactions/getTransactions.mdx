@@ -1,59 +1,57 @@
 ---
-title: "getTransactions API Documentation"
+title: getTransactions API Documentation
 ---
 
-# getTransactions API
+## API Overview
 
-## Overview
-The `getTransactions` API is an HTTP endpoint that retrieves a list of transactions. It requires bearer token authentication to access.
+### Name: getTransactions
+
+### Type: HTTP
+
+### Sequence: 1
 
 ## Endpoint Details
 
-### HTTP Method
-**GET**
+### GET Request
 
-### URL
-```
-http://localhost:3000/v1/transactions
-```
+- **URL:** `http://localhost:3000/v1/transactions`
+- **Request Body:** None
+- **Authentication:** Bearer Token
 
-### Request Body
-None
+## Authentication Details
 
-### Authentication
-Bearer token authentication is required to access this endpoint. 
+**Auth Type:** Bearer
 
-#### Token
+**Token:**
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Sequence
-1
+## Example Curl Request
 
-## Example Request
-```http
-GET http://localhost:3000/v1/transactions
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```bash
+curl -X GET http://localhost:3000/v1/transactions \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
 ```
 
-## Example Response
+## Response
+
+- **Status Code:** 200 OK
+- **Content:** JSON array of transactions
+
 ```json
-{
-  "transactions": [
-    {
-      "id": "123456",
-      "amount": 250.00,
-      "date": "2023-10-01T12:34:56"
-    },
-    {
-      "id": "789012",
-      "amount": 100.00,
-      "date": "2023-10-02T14:56:78"
-    }
-  ]
-}
+[
+  {
+    "transactionId": "1",
+    "amount": 100.0,
+    "currency": "USD",
+    "timestamp": "2023-10-01T12:00:00Z"
+  },
+  {
+    "transactionId": "2",
+    "amount": 50.0,
+    "currency": "USD",
+    "timestamp": "2023-10-02T12:00:00Z"
+  }
+]
 ```
-
-## Notes
-Ensure that the bearer token provided is correct and valid to prevent unauthorized access errors.

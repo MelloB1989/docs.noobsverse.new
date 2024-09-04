@@ -1,42 +1,54 @@
 ---
-title: Create User Subscription
+name: create
+type: http
+seq: 1
 ---
 
-## Endpoint: Create User Subscription
+# API Documentation: Create User Subscription
 
-This endpoint allows you to create a new user subscription.
+## Endpoint
 
-### HTTP Request
+**URL:** `http://localhost:3000/v1/user_subscription/create`  
+**Method:** `POST`  
+**Authentication:** Bearer Token
 
-- **URL:** `http://localhost:3000/v1/user_subscription/create`
-- **Method:** `POST`
-- **Authorization:** Bearer Token
+## Authentication
 
-### Request Headers
+To authenticate, you need to include the following bearer token in your request headers:
 
-- **Authorization:** Bearer `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+```
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
 
-### Request Body
+## Request Body
 
-- **Content-Type:** `application/json`
-- **Body:**
+The request body should be in JSON format and contain the following fields:
 
-  ```json
-  {
+```json
+{
+  "subscription_id": "qcxt0ky6xg",
+  "start_date": "27/11/2004",
+  "end_date": "27/11/2004"
+}
+```
+
+### Fields
+
+- **subscription_id** (String): Unique identifier for the subscription.
+- **start_date** (String): The start date of the subscription in `DD/MM/YYYY` format.
+- **end_date** (String): The end date of the subscription in `DD/MM/YYYY` format.
+
+## Example Request
+
+```bash
+curl -X POST http://localhost:3000/v1/user_subscription/create \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw" \
+  -H "Content-Type: application/json" \
+  -d '{
     "subscription_id": "qcxt0ky6xg",
     "start_date": "27/11/2004",
     "end_date": "27/11/2004"
-  }
-  ```
+  }'
+```
 
-### Description
-
-This endpoint is used for creating a new user subscription. You must provide the subscription ID, start date, and end date in the request body in JSON format. Proper bearer token authentication is required.
-
-### Response
-
-The response will confirm the creation of the user subscription. The exact structure of the response will depend on the server implementation but should typically include details like the subscription status, user information, etc.
-
----
-
-Ensure your requests meet the specifications of the endpoint regarding URL, method, headers, and body format to successfully create a user subscription.
+Ensure you replace the sample data as needed and include the correct authentication token in your API requests.

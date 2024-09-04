@@ -1,88 +1,112 @@
 ---
-title: "createBikes API Documentation"
+title: Create Bikes API
 ---
 
-### Meta Information
-- **Name**: createBikes
-- **Type**: HTTP
-- **Sequence**: 1
+## Create Bikes API
 
-### POST Endpoint
-- **URL**: `http://localhost:3000/v1/bikes/create`
-- **Content-Type**: JSON
-- **Authentication**: None
+The `createBikes` endpoint allows you to add new bikes to the system.
+
+### HTTP Method
+
+`POST`
+
+### URL
+
+`http://localhost:3000/v1/bikes/create`
+
+### Authentication
+
+No authentication required. 
 
 ### Headers
-- **X-Karma-Admin-Auth**: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab
 
-### Request Body Example
+```plaintext
+X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab
+```
+
+### Request Body
+
+The request body should be in JSON format and contain a list of bike objects with the following fields:
+
+- `frame_number` (String): The unique frame number of the bike.
+- `name` (String): The name of the bike.
+- `station_id` (String): The ID of the station where the bike is located.
+- `top_speed` (Number): The top speed of the bike in km/h.
+- `range` (Number): The range of the bike in km.
+- `time_to_station` (Number): The estimated time to the station in minutes.
+- `images` (Array of Strings): URLs of images of the bike.
+
+Example request body:
+
 ```json
 [
-    {
-        "frame_number": "FR123456789",
-        "name": "Speedster X1",
-        "station_id": "1ub1d98p_5",
-        "top_speed": 45,
-        "range": 100,
-        "time_to_station": 5,
-        "images": [
-            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    },
-    {
-        "frame_number": "FR987654321",
-        "name": "Thunderbolt Z3",
-        "station_id": "2jk5h43t_7",
-        "top_speed": 50,
-        "range": 120,
-        "time_to_station": 7,
-        "images": [
-            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    },
-    {
-        "frame_number": "FR112233445",
-        "name": "Lightning T4",
-        "station_id": "3mn8l29q_2",
-        "top_speed": 55,
-        "range": 150,
-        "time_to_station": 4,
-        "images": [
-            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    },
-    {
-        "frame_number": "FR556677889",
-        "name": "Storm Rider G2",
-        "station_id": "4pl0z87w_9",
-        "top_speed": 60,
-        "range": 140,
-        "time_to_station": 6,
-        "images": [
-            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    },
-    {
-        "frame_number": "FR998877665",
-        "name": "Cyclone V6",
-        "station_id": "5qr2m65y_4",
-        "top_speed": 65,
-        "range": 160,
-        "time_to_station": 3,
-        "images": [
-            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    },
-    {
-        "frame_number": "FR554433221",
-        "name": "Hurricane F5",
-        "station_id": "6st1o23x_8",
-        "top_speed": 70,
-        "range": 180,
-        "time_to_station": 2,
-        "images": [
-            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    }
+  {
+    "frame_number": "FR123456789",
+    "name": "Speedster X1",
+    "station_id": "1ub1d98p_5",
+    "top_speed": 45,
+    "range": 100,
+    "time_to_station": 5,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  },
+  {
+    "frame_number": "FR987654321",
+    "name": "Thunderbolt Z3",
+    "station_id": "2jk5h43t_7",
+    "top_speed": 50,
+    "range": 120,
+    "time_to_station": 7,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  },
+  {
+    "frame_number": "FR112233445",
+    "name": "Lightning T4",
+    "station_id": "3mn8l29q_2",
+    "top_speed": 55,
+    "range": 150,
+    "time_to_station": 4,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  },
+  {
+    "frame_number": "FR556677889",
+    "name": "Storm Rider G2",
+    "station_id": "4pl0z87w_9",
+    "top_speed": 60,
+    "range": 140,
+    "time_to_station": 6,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  },
+  {
+    "frame_number": "FR998877665",
+    "name": "Cyclone V6",
+    "station_id": "5qr2m65y_4",
+    "top_speed": 65,
+    "range": 160,
+    "time_to_station": 3,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  },
+  {
+    "frame_number": "FR554433221",
+    "name": "Hurricane F5",
+    "station_id": "6st1o23x_8",
+    "top_speed": 70,
+    "range": 180,
+    "time_to_station": 2,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  }
 ]
 ```
+
+Be sure to replace the placeholder data with real data as required.

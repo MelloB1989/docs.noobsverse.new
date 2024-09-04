@@ -1,86 +1,90 @@
 ---
-title: "createSubscription API Documentation"
+title: createSubscription API
 ---
 
-# createSubscription
+# createSubscription API
 
-The `createSubscription` API endpoint allows for the creation of new subscription plans. Below are the details needed to make a request to this endpoint.
+## Endpoint Description
+
+The `createSubscription` API endpoint is used to create new subscriptions. This endpoint expects a POST request with a JSON body containing the subscription details.
 
 ## Endpoint
 
-**URL:** `http://localhost:3000/v1/subscriptions/create`  
-**Type:** `POST`  
-**Body format:** `JSON`  
-**Auth:** None required
+- **URL:** `http://localhost:3000/v1/subscriptions/create`
+- **Method:** `POST`
 
-## Request Headers
+## Headers
 
-Include the following header in your request:
+The following headers should be included in the request:
 
-- `X-Karma-Admin-Auth`: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
+\```markdown
+X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab
+\```
 
 ## Request Body
 
-The body of the request should be a JSON array containing the details of the subscription plans you wish to create. Each subscription plan object should have the following structure:
+The request body should be in JSON format and include the details of the subscriptions to be created. Below is the structure for the JSON body:
 
-```json
+\```json
 [
-  {
-    "id": "sub_001",
-    "monthly_fee": 29.99,
-    "discount": 5.00,
-    "name": "Standard Plan",
-    "bike_id": "01rvo0_nbh",
-    "type": "monthly",
-    "security_deposit": 10
-  },
-  {
-    "id": "sub_002",
-    "monthly_fee": 39.99,
-    "discount": 10.00,
-    "name": "Premium Plan",
-    "bike_id": "9tkdp5ra3p",
-    "type": "monthly",
-    "security_deposit": 10
-  },
-  {
-    "id": "sub_003",
-    "monthly_fee": 19.99,
-    "discount": 0.00,
-    "name": "Basic Plan",
-    "bike_id": "2_vnd6qjv1",
-    "type": "monthly",
-    "security_deposit": 10
-  },
-  {
-    "id": "sub_004",
-    "monthly_fee": 49.99,
-    "discount": 15.00,
-    "name": "Ultimate Plan",
-    "bike_id": "vu1v4kb4s6",
-    "type": "annual",
-    "security_deposit": 10
-  },
-  {
-    "id": "sub_005",
-    "monthly_fee": 25.99,
-    "discount": 5.00,
-    "name": "Student Plan",
-    "bike_id": "01rvo0_nbh",
-    "type": "monthly",
-    "security_deposit": 10
-  }
+    {
+        "id": "sub_001",
+        "monthly_fee": 29.99,
+        "discount": 5.00,
+        "name": "Standard Plan",
+        "bike_id": "01rvo0_nbh",
+        "type": "monthly",
+        "security_deposit": 10
+    },
+    {
+        "id": "sub_002",
+        "monthly_fee": 39.99,
+        "discount": 10.00,
+        "name": "Premium Plan",
+        "bike_id": "9tkdp5ra3p",
+        "type": "monthly",
+        "security_deposit": 10
+    },
+    {
+        "id": "sub_003",
+        "monthly_fee": 19.99,
+        "discount": 0.00,
+        "name": "Basic Plan",
+        "bike_id": "2_vnd6qjv1",
+        "type": "monthly",
+        "security_deposit": 10
+    },
+    {
+        "id": "sub_004",
+        "monthly_fee": 49.99,
+        "discount": 15.00,
+        "name": "Ultimate Plan",
+        "bike_id": "vu1v4kb4s6",
+        "type": "annual",
+        "security_deposit": 10
+    },
+    {
+        "id": "sub_005",
+        "monthly_fee": 25.99,
+        "discount": 5.00,
+        "name": "Student Plan",
+        "bike_id": "01rvo0_nbh",
+        "type": "monthly",
+        "security_deposit": 10
+    }
 ]
-```
+\```
 
-### Fields
+### Fields Description
 
-- **id**: (String) A unique identifier for the subscription.
-- **monthly_fee**: (Number) Monthly fee for the subscription.
-- **discount**: (Number) Discount applied to the subscription.
-- **name**: (String) Name of the subscription plan.
-- **bike_id**: (String) Identifier for the bike associated with the subscription.
-- **type**: (String) Type of subscription (e.g., "monthly" or "annual").
-- **security_deposit**: (Number) Security deposit for the subscription.
+- **id**: (string) The unique identifier for the subscription.
+- **monthly_fee**: (number) The monthly fee for the subscription.
+- **discount**: (number) The discount applied to the monthly fee.
+- **name**: (string) The name of the subscription plan.
+- **bike_id**: (string) The identifier for the bike associated with the subscription.
+- **type**: (string) The type of subscription. Could be `monthly` or `annual`.
+- **security_deposit**: (number) The security deposit required for the subscription.
 
-Use this information to interact with the `createSubscription` endpoint, ensuring that the structure and details of your request adhere to the specified format.
+### Authentication
+
+No authentication is required to access this endpoint.

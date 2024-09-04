@@ -1,34 +1,55 @@
 ---
-id: get-balance
-title: getBalance API
+title: getBalance API Documentation
 ---
 
-## getBalance
+## getBalance API
 
-Retrieve the current balance from the wallet.
+### Overview
 
-### Endpoint
+The `getBalance` API is a simple HTTP-based endpoint that allows users to fetch their wallet balance. This endpoint requires bearer authentication for access.
 
-- **URL:** `http://localhost:3000/v1/wallet/get`
-- **Method:** `GET`
-- **Authentication:** Bearer Token
+### Details
 
-### Headers
+- **Name**: `getBalance`
+- **Type**: HTTP
+- **Sequence**: 2
 
-- **Authorization:** `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4`
+### HTTP GET Request
 
-### Response
+#### URL
 
-The API returns the balance information of the wallet.
+`http://localhost:3000/v1/wallet/get`
+
+#### Body
+
+No body is required for this request.
+
+#### Authentication
+
+This endpoint requires a Bearer token for authentication. Below is an example token for demonstration purposes:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
+```
 
 ### Example Request
 
 ```http
-GET /v1/wallet/get HTTP/1.1
-Host: localhost:3000
+GET http://localhost:3000/v1/wallet/get
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
+```
+
+### Example Response
+
+The response will return the user's wallet balance in a JSON format.
+
+```json
+{
+  "balance": 100.50
+}
 ```
 
 ### Notes
 
-Ensure that you replace the token with a valid token for your session.
+- Ensure to replace the example Bearer token with the actual token received after authentication.
+- Make sure your request headers include the correct content-type and authorization details.

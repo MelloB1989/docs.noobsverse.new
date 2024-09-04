@@ -1,35 +1,51 @@
 ---
+title: GetUserTripsByBikeID API Documentation
 meta:
   name: GetUserTripsByBikeID
   type: http
   seq: 5
 ---
 
-# GetUserTripsByBikeID API Documentation
+## GetUserTripsByBikeID
 
-## Endpoint
-**GET** `http://localhost:3000/v1/trips/bike/i6bjwk0yhu`
+### Endpoint
+`GET http://localhost:3000/v1/trips/bike/i6bjwk0yhu`
 
-## Authentication
-This endpoint requires a Bearer Token.
+### Description
+Retrieve all trips associated with a specific bike ID.
 
-### Example Token
+### Authorization
+This endpoint requires a Bearer Token for authentication.
+
+```plaintext
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+
+### Request
+- Method: `GET`
+- URL: `http://localhost:3000/v1/trips/bike/i6bjwk0yhu`
+- Body: None
+
+### Example Request
+```http
+GET http://localhost:3000/v1/trips/bike/i6bjwk0yhu
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Request Body
-None
+### Response
+The response will include details of all trips associated with the specified bike ID.
 
-## Response
-The response will contain the trips associated with the specified `bikeID`.
-
-## Sequence
-5
-
-## Additional Information
-Make sure that you have a valid bearer token before making a request to this endpoint. You can attach the token to your request headers as follows:
-
-```
-Authorization: Bearer <your-token>
+Example Response:
+```json
+[
+  {
+    "tripID": "12345",
+    "startTime": "2022-01-01T07:00:00Z",
+    "endTime": "2022-01-01T07:30:00Z",
+    "distance": 5.2,
+    "bikeID": "i6bjwk0yhu",
+    "userID": "5geapgapxs"
+  },
+  // Additional trip objects
+]
 ```

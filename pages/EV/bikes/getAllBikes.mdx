@@ -1,48 +1,59 @@
 ---
-title: API Documentation - getAllBikes
+name: getAllBikes
+type: http
+seq: 3
 ---
 
-# getAllBikes API
+# API Documentation: getAllBikes
 
-The `getAllBikes` API endpoint retrieves a list of all available bikes. This endpoint is a part of the HTTP protocol and requires bearer authentication.
+## Endpoint Description
 
-## Meta Information
+The `getAllBikes` API endpoint is utilized for retrieving a list of all available bikes.
 
-- **Name**: getAllBikes
-- **Type**: HTTP
-- **Sequence**: 3
+## HTTP Method
 
-## Endpoint Details
+- **GET**
 
-### GET Request
+## URL
 
-- **URL**: `http://localhost:3000/v1/bikes/get`
-- **Request Body**: None
-- **Authentication**: Bearer Token
+`http://localhost:3000/v1/bikes/get`
 
-### Authentication
+## Request Body
 
-This endpoint requires a Bearer token for authentication. Below is an example token:
+- **None**
 
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
+## Authentication
 
-Please replace the example token with a valid one for actual requests.
+- **Type:** Bearer Token
+- **Example Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
 
-## Example Request
+## Usage Example
 
-Here is an example of how to make a request to the `getAllBikes` endpoint using curl:
-
-```bash
-curl -X GET http://localhost:3000/v1/bikes/get \
-     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0"
+```http
+GET /v1/bikes/get HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
 ## Response
 
-The response will contain a list of all available bikes in JSON format.
+The response will contain a list of all bikes. Below is an example response:
 
-## Summary
+```json
+[
+  {
+    "id": "bike_1",
+    "name": "Mountain Bike",
+    "type": "MTB",
+    "status": "available"
+  },
+  {
+    "id": "bike_2",
+    "name": "City Bike",
+    "type": "Urban",
+    "status": "in-use"
+  }
+]
+```
 
-The `getAllBikes` API endpoint is used to fetch a list of all bikes. It is a GET request that requires bearer token authentication. Ensure you replace the example token with a valid token before making any requests.
+Make sure to replace the example token with a valid bearer token when making actual requests.

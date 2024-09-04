@@ -1,25 +1,57 @@
 ---
-title: getUserDetails API Documentation
+name: getUserDetails
+type: HTTP API
+sequence: 1
 ---
 
-## API Name: `getUserDetails`
-* Type: `HTTP`
-* Sequence: `1`
+## getUserDetails
 
-## Endpoint
-### GET Request
-* **URL**: `http://localhost:3000/v1/user/get`
-* **Body**: None required
-* **Authentication**: Bearer Token
+**Type:** HTTP API  
+**Sequence:** 1
 
-## Authentication
-* Type: Bearer Token
-* **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
+### HTTP Method: GET
 
-## Example Request
-```http
+**URL:** `http://localhost:3000/v1/user/get`
+
+### Authentication
+
+This endpoint requires Bearer Authentication.
+
+**Authentication Token:**
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+### Request Body
+
+None
+
+### Response
+
+The response contains the details of the user.
+
+```json
+{
+  "userId": "afrwuvd_1j",
+  "name": "John Doe",
+  "phone": "+919812940706"
+}
+```
+
+### Example Request
+
+```
 GET http://localhost:3000/v1/user/get
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-This documentation provides all necessary details to authenticate and interact with the getUserDetails API. Make sure to replace the token with an appropriate value if generating a new one.
+### Example Response
+
+```json
+{
+  "userId": "afrwuvd_1j",
+  "name": "John Doe",
+  "phone": "+919812940706"
+}
+```

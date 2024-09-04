@@ -1,49 +1,88 @@
 ---
-name: signup
-type: http
-seq: 3
+title: Signup API
+description: Documentation for the Signup API.
 ---
 
 # Signup API
 
-This API endpoint allows a new user to sign up by providing necessary details.
+## Description
+
+The Signup API allows users to create a new account by providing their personal details and authentication information.
 
 ## Endpoint
 
-**POST** `http://localhost:3000/v1/auth/signup`
+`POST http://localhost:3000/v1/auth/signup`
 
-## Request
+## Request Format
 
-### Headers
+- **URL:** `http://localhost:3000/v1/auth/signup`
+- **Method:** `POST`
+- **Authentication:** None required
+- **Content-Type:** `application/json`
 
-No authentication required.
+## Request Body
 
-### Body
-
-The body of the request should be in JSON format and contain the following fields:
+The request body should be in JSON format and include the following fields:
 
 ```json
 {
-  "phone": "+919812940706",          // The user's phone number.
-  "otp": "316892",                   // The one-time password sent to the user's phone.
-  "email": "mellob.mailer@gmail.com",// The user's email address.
-  "first_name": "Kartik",            // The user's first name.
-  "last_name": "Deshmukh",           // The user's last name.
-  "date_of_birth": "27/11/2004",     // The user's date of birth.
-  "password": "password",            // The user's chosen password.
-  "type": "student",                 // The account type, either 'student' or other types.
-  "employee_id": "",                 // The employee ID, empty if not applicable.
-  "company": "",                     // The company name, empty if not applicable.
-  "college": "AU",                   // The college name.
-  "student_id": "34"                 // The student's ID.
+  "phone": "+919812940706",
+  "otp": "316892",
+  "email": "mellob.mailer@gmail.com",
+  "first_name": "Kartik",
+  "last_name": "Deshmukh",
+  "date_of_birth": "27/11/2004",
+  "password": "password",
+  "type": "student",
+  "employee_id": "",
+  "company": "",
+  "college": "AU",
+  "student_id": "34"
 }
 ```
 
-Make sure all required fields are correctly provided to ensure successful signup.
+### Field Details
 
-## Notes
+- **phone** (string): The user's phone number. Example: `"+919812940706"`
+- **otp** (string): The one-time password sent to the user's phone. Example: `"316892"`
+- **email** (string): The user's email address. Example: `"mellob.mailer@gmail.com"`
+- **first_name** (string): The user's first name. Example: `"Kartik"`
+- **last_name** (string): The user's last name. Example: `"Deshmukh"`
+- **date_of_birth** (string): The user's date of birth in `DD/MM/YYYY` format. Example: `"27/11/2004"`
+- **password** (string): The user's password. Example: `"password"`
+- **type** (string): The type of user. Possible values: `"student"`, `"employee"`
+  - If **type** is `"student"`, the following fields are required:
+    - **college** (string): Name of the college. Example: `"AU"`
+    - **student_id** (string): The student's ID. Example: `"34"`
+  - If **type** is `"employee"`, the following fields are required:
+    - **employee_id** (string): The employee's ID.
+    - **company** (string): Name of the company.
 
-- The `phone` field must follow the international phone number format.
-- The `type` of account requires specific values like `student`. Ensure to follow the predefined account types.
-- If the user is not a student or the `type` differs, additional fields like `employee_id` and `company` might need to be filled accordingly.
-- The OTP should be verified and correctly match the one sent to user's phone before making the request.
+## Example
+
+### Request
+
+```json
+{
+  "phone": "+919812940706",
+  "otp": "316892",
+  "email": "mellob.mailer@gmail.com",
+  "first_name": "Kartik",
+  "last_name": "Deshmukh",
+  "date_of_birth": "27/11/2004",
+  "password": "password",
+  "type": "student",
+  "employee_id": "",
+  "company": "",
+  "college": "AU",
+  "student_id": "34"
+}
+```
+
+## Response
+
+On successful signup, the API will respond with a status code of `201` and a message indicating that the user has been created successfully.
+
+---
+
+If there are any issues or errors, an appropriate error message and status code will be returned.

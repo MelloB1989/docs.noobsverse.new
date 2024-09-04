@@ -1,92 +1,48 @@
 ---
-title: API Documentation - GetUserTripsByLongestDuration
-sidebar_position: 8
+title: GetUserTripsByLongestDuration API
 ---
 
-# GetUserTripsByLongestDuration
+## GetUserTripsByLongestDuration
 
-## Overview
+### Description
 
-The `GetUserTripsByLongestDuration` API endpoint retrieves user trips sorted by the longest duration. This endpoint is useful for fetching and displaying the longest trips of a user.
+This endpoint retrieves user trips, sorted by the longest duration. It allows you to limit the number of trips retrieved.
 
-## Endpoint
+### HTTP Request
 
-- **URL:** `http://localhost:3000/v1/trips/duration/longest`
-- **Method:** GET
-- **Authentication:** Bearer Token
+- **Method**: `GET`
+- **URL**: `http://localhost:3000/v1/trips/duration/longest?limit=10`
 
-## Query Parameters
+### Request Parameters
 
-| Name  | Type | Description                          |
-|-------|------|--------------------------------------|
-| limit | int  | The number of trips to retrieve. Default is 10. |
+#### Query Parameters
 
-## Request Example
+| Parameter | Type | Description                             | Example |
+|-----------|------|-----------------------------------------|---------|
+| limit     | int  | The maximum number of trips to retrieve | 10      |
 
-To retrieve the trips, make a GET request to the following URL:
+### Authorization
+
+This endpoint requires a Bearer token for authentication.
+
+#### Bearer Token
 
 ```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGNHcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+### Response
+
+The response will include a list of user trips, ordered by duration, with the limit applied as specified in the query parameter.
+
+### Example Request
+
+```http
 GET http://localhost:3000/v1/trips/duration/longest?limit=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGNHcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Authentication
+### Notes
 
-This endpoint requires a Bearer Token for authentication. Below is an example of how to include the token in the request header.
-
-### Bearer Token
-
-```plaintext
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-## Request Headers
-
-| Header        | Value                             |
-|---------------|-----------------------------------|
-| Authorization | Bearer your_token                 |
-
-## Example Request
-
-```curl
-curl -X GET "http://localhost:3000/v1/trips/duration/longest?limit=10" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
-```
-
-## Response
-
-A successful response will return JSON data. Below is an example of the response structure.
-
-```json
-{
-  "trips": [
-    {
-      "tripId": "12345",
-      "userId": "5geapagapxs",
-      "startLocation": "City A",
-      "endLocation": "City B",
-      "duration": 240,
-      "startTime": "2022-12-01T10:00:00Z",
-      "endTime": "2022-12-01T14:00:00Z"
-    },
-    {
-      "tripId": "67890",
-      "userId": "5geapagapxs",
-      "startLocation": "City C",
-      "endLocation": "City D",
-      "duration": 180,
-      "startTime": "2022-12-02T10:00:00Z",
-      "endTime": "2022-12-02T13:00:00Z"
-    }
-  ],
-  "limit": 10
-}
-```
-
-This response contains an array of trip objects ordered by the duration in descending order, along with the specified limit.
-
-## Notes
-
-- Ensure the Bearer Token is valid and not expired.
-- Adjust the `limit` parameter value to retrieve the desired number of records. The default value is 10.
-- Handle any possible errors in the response appropriately, such as invalid token or exceeding rate limits.
-
-By following this documentation, you should be able to effectively use the `GetUserTripsByLongestDuration` endpoint to retrieve user trips based on their duration.
+- Ensure the limit is an integer value representing the maximum number of trips you want to retrieve.
+- The Bearer token must be valid to access this endpoint.
