@@ -1,48 +1,42 @@
 ---
 title: getStations API Documentation
-order: 2
 ---
 
-# getStations API
+## Meta Information
 
-The `getStations` API retrieves a list of stations. This document provides the necessary details to use this API effectively.
+- **Name:** getStations
+- **Type:** HTTP
+- **Sequence:** 2
 
 ## Endpoint
 
-### GET Request
+- **GET:** `http://localhost:3000/v1/stations/get`
 
-- **URL**: `http://localhost:3000/v1/stations/get`
-- **Method**: `GET`
-- **Body**: None
-- **Authentication**: None
+## Request Body
 
-### Headers
+- **None**
 
-To successfully call this API, include the following header:
+## Authorization
 
-- **X-Karma-Admin-Auth**: `ajbkbakweiuy387yeuqqwfahdjhsabd`
+- **None**
+
+## Headers
+
+- **X-Karma-Admin-Auth:** `ajbkbakweiuy387yeuqqwfahdjhsabd`
 
 ## Example Request
 
 ```http
-GET http://localhost:3000/v1/stations/get
+GET /v1/stations/get HTTP/1.1
+Host: localhost:3000
 X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
 ```
 
-## Responses
+## Response
 
-### Success
+The response will vary depending on the implementation of the specific endpoint. Typically, you can expect JSON-formatted data representing the stations information. Please refer to the API response schema for details.
 
-- **Status Code**: `200 OK`
-- **Description**: Successfully retrieved the list of stations.
-- **Body**: A JSON array containing station details.
+## Notes
 
-### Error
-
-- **Status Code**: `401 Unauthorized`
-- **Description**: Headers are missing or the authentication token is invalid.
-- **Body**: An error message explaining the issue.
-
----
-
-Ensure you replace the placeholder authentication token with a valid one provided to you.
+- Ensure to include the `X-Karma-Admin-Auth` header in your request.
+- No body payload is necessary for this GET request.

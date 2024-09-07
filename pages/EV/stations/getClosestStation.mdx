@@ -1,57 +1,48 @@
 ---
-name: getClosestStation
-type: http
+title: "getClosestStation API"
+type: "http"
 sequence: 4
 ---
 
-# API Documentation: getClosestStation
+# getClosestStation API
 
-## Endpoint Details
+The `getClosestStation` API endpoint is used to retrieve the nearest stations based on the provided latitude and longitude, with an optional limit on the number of results.
 
-**Method**: GET
+## HTTP Request
 
-**URL**: `https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby?lat=40&lon=-70&limit=2`
+**GET** `https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby`
 
-## Request Parameters
+## Query Parameters
 
-### Query Parameters
-| Parameter | Type | Description           | Example       |
-|-----------|------|-----------------------|---------------|
-| `lat`     | float| Latitude of the area  | `40`          |
-| `lon`     | float| Longitude of the area | `-70`         |
-| `limit`   | int  | Number of stations to be retrieved | `2`         |
+| Name  | Type | Description                                        |
+|-------|------|----------------------------------------------------|
+| lat   | float| Latitude coordinate to search nearby stations.    |
+| lon   | float| Longitude coordinate to search nearby stations.   |
+| limit | int  | Maximum number of stations to return (optional).  |
+
+## Default Query Example
+
+```text
+lat=40&lon=-70&limit=2
+```
 
 ## Request Headers
 
-| Header                   | Value                                 | Description                       |
-|--------------------------|---------------------------------------|-----------------------------------|
-| `X-Karma-Admin-Auth`     | `ajbkbakweiuy387yeuqqwfahdjhsabd`     | Authentication token for the API  |
+| Name                 | Description                             |
+|----------------------|-----------------------------------------|
+| X-Karma-Admin-Auth   | Authentication token for admin access.  |
 
-## Authentication
-
-No additional authentication is required beyond the `X-Karma-Admin-Auth` header provided above.
-
-## Request Body
-
-None.
-
-## Response
-
-The API will return the closest electric vehicle stations based on the provided latitude and longitude, limited to the specified number of stations. The response content and structure are not detailed in this documentation.
-
-## Example Request
+## Sample Request
 
 ```http
 GET https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby?lat=40&lon=-70&limit=2
 X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
 ```
 
-## Notes
+## Response
 
-- Ensure the `lat` and `lon` parameters are valid coordinates.
-- The `limit` parameter controls the number of stations returned and should be a positive integer.
-
-This endpoint is designed to quickly retrieve nearby stations based on geographic coordinates provided.
+The API response will contain details about the closest stations based on the provided latitude and longitude parameters. The structure of the response will depend on the backend implementation and may vary.
 
 ---
 
+Feel free to contact our support team if you have any further questions regarding the use of this API.

@@ -1,38 +1,52 @@
 ---
-name: getMyTrips
-type: http
-seq: 3
+id: getmytrips
+title: Get My Trips
 ---
 
-# Get My Trips API
+## Meta
 
-The `getMyTrips` API allows you to retrieve the list of trips for a user. This is an HTTP GET request requiring Bearer Token authentication.
+- **Name**: `getMyTrips`
+- **Type**: `http`
+- **Sequence**: `3`
+
+## Description
+
+The `getMyTrips` API endpoint retrieves the authenticated user's trip information.
 
 ## Endpoint
 
-`GET http://localhost:3000/v1/trips`
-
-### URL
-- **Method**: GET
-- **Endpoint**: `http://localhost:3000/v1/trips`
-- **Request Body**: None
-- **Authentication**: Bearer Token
+- **URL**: `http://localhost:3000/v1/trips/mytrips`
+- **Method**: `GET`
+- **Body**: None
 
 ## Authentication
 
-To access the `getMyTrips` API, you must include a valid Bearer Token in the request headers. Below is an example of the Bearer Token format:
-
-### Bearer Token
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+- **Type**: `bearer`
+- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
 ## Example Request
 
 ```http
-GET /v1/trips HTTP/1.1
-Host: localhost:3000
+GET http://localhost:3000/v1/trips/mytrips
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-This request will return the list of trips associated with the authenticated user. Ensure that the Bearer Token is valid and has not expired to successfully retrieve the trip information.
+## Response
+
+- **Status**: `200 OK`
+- **Body**: 
+  ```json
+  {
+    "trips": [
+      {
+        "id": "tripID1",
+        "destination": "Paris",
+        "date": "2023-10-05",
+        ...
+      },
+      ...
+    ]
+  }
+  ```
+
+(Note: The structure of the response body should be updated according to the actual API response.)

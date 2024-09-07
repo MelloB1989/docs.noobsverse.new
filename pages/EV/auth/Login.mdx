@@ -1,30 +1,28 @@
 ---
-title: Login API Documentation
+name: Login
+type: http
+sequence: 1
 ---
 
 ## Login API
 
-The Login API allows users to authenticate by providing their phone number. Below are the detailed specifications for making a request to this API.
+The Login API allows users to authenticate using their phone number.
 
-### HTTP Request
+### Endpoint
 
-**Method**: POST
-
-**URL**: `http://127.0.0.1:3000/v1/auth/login`
-
-### Authorization
-
-No authentication is required to access this endpoint.
+**POST** `https://ev-backend.app.k8s.coffeecodes.in/v1/auth/login`
 
 ### Headers
 
-Include the following header in your request:
-
-- `X-Karma-Admin-Auth`: `ajbkbakweiuy387yeuqqwfahdjhsabd`
+```json
+{
+  "X-Karma-Admin-Auth": "ajbkbakweiuy387yeuqqwfahdjhsabd"
+}
+```
 
 ### Request Body
 
-The request body should be in JSON format and include the following field:
+The request body must be in JSON format.
 
 ```json
 {
@@ -32,17 +30,6 @@ The request body should be in JSON format and include the following field:
 }
 ```
 
-### Example Request
+### Authentication
 
-```json
-POST /v1/auth/login HTTP/1.1
-Host: 127.0.0.1:3000
-Content-Type: application/json
-X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
-
-{
-  "phone": "+919812940706"
-}
-```
-
-Make sure to replace `+919812940706` with the actual phone number of the user trying to log in.
+No authentication is required for this endpoint.

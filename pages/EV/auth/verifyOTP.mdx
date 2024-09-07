@@ -1,16 +1,22 @@
 ---
 title: "verifyOTP API Documentation"
+type: "http"
 ---
 
-## API Name: verifyOTP
+## verifyOTP
 
-This API endpoint is used to verify a one-time password (OTP).
+### Overview
 
-### Endpoint
+The `verifyOTP` API allows you to verify a one-time password (OTP) that a user has received on their phone. This endpoint is typically used in the authentication flow to validate user identity through their mobile number.
 
-- **URL:** `http://localhost:3000/v1/auth/verify_otp`
-- **Method:** `POST`
-- **Authentication:** None required
+### HTTP Request
+
+#### Method: POST
+#### URL: `http://localhost:3000/v1/auth/verify_otp`
+
+### Request Headers
+
+- No authentication is required for this endpoint.
 
 ### Request Body
 
@@ -23,10 +29,34 @@ The request body should be in JSON format and contain the following fields:
 }
 ```
 
-- **phone**: The phone number for which the OTP was generated. *(string, required)*
-- **otp**: The OTP to be verified. *(string, required)*
+#### Body Parameters
 
-### Sequence
+| Parameter | Type   | Description                        |
+|-----------|--------|------------------------------------|
+| phone     | string | The mobile number to verify.       |
+| otp       | string | The OTP received to verify.        |
 
-- **Type:** HTTP
-- **Sequence:** 2
+### Sample Request
+
+```json
+POST http://localhost:3000/v1/auth/verify_otp
+Content-Type: application/json
+
+{
+  "phone": "+919812940706",
+  "otp": "815897"
+}
+```
+
+### Response
+
+Upon successful verification, the server will return a status response indicating the result of the verification process. The details of the response structure should be then defined by the API implementer.
+
+### Use Case Sequence
+
+1. User requests an OTP to be sent to their mobile number.
+2. User receives the OTP via SMS.
+3. User submits the OTP along with their phone number to the verifyOTP endpoint.
+4. The endpoint validates the OTP and responds with the result.
+
+This API is typically called during the second step of a multi-factor authentication process to ensure the user's phone number is verified before proceeding further in the authentication flow.

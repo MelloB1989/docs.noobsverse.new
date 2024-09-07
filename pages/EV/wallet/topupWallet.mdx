@@ -1,48 +1,27 @@
----
-name: topupWallet
-type: http
-seq: 3
----
+# API Documentation: `topupWallet`
 
-# Top-up Wallet API
-
-The `topupWallet` API allows you to top-up a user's wallet balance. This is an HTTP endpoint that requires a POST request with a JSON body and bearer authentication.
+## Meta Information
+- **Name:** topupWallet
+- **Type:** HTTP
+- **Sequence:** 3
 
 ## Endpoint
-
-```http
-POST http://localhost:3000/v1/wallet/topup
-```
+### HTTP Method: POST
+- **URL:** `http://localhost:3000/v1/wallet/topup`
 
 ## Authentication
+### Bearer Token
+Ensure you include the following Bearer Token in the Authorization header of your request.
 
-This endpoint requires a Bearer token for authentication. Include the following token in the Authorization header of your request:
-
-```http
+```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
 
 ## Request Body
-
-The request should contain a JSON object with the following structure:
+### JSON Payload
+The body of the request should be in JSON format with the following structure:
 
 ```json
-{
-  "balance": "20"
-}
-```
-
-- `balance` (string): The amount to top-up the wallet.
-
-## Example Request
-
-Here is an example of how to make a request to the `topupWallet` API:
-
-```http
-POST http://localhost:3000/v1/wallet/topup
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
-Content-Type: application/json
-
 {
   "balance": "20"
 }

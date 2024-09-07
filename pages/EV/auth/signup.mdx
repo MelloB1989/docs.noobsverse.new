@@ -1,28 +1,28 @@
 ---
-title: Signup API
-description: Documentation for the Signup API.
+name: signup
+type: http
+seq: 3
 ---
 
 # Signup API
 
-## Description
-
-The Signup API allows users to create a new account by providing their personal details and authentication information.
-
 ## Endpoint
 
-`POST http://localhost:3000/v1/auth/signup`
+**POST** `http://localhost:3000/v1/auth/signup`
 
-## Request Format
+## Description
 
-- **URL:** `http://localhost:3000/v1/auth/signup`
-- **Method:** `POST`
-- **Authentication:** None required
-- **Content-Type:** `application/json`
+This endpoint allows users to sign up by providing their personal and authentication details.
 
-## Request Body
+## Request
 
-The request body should be in JSON format and include the following fields:
+### Headers
+
+No authentication required.
+
+### Body
+
+The request body should be sent in JSON format with the following fields:
 
 ```json
 {
@@ -41,22 +41,24 @@ The request body should be in JSON format and include the following fields:
 }
 ```
 
-### Field Details
+#### Fields
 
-- **phone** (string): The user's phone number. Example: `"+919812940706"`
-- **otp** (string): The one-time password sent to the user's phone. Example: `"316892"`
-- **email** (string): The user's email address. Example: `"mellob.mailer@gmail.com"`
-- **first_name** (string): The user's first name. Example: `"Kartik"`
-- **last_name** (string): The user's last name. Example: `"Deshmukh"`
-- **date_of_birth** (string): The user's date of birth in `DD/MM/YYYY` format. Example: `"27/11/2004"`
-- **password** (string): The user's password. Example: `"password"`
-- **type** (string): The type of user. Possible values: `"student"`, `"employee"`
-  - If **type** is `"student"`, the following fields are required:
-    - **college** (string): Name of the college. Example: `"AU"`
-    - **student_id** (string): The student's ID. Example: `"34"`
-  - If **type** is `"employee"`, the following fields are required:
-    - **employee_id** (string): The employee's ID.
-    - **company** (string): Name of the company.
+- `phone` (string): User's phone number, required.
+- `otp` (string): One-time password for verification, required.
+- `email` (string): User's email address, required.
+- `first_name` (string): User's first name, required.
+- `last_name` (string): User's last name, required.
+- `date_of_birth` (string): User's date of birth in the format DD/MM/YYYY, required.
+- `password` (string): User's password, required.
+- `type` (string): Type of user, required. Possible values include `student` or other types depending on the system.
+- `employee_id` (string): Employee ID, optional if user type is not an employee.
+- `company` (string): Name of the company, optional if user type is not an employee.
+- `college` (string): Name of the college, required if user type is student.
+- `student_id` (string): Student ID, required if user type is student.
+
+## Response
+
+The server will respond with appropriate success or error messages based on the provided input.
 
 ## Example
 
@@ -79,10 +81,8 @@ The request body should be in JSON format and include the following fields:
 }
 ```
 
-## Response
+## Notes
 
-On successful signup, the API will respond with a status code of `201` and a message indicating that the user has been created successfully.
-
----
-
-If there are any issues or errors, an appropriate error message and status code will be returned.
+- Ensure that all required fields are filled correctly.
+- The `otp` field should contain a valid one-time password received by the user.
+- Password must meet required security guidelines.

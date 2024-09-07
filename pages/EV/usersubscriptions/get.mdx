@@ -1,44 +1,22 @@
 ---
-title: API Documentation
+name: get
+type: http
+seq: 2
 ---
 
-# API Documentation
+# GET User Subscription
 
-## Endpoint: Retrieve User Subscription
+**Endpoint**: `http://localhost:3000/v1/user_subscription/get`
 
-### Meta Information
+## Authorization
 
-- **Name**: get
-- **Type**: HTTP
-- **Sequence**: 2
+This endpoint requires a Bearer token for authentication.
 
-### Overview
+**Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
-This API endpoint is used to retrieve the details of a user's subscription.
+## Request Body
 
-### HTTP Method
-
-**GET**
-
-### URL 
-
-```
-http://localhost:3000/v1/user_subscription/get
-```
-
-### Headers
-
-- **Authorization**: Bearer token required
-
-#### Bearer Token
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-### Request Body
-
-Format: JSON
+The request body should be in JSON format:
 
 ```json
 {
@@ -48,10 +26,6 @@ Format: JSON
 }
 ```
 
-### Authentication
+## Summary
 
-The endpoint requires a Bearer token for authentication. Include the token in the `Authorization` header of your HTTP request.
-
----
-
-Make sure to replace the placeholder values with actual data when making requests to this endpoint. This documentation provides the necessary details for integrating with the retrieve user subscription API endpoint effectively.
+This API retrieves a user subscription using the provided subscription ID and date range in the body of the request. Proper authorization is required to access this endpoint.

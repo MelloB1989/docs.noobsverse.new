@@ -1,54 +1,48 @@
 ---
-title: GetBikesByTopSpeedRange API
+name: GetBikesByTopSpeedRange
+type: http
+sequence: 6
 ---
 
-## Endpoint
+## GetBikesByTopSpeedRange
 
-`GET http://localhost:3000/v1/bikes/get/speed/50/47`
+This API retrieves bikes within a specified top speed range.
 
-## Authentication
+### HTTP Method
 
-Bearer Token required.
+`GET`
 
-### Token
+### URL
+
+`http://localhost:3000/v1/bikes/get/speed/50/47`
+
+### Authentication
+
+This endpoint requires a bearer token for authentication.
+
+**Bearer Token:**
 
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-## Request Body
+### Request Body
 
-None required.
+No request body required.
 
-## Response
-
-The API will return a list of bikes whose top speeds fall within the specified range.
-
-## Example Request
+### Example
 
 ```http
-GET http://localhost:3000/v1/bikes/get/speed/50/47
+GET /v1/bikes/get/speed/50/47 HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-## Example Response
+## Response
 
-```json
-[
-  {
-    "id": "bike_1",
-    "model": "Speedster 3000",
-    "topSpeed": 48
-  },
-  {
-    "id": "bike_2",
-    "model": "Velocity X2",
-    "topSpeed": 46
-  }
-]
-```
+- **200 OK**: A list of bikes within the specified top speed range.
+- **401 Unauthorized**: Invalid or missing authentication token.
 
-## Notes
+### Notes
 
-- Replace the placeholder URL and token with real values in production.
-- Ensure proper handling of the authentication token.
+Ensure the bearer token is up to date and correctly included in the request header.

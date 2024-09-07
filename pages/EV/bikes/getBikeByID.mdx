@@ -1,37 +1,69 @@
 ---
-title: "getBikeByID API Documentation"
-meta:
-  - name: getBikeByID
-  - type: http
-  - seq: 2
+id: getBikeByID
+title: Get Bike by ID
+description: Retrieve bike information by its ID using an HTTP GET request.
 ---
 
-## getBikeByID
+## getBikeByID API
 
-### HTTP Type
-- **Type:** HTTP
-- **Sequence:** 2
+This API retrieves information about a bike using its ID. It requires a Bearer token for authentication.
 
-### Endpoint Information
-- **URL:** `http://localhost:3000/v1/bikes/get/jruefu191e`
-- **Method:** GET
-- **Body:** None
+### Endpoint
+
+`GET http://localhost:3000/v1/bikes/get/jruefu191e`
 
 ### Authentication
-- **Type:** Bearer Token
-- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
 
-### Usage
+This endpoint requires Bearer Token authentication.
 
-```http
-GET http://localhost:3000/v1/bikes/get/jruefu191e
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+### Sample Token
+
 ```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+### Request
+
+- **Method**: `GET`
+- **URL**: `http://localhost:3000/v1/bikes/get/jruefu191e`
+- **Body**: Not required
+- **Headers**: 
+  - `Authorization`: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
 
 ### Response
 
-The response will contain the details of the bike with ID `jruefu191e`.
+The response will contain the details of the bike. Below is a sample response structure:
 
----
+```json
+{
+  "id": "jruefu191e",
+  "model": "Mountain Bike",
+  "brand": "XYZ",
+  "status": "Available"
+}
+```
 
-For further queries, please contact the support team.
+### How to Use
+
+To use this API, make a GET request to the specified URL while including the Bearer token in the Authorization header.
+
+### Example Request
+
+```
+GET /v1/bikes/get/jruefu191e HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+### Example Response
+
+```json
+{
+  "id": "jruefu191e",
+  "model": "Mountain Bike",
+  "brand": "XYZ",
+  "status": "Available"
+}
+```
+
+This API is a simple way to retrieve bike information by its ID. Ensure you handle the Bearer token securely and do not expose it in your client-side code.

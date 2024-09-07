@@ -1,29 +1,34 @@
 ---
-name: endTrip
-type: http
-seq: 2
+title: "API Documentation - endTrip"
 ---
 
-## endTrip API
+## Meta Information
 
-This API is used to end a trip in the system.
+- **Name**: `endTrip`
+- **Type**: `http`
+- **Sequence**: `2`
 
-### HTTP Request
+## POST Request Details
 
-**POST** `http://localhost:3000/v1/trips/end`
+- **URL**: `http://localhost:3000/v1/trips/end`
+- **Body Type**: `json`
+- **Authentication**: `Bearer Token`
 
-### Authentication
+## Authentication
 
-This endpoint requires a Bearer Token.
+To access the `endTrip` API endpoint, a Bearer Token must be included in the request header.
 
-Bearer Token: 
+### Bearer Token
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
+}
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
 
-### Request Body
+## Request Body Schema
 
-The body of the request should be in JSON format and include the following parameters:
+The body of the POST request should be in JSON format and contain the following fields:
 
 ```json
 {
@@ -39,37 +44,16 @@ The body of the request should be in JSON format and include the following param
 }
 ```
 
-- **id**: Unique identifier for the trip (string).
-- **bike_id**: Unique identifier for the bike used in the trip (string).
-- **station_id**: Unique identifier for the station where the trip ended (string).
-- **start_timestamp**: ISO 8601 formatted timestamp for the start of the trip (string).
-- **end_timestamp**: ISO 8601 formatted timestamp for the end of the trip (string).
-- **distance**: Distance covered during the trip in kilometers (number).
-- **duration**: Duration of the trip in minutes (number).
-- **average_speed**: Average speed during the trip in kilometers per hour (number).
-- **path**: Base64 encoded data representing the path taken during the trip (string).
+### Field Descriptions
 
-### Example
+- **id**: Unique identifier for the trip.
+- **bike_id**: Identifier for the bike used.
+- **station_id**: Identifier for the station where the trip ended.
+- **start_timestamp**: ISO 8601 timestamp for when the trip started.
+- **end_timestamp**: ISO 8601 timestamp for when the trip ended.
+- **distance**: Total distance covered during the trip (in kilometers).
+- **duration**: Total trip duration (in minutes).
+- **average_speed**: Average speed during the trip (in km/h).
+- **path**: Base64 encoded string representing the path data of the trip.
 
-#### Request
-
-```http
-POST /v1/trips/end HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-Content-Type: application/json
-
-{
-  "id": "ulj1iq0-0w",
-  "bike_id": "i6bjwk0yhu",
-  "station_id": "a2m392c58f",
-  "start_timestamp": "2024-09-02T07:15:00Z",
-  "end_timestamp": "2024-09-02T07:50:00Z",
-  "distance": 15.8,
-  "duration": 35.0,
-  "average_speed": 27.1,
-  "path": "base64_encoded_path_data_3"
-}
-```
-
-Note that all fields are mandatory and must be correctly formatted.
+Ensure all required fields are included in the request to avoid errors and facilitate successful trip termination.

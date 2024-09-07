@@ -1,32 +1,38 @@
 ---
-name: GetBikesByTopSpeedLT
-type: http
-seq: 7
+title: GetBikesByTopSpeedLT API Documentation
 ---
 
-## GetBikesByTopSpeedLT API
+## **GetBikesByTopSpeedLT**
 
-This API endpoint retrieves a list of bikes that have a top speed less than a specified value.
+### **Meta Information**
+| Attribute | Value               |
+|-----------|---------------------|
+| Name      | GetBikesByTopSpeedLT |
+| Type      | HTTP                |
+| Seq       | 7                   |
 
-### HTTP Request
+### **Endpoint**
 
-**GET** `http://localhost:3000/v1/bikes/get/speed_lt/50`
+#### **GET**
+`http://localhost:3000/v1/bikes/get/speed_lt/50`
 
-- **URL**: `http://localhost:3000/v1/bikes/get/speed_lt/50`
-- **Method**: GET
-- **Request Body**: None
-- **Authorization**: Bearer Token
+### **Request Details**
+- **Method:** GET
+- **URL:** `http://localhost:3000/v1/bikes/get/speed_lt/50`
+- **Body:** None
 
-### Authorization
+### **Authorization**
+- **Type:** Bearer
+- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
 
-To use this endpoint, you must provide a bearer token.
+### **Usage Example**
 
-#### Bearer Token
-
-```plaintext
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```bash
+curl -X GET \
+  'http://localhost:3000/v1/bikes/get/speed_lt/50' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0'
 ```
 
-### Response
-
-The response will include details of bikes with a top speed less than 50.
+### **Key Points**
+- This API retrieves bike data where the top speed is less than 50.
+- Ensure you replace the token with an authorized one before making a request.

@@ -1,59 +1,74 @@
 ---
-name: getAllBikes
-type: http
-seq: 3
+id: getAllBikes
+title: getAllBikes
+sidebar_label: getAllBikes
 ---
 
-# API Documentation: getAllBikes
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Endpoint Description
+## getAllBikes
 
-The `getAllBikes` API endpoint is utilized for retrieving a list of all available bikes.
+### Overview
 
-## HTTP Method
+The `getAllBikes` API endpoint is used to retrieve all available bikes from the server.
 
-- **GET**
+### HTTP Request
 
-## URL
+- **URL:** `http://localhost:3000/v1/bikes/get`
+- **Method:** `GET`
+- **Authentication:** Bearer Token
 
-`http://localhost:3000/v1/bikes/get`
+### Authentication
 
-## Request Body
+This endpoint requires a Bearer Token for authentication. The bearer token should be included in the authorization header of the request.
 
-- **None**
-
-## Authentication
-
-- **Type:** Bearer Token
-- **Example Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
-
-## Usage Example
-
-```http
-GET /v1/bikes/get HTTP/1.1
-Host: localhost:3000
+```plaintext
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-## Response
+### Request Body
 
-The response will contain a list of all bikes. Below is an example response:
+No request body is required for this endpoint.
 
-```json
-[
-  {
-    "id": "bike_1",
-    "name": "Mountain Bike",
-    "type": "MTB",
-    "status": "available"
-  },
-  {
-    "id": "bike_2",
-    "name": "City Bike",
-    "type": "Urban",
-    "status": "in-use"
-  }
-]
+### Example Request
+
+```bash
+curl -X GET "http://localhost:3000/v1/bikes/get" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0"
 ```
 
-Make sure to replace the example token with a valid bearer token when making actual requests.
+### Response
+
+The response will be a JSON object containing the list of bikes.
+
+### Example Response
+
+```json
+{
+  "bikes": [
+    {
+      "id": "bike1",
+      "type": "mountain",
+      "brand": "BrandA"
+    },
+    {
+      "id": "bike2",
+      "type": "road",
+      "brand": "BrandB"
+    },
+    {
+      "id": "bike3",
+      "type": "hybrid",
+      "brand": "BrandC"
+    }
+  ]
+}
+```
+
+### Summary
+
+- **Endpoint:** `/v1/bikes/get`
+- **Method:** `GET`
+- **Authentication:** Bearer Token Required
+- **Request Body:** None
+- **Response:** JSON object containing a list of bikes.

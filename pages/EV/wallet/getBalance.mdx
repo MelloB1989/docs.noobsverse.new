@@ -1,35 +1,24 @@
 ---
-title: getBalance API Documentation
+name: getBalance
+type: http
+seq: 2
 ---
 
-## getBalance API
-
-### Overview
-
-The `getBalance` API is a simple HTTP-based endpoint that allows users to fetch their wallet balance. This endpoint requires bearer authentication for access.
-
-### Details
-
-- **Name**: `getBalance`
-- **Type**: HTTP
-- **Sequence**: 2
+## getBalance API Documentation
 
 ### HTTP GET Request
 
-#### URL
+- **URL:** `http://localhost:3000/v1/wallet/get`
+- **Method:** GET
+- **Body:** None
+- **Authentication:** Bearer Token
 
-`http://localhost:3000/v1/wallet/get`
+### Authorization Header
 
-#### Body
-
-No body is required for this request.
-
-#### Authentication
-
-This endpoint requires a Bearer token for authentication. Below is an example token for demonstration purposes:
+The API requires a Bearer Token for authentication. Below is an example of the header to be included in your request.
 
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
 ```
 
 ### Example Request
@@ -39,17 +28,15 @@ GET http://localhost:3000/v1/wallet/get
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
 ```
 
-### Example Response
+### Response
 
-The response will return the user's wallet balance in a JSON format.
+The response will contain your wallet's balance information. Below is an example of a typical response structure.
 
 ```json
 {
-  "balance": 100.50
+  "status": "success",
+  "data": {
+    "balance": 1020.50
+  }
 }
 ```
-
-### Notes
-
-- Ensure to replace the example Bearer token with the actual token received after authentication.
-- Make sure your request headers include the correct content-type and authorization details.

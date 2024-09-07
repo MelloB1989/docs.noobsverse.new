@@ -1,43 +1,38 @@
 ---
-title: Create Bikes API
+title: Create Bikes API Documentation
+meta:
+  - name: createBikes
+  - type: http
+  - seq: 1
 ---
 
 ## Create Bikes API
 
-The `createBikes` endpoint allows you to add new bikes to the system.
-
-### HTTP Method
-
-`POST`
-
-### URL
-
-`http://localhost:3000/v1/bikes/create`
-
-### Authentication
-
-No authentication required. 
+### Endpoint
+**POST** `http://localhost:3000/v1/bikes/create`
 
 ### Headers
+| Key                   | Value                                                                                         |
+|-----------------------|-----------------------------------------------------------------------------------------------|
+| X-Karma-Admin-Auth    | CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab                |
 
-```plaintext
-X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab
-```
+### Description
+This API endpoint allows the creation of multiple bike entries in the system.
 
 ### Request Body
+The request body should be in JSON format and contain an array of bike objects. Each bike object must have the following fields:
 
-The request body should be in JSON format and contain a list of bike objects with the following fields:
+| Field             | Type    | Description                                                        |
+|-------------------|---------|--------------------------------------------------------------------|
+| frame_number      | string  | Unique identifier for the bike frame.                              |
+| name              | string  | The name of the bike model.                                        |
+| station_id        | string  | Identifier for the station where the bike is located.              |
+| top_speed         | number  | Maximum speed the bike can achieve (in km/h).                      |
+| range             | number  | Maximum distance the bike can travel on a full charge (in km).     |
+| time_to_station   | number  | Time taken to reach the designated station (in minutes).           |
+| images            | array   | Array of image URLs representing the bike.                         |
 
-- `frame_number` (String): The unique frame number of the bike.
-- `name` (String): The name of the bike.
-- `station_id` (String): The ID of the station where the bike is located.
-- `top_speed` (Number): The top speed of the bike in km/h.
-- `range` (Number): The range of the bike in km.
-- `time_to_station` (Number): The estimated time to the station in minutes.
-- `images` (Array of Strings): URLs of images of the bike.
-
-Example request body:
-
+### Sample Request
 ```json
 [
   {
@@ -109,4 +104,9 @@ Example request body:
 ]
 ```
 
-Be sure to replace the placeholder data with real data as required.
+### Notes
+- Ensure that all bike objects in the request array have unique `frame_number` values.
+- The `X-Karma-Admin-Auth` header is required for authentication.
+
+### Response
+A successful response will return the status code `201 Created` along with the list of created bike objects.

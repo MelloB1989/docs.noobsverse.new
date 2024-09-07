@@ -4,39 +4,34 @@ type: http
 seq: 11
 ---
 
-## GetUserTripsBySlowestSpeed API
+# GetUserTripsBySlowestSpeed
 
-This API endpoint retrieves user trips sorted by the slowest speed, with a specified limit on the number of trips returned.
+This API endpoint retrieves a list of user trips sorted by the slowest speed.
 
-### HTTP Request
+## HTTP Method: GET
 
-**GET** `http://localhost:3000/v1/trips/speed/slowest?limit=10`
+### URL 
 
-### Parameters
+`http://localhost:3000/v1/trips/speed/slowest?limit=10`
 
-| Name  | Type   | Location | Description                 |
-|-------|--------|----------|-----------------------------|
-| limit | number | query    | Maximum number of trips to return. Default is 10. |
+### Headers
 
-### Request Body
+- `Authorization: Bearer YOUR_JWT_TOKEN`
 
-This endpoint does not require a request body.
+### Query Parameters
+
+- `limit` (default: `10`): The maximum number of trip records to return.
 
 ### Authentication
 
-This endpoint requires Bearer Token authentication.
+This endpoint requires Bearer Token authentication. 
 
-#### Bearer Token
+Example Token:
 
-`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
-
-### Example Request
-
-```http
-GET http://localhost:3000/v1/trips/speed/slowest?limit=10
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Response
+### Body
 
-The response will return a list of user trips sorted by the slowest speed, up to the specified limit.
+This endpoint does not require a request body.

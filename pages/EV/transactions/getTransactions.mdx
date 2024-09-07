@@ -1,57 +1,35 @@
 ---
-title: getTransactions API Documentation
+title: Get Transactions API Documentation
 ---
 
-## API Overview
+# Get Transactions API Documentation
 
-### Name: getTransactions
+## Meta Information
+- **Name:** getTransactions
+- **Type:** HTTP
+- **Sequence:** 1
 
-### Type: HTTP
+## HTTP GET Request
 
-### Sequence: 1
+### URL
+`GET http://localhost:3000/v1/transactions/getAll`
 
-## Endpoint Details
+### Request Body
+None
 
-### GET Request
+### Authentication
+This endpoint requires bearer token authentication.
 
-- **URL:** `http://localhost:3000/v1/transactions`
-- **Request Body:** None
-- **Authentication:** Bearer Token
-
-## Authentication Details
-
-**Auth Type:** Bearer
-
-**Token:**
+### Bearer Token Example
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Example Curl Request
-
+### Example Curl Request
 ```bash
-curl -X GET http://localhost:3000/v1/transactions \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
+curl -X GET http://localhost:3000/v1/transactions/getAll \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
 ```
 
 ## Response
-
-- **Status Code:** 200 OK
-- **Content:** JSON array of transactions
-
-```json
-[
-  {
-    "transactionId": "1",
-    "amount": 100.0,
-    "currency": "USD",
-    "timestamp": "2023-10-01T12:00:00Z"
-  },
-  {
-    "transactionId": "2",
-    "amount": 50.0,
-    "currency": "USD",
-    "timestamp": "2023-10-02T12:00:00Z"
-  }
-]
-```
+The response will include a list of transactions. The structure details of each transaction object can be found in the system's transaction schema documentation for more precise integration details.

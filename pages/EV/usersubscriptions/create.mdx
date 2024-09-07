@@ -1,54 +1,37 @@
 ---
-name: create
-type: http
-seq: 1
+title: "Create User Subscription"
 ---
 
-# API Documentation: Create User Subscription
+import { MetaInfo, Endpoint, AuthToken, RequestBody } from 'components/ApiDetails'
+
+<MetaInfo 
+  name="create" 
+  type="http" 
+  seq="1" 
+/>
 
 ## Endpoint
-
-**URL:** `http://localhost:3000/v1/user_subscription/create`  
-**Method:** `POST`  
-**Authentication:** Bearer Token
+<Endpoint 
+  method="POST" 
+  url="http://localhost:3000/v1/user_subscription/create" 
+  type="json" 
+  auth="bearer" 
+/>
 
 ## Authentication
-
-To authenticate, you need to include the following bearer token in your request headers:
-
-```
-Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+<AuthToken 
+  type="bearer" 
+  token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw" 
+/>
 
 ## Request Body
-
-The request body should be in JSON format and contain the following fields:
-
-```json
-{
-  "subscription_id": "qcxt0ky6xg",
-  "start_date": "27/11/2004",
-  "end_date": "27/11/2004"
-}
-```
-
-### Fields
-
-- **subscription_id** (String): Unique identifier for the subscription.
-- **start_date** (String): The start date of the subscription in `DD/MM/YYYY` format.
-- **end_date** (String): The end date of the subscription in `DD/MM/YYYY` format.
-
-## Example Request
-
-```bash
-curl -X POST http://localhost:3000/v1/user_subscription/create \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "subscription_id": "qcxt0ky6xg",
-    "start_date": "27/11/2004",
-    "end_date": "27/11/2004"
-  }'
-```
-
-Ensure you replace the sample data as needed and include the correct authentication token in your API requests.
+<RequestBody
+  format="json"
+  body={
+    { 
+      "subscription_id": "qcxt0ky6xg",
+      "start_date": "27/11/2004",
+      "end_date": "27/11/2004"
+    }
+  }
+/>

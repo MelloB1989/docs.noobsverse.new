@@ -6,34 +6,47 @@ seq: 1
 
 # Start Trip API
 
-This endpoint is used to initiate a bike trip. It requires authentication and specific JSON data in the request body.
+## Endpoint
 
-## HTTP Request
+**POST** `http://localhost:3000/v1/trips/start`
 
-### POST
-`http://localhost:3000/v1/trips/start`
+## Description
 
-### Authentication
+Initiates a trip for a bike from a specified station at a given start time.
 
-This endpoint requires a bearer token for authentication.
+## Authentication
 
-#### Bearer Token:
+This endpoint requires Bearer Token authentication.
+
+**Token:**
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Request Body
+## Request Body
 
-The request body must be in JSON format and include the following fields:
+The request body must be sent in JSON format and include the following fields:
 
-| Field           | Type   | Description                                |
-|-----------------|--------|--------------------------------------------|
-| `bike_id`       | string | The unique identifier for the bike.        |
-| `station_id`    | string | The unique identifier for the station.     |
-| `start_timestamp` | string | The timestamp marking the trip's start time in ISO 8601 format. |
-
-#### Example JSON Body:
 ```json
+{
+    "bike_id": "i6bjwk0yhu",
+    "station_id": "a2m392c58f",
+    "start_timestamp": "2024-09-02T07:15:00Z"
+}
+```
+
+- **bike_id**: *string* (required) - The unique identifier of the bike.
+- **station_id**: *string* (required) - The unique identifier of the station.
+- **start_timestamp**: *string* (required) - The timestamp when the trip starts, in ISO 8601 format.
+
+## Example Request
+
+```bash
+POST /v1/trips/start HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+Content-Type: application/json
+
 {
     "bike_id": "i6bjwk0yhu",
     "station_id": "a2m392c58f",

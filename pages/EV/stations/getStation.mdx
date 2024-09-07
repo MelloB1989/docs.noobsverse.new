@@ -1,53 +1,53 @@
 ---
-title: API Documentation for getStation
-description: Detailed documentation for the getStation API endpoint.
+title: API Documentation - getStation
 ---
 
-# getStation API
+## API Overview
 
-## Overview
+The `getStation` API provides an HTTP endpoint to retrieve details of a specific station.
 
-The `getStation` API allows clients to retrieve information about a specific station. This API endpoint is a part of the HTTP type services.
+### Metadata
 
-## HTTP Method
+- **Name**: `getStation`
+- **Type**: `http`
+- **Sequence**: `3`
 
-- **GET**
+## HTTP GET Request
 
-## Endpoint
+### URL
 
 ```
 http://localhost:3000/v1/stations/get/wxyoqxff83
 ```
 
-## Authentication
+### Headers
 
-- **None required**
+To authenticate requests, the following header must be included:
 
-## Headers
+- **X-Karma-Admin-Auth**: `ajbkbakweiuy387yeuqqwfahdjhsabd`
 
-To access the `getStation` API, the following header is required:
-
-- `X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd`
-
-## Request Body
+### Request Body
 
 - **None**
 
-## Usage Example
+## Example
+
+### Request Example
 
 ```http
-GET http://localhost:3000/v1/stations/get/wxyoqxff83
+GET /v1/stations/get/wxyoqxff83 HTTP/1.1
+Host: localhost:3000
 X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
 ```
 
-## Sequence
+### Response
 
-- **3**
-
-## Notes
-
-Make sure to replace the `X-Karma-Admin-Auth` value with the appropriate authentication token if you're using a different environment or updating the token for security purposes.
+The response will contain the details of the requested station in a JSON format. Ensure you handle the response correctly based on your application needs.
 
 ---
 
-For further details or queries, please refer to our [official documentation](https://docs.example.com/getStation) or contact our support team.
+> **Note**: Ensure to replace `localhost:3000` with the actual host if the API is running on a different server. Proper authentication via the `X-Karma-Admin-Auth` header is mandatory to access this endpoint.
+
+---
+
+For further details or questions regarding this API, please contact the appropriate support team.
