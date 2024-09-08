@@ -29,7 +29,12 @@
    - **Overview**: Avidia’s AI-driven guidance and mentorship system is personalized for each student, utilizing fine-tuned models based on data from previous cohorts and bootcamps.
    - **Implementation**:
      - **AI Engine**:
-       - **Fine-Tuned Llama 3**: The AI system is powered by a fine-tuned version of Llama 3. The model is trained on data collected from previous bootcamps and cohorts, where mentors manually assessed student code. This data, which Avidia owns fully, ensures that the AI provides accurate, context-aware feedback and guidance.
+       - **Fine-Tuned Llama 3**: The AI system is powered by a fine-tuned version of Llama 3. The model is trained on data collected from previous bootcamps and cohorts, where mentors manually assessed student code. The fine-tuning process focuses on several key areas to ensure that the AI can provide meaningful insights:
+         - **Code Quality Metrics**: The model evaluates code quality based on industry standards and best practices. This includes assessing code readability, maintainability, and adherence to design patterns.
+         - **Common Bad Coding Practices**: The model is trained to recognize and flag common bad coding practices such as hardcoding, excessive nesting, lack of modularity, and improper error handling.
+         - **Improvement Rates Over Time**: The model tracks and analyzes a student's improvement over time, measuring how their coding skills have progressed in terms of efficiency, code structure, and problem-solving ability.
+         - **Error Patterns**: By identifying recurring errors and debugging patterns, the AI can provide targeted advice to help students overcome specific challenges.
+         - **Feedback on Assignments**: The AI offers detailed feedback on assignments, highlighting both strengths and areas for improvement, and providing suggestions for further learning.
        - **Contextual Awareness**: Every interaction with the AI is stored as embeddings in a vector database (such as Pinecone or Faiss). This allows the AI to maintain context and personalize its responses according to each student's progress and learning style.
      - **Mentorship Features**:
        - **Conversational AI**: The AI provides real-time guidance, answering questions, offering suggestions, and helping students overcome challenges. This is achieved through a custom NLP model that understands the nuances of student queries.
