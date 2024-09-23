@@ -1,72 +1,53 @@
 ---
-name: GetUserTripsByShortestDuration
-route: /api/get-user-trips-by-shortest-duration
+title: GetUserTripsByShortestDuration API
+order: 9
 ---
 
 # GetUserTripsByShortestDuration API
 
-## Overview
-
-The `GetUserTripsByShortestDuration` API endpoint retrieves user trips ordered by the shortest duration. This document provides the necessary information for interacting with this endpoint.
+This API retrieves user trips sorted by the shortest duration.
 
 ## HTTP Request
 
-### GET Request
-
-- **URL:** `http://localhost:3000/v1/trips/duration/shortest?limit=10`
-- **Method:** GET
-- **Authentication:** Bearer Token
-
-```http
-GET http://localhost:3000/v1/trips/duration/shortest?limit=10
-Authorization: Bearer <token>
-```
-
-### Query Parameters
-
-- `limit`: Specifies the maximum number of trips to return (default: 10).
+**GET** `http://localhost:3000/v1/trips/duration/shortest?limit=10`
 
 ## Authentication
 
-This endpoint requires Bearer Token authentication. Include the following token in your request header:
+This endpoint requires a Bearer token for authentication.
 
-**Bearer Token:**
+**Header:**
 
+```plaintext
+Authorization: Bearer {token}
 ```
+
+**Example Token:**
+
+```plaintext
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Example cURL Request
+## Query Parameters
 
-```bash
-curl -X GET "http://localhost:3000/v1/trips/duration/shortest?limit=10" \
--H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
+| Parameter | Type  | Description                                   | Required | Default Value |
+|-----------|-------|-----------------------------------------------|----------|---------------|
+| limit     | number| The number of trips to retrieve (maximum: 10) | yes      | 10            |
+
+## Example Request
+
+```plaintext
+GET http://localhost:3000/v1/trips/duration/shortest?limit=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
+
+> Ensure that you replace the `{token}` in the Authorization header with your actual Bearer token.
 
 ## Response
 
-The response will include the list of user trips ordered by the shortest duration, up to the specified limit.
+The response will contain the trips sorted by the shortest duration based on the limit specified.
 
-```json
-{
-  "trips": [
-    {
-      "tripId": "123",
-      "duration": 30,
-      "destination": "City A",
-      // additional trip details
-    },
-    {
-      "tripId": "124",
-      "duration": 45,
-      "destination": "City B",
-      // additional trip details
-    }
-    // more trips
-  ]
-}
-```
+---
 
-## Summary
+This concludes the documentation for the GetUserTripsByShortestDuration API.
 
-The `GetUserTripsByShortestDuration` endpoint provides a way to fetch a list of user trips sorted by duration. The query parameter `limit` allows you to control the number of trips returned. Authentication is handled via a Bearer Token.
+If you encounter any issues or have questions, please refer to the [API support page](#) or contact the support team for further assistance.

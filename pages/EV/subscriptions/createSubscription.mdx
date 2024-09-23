@@ -4,104 +4,72 @@ type: http
 seq: 1
 ---
 
-# Create Subscription API
+# createSubscription
 
-## Endpoint
+## HTTP Method
+**POST**
 
-**POST** `http://localhost:3000/v1/subscriptions/create`
+## URL
+`http://localhost:3000/v1/subscriptions/create`
 
 ## Authentication
-
 None
 
 ## Headers
-
-- `X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
+| Key                   | Value                                                                       |
+|-----------------------|-----------------------------------------------------------------------------|
+| X-Karma-Admin-Auth    | CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab |
 
 ## Request Body
-
-The body of the request should be in JSON format, containing an array of subscription objects. Below are some example objects:
-
 ```json
 [
-  {
-    "id": "sub_001",
-    "monthly_fee": 29.99,
-    "discount": 5.00,
-    "name": "Standard Plan",
-    "bike_id": "01rvo0_nbh",
-    "type": "monthly",
-    "security_deposit": 10
-  },
-  {
-    "id": "sub_002",
-    "monthly_fee": 39.99,
-    "discount": 10.00,
-    "name": "Premium Plan",
-    "bike_id": "9tkdp5ra3p",
-    "type": "monthly",
-    "security_deposit": 10
-  },
-  {
-    "id": "sub_003",
-    "monthly_fee": 19.99,
-    "discount": 0.00,
-    "name": "Basic Plan",
-    "bike_id": "2_vnd6qjv1",
-    "type": "monthly",
-    "security_deposit": 10
-  },
-  {
-    "id": "sub_004",
-    "monthly_fee": 49.99,
-    "discount": 15.00,
-    "name": "Ultimate Plan",
-    "bike_id": "vu1v4kb4s6",
-    "type": "annual",
-    "security_deposit": 10
-  },
-  {
-    "id": "sub_005",
-    "monthly_fee": 25.99,
-    "discount": 5.00,
-    "name": "Student Plan",
-    "bike_id": "01rvo0_nbh",
-    "type": "monthly",
-    "security_deposit": 10
-  }
+    {
+        "id": "sub_001",
+        "monthly_fee": 29.99,
+        "discount": 5.00,
+        "name": "Standard Plan",
+        "bike_id": "01rvo0_nbh",
+        "type": "monthly",
+        "security_deposit": 10
+    },
+    {
+        "id": "sub_002",
+        "monthly_fee": 39.99,
+        "discount": 10.00,
+        "name": "Premium Plan",
+        "bike_id": "9tkdp5ra3p",
+        "type": "monthly",
+        "security_deposit": 10
+    },
+    {
+        "id": "sub_003",
+        "monthly_fee": 19.99,
+        "discount": 0.00,
+        "name": "Basic Plan",
+        "bike_id": "2_vnd6qjv1",
+        "type": "monthly",
+        "security_deposit": 10
+    },
+    {
+        "id": "sub_004",
+        "monthly_fee": 49.99,
+        "discount": 15.00,
+        "name": "Ultimate Plan",
+        "bike_id": "vu1v4kb4s6",
+        "type": "annual",
+        "security_deposit": 10
+    },
+    {
+        "id": "sub_005",
+        "monthly_fee": 25.99,
+        "discount": 5.00,
+        "name": "Student Plan",
+        "bike_id": "01rvo0_nbh",
+        "type": "monthly",
+        "security_deposit": 10
+    }
 ]
 ```
 
-### Subscription Object Properties
-
-- `id` (string): Unique identifier for the subscription.
-- `monthly_fee` (number): The monthly fee for the subscription.
-- `discount` (number): The discount applied to the subscription.
-- `name` (string): The name of the subscription plan.
-- `bike_id` (string): The identifier for the bike associated with the subscription.
-- `type` (string): The type of the subscription (e.g., "monthly", "annual").
-- `security_deposit` (number): The security deposit required for the subscription.
-
-## Example Request
-
-```json
-POST /v1/subscriptions/create HTTP/1.1
-Host: localhost:3000
-X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab
-Content-Type: application/json
-
-[
-  {
-    "id": "sub_001",
-    "monthly_fee": 29.99,
-    "discount": 5.00,
-    "name": "Standard Plan",
-    "bike_id": "01rvo0_nbh",
-    "type": "monthly",
-    "security_deposit": 10
-  },
-  ...
-]
-```
-
-Ensure the request body is a valid JSON array containing various subscription objects for successful creation.
+## Response
+The response structure is not specified. Please refer to the respective API documentation or test against the endpoint to understand the response format.

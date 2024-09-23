@@ -1,46 +1,60 @@
 ---
-name: GetUserTripsByLongestDuration
-type: http
-sequence: 8
+title: GetUserTripsByLongestDuration API Documentation
+sidebar_position: 8
 ---
 
-# GetUserTripsByLongestDuration API
+# GetUserTripsByLongestDuration
 
-## Overview
+The `GetUserTripsByLongestDuration` API retrieves the user's trips sorted by the longest duration.
 
-This API endpoint retrieves the user trips sorted by the longest duration.
+## HTTP Request
 
-## HTTP Method
+### GET
 
-- **GET** 
-
-## URL
-
-- `http://localhost:3000/v1/trips/duration/longest`
-
-## Query Parameters
-
-| Name  | Type | Required | Description                           |
-|-------|------|----------|---------------------------------------|
-| limit | int  | Optional | Limits the number of records returned |
-
-### Example
-
-- **URL with Query Parameter**:
-  ```
-  http://localhost:3000/v1/trips/duration/longest?limit=10
-  ```
-
-## Request Body
-
-- No request body needed.
-
-## Authentication
-
-This endpoint requires Bearer Token authentication.
-
-### Example Bearer Token
-
+```http
+GET http://localhost:3000/v1/trips/duration/longest?limit=10
 ```
+
+### Query Parameters
+
+| Name  | Type | Description       | Default |
+|-------|------|-------------------|---------|
+| limit | int  | Maximum number of trips to retrieve | 10      |
+
+### Authorization
+
+This endpoint requires a Bearer token.
+
+#### Example Bearer Token
+
+```plaintext
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
+
+### Example Request
+
+```http
+GET http://localhost:3000/v1/trips/duration/longest?limit=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Response
+
+The response will contain an array of trips sorted by the longest duration.
+
+**Status Code:** 200 OK
+
+**Response Body:**
+
+```json
+[
+  {
+    "tripId": "string",
+    "duration": "number",
+    "otherTripDetails": "object"
+  },
+  // More trip objects...
+]
+```
+
+Make sure to replace the bearer token with an appropriate token when making requests to this endpoint.

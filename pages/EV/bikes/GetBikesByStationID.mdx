@@ -1,23 +1,84 @@
 ---
-name: GetBikesByStationID
-type: http
-sequence: 5
+title: GetBikesByStationID API Documentation
 ---
 
-# GetBikesByStationID API
+## GetBikesByStationID
 
-## Endpoint
-**GET** `https://ev-backend.app.k8s.coffeecodes.in/v1/bikes/get/station/e6j_2fyc23`
+### Description
 
-## Authentication
-This endpoint requires a Bearer token for authentication:
+The `GetBikesByStationID` API endpoint retrieves a list of bikes available at a given station. 
 
-```plaintext
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI9NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+### HTTP Method
+
+`GET`
+
+### Endpoint
+
+```
+https://ev-backend.app.k8s.coffeecodes.in/v1/bikes/get/station/e6j_2fyc23
 ```
 
-## Request Body
-No request body is needed for this endpoint.
+### Request Parameters
 
----
+- **Body**: None
 
+### Authentication
+
+This endpoint requires a Bearer token for authentication.
+
+#### Bearer Token 
+
+Example Bearer token:
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+**Note:** Replace the above example token with your actual Bearer token.
+
+### Sequence
+
+`5`
+
+### Example Request
+
+```http
+GET /v1/bikes/get/station/e6j_2fyc23 HTTP/1.1
+Host: ev-backend.app.k8s.coffeecodes.in
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+### Responses
+
+#### Successful Response (200)
+
+If the request is successful, the API will return a JSON response with a list of bikes available at the specified station.
+
+```json
+{
+  "status": "success",
+  "data": [
+    {
+      "bike_id": "b1",
+      "status": "available",
+      "station_id": "e6j_2fyc23"
+    },
+    ...
+  ]
+}
+```
+
+#### Unauthorized Response (401)
+
+If the request does not include a valid Bearer token, the API will return a 401 Unauthorized error.
+
+```json
+{
+  "status": "error",
+  "message": "Unauthorized"
+}
+```
+
+### Notes
+
+- Ensure the Bearer token is included in the Authorization header.
+- Replace `e6j_2fyc23` with the actual Station ID for which you want to get the bikes.

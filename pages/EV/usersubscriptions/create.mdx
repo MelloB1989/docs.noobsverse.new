@@ -1,32 +1,28 @@
 ---
-title: Create User Subscription
+name: create
+type: http
+seq: 1
 ---
 
-## Endpoint: Create User Subscription
+## Create User Subscription
 
-This API endpoint allows you to create a user subscription.
+This endpoint allows you to create a user subscription.
 
-### HTTP Method
+### HTTP Request
 
-`POST`
-
-### URL
-
-`http://localhost:3000/v1/user_subscription/create`
+**POST** `http://localhost:3000/v1/user_subscription/create`
 
 ### Authentication
 
-Bearer token is required for this endpoint.
+This endpoint requires a bearer token.
 
-#### Example
+#### Bearer Token
 
-```plaintext
-Bearer <YOUR_TOKEN_HERE>
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ### Request Body
-
-The request body should be in JSON format and should contain the following fields:
 
 ```json
 {
@@ -36,23 +32,6 @@ The request body should be in JSON format and should contain the following field
 }
 ```
 
-### Example Request
-
-```curl
-curl -X POST http://localhost:3000/v1/user_subscription/create \
-     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw" \
-     -H "Content-Type: application/json" \
-     -d '{
-           "subscription_id": "qcxt0ky6xg",
-           "start_date": "27/11/2004",
-           "end_date": "27/11/2004"
-         }'
-```
-
 ### Response
 
-The API will return a response with details regarding the created subscription. The structure of the response will be provided by the API documentation.
-
-## Summary
-
-This endpoint is designed for creating subscriptions for users with a required bearer token for authorization and a JSON body specifying `subscription_id`, `start_date`, and `end_date`.
+A successful request will result in a response with the created user subscription details. Detailed information on response structure and possible status codes should be provided by further documentation.

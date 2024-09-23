@@ -1,36 +1,37 @@
 ---
-name: Webhook
-type: HTTP
+name: webhook
+type: http
 seq: 4
 ---
 
-# Webhook API Documentation
+# Webhook API
 
-This documentation provides details about the `Webhook` API.
+The Webhook API allows you to receive updates about events related to wallets.
 
 ## Endpoint
 
 ### GET
+- **URL:** `http://localhost:3000/v1/wallet/webhook`
+- **Authorization:** Bearer Token
 
-#### URL
-`http://localhost:3000/v1/wallet/webhook`
+## Query Parameters
 
-#### Query Parameters
+| Parameter      | Type   | Description                                    | Example                                      |
+| -------------- | ------ | ---------------------------------------------- | -------------------------------------------- |
+| `uid`          | string | Unique identifier for the user                 | `5geapgapxs`                                 |
+| `balance`      | string | Current balance of the wallet                  | `10000000000`                                |
+| `webhook_key`  | string | Key used to identify the webhook               | `coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda` |
 
-- **uid**: `5geapgapxs`
-- **balance**: `10000000000`
-- **webhook_key**: `coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda`
+## Authentication
 
-#### Body
-None
+To access this endpoint, a bearer token is required.
 
-#### Authorization
-Bearer Token required.
+### Bearer Token
+- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I`
 
+### Example Request
+
+```http
+GET http://localhost:3000/v1/wallet/webhook?uid=5geapgapxs&balance=10000000000&webhook_key=coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
-```
-
----
-
-Ensure to include the Bearer token in the request header for authentication.

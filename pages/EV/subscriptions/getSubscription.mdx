@@ -1,77 +1,74 @@
 ---
-title: "getSubscription API Documentation"
+name: getSubscription
+type: http
+seq: 2
 ---
 
-## getSubscription API
+## `getSubscription`
 
-### Endpoint
+### Description
+Retrieve the subscription details.
 
-```
-GET http://localhost:3000/v1/subscriptions/get
-```
+### Method
+`GET`
 
-### Authentication
-
-The request requires a bearer token for authentication.
-
-- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I`
+### URL
+`http://localhost:3000/v1/subscriptions/get`
 
 ### Headers
 
-- **X-Karma-Admin-Auth**: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
+- `X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
 
-### Request Body
+### Authentication
 
-The request body should be in JSON format.
+Bearer Token:
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
+```
 
-#### JSON Structure
+### Request Body (JSON)
 
 ```json
 [
-  {
-    "id": "sub_001",
-    "monthly_fee": 29.99,
-    "discount": 5.00,
-    "name": "Standard Plan",
-    "bike_id": "01rvo0_nbh",
-    "type": "monthly"
-  },
-  {
-    "id": "sub_002",
-    "monthly_fee": 39.99,
-    "discount": 10.00,
-    "name": "Premium Plan",
-    "bike_id": "9tkdp5ra3p",
-    "type": "monthly"
-  },
-  {
-    "id": "sub_003",
-    "monthly_fee": 19.99,
-    "discount": 0.00,
-    "name": "Basic Plan",
-    "bike_id": "2_vnd6qjv1",
-    "type": "monthly"
-  },
-  {
-    "id": "sub_004",
-    "monthly_fee": 49.99,
-    "discount": 15.00,
-    "name": "Ultimate Plan",
-    "bike_id": "vu1v4kb4s6",
-    "type": "annual"
-  },
-  {
-    "id": "sub_005",
-    "monthly_fee": 25.99,
-    "discount": 5.00,
-    "name": "Student Plan",
-    "bike_id": "01rvo0_nbh",
-    "type": "monthly"
-  }
+    {
+        "id": "sub_001",
+        "monthly_fee": 29.99,
+        "discount": 5.00,
+        "name": "Standard Plan",
+        "bike_id": "01rvo0_nbh",
+        "type": "monthly"
+    },
+    {
+        "id": "sub_002",
+        "monthly_fee": 39.99,
+        "discount": 10.00,
+        "name": "Premium Plan",
+        "bike_id": "9tkdp5ra3p",
+        "type": "monthly"
+    },
+    {
+        "id": "sub_003",
+        "monthly_fee": 19.99,
+        "discount": 0.00,
+        "name": "Basic Plan",
+        "bike_id": "2_vnd6qjv1",
+        "type": "monthly"
+    },
+    {
+        "id": "sub_004",
+        "monthly_fee": 49.99,
+        "discount": 15.00,
+        "name": "Ultimate Plan",
+        "bike_id": "vu1v4kb4s6",
+        "type": "annual"
+    },
+    {
+        "id": "sub_005",
+        "monthly_fee": 25.99,
+        "discount": 5.00,
+        "name": "Student Plan",
+        "bike_id": "01rvo0_nbh",
+        "type": "monthly"
+    }
 ]
 ```
-
-### Notes
-
-- Make sure to replace the placeholders with your actual token and appropriate values as required.
-- Ensure the request is authenticated properly before making a call to the endpoint.

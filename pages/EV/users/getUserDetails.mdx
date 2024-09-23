@@ -1,23 +1,47 @@
 ---
-title: getUserDetails API Documentation
+name: getUserDetails
+type: http
+seq: 1
 ---
 
-## getUserDetails
+# getUserDetails API
 
-The `getUserDetails` API is used to retrieve the details of a user. This is an HTTP GET request that requires a bearer token for authentication.
+This endpoint retrieves the details of a user based on the provided authentication token.
 
-### HTTP Request
+## HTTP Method
 
-**GET** `http://localhost:3000/v1/user/get`
+- `GET`
 
-### Request Body
+## URL
 
-None. This API does not require a request body.
+- `http://localhost:3000/v1/user/get`
 
-### Authentication
+## Authentication
 
-This endpoint uses bearer token authentication. Include the following token in the Authorization header of your HTTP request:
+This endpoint requires a Bearer token for authentication.
 
-```text
+### Bearer Token
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+## Request Body
+
+- None required.
+
+## Response
+
+- A JSON object containing user details.
+
+## Example Request
+
+```http
+GET /v1/user/get HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
+
+## Note
+
+Ensure the provided token is valid and not expired.

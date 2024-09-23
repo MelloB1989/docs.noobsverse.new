@@ -1,43 +1,36 @@
 ---
-name: joinGroup
-type: http
-seq: 2
+title: "Join Group API"
 ---
 
-# API Documentation: `joinGroup`
+## Join Group
 
-## Description
+This API endpoint allows a user to join a specified group.
 
-The `joinGroup` API allows a user to join a specific group.
+### Endpoint Details
 
-## HTTP Request
+- **Name:** joinGroup
+- **Type:** HTTP
+- **Sequence:** 2
 
-### Method and URL
+### HTTP Request
 
-**POST** `http://localhost:3000/v1/groups/2/join`
+- **Method:** POST
+- **URL:** `http://localhost:3000/v1/groups/2/join`
+- **Body:** None
 
 ### Authentication
 
-This endpoint requires a Bearer Token for authentication.
+This endpoint requires Bearer Token authentication.
 
+- **Auth Type:** Bearer
+- **Token:**
+  ```
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+  ```
+
+### Example Request
+
+```http
+POST http://localhost:3000/v1/groups/2/join
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-Authorization: Bearer <token>
-```
-
-### Token
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-## Request Body
-
-None
-
-## Sequence
-
-This is the 2nd API call in the sequence.
-
----
-
-Ensure you replace the example token with a valid one for your session.

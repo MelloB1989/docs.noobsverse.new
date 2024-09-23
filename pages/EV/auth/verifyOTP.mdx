@@ -1,34 +1,28 @@
 ---
-name: verifyOTP
-type: http
-seq: 2
+title: "verifyOTP API Documentation"
+type: "http"
+sequence: 2
 ---
 
-# verifyOTP API
+# verifyOTP
 
 ## Overview
 
-The `verifyOTP` API is used to verify the OTP sent to a user's phone number.
+The `verifyOTP` API endpoint is used to verify the OTP (One-Time Password) sent to a user's phone number. This is a POST request that accepts a JSON body and does not require authentication.
 
-## HTTP Request
+## Endpoint
 
-### Method
+**URL:** `http://localhost:3000/v1/auth/verify_otp`
 
-`POST`
-
-### URL
-
-`http://localhost:3000/v1/auth/verify_otp`
+**Method:** POST
 
 ## Request
 
 ### Headers
 
-None
+No authentication headers are required for this endpoint.
 
-### Body
-
-The request body must be in JSON format and include the following fields:
+### Body (JSON)
 
 ```json
 {
@@ -37,13 +31,10 @@ The request body must be in JSON format and include the following fields:
 }
 ```
 
-- **phone**: A string representing the user's phone number in an international format.
-- **otp**: A string representing the one-time password (OTP) sent to the user.
-
-## Authentication
-
-No authentication is required to access this endpoint. 
+- **phone**: The phone number to which the OTP was sent. (e.g., `"+919812940706"`)
+- **otp**: The OTP received by the user. (e.g., `"815897"`)
 
 ## Response
 
-The API's response will inform you whether the OTP verification was successful or not. The structure of the response will depend on the server's implementation.
+The API will return a response indicating whether the OTP verification was successful or not. The specific structure of the response is not detailed here but will typically contain status codes and possible error messages or success confirmations.
+

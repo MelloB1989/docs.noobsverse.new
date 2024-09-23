@@ -1,67 +1,29 @@
 ---
-name: GetBikesByTopSpeedLT
-type: http
-seq: 7
+title: GetBikesByTopSpeedLT API Documentation
 ---
 
-# GetBikesByTopSpeedLT
+## GetBikesByTopSpeedLT
 
-## Endpoint Details
+### Type
+HTTP
 
-- **Method:** GET
-- **URL:** `http://localhost:3000/v1/bikes/get/speed_lt/50`
-- **Body:** None
-- **Authentication:** Bearer Token
+### Sequence
+7
+
+## Endpoint
+
+### GET Request
+
+- **URL**: `http://localhost:3000/v1/bikes/get/speed_lt/50`
+- **Body**: None
+- **Authentication**: Bearer Token
 
 ## Authentication
 
-To access this endpoint, you need a bearer token. Below is an example of a bearer token for demonstration purposes:
+### Bearer Token
+
+Use the following bearer token for authorization:
 
 ```plaintext
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
-
-In your request header, include the token like this:
-
-```plaintext
-Authorization: Bearer <your_token_here>
-```
-
-## Example Request
-
-```http
-GET http://localhost:3000/v1/bikes/get/speed_lt/50
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
-
-## Response
-
-The endpoint will return a list of bikes with a top speed less than 50.
-
-### Success Response
-
-- **Code:** 200 OK
-- **Content:**
-
-```json
-[
-  {
-    "id": "bike1",
-    "name": "Speedster",
-    "top_speed": 45
-  },
-  {
-    "id": "bike2",
-    "name": "RoadRunner",
-    "top_speed": 48
-  }
-]
-```
-
-### Error Response
-
-- **Code:** 401 Unauthorized
-  - **Content:** `{"error": "Invalid or missing authentication token"}`
-
-- **Code:** 404 Not Found
-  - **Content:** `{"error": "No bikes found with top speed less than 50"}`

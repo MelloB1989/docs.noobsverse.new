@@ -1,25 +1,32 @@
 ---
-title: Create Group API
+title: "Create Group API Documentation"
 ---
 
-## Create Group
+# Create Group API
 
-### Description
-This API endpoint allows you to create a new group.
+This documentation provides details on how to use the `createGroup` API to create a new group.
 
-### Endpoint
-**HTTP Method:** POST  
-**URL:** `http://localhost:3000/v1/groups/create`
+## Endpoint Details
+
+### HTTP Method
+
+`POST`
+
+### URL
+
+`http://localhost:3000/v1/groups/create`
 
 ### Authentication
-**Type:** Bearer Token
 
-```plaintext
+Bearer Token authentication is required for this endpoint.
+
+```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Request Body
-**Content-Type:** application/json
+## Request Body
+
+The request body should be in JSON format and include the following parameters:
 
 ```json
 {
@@ -28,13 +35,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4M
 }
 ```
 
-### Sequence
-This API call should be made first in the sequence of operations.
+### Parameters
 
-### Example Request
+- `name` (string): The name of the group.
+- `description` (string): A brief description of the group's focus.
+
+## Example Request
 
 ```http
-POST http://localhost:3000/v1/groups/create
+POST /v1/groups/create HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 Content-Type: application/json
 
@@ -44,17 +54,4 @@ Content-Type: application/json
 }
 ```
 
-### Example Response
-
-```json
-{
-  "id": "abc123",
-  "name": "Green Warriors",
-  "description": "A group focused on reducing carbon emissions.",
-  "created_at": "2023-10-01T12:00:00Z"
-}
-```
-
-### Notes
-- Ensure the bearer token is valid and not expired.
-- The `name` and `description` fields are mandatory in the request body.
+Make sure to replace the example bearer token with a valid token.

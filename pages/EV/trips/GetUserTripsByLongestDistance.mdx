@@ -1,76 +1,45 @@
 ---
-id: GetUserTripsByLongestDistance
-title: GetUserTripsByLongestDistance
-sidebar_label: GetUserTripsByLongestDistance
+title: GetUserTripsByLongestDistance API
+type: HTTP
+sequence: 6
 ---
 
 # GetUserTripsByLongestDistance API
 
-The `GetUserTripsByLongestDistance` API retrieves user trips sorted by the longest distance. This endpoint allows you to specify the number of trips to return.
+This API retrieves user trips ordered by the longest distance.
 
-## HTTP Request
+## Endpoint
 
-```http
-GET http://localhost:3000/v1/trips/distance/longest?limit=10
-```
+### GET
 
-## Query Parameters
+#### URL
 
-- `limit` (integer) - The number of trips to retrieve. Default is 10.
+    http://localhost:3000/v1/trips/distance/longest?limit=10
 
-## Request Headers
+#### Body
 
-- `Authorization` - Bearer token for authentication. Example:
-  ```
-  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-  ```
+    None
 
-## Example Request
+### Authentication
+
+#### Type
+
+    Bearer
+
+#### Token
+
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+
+## Parameters
+
+### Query
+
+- `limit`: (integer) The maximum number of user trips to retrieve. Default is `10`.
+
+## Usage Example
 
 ```http
 GET /v1/trips/distance/longest?limit=10 HTTP/1.1
 Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-
-## Response
-
-A successful response will return a JSON object containing the details of user trips sorted by the longest distance.
-
-```json
-{
-  "trips": [
-    {
-      "tripId": "1",
-      "distance": "50.5",
-      "startLocation": "Location A",
-      "endLocation": "Location B",
-      "duration": "120"
-    },
-    {
-      "tripId": "2",
-      "distance": "45.1",
-      "startLocation": "Location C",
-      "endLocation": "Location D",
-      "duration": "110"
-    },
-    ...
-  ]
-}
-```
-
-## Authentication
-
-This endpoint requires a bearer token for authentication. Pass the token in the `Authorization` header as shown in the example request.
-
-### Example Token
-
-```text
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-Ensure to replace this token with a valid token before making the request.
-
-----
-
-This document explains how to utilize the `GetUserTripsByLongestDistance` API for retrieving the user's trips sorted by the longest distance. Make sure to use the correct bearer token for authorization and adjust the `limit` parameter as needed.

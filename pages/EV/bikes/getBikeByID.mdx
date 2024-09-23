@@ -1,35 +1,63 @@
 ---
-title: API Documentation - getBikeByID
+title: getBikeByID API Documentation
 ---
 
-## getBikeByID
+# getBikeByID API
 
-### Type
-`HTTP`
+## Overview
+The `getBikeByID` API allows clients to retrieve bike information using a unique bike ID. This endpoint requires HTTP GET requests and Bearer Token authentication.
 
-### Sequence
-`2`
+## Endpoint Details
 
----
+- **URL:** `http://localhost:3000/v1/bikes/get/jruefu191e`
+- **Method:** GET
+- **Authentication:** Bearer Token
 
-### GET Request
+## Authentication
 
-#### URL
-`http://localhost:3000/v1/bikes/get/jruefu191e`
+To use the `getBikeByID` API, you need to include a valid Bearer Token in the request headers.
 
-#### Request Body
-`None`
-
-#### Authorization
-Type: `Bearer Token`
-
-```plaintext
+Example Bearer Token:
+```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
----
+## Request
 
-### Notes
+- **Body:** None
 
-- Ensure the bearer token is valid and not expired when making the request.
-- This API endpoint is used to retrieve details of a bike by its ID.
+### Example Request
+
+```http
+GET /v1/bikes/get/jruefu191e HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+## Responses
+
+- **200 OK:**
+  - **Description:** Bike information is retrieved successfully.
+- **404 Not Found:**
+  - **Description:** The bike with the given ID does not exist.
+- **401 Unauthorized:**
+  - **Description:** The request lacks valid authentication credentials.
+
+## Sequence
+
+This API endpoint is called at sequence position 2.
+
+## Example Response
+
+```json
+{
+  "id": "jruefu191e",
+  "model": "Mountain Bike XT3",
+  "brand": "BikeBrand",
+  "status": "available"
+}
+```
+
+## Notes
+
+Ensure your Bearer Token is valid and has not expired to avoid unauthorized errors.

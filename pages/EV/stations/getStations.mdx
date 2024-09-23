@@ -1,38 +1,70 @@
 ---
-title: API Documentation - getStations
+title: Get Stations API
+description: Documentation for the getStations API.
 ---
 
-## API Name: getStations
+import { Meta } from '@mdx-js/tag';
 
-### Type: HTTP
+<Meta name="getStations" type="http" seq="2" />
 
-## Endpoint Sequence: 2
+## Get Stations API
 
-## HTTP GET Request
+The `getStations` endpoint allows you to retrieve a list of stations.
 
-**URL:**
+### Endpoint
+
+**GET** `http://localhost:3000/v1/stations/get`
+
+### Authentication
+
+No authentication is required for this endpoint.
+
+### Headers
+
+Include the following header to authorize your request:
+
+- `X-Karma-Admin-Auth`: `ajbkbakweiuy387yeuqqwfahdjhsabd`
+
+### Request Body
+
+This endpoint does not require a request body.
+
+### Response
+
+On success, the endpoint will return a list of stations.
+
+### Example Request
+
+```http
+GET http://localhost:3000/v1/stations/get
 ```
-http://localhost:3000/v1/stations/get
+
+### Example Response
+
+```json
+[
+  {
+    "id": "station1",
+    "name": "First Station",
+    "location": "Location 1"
+  },
+  {
+    "id": "station2",
+    "name": "Second Station",
+    "location": "Location 2"
+  }
+]
 ```
 
-**Request Body:**
-```
-None
-```
+### Status Codes
 
-**Authentication:**
-```
-None
-```
+- `200 OK`: The request was successful, and the list of stations is returned.
+- `400 Bad Request`: The request could not be understood or was missing required parameters.
+- `401 Unauthorized`: Authentication failed or was not provided.
+- `500 Internal Server Error`: An error occurred on the server.
 
-## Required Headers
+### Notes
 
-| Header Name           | Value                                  |
-|-----------------------|----------------------------------------|
-| X-Karma-Admin-Auth    | ajbkbakweiuy387yeuqqwfahdjhsabd         |
+Make sure to replace the placeholder in the `X-Karma-Admin-Auth` header with the correct authentication token.
 
-## Description
-
-The `getStations` API is used to retrieve a list of stations. This endpoint does not require any request body or authentication. However, a specific header `X-Karma-Admin-Auth` needs to be included with the value `ajbkbakweiuy387yeuqqwfahdjhsabd`.
-
-Ensure your HTTP request includes the appropriate header to successfully interact with this API.
+For further information, please contact the API support team.

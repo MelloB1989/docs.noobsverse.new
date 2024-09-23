@@ -1,112 +1,124 @@
 ---
-name: createStation
-type: http
-seq: 1
+title: Create Station API
+type: HTTP
+endpoint: /createStation
 ---
 
 # Create Station API
 
-## Endpoint
-- **HTTP Method**: POST
+## Overview
+
+The `createStation` API allows the creation of new stations by sending a POST request. This endpoint does not require authentication and accepts a JSON body that contains details of the stations to be created.
+
+## HTTP Request
+
+- **Method**: POST
 - **URL**: `http://localhost:3000/v1/stations/create`
-- **Content-Type**: application/json
-- **Authentication**: None
 
 ## Headers
-Add the following header to your request:
 
-```plaintext
-X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab
-```
+| Key                    | Value                                                                                               |
+|------------------------|-----------------------------------------------------------------------------------------------------|
+| X-Karma-Admin-Auth     | CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab                      |
+
+> Note: This endpoint does not require authentication.
 
 ## Request Body
-Provide the station details in the request body in JSON format. Below is an example of the JSON body expected:
+
+The request body must be in JSON format and should include the following fields for each station:
 
 ```json
 [
-  {
-    "name": "Central Station",
-    "location_latitude": "40.712776",
-    "location_longitude": "-74.005974",
-    "capacity": 100,
-    "current_capacity": 75
-  },
-  {
-    "name": "Downtown Station",
-    "location_latitude": "34.052235",
-    "location_longitude": "-118.243683",
-    "capacity": 150,
-    "current_capacity": 90
-  },
-  {
-    "name": "Uptown Station",
-    "location_latitude": "51.507351",
-    "location_longitude": "-0.127758",
-    "capacity": 200,
-    "current_capacity": 120
-  },
-  {
-    "name": "Westside Station",
-    "location_latitude": "35.689487",
-    "location_longitude": "139.691711",
-    "capacity": 180,
-    "current_capacity": 160
-  },
-  {
-    "name": "Eastside Station",
-    "location_latitude": "48.856613",
-    "location_longitude": "2.352222",
-    "capacity": 250,
-    "current_capacity": 200
-  }
+    {
+        "name": "Central Station",
+        "location_latitude": "40.712776",
+        "location_longitude": "-74.005974",
+        "capacity": 100,
+        "current_capacity": 75
+    },
+    {
+        "name": "Downtown Station",
+        "location_latitude": "34.052235",
+        "location_longitude": "-118.243683",
+        "capacity": 150,
+        "current_capacity": 90
+    },
+    {
+        "name": "Uptown Station",
+        "location_latitude": "51.507351",
+        "location_longitude": "-0.127758",
+        "capacity": 200,
+        "current_capacity": 120
+    },
+    {
+        "name": "Westside Station",
+        "location_latitude": "35.689487",
+        "location_longitude": "139.691711",
+        "capacity": 180,
+        "current_capacity": 160
+    },
+    {
+        "name": "Eastside Station",
+        "location_latitude": "48.856613",
+        "location_longitude": "2.352222",
+        "capacity": 250,
+        "current_capacity": 200
+    }
 ]
 ```
 
-## Response
-The API will return a JSON response confirming the creation of the stations. The format of the response will depend on the implementation details (not provided here).
+**Field Definitions**:
 
-## Example
-Here's an example cURL request to create stations:
+- `name` (string): Name of the station.
+- `location_latitude` (string): Latitude of the station's location.
+- `location_longitude` (string): Longitude of the station's location.
+- `capacity` (integer): The maximum capacity of the station.
+- `current_capacity` (integer): The current occupancy of the station.
 
-```bash
-curl -X POST 'http://localhost:3000/v1/stations/create' \
--H 'X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab' \
--H 'Content-Type: application/json' \
--d '[
-  {
-    "name": "Central Station",
-    "location_latitude": "40.712776",
-    "location_longitude": "-74.005974",
-    "capacity": 100,
-    "current_capacity": 75
-  },
-  {
-    "name": "Downtown Station",
-    "location_latitude": "34.052235",
-    "location_longitude": "-118.243683",
-    "capacity": 150,
-    "current_capacity": 90
-  },
-  {
-    "name": "Uptown Station",
-    "location_latitude": "51.507351",
-    "location_longitude": "-0.127758",
-    "capacity": 200,
-    "current_capacity": 120
-  },
-  {
-    "name": "Westside Station",
-    "location_latitude": "35.689487",
-    "location_longitude": "139.691711",
-    "capacity": 180,
-    "current_capacity": 160
-  },
-  {
-    "name": "Eastside Station",
-    "location_latitude": "48.856613",
-    "location_longitude": "2.352222",
-    "capacity": 250,
-    "current_capacity": 200
-  }
-]'
+## Example Request
+
+```json
+POST http://localhost:3000/v1/stations/create
+Headers:
+{
+    "X-Karma-Admin-Auth": "CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab"
+}
+Body:
+[
+    {
+        "name": "Central Station",
+        "location_latitude": "40.712776",
+        "location_longitude": "-74.005974",
+        "capacity": 100,
+        "current_capacity": 75
+    },
+    {
+        "name": "Downtown Station",
+        "location_latitude": "34.052235",
+        "location_longitude": "-118.243683",
+        "capacity": 150,
+        "current_capacity": 90
+    },
+    {
+        "name": "Uptown Station",
+        "location_latitude": "51.507351",
+        "location_longitude": "-0.127758",
+        "capacity": 200,
+        "current_capacity": 120
+    },
+    {
+        "name": "Westside Station",
+        "location_latitude": "35.689487",
+        "location_longitude": "139.691711",
+        "capacity": 180,
+        "current_capacity": 160
+    },
+    {
+        "name": "Eastside Station",
+        "location_latitude": "48.856613",
+        "location_longitude": "2.352222",
+        "capacity": 250,
+        "current_capacity": 200
+    }
+]
 ```

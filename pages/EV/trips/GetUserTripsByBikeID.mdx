@@ -1,50 +1,53 @@
 ---
-title: GetUserTripsByBikeID API Documentation
-meta:
-  - name: GetUserTripsByBikeID
-  - type: http
-  - sequence: 5
+name: GetUserTripsByBikeID
+type: http
+seq: 5
 ---
 
-# GetUserTripsByBikeID
+# GetUserTripsByBikeID API
 
-This API retrieves the trips associated with a specified bike ID. It requires bearer token authentication.
+## Overview
 
-## HTTP Request
+The `GetUserTripsByBikeID` API endpoint allows users to retrieve a list of trips associated with a specific bike ID.
 
-### Method
+## HTTP Method
 
 `GET`
 
-### URL
+## URL
 
 `http://localhost:3000/v1/trips/bike/{bikeID}`
 
-Replace `{bikeID}` in the URL with the actual bike ID, e.g., `i6bjwk0yhu`.
+Replace `{bikeID}` with the actual Bike ID, e.g., `i6bjwk0yhu`.
 
-### Body
+## Body
 
-This endpoint does not require a request body.
+None.
 
-### Authentication
+## Authentication
 
-This endpoint requires bearer token authentication.
+This endpoint requires Bearer Token authentication.
 
-### Token
+### Bearer Token
 
-`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
 
 ## Example Request
 
 ```http
-GET http://localhost:3000/v1/trips/bike/i6bjwk0yhu
+GET /v1/trips/bike/i6bjwk0yhu HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ## Response
 
-On success, the API will return a list of trips related to the specified bike ID.
+The response will contain details of the trips associated with the specified bike ID. The structure and content of the response will depend on the implementation of the endpoint.
 
----
+## Status Codes
 
-Ensure you handle the token securely and replace the `{bikeID}` with the appropriate bike ID for your request.
+- `200 OK`: Request was successful, and the trips data is included in the response.
+- `401 Unauthorized`: Authentication failed or the token is missing/invalid.
+- `404 Not Found`: The bike ID does not exist.

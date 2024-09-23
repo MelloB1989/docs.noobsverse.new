@@ -1,35 +1,62 @@
 ---
-title: Get Transactions API Documentation
+name: getTransactions
+type: http
+seq: 1
 ---
 
-# Get Transactions API
+## getTransactions API
 
-## Meta Information
+### Overview
 
-- **Name**: getTransactions
-- **Type**: HTTP
-- **Sequence**: 1
+This API retrieves all transactions.
 
-## HTTP Request
+### HTTP Method: GET
 
-### Method: GET
+#### URL
+`http://localhost:3000/v1/transactions/getAll`
 
-- **URL**: `http://localhost:3000/v1/transactions/getAll`
-- **Body**: None
-- **Authorization**: Bearer Token
+#### Body
+No request body is required for this API.
 
-## Authorization
+### Authorization
 
-To access the `getTransactions` API, you need to include a bearer token in the authorization header of your request. 
+This endpoint requires a Bearer token for authorization.
 
-### Bearer Token
+#### Example Bearer Token
 
-```plaintext
+```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Include the token in the `Authorization` header as follows:
+Ensure to replace the example token with a valid token when making your request.
 
-```plaintext
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+### Example Request
+
+```http
+GET /v1/transactions/getAll HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer <your_token_here>
 ```
+
+### Example Response
+
+```json
+[
+  {
+    "id": "transaction_1",
+    "amount": 100,
+    "currency": "USD",
+    "status": "completed",
+    "timestamp": "2023-10-02T14:48:00.000Z"
+  },
+  {
+    "id": "transaction_2",
+    "amount": 50,
+    "currency": "USD",
+    "status": "pending",
+    "timestamp": "2023-10-02T15:00:00.000Z"
+  }
+]
+```
+
+Make sure to replace `<your_token_here>` with a valid Bearer token in the actual request.

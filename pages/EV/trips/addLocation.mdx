@@ -1,0 +1,33 @@
+---
+name: addLocation
+type: http
+seq: 13
+---
+
+# Add Location
+
+Adds a location to an existing trip.
+
+## Endpoint
+
+**POST** `http://localhost:3000/v1/trips/ulj1iq0-0w/location`
+
+## Authentication
+
+This endpoint requires a Bearer Token for authentication.
+
+**Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHNzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+
+## Request Body
+
+The request body should be in JSON format and contain the following fields:
+
+```json
+{
+  "lat": 37.776,
+  "long": -122.426
+}
+```
+
+- **lat**: Latitude of the location (e.g., `37.776`).
+- **long**: Longitude of the location (e.g., `-122.426`).

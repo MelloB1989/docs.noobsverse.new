@@ -1,28 +1,24 @@
 ---
-name: Login
-type: HTTP
-seq: 1
+title: Login API Documentation
 ---
 
-## Login
+## Overview
 
-### HTTP Method
+The Login API allows users to authenticate by providing their phone number. This API does not require any authentication headers, and the request body should be in JSON format.
 
-`POST`
+## Endpoint
 
-### Endpoint
+**POST** `https://ev-backend.app.k8s.coffeecodes.in/v1/auth/login`
 
-`https://ev-backend.app.k8s.coffeecodes.in/v1/auth/login`
+## Headers
 
-### Headers
+| Header Name           | Value                                       |
+| --------------------- | ------------------------------------------- |
+| X-Karma-Admin-Auth    | ajbkbakweiuy387yeuqqwfahdjhsabd             |
 
-```json
-{
-  "X-Karma-Admin-Auth": "ajbkbakweiuy387yeuqqwfahdjhsabd"
-}
-```
+## Request Body
 
-### Request Body (JSON)
+The request body should be in JSON format:
 
 ```json
 {
@@ -30,6 +26,32 @@ seq: 1
 }
 ```
 
-### Authentication
+## Example Request
 
-None
+```http
+POST /v1/auth/login HTTP/1.1
+Host: ev-backend.app.k8s.coffeecodes.in
+Content-Type: application/json
+X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
+
+{
+  "phone": "+919812940706"
+}
+```
+
+## Response
+
+The API will return a JSON response. The exact structure and details of the response will depend on the implementation of the backend server. Usually, it includes authentication tokens and user information upon successful login.
+
+## Summary
+
+- **Method:** POST
+- **URL:** `https://ev-backend.app.k8s.coffeecodes.in/v1/auth/login`
+- **Headers:** `X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd`
+- **Body Type:** JSON
+- **Body Content:**
+  ```json
+  {
+    "phone": "+919812940706"
+  }
+  ```

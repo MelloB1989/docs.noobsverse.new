@@ -1,66 +1,25 @@
 ---
-title: getMyTrips - API Documentation
+name: getMyTrips
+type: http
+seq: 3
 ---
 
-# getMyTrips API
+# getMyTrips API Endpoint Documentation
 
-## Overview
+## HTTP Method: GET
 
-The `getMyTrips` API allows you to retrieve a list of your trips. It requires Bearer authentication and provides trip details in response to an HTTP GET request.
+### Endpoint URL
+```
+http://localhost:3000/v1/trips/mytrips
+```
 
-## Endpoint
+### Request Body
+None
 
-- **URL**: `http://localhost:3000/v1/trips/mytrips`
-- **Method**: `GET`
-- **Body**: None
+### Authentication
+This endpoint requires Bearer Token authentication.
 
-## Authentication
-
-This API requires Bearer authentication. Make sure to include a valid token in the request headers.
-
-### Bearer Token
-
+#### Bearer Token Example
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-
-## Request
-
-### Headers
-
-| Key           | Value               |
-| ------------- | ------------------- |
-| Authorization | Bearer <token>      |
-
-## Response
-
-The response will contain the details of your trips. Since no specific response structure is given, expect a typical structure for trip details such as trip ID, destination, and dates.
-
----
-
-## Usage Example
-
-### Curl
-
-```bash
-curl -X GET http://localhost:3000/v1/trips/mytrips \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
-```
-
----
-
-## Sequence
-
-This API is the third in the sequence of your APIs.
-
----
-
-For additional information or questions, refer to the support documentation or contact the API provider.
-
----
-
-## Meta
-
-- **Name**: getMyTrips
-- **Type**: HTTP
-- **Sequence**: 3

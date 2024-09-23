@@ -1,27 +1,39 @@
 ---
-title: Top Up Wallet API
-description: API for topping up a user's wallet
+name: Topup Wallet API
+type: HTTP
+sequence: 3
 ---
 
-import { Meta } from '@components/Meta';
+# Topup Wallet API
 
-<Meta 
-  name="topupWallet"
-  type="HTTP"
-  sequence="3"
-/>
+## Overview
+
+The Topup Wallet API allows you to add funds to a user's wallet. This endpoint requires authentication through a bearer token.
 
 ## Endpoint
-`POST http://localhost:3000/v1/wallet/topup`
+
+### POST /v1/wallet/topup
+
+- **URL**: `http://localhost:3000/v1/wallet/topup`
+- **Method**: `POST`
+- **Body**: JSON
+- **Authentication**: Bearer token
 
 ## Authentication
-This endpoint requires a Bearer Token.
-```
-Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
+
+To access this endpoint, you must include a bearer token in your request headers. Here's an example of a bearer token:
+
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
 
 ## Request Body
-The request body should be in JSON format and must include the balance to top up:
+
+The request body should be in JSON format and include the following field:
+
+- **balance**: The amount to add to the wallet as a string.
+
+### Example
 
 ```json
 {
@@ -29,26 +41,4 @@ The request body should be in JSON format and must include the balance to top up
 }
 ```
 
-## Example Request
-```http
-POST /v1/wallet/topup HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
-Content-Type: application/json
-
-{
-  "balance": "20"
-}
-```
-
-## Response
-On success, the server will return a status code of 200 OK along with the updated wallet details.
-
-```json
-{
-  "message": "Wallet topped up successfully",
-  "newBalance": 100
-}
-```
-
-If the request fails, the server will return an appropriate error code with a message describing the error.
+Make sure to replace the placeholder values with actual data as needed.

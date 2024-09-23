@@ -1,30 +1,39 @@
 ---
-name: signup
-type: http
-seq: 3
+name: Signup API
+type: HTTP
+sequence: 3
 ---
 
 # Signup API
 
-The Signup API allows new users to register to the system by submitting their personal and authentication details.
-
-## HTTP Method
-
-**POST**
-
 ## Endpoint
 
-```
-http://localhost:3000/v1/auth/signup
-```
+**POST** `http://localhost:3000/v1/auth/signup`
 
 ## Authentication
 
-This endpoint does not require authentication.
+None required
 
 ## Request Body
 
-The body of the request should be in JSON format and include the following attributes:
+The request body should be in JSON format and include the following fields:
+
+| Field          | Type   | Description                        |
+|----------------|--------|------------------------------------|
+| phone          | string | User's phone number (e.g., "+919812940706") |
+| otp            | string | One-time password (e.g., "316892") |
+| email          | string | User's email address (e.g., "mellob.mailer@gmail.com") |
+| first_name     | string | User's first name (e.g., "Kartik") |
+| last_name      | string | User's last name (e.g., "Deshmukh") |
+| date_of_birth  | string | User's date of birth (e.g., "27/11/2004") |
+| password       | string | User's chosen password |
+| type           | string | User type (e.g., "student") |
+| employee_id    | string | Employee ID (if applicable, otherwise leave empty) |
+| company        | string | Company name (if applicable, otherwise leave empty) |
+| college        | string | College name (e.g., "AU") |
+| student_id     | string | Student ID (e.g., "34") |
+
+### Example
 
 ```json
 {
@@ -42,22 +51,3 @@ The body of the request should be in JSON format and include the following attri
   "student_id": "34"
 }
 ```
-
-### Attributes
-
-- **phone** (string): The user's phone number, including country code.
-- **otp** (string): The one-time password sent to the user's phone.
-- **email** (string): The user's email address.
-- **first_name** (string): The user's first name.
-- **last_name** (string): The user's last name.
-- **date_of_birth** (string): The user's date of birth in the format `dd/mm/yyyy`.
-- **password** (string): The user's password.
-- **type** (string): The type of user, can be `student`.
-- **employee_id** (string): The employee ID if the user is an employee (can be left empty for non-employees).
-- **company** (string): The company if the user is an employee (can be left empty for non-employees).
-- **college** (string): The college name if the user is a student.
-- **student_id** (string): The student ID if the user is a student.
-
----
-
-This document outlines the necessary details for the `signup` API endpoint to ensure a clear understanding and smooth implementation process.

@@ -1,33 +1,35 @@
 ---
-meta:
-  name: GetUserTripsBySmallestDistance
-  type: http
-  seq: 7
+name: GetUserTripsBySmallestDistance
+type: http
+seq: 7
 ---
 
-# GetUserTripsBySmallestDistance API
+## GetUserTripsBySmallestDistance API
 
-## Description
+### Description
+The `GetUserTripsBySmallestDistance` API retrieves user trips ordered by the smallest distance. The response is limited to the number specified by the `limit` query parameter.
 
-The `GetUserTripsBySmallestDistance` API retrieves a list of user trips sorted by the smallest distance.
+### HTTP Request
+#### GET
+- **URL:** `http://localhost:3000/v1/trips/distance/shortest`
+- **Auth:** Bearer token required
 
-## HTTP Request
+### Query Parameters
 
-### GET
+| Parameter | Type  | Description         | Default Value |
+|-----------|-------|---------------------|---------------|
+| `limit`   | query | Limits the number of trips returned | 10            |
 
-- **URL**: `http://localhost:3000/v1/trips/distance/shortest?limit=10`
-- **Body**: None
-- **Authentication**: Bearer Token
+### Authentication
+This endpoint uses Bearer token authentication.
 
-## Query Parameters
+- **Token format:** `Bearer <token>`
+- **Example Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
-- `limit`: The maximum number of trips to return. Default is 10.
-
-## Authentication
-
-This endpoint requires a Bearer Token for authentication.
-
-**Token**:
+### Example Curl Request
+```bash
+curl -X GET "http://localhost:3000/v1/trips/distance/shortest?limit=10" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+
+### Response
+The response will be a JSON object containing a list of trips, ordered by the smallest distance. The number of returned trips is limited to the `limit` query parameter value.

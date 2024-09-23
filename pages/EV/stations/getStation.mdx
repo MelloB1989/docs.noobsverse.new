@@ -1,54 +1,41 @@
 ---
-title: "getStation API Documentation"
+title: API Documentation - getStation
 ---
 
-import { MetaTags } from 'docs-ui';
+## API Name: getStation
 
-<MetaTags 
-  meta={{
-    name: 'getStation',
-    type: 'http',
-    seq: 3
-  }}
-/>
+### Type
+- **Type:** HTTP
 
-# getStation API
+### Sequence
+- **Sequence:** 3
 
-The **getStation** API is used to retrieve information about a station. This endpoint is a part of the API services and is available via a GET request.
-
-## HTTP Request
+## HTTP GET Request
 
 ### URL
+`http://localhost:3000/v1/stations/get/wxyoqxff83`
 
-`GET http://localhost:3000/v1/stations/get/wxyoqxff83`
-
-### Method
-
-GET
-
-### Body
-
-None
+### Request Body
+- **Body:** None
 
 ### Authentication
-
-None
+- **Authentication:** None
 
 ### Headers
 
-| Header Name           | Header Value                            |
-|-----------------------|------------------------------------------|
-| X-Karma-Admin-Auth    | ajbkbakweiuy387yeuqqwfahdjhsabd          |
+| Header Name             | Value                            |
+|-------------------------|----------------------------------|
+| X-Karma-Admin-Auth      | ajbkbakweiuy387yeuqqwfahdjhsabd  |
 
-## Example Request
+## Sample Request
 
-```plaintext
+```http
 GET http://localhost:3000/v1/stations/get/wxyoqxff83
 X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
 ```
 
 ## Response
 
-The response will contain the details of the specified station. The exact structure of the response will depend on the station's data schema.
+- The details about the response will be provided by the API upon a successful request.
 
-<MetaTags />
+This concludes the documentation of the `getStation` API endpoint.
