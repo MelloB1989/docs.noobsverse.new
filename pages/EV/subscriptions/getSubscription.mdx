@@ -1,189 +1,76 @@
 ---
-title: getSubscription API
-description: Retrieve a list of subscriptions and their details.
+title: Get Subscription API
 ---
 
-# getSubscription API
+## getSubscription
 
-## Overview
+### Metadata
 
-Retrieve a detailed list of available subscription plans.
+- **Name:** getSubscription
+- **Type:** HTTP
+- **Sequence:** 2
 
-## Endpoint
+### HTTP Method
 
-### GET
+- **GET**
 
-`http://localhost:3000/v1/subscriptions/get`
+### Endpoint
+
+- **URL:** `http://localhost:3000/v1/subscriptions/get`
+- **Request Body Format:** JSON
+- **Authentication Type:** Bearer Token
 
 ### Headers
 
-- `X-Karma-Admin-Auth`: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
+- **X-Karma-Admin-Auth:** `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
 
-### Authentication
+### Authorization
 
-Bearer token must be included in the request header:
-
-```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
-```
+- **Bearer Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I`
 
 ### Request Body
 
-The body of the request should be in JSON format. Example:
-
 ```json
 [
-  {
-    "id": "sub_001",
-    "monthly_fee": 29.99,
-    "discount": 5.00,
-    "name": "Standard Plan",
-    "bike_id": "01rvo0_nbh",
-    "type": "monthly"
-  },
-  {
-    "id": "sub_002",
-    "monthly_fee": 39.99,
-    "discount": 10.00,
-    "name": "Premium Plan",
-    "bike_id": "9tkdp5ra3p",
-    "type": "monthly"
-  },
-  {
-    "id": "sub_003",
-    "monthly_fee": 19.99,
-    "discount": 0.00,
-    "name": "Basic Plan",
-    "bike_id": "2_vnd6qjv1",
-    "type": "monthly"
-  },
-  {
-    "id": "sub_004",
-    "monthly_fee": 49.99,
-    "discount": 15.00,
-    "name": "Ultimate Plan",
-    "bike_id": "vu1v4kb4s6",
-    "type": "annual"
-  },
-  {
-    "id": "sub_005",
-    "monthly_fee": 25.99,
-    "discount": 5.00,
-    "name": "Student Plan",
-    "bike_id": "01rvo0_nbh",
-    "type": "monthly"
-  }
-]
-```
-
-## Response
-
-The response will contain the subscription details in JSON format. Each subscription will include the following fields:
-
-- `id`: Unique identifier for the subscription.
-- `monthly_fee`: Monthly fee for the subscription.
-- `discount`: Discount applied to the subscription.
-- `name`: Name of the subscription plan.
-- `bike_id`: Identifier for the associated bike.
-- `type`: Subscription type, e.g., `monthly` or `annual`.
-
-## Example
-
-### Request
-
-```http
-GET http://localhost:3000/v1/subscriptions/get
-Headers:
-  X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab
-  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
-Body:
-[
-  {
-    "id": "sub_001",
-    "monthly_fee": 29.99,
-    "discount": 5.00,
-    "name": "Standard Plan",
-    "bike_id": "01rvo0_nbh",
-    "type": "monthly"
-  },
-  {
-    "id": "sub_002",
-    "monthly_fee": 39.99,
-    "discount": 10.00,
-    "name": "Premium Plan",
-    "bike_id": "9tkdp5ra3p",
-    "type": "monthly"
-  },
-  {
-    "id": "sub_003",
-    "monthly_fee": 19.99,
-    "discount": 0.00,
-    "name": "Basic Plan",
-    "bike_id": "2_vnd6qjv1",
-    "type": "monthly"
-  },
-  {
-    "id": "sub_004",
-    "monthly_fee": 49.99,
-    "discount": 15.00,
-    "name": "Ultimate Plan",
-    "bike_id": "vu1v4kb4s6",
-    "type": "annual"
-  },
-  {
-    "id": "sub_005",
-    "monthly_fee": 25.99,
-    "discount": 5.00,
-    "name": "Student Plan",
-    "bike_id": "01rvo0_nbh",
-    "type": "monthly"
-  }
-]
-```
-
-### Response
-
-```json
-[
-  {
-    "id": "sub_001",
-    "monthly_fee": 29.99,
-    "discount": 5.00,
-    "name": "Standard Plan",
-    "bike_id": "01rvo0_nbh",
-    "type": "monthly"
-  },
-  {
-    "id": "sub_002",
-    "monthly_fee": 39.99,
-    "discount": 10.00,
-    "name": "Premium Plan",
-    "bike_id": "9tkdp5ra3p",
-    "type": "monthly"
-  },
-  {
-    "id": "sub_003",
-    "monthly_fee": 19.99,
-    "discount": 0.00,
-    "name": "Basic Plan",
-    "bike_id": "2_vnd6qjv1",
-    "type": "monthly"
-  },
-  {
-    "id": "sub_004",
-    "monthly_fee": 49.99,
-    "discount": 15.00,
-    "name": "Ultimate Plan",
-    "bike_id": "vu1v4kb4s6",
-    "type": "annual"
-  },
-  {
-    "id": "sub_005",
-    "monthly_fee": 25.99,
-    "discount": 5.00,
-    "name": "Student Plan",
-    "bike_id": "01rvo0_nbh",
-    "type": "monthly"
-  }
+    {
+        "id": "sub_001",
+        "monthly_fee": 29.99,
+        "discount": 5.00,
+        "name": "Standard Plan",
+        "bike_id": "01rvo0_nbh",
+        "type": "monthly"
+    },
+    {
+        "id": "sub_002",
+        "monthly_fee": 39.99,
+        "discount": 10.00,
+        "name": "Premium Plan",
+        "bike_id": "9tkdp5ra3p",
+        "type": "monthly"
+    },
+    {
+        "id": "sub_003",
+        "monthly_fee": 19.99,
+        "discount": 0.00,
+        "name": "Basic Plan",
+        "bike_id": "2_vnd6qjv1",
+        "type": "monthly"
+    },
+    {
+        "id": "sub_004",
+        "monthly_fee": 49.99,
+        "discount": 15.00,
+        "name": "Ultimate Plan",
+        "bike_id": "vu1v4kb4s6",
+        "type": "annual"
+    },
+    {
+        "id": "sub_005",
+        "monthly_fee": 25.99,
+        "discount": 5.00,
+        "name": "Student Plan",
+        "bike_id": "01rvo0_nbh",
+        "type": "monthly"
+    }
 ]
 ```

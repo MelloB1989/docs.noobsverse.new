@@ -1,37 +1,58 @@
 ---
-title: "Create User Subscription"
+title: Create User Subscription API
 ---
 
-import { MetaInfo, Endpoint, AuthToken, RequestBody } from 'components/ApiDetails'
+import { Meta } from '@docgeni/view';
+<Meta title="Create User Subscription API" />
 
-<MetaInfo 
-  name="create" 
-  type="http" 
-  seq="1" 
-/>
+# Create User Subscription API
+
+This API allows you to create a user subscription.
 
 ## Endpoint
-<Endpoint 
-  method="POST" 
-  url="http://localhost:3000/v1/user_subscription/create" 
-  type="json" 
-  auth="bearer" 
-/>
+
+**POST** `http://localhost:3000/v1/user_subscription/create`
 
 ## Authentication
-<AuthToken 
-  type="bearer" 
-  token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw" 
-/>
+
+This endpoint requires Bearer Token authentication.
+
+**Bearer Token:**
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
 
 ## Request Body
-<RequestBody
-  format="json"
-  body={
-    { 
-      "subscription_id": "qcxt0ky6xg",
-      "start_date": "27/11/2004",
-      "end_date": "27/11/2004"
-    }
-  }
-/>
+
+The request body should be in JSON format.
+
+### Example Request Body
+
+```json
+{
+  "subscription_id": "qcxt0ky6xg",
+  "start_date": "27/11/2004",
+  "end_date": "27/11/2004"
+}
+```
+
+## Example Request
+
+```http
+POST /v1/user_subscription/create HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+Content-Type: application/json
+
+{
+  "subscription_id": "qcxt0ky6xg",
+  "start_date": "27/11/2004",
+  "end_date": "27/11/2004"
+}
+```
+
+## Response
+
+The response format has not been provided. Please refer to the API documentation for more details.
+
+**Note:** Always keep your Bearer Token secure and avoid sharing it publicly.

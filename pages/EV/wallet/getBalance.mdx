@@ -1,42 +1,27 @@
 ---
-name: getBalance
-type: http
-seq: 2
+title: "getBalance API Documentation"
+description: "Detailed documentation for the getBalance API"
 ---
 
-## getBalance API Documentation
+## Meta Information
 
-### HTTP GET Request
+- **Name:** getBalance
+- **Type:** HTTP
+- **Sequence:** 2
+
+## Endpoint
+
+### GET Request
 
 - **URL:** `http://localhost:3000/v1/wallet/get`
-- **Method:** GET
 - **Body:** None
-- **Authentication:** Bearer Token
 
-### Authorization Header
+## Authentication
 
-The API requires a Bearer Token for authentication. Below is an example of the header to be included in your request.
+- **Type:** Bearer Token
 
-```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
-```
-
-### Example Request
-
-```http
-GET http://localhost:3000/v1/wallet/get
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
-```
-
-### Response
-
-The response will contain your wallet's balance information. Below is an example of a typical response structure.
-
-```json
-{
-  "status": "success",
-  "data": {
-    "balance": 1020.50
-  }
-}
-```
+  **Token:**
+  
+  ```
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
+  ```

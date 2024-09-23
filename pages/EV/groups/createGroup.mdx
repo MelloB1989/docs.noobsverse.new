@@ -1,0 +1,66 @@
+---
+name: createGroup
+type: http
+seq: 1
+---
+
+# API Documentation: createGroup
+
+## Endpoint
+
+### URL
+
+`POST http://localhost:3000/v1/groups/create`
+
+### Authentication
+
+- Type: Bearer Token
+- Example Token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+
+### Headers
+
+```json
+{
+  "Authorization": "Bearer <your_token>",
+  "Content-Type": "application/json"
+}
+```
+
+## Request Body
+
+### Content-Type
+
+`application/json`
+
+### Payload
+
+```json
+{
+  "name": "Green Warriors",
+  "description": "A group focused on reducing carbon emissions."
+}
+```
+
+## Description
+
+The `createGroup` endpoint is used to create a new group with specific details such as the group's name and description. The request must include a valid bearer token for authentication.
+
+### Example Request
+
+```bash
+curl -X POST http://localhost:3000/v1/groups/create \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw" \
+-H "Content-Type: application/json" \
+-d '{
+  "name": "Green Warriors",
+  "description": "A group focused on reducing carbon emissions."
+}'
+```
+
+### Example Response
+
+Assuming the group creation is successful, the response body would include details about the newly created group, such as group ID, name, and description. The exact structure of the response will depend on the API implementation.
+
+---
+
+For more details and advanced usage, please refer to the full API documentation.

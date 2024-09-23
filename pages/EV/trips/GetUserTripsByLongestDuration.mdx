@@ -1,65 +1,39 @@
 ---
-title: "GetUserTripsByLongestDuration"
-type: "http"
-sequence: 8
+title: GetUserTripsByLongestDuration API
+description: API to retrieve user trips sorted by the longest duration.
 ---
 
-# GetUserTripsByLongestDuration API
+## GetUserTripsByLongestDuration
 
-## Endpoint
+### Metadata
+- **Type:** HTTP
+- **Sequence:** 8
 
-**GET** `http://localhost:3000/v1/trips/duration/longest`
+### HTTP Method
+- **GET**
 
-This endpoint retrieves user trips sorted by the longest duration, with an optional limit on the number of results.
+### URL
+`http://localhost:3000/v1/trips/duration/longest?limit=10`
 
-## Parameters
+### Request Body
+- **None**
 
 ### Query Parameters
+| Name  | Type | Description       | Required | Default |
+|-------|------|-------------------|----------|---------|
+| limit | int  | Maximum number of trips to retrieve | No       | 10      |
 
-- `limit` (integer, optional): The maximum number of results to return. Default value is `10`.
+### Authentication
+This API requires bearer authentication.
 
-## Authentication
-
-The API requires Bearer authentication.
-
-### Bearer Token
-
+#### Bearer Token
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Request Example
-
+### Example Request
 ```http
 GET /v1/trips/duration/longest?limit=10 HTTP/1.1
 Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-
-## Response
-
-```json
-[
-  {
-    "trip_id": "trip123",
-    "user_id": "user456",
-    "duration": 120,
-    "start_location": "Location A",
-    "end_location": "Location B",
-    "start_time": "2023-01-01T00:00:00Z",
-    "end_time": "2023-01-01T02:00:00Z"
-  },
-  {
-    "trip_id": "trip789",
-    "user_id": "user456",
-    "duration": 90,
-    "start_location": "Location C",
-    "end_location": "Location D",
-    "start_time": "2023-01-02T00:00:00Z",
-    "end_time": "2023-01-02T01:30:00Z"
-  }
-  // Additional trips...
-]
-```
-
-Ensure you replace the placeholder data with actual user details.

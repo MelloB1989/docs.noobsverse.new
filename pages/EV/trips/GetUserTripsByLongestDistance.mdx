@@ -1,45 +1,37 @@
 ---
-id: getUserTripsByLongestDistance
-title: GetUserTripsByLongestDistance
+name: GetUserTripsByLongestDistance
+type: http
+seq: 6
 ---
 
-## GetUserTripsByLongestDistance API
+# GetUserTripsByLongestDistance
 
-### Description
+This API endpoint fetches user trips sorted by the longest distance.
 
-This API retrieves user trips sorted by the longest distance. It allows you to set a limit on the number of trips returned.
+## HTTP Request
 
-### HTTP Request
+### GET
 
-`GET http://localhost:3000/v1/trips/distance/longest`
+`http://localhost:3000/v1/trips/distance/longest?limit=10`
 
 ### Query Parameters
 
-- `limit` (integer): The maximum number of trips to return.
-  - **Default:** 10
-  - **Required:** No
+- `limit`: (optional) The maximum number of trips to return. Default is 10.
 
 ### Authentication
 
-- **Type:** Bearer Token
-- **Token:**
-  ```
-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-  ```
+This endpoint requires Bearer Token authentication.
 
-### Example Request
+#### Bearer Token
 
-```http
-GET http://localhost:3000/v1/trips/distance/longest?limit=10
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Response
+### Request Body
 
-A successful response will return an array of trips sorted by the longest distance.
+None
 
-### Errors
+## Response
 
-- `401 Unauthorized`: The request was not authenticated.
-- `400 Bad Request`: The request limit parameter is invalid.
-- `500 Internal Server Error`: Server encountered an error.
+Responds with the list of user trips sorted by the longest distance. The limit of trips returned can be controlled using the `limit` query parameter.

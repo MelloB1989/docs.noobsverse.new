@@ -1,62 +1,53 @@
 ---
-title: GetBikeByFrameNumber API Documentation
-sidebar_position: 4
+name: GetBikeByFrameNumber
+type: http
+sequence: 4
 ---
 
-# GetBikeByFrameNumber
+## GetBikeByFrameNumber API
 
 The `GetBikeByFrameNumber` API allows you to retrieve information about a bike using its frame number.
 
-## Endpoint
+### HTTP Request
 
-**HTTP Method:** `GET`
+**GET** `http://localhost:3000/v1/bikes/get/frame/FR123456789`
 
-**URL:** `http://localhost:3000/v1/bikes/get/frame/FR123456789`
+### Request Headers
 
-## Authentication
+- **Authorization**: Bearer {token}
 
-This endpoint requires a bearer token for authentication.
+### Authorization
 
-**Example Bearer Token:**
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
-
-## Request
-
-**Headers:**
+This API requires a bearer token for authentication. Include the token in the `Authorization` header as follows:
 
 ```
-Authorization: Bearer <your-bearer-token>
-```
-
-**Body:** None
-
-## Example Request
-
-```
-GET http://localhost:3000/v1/bikes/get/frame/FR123456789
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-## Response
+### Request Body
 
-The response will include details about the bike corresponding to the given frame number.
+None.
 
-_Response example:_
+### Usage Example
+
+```http
+GET /v1/bikes/get/frame/FR123456789 HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+### Response
+
+The response will contain the details of the bike associated with the provided frame number. 
 
 ```json
 {
-  "frameNumber": "FR123456789",
-  "brand": "BikeBrand",
-  "model": "BikeModel",
-  "color": "Red",
-  "status": "available"
+  // Response content here
 }
 ```
 
-## Notes
+### Notes
 
-- Ensure you have the correct bearer token before making a request.
-- Replace `<your-bearer-token>` with the actual token in the `Authorization` header.
+- Ensure that the frame number `FR123456789` is valid and corresponds to an available bike.
+- The bearer token should be replaced with a valid token generated from the authentication system.
+- This API does not require any request body.

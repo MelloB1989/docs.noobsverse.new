@@ -1,74 +1,61 @@
 ---
-id: getAllBikes
-title: getAllBikes
-sidebar_label: getAllBikes
+title: "getAllBikes API Documentation"
+metaTitle: "getAllBikes API Documentation"
+metaDescription: "Detailed documentation for the getAllBikes API"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# getAllBikes API Documentation
 
-## getAllBikes
+## Meta Information
+- **Name:** getAllBikes
+- **Type:** HTTP
+- **Sequence:** 3
 
-### Overview
+## HTTP Method
+- **GET**
 
-The `getAllBikes` API endpoint is used to retrieve all available bikes from the server.
-
-### HTTP Request
-
+## Endpoint
 - **URL:** `http://localhost:3000/v1/bikes/get`
-- **Method:** `GET`
-- **Authentication:** Bearer Token
 
-### Authentication
+## Request Body
+- **None**
 
-This endpoint requires a Bearer Token for authentication. The bearer token should be included in the authorization header of the request.
+## Authentication
+- **Type:** Bearer Token
+- **Token:**
+  ```
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+  ```
 
-```plaintext
+## Example Request
+```http
+GET http://localhost:3000/v1/bikes/get
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-### Request Body
+## Response
+The response will be a JSON object containing the list of all bikes.
 
-No request body is required for this endpoint.
-
-### Example Request
-
-```bash
-curl -X GET "http://localhost:3000/v1/bikes/get" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0"
-```
-
-### Response
-
-The response will be a JSON object containing the list of bikes.
-
-### Example Response
-
+Example:
 ```json
 {
   "bikes": [
     {
-      "id": "bike1",
-      "type": "mountain",
-      "brand": "BrandA"
+      "id": "1",
+      "model": "X100",
+      "manufacturer": "BikeCo",
+      "price": 1000.00
     },
     {
-      "id": "bike2",
-      "type": "road",
-      "brand": "BrandB"
-    },
-    {
-      "id": "bike3",
-      "type": "hybrid",
-      "brand": "BrandC"
+      "id": "2",
+      "model": "Y200",
+      "manufacturer": "BikeWorks",
+      "price": 1500.00
     }
   ]
 }
 ```
 
-### Summary
-
-- **Endpoint:** `/v1/bikes/get`
-- **Method:** `GET`
-- **Authentication:** Bearer Token Required
-- **Request Body:** None
-- **Response:** JSON object containing a list of bikes.
+## Errors
+- `401 Unauthorized`: Returned when no or an invalid Bearer token is provided.
+- `500 Internal Server Error`: Returned when an unknown error occurs on the server.

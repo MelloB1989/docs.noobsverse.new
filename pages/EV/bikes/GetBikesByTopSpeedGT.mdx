@@ -1,37 +1,33 @@
 ---
-title: "GetBikesByTopSpeedGT API Documentation"
+name: GetBikesByTopSpeedGT
+type: http
+seq: 8
 ---
 
-import { Meta } from '@storybook/addon-docs/blocks';
-
-<Meta title="API Documentation/GetBikesByTopSpeedGT" />
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # GetBikesByTopSpeedGT
 
-Retrieve bikes with a top speed greater than 50 km/h.
+This API endpoint retrieves a list of bikes whose top speed is greater than 50 km/h.
 
-## Endpoint
+## HTTP Request
 
-**GET** `http://localhost:3000/v1/bikes/get/speed_gt/50`
+**GET** `/v1/bikes/get/speed_gt/50`
+
+### Headers
+
+- **Authorization**: Bearer {token}
 
 ## Authentication
 
-The endpoint requires Bearer token authentication.
-
-### Bearer Token
+To use this endpoint, you need a bearer token for authorization.
 
 ```plaintext
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-## Request
-
-- **URL Parameters**: None
-- **Body**: None
-- **Headers**:
-  - `Authorization`: Bearer token as shown above
-
-### Example Request
+## Example Request
 
 ```http
 GET http://localhost:3000/v1/bikes/get/speed_gt/50
@@ -40,35 +36,26 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4M
 
 ## Response
 
-### Successful Response
+A successful response will return a JSON object containing an array of bikes.
 
-- **Status**: `200 OK`
-- **Content Type**: `application/json`
-
-The response will be a JSON object containing the list of bikes with a top speed greater than 50 km/h.
-
-### Example Successful Response
+### Example Response
 
 ```json
 [
   {
     "id": "bike1",
-    "name": "Speedster 3000",
-    "top_speed": 55
+    "model": "Speedster 3000",
+    "topSpeed": 55
   },
   {
     "id": "bike2",
-    "name": "Flash Rider",
-    "top_speed": 60
+    "model": "Windrider X",
+    "topSpeed": 70
   }
 ]
 ```
 
-### Error Responses
+## Notes
 
-- **401 Unauthorized**: Missing or invalid token
-- **500 Internal Server Error**: Server-side issues
-
-## Summary
-
-This endpoint allows clients to retrieve a list of bikes with a top speed greater than 50 km/h. Authentication using a bearer token is required. Ensure the token is included in the request headers to successfully fetch the data.
+- Ensure that your bearer token is valid and has not expired.
+- The `topSpeed` parameter is fixed to 50 km/h in this endpoint.

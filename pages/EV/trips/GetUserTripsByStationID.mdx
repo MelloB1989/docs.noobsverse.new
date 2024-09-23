@@ -1,27 +1,48 @@
 ---
-name: GetUserTripsByStationID
-type: HTTP
-sequence: 4
+title: GetUserTripsByStationID API Documentation
 ---
 
-# GetUserTripsByStationID API
+## GetUserTripsByStationID
 
-This API fetches the user trips by a specific station ID.
+### API Type
+HTTP
 
-## Endpoint
+### Sequence
+4
 
-**GET** `http://localhost:3000/v1/trips/station/a2m392c58f`
+### Description
+The `GetUserTripsByStationID` API endpoint retrieves the trips associated with a particular station identified by its ID.
 
-## Authentication
+### Endpoint Details
 
-This endpoint requires Bearer authentication. 
+#### Method
+GET
 
-Provide the following token:
+#### URL
+`http://localhost:3000/v1/trips/station/a2m392c58f`
 
-```plaintext
+#### Request Body
+None
+
+### Authentication
+This endpoint requires Bearer Token authentication.
+
+#### Bearer Token
+```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Parameters
+### Example CURL Request
+```bash
+curl -X GET "http://localhost:3000/v1/trips/station/a2m392c58f" \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
+```
 
-No request body is required for this API call.
+### Response
+The response will contain the list of trips associated with the specified station ID in JSON format.
+
+---
+
+### Notes
+- Ensure that the Bearer Token is valid and not expired.
+- The station ID in the URL is just an example and should be replaced with the actual station ID you want to query.

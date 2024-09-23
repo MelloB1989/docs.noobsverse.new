@@ -1,52 +1,37 @@
 ---
-id: getmytrips
-title: Get My Trips
+title: API Documentation for `getMyTrips`
 ---
 
-## Meta
+# `getMyTrips` API
 
-- **Name**: `getMyTrips`
-- **Type**: `http`
-- **Sequence**: `3`
+## Overview
 
-## Description
+The `getMyTrips` API allows for fetching a list of trips associated with the authenticated user. The endpoint requires a bearer token for authentication.
 
-The `getMyTrips` API endpoint retrieves the authenticated user's trip information.
+## Endpoint Details
 
-## Endpoint
+### HTTP GET Request
 
-- **URL**: `http://localhost:3000/v1/trips/mytrips`
-- **Method**: `GET`
-- **Body**: None
+- **URL:** `http://localhost:3000/v1/trips/mytrips`
+- **Body:** None
+- **Authentication:** Bearer token
 
 ## Authentication
 
-- **Type**: `bearer`
-- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+To access the `getMyTrips` endpoint, you must include a bearer token in the authorization header of your HTTP request.
+
+- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
 ## Example Request
 
 ```http
-GET http://localhost:3000/v1/trips/mytrips
+GET /v1/trips/mytrips HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Response
+## Additional Notes
 
-- **Status**: `200 OK`
-- **Body**: 
-  ```json
-  {
-    "trips": [
-      {
-        "id": "tripID1",
-        "destination": "Paris",
-        "date": "2023-10-05",
-        ...
-      },
-      ...
-    ]
-  }
-  ```
-
-(Note: The structure of the response body should be updated according to the actual API response.)
+- Ensure the bearer token is valid and not expired.
+- The endpoint does not require any parameters in the body of the request.
+- The returned response will include a list of trips associated with the user authenticated by the provided token.

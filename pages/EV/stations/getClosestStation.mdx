@@ -1,48 +1,36 @@
 ---
-title: "getClosestStation API"
-type: "http"
+name: getClosestStation
+type: http
 sequence: 4
 ---
 
-# getClosestStation API
+# API Documentation: getClosestStation
 
-The `getClosestStation` API endpoint is used to retrieve the nearest stations based on the provided latitude and longitude, with an optional limit on the number of results.
+The `getClosestStation` API retrieves the nearest stations based on the provided latitude and longitude.
 
-## HTTP Request
+## Endpoint
 
-**GET** `https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby`
+**GET** `https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby?lat=40&lon=-70&limit=2`
 
 ## Query Parameters
 
-| Name  | Type | Description                                        |
-|-------|------|----------------------------------------------------|
-| lat   | float| Latitude coordinate to search nearby stations.    |
-| lon   | float| Longitude coordinate to search nearby stations.   |
-| limit | int  | Maximum number of stations to return (optional).  |
+- **lat**: Latitude of the location (e.g., 40)
+- **lon**: Longitude of the location (e.g., -70)
+- **limit**: Maximum number of stations to return (e.g., 2)
 
-## Default Query Example
+## Headers
 
-```text
-lat=40&lon=-70&limit=2
-```
+- **X-Karma-Admin-Auth**: `ajbkbakweiuy387yeuqqwfahdjhsabd`
 
-## Request Headers
-
-| Name                 | Description                             |
-|----------------------|-----------------------------------------|
-| X-Karma-Admin-Auth   | Authentication token for admin access.  |
-
-## Sample Request
+## Request Example
 
 ```http
-GET https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby?lat=40&lon=-70&limit=2
+GET /v1/stations/get_nearby?lat=40&lon=-70&limit=2 HTTP/1.1
+Host: ev-backend.app.k8s.coffeecodes.in
 X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
 ```
 
-## Response
+## Notes
 
-The API response will contain details about the closest stations based on the provided latitude and longitude parameters. The structure of the response will depend on the backend implementation and may vary.
-
----
-
-Feel free to contact our support team if you have any further questions regarding the use of this API.
+- No request body or additional authorization is required beyond the provided header.
+- Ensure the `X-Karma-Admin-Auth` header is included for successful authentication.

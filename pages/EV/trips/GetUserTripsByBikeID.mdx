@@ -1,39 +1,46 @@
 ---
-name: GetUserTripsByBikeID
-type: http
-seq: 5
+title: GetUserTripsByBikeID API
+meta:
+  name: GetUserTripsByBikeID
+  type: http
+  seq: 5
 ---
 
-# GetUserTripsByBikeID API Documentation
+# GetUserTripsByBikeID API
 
-## Endpoint
+Retrieves a list of trips by a specific bike ID.
+
+## HTTP Request
 
 ### GET
 
-```
-http://localhost:3000/v1/trips/bike/i6bjwk0yhu
-```
-
-## Authorization
-
-This endpoint requires a Bearer token for authorization.
-
-### Token
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```http
+GET http://localhost:3000/v1/trips/bike/i6bjwk0yhu
 ```
 
-### Auth Type
+### Request Body
 
+No request body is required.
+
+### Authentication
+
+This API requires Bearer Token authentication.
+
+#### Bearer Token
+
+To authenticate, include the following token in the request header:
+
+```plaintext
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-Bearer
+
+## Example Request
+
+```http
+GET http://localhost:3000/v1/trips/bike/i6bjwk0yhu
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Request Body
+## Response
 
-This endpoint does not require a request body.
-
-## Sequence
-
-The sequence number of this API endpoint is **5**.
+The response will include a JSON object containing the trip details associated with the bike ID. The exact structure of the response body will depend on the API implementation.

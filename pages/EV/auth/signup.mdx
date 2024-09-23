@@ -1,29 +1,31 @@
 ---
-name: signup
-type: http
-seq: 3
+title: Signup API
+description: API documentation for user signup
 ---
+
+import { MDXProvider } from '@mdx-js/react';
 
 # Signup API
 
-## Endpoint
+## Meta
+- **Name**: signup
+- **Type**: http
+- **Sequence**: 3
 
-**POST** `http://localhost:3000/v1/auth/signup`
+## Post Request
 
-## Description
-
-This endpoint allows users to sign up by providing their personal and authentication details.
-
-## Request
-
-### Headers
-
-No authentication required.
+### URL
+`http://localhost:3000/v1/auth/signup`
 
 ### Body
+The body of the POST request should be in JSON format.
 
-The request body should be sent in JSON format with the following fields:
+### Authentication
+No authentication is required for this endpoint.
 
+## Request Body
+
+### JSON Structure
 ```json
 {
   "phone": "+919812940706",
@@ -41,48 +43,17 @@ The request body should be sent in JSON format with the following fields:
 }
 ```
 
-#### Fields
+### Fields
 
-- `phone` (string): User's phone number, required.
-- `otp` (string): One-time password for verification, required.
-- `email` (string): User's email address, required.
-- `first_name` (string): User's first name, required.
-- `last_name` (string): User's last name, required.
-- `date_of_birth` (string): User's date of birth in the format DD/MM/YYYY, required.
-- `password` (string): User's password, required.
-- `type` (string): Type of user, required. Possible values include `student` or other types depending on the system.
-- `employee_id` (string): Employee ID, optional if user type is not an employee.
-- `company` (string): Name of the company, optional if user type is not an employee.
-- `college` (string): Name of the college, required if user type is student.
-- `student_id` (string): Student ID, required if user type is student.
-
-## Response
-
-The server will respond with appropriate success or error messages based on the provided input.
-
-## Example
-
-### Request
-
-```json
-{
-  "phone": "+919812940706",
-  "otp": "316892",
-  "email": "mellob.mailer@gmail.com",
-  "first_name": "Kartik",
-  "last_name": "Deshmukh",
-  "date_of_birth": "27/11/2004",
-  "password": "password",
-  "type": "student",
-  "employee_id": "",
-  "company": "",
-  "college": "AU",
-  "student_id": "34"
-}
-```
-
-## Notes
-
-- Ensure that all required fields are filled correctly.
-- The `otp` field should contain a valid one-time password received by the user.
-- Password must meet required security guidelines.
+- **phone**: The phone number of the user. *(Example: "+919812940706")*
+- **otp**: One-time password sent to the user's phone. *(Example: "316892")*
+- **email**: The email address of the user. *(Example: "mellob.mailer@gmail.com")*
+- **first_name**: The first name of the user. *(Example: "Kartik")*
+- **last_name**: The last name of the user. *(Example: "Deshmukh")*
+- **date_of_birth**: The date of birth of the user in DD/MM/YYYY format. *(Example: "27/11/2004")*
+- **password**: The password for the user's account. *(Example: "password")*
+- **type**: The type of user. *(Example: "student")*
+- **employee_id**: The employee ID of the user, if applicable. *(Example: "")*
+- **company**: The company of the user, if applicable. *(Example: "")*
+- **college**: The college of the user. *(Example: "AU")*
+- **student_id**: The student's ID of the user. *(Example: "34")*

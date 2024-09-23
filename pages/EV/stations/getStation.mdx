@@ -1,53 +1,23 @@
 ---
-title: API Documentation - getStation
+title: getStation API Documentation
 ---
 
-## API Overview
+## getStation
 
-The `getStation` API provides an HTTP endpoint to retrieve details of a specific station.
+An API to fetch details about a specific station.
 
 ### Metadata
 
-- **Name**: `getStation`
-- **Type**: `http`
-- **Sequence**: `3`
+- **Name:** getStation
+- **Type:** HTTP
+- **Sequence:** 3
 
-## HTTP GET Request
+### HTTP GET Request
 
-### URL
-
-```
-http://localhost:3000/v1/stations/get/wxyoqxff83
-```
+- **URL:** `http://localhost:3000/v1/stations/get/wxyoqxff83`
+- **Body:** None
+- **Authentication:** None
 
 ### Headers
 
-To authenticate requests, the following header must be included:
-
-- **X-Karma-Admin-Auth**: `ajbkbakweiuy387yeuqqwfahdjhsabd`
-
-### Request Body
-
-- **None**
-
-## Example
-
-### Request Example
-
-```http
-GET /v1/stations/get/wxyoqxff83 HTTP/1.1
-Host: localhost:3000
-X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
-```
-
-### Response
-
-The response will contain the details of the requested station in a JSON format. Ensure you handle the response correctly based on your application needs.
-
----
-
-> **Note**: Ensure to replace `localhost:3000` with the actual host if the API is running on a different server. Proper authentication via the `X-Karma-Admin-Auth` header is mandatory to access this endpoint.
-
----
-
-For further details or questions regarding this API, please contact the appropriate support team.
+- **X-Karma-Admin-Auth:** `ajbkbakweiuy387yeuqqwfahdjhsabd`

@@ -1,35 +1,48 @@
 ---
-title: Get Transactions API Documentation
+name: getTransactions
+type: http
+seq: 1
 ---
 
-# Get Transactions API Documentation
+# Get Transactions API
 
-## Meta Information
-- **Name:** getTransactions
-- **Type:** HTTP
-- **Sequence:** 1
+## Overview
 
-## HTTP GET Request
+This API endpoint allows retrieving all transactions.
 
-### URL
-`GET http://localhost:3000/v1/transactions/getAll`
+## Endpoint
 
-### Request Body
+- **URL**: `http://localhost:3000/v1/transactions/getAll`
+- **Method**: `GET`
+
+## Request
+
+### Headers
+
+- **Authorization**: Bearer
+
+### Body
+
 None
 
-### Authentication
-This endpoint requires bearer token authentication.
+## Authentication
 
-### Bearer Token Example
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+This API requires a bearer token for authentication. The required token is:
 
-### Example Curl Request
-```bash
-curl -X GET http://localhost:3000/v1/transactions/getAll \
--H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
+```
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ## Response
-The response will include a list of transactions. The structure details of each transaction object can be found in the system's transaction schema documentation for more precise integration details.
+
+The response will consist of all transactions in the system. The format and structure of the response are not detailed in this documentation.
+
+## Example Request
+
+```http
+GET /v1/transactions/getAll HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+Ensure you replace the URL and token with the actual credentials and endpoint details.

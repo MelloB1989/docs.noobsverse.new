@@ -1,42 +1,26 @@
 ---
-title: getStations API Documentation
+name: getStations
+type: http
+seq: 2
 ---
 
-## Meta Information
-
-- **Name:** getStations
-- **Type:** HTTP
-- **Sequence:** 2
+# getStations API
 
 ## Endpoint
 
-- **GET:** `http://localhost:3000/v1/stations/get`
+**GET** `http://localhost:3000/v1/stations/get`
 
-## Request Body
+## Request
 
-- **None**
-
-## Authorization
-
-- **None**
+- **Body**: None
+- **Auth**: None
 
 ## Headers
 
-- **X-Karma-Admin-Auth:** `ajbkbakweiuy387yeuqqwfahdjhsabd`
+| Header                 | Value                              |
+|------------------------|------------------------------------|
+| X-Karma-Admin-Auth     | ajbkbakweiuy387yeuqqwfahdjhsabd    |
 
-## Example Request
+## Description
 
-```http
-GET /v1/stations/get HTTP/1.1
-Host: localhost:3000
-X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
-```
-
-## Response
-
-The response will vary depending on the implementation of the specific endpoint. Typically, you can expect JSON-formatted data representing the stations information. Please refer to the API response schema for details.
-
-## Notes
-
-- Ensure to include the `X-Karma-Admin-Auth` header in your request.
-- No body payload is necessary for this GET request.
+The `getStations` API endpoint retrieves the list of stations. This endpoint does not require any request body or authentication. However, a specific admin authorization header (`X-Karma-Admin-Auth`) must be included in the request.

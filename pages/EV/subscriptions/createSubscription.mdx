@@ -4,86 +4,80 @@ type: http
 seq: 1
 ---
 
-# Create Subscription API
+# createSubscription API
+
+## Overview
+
+The `createSubscription` API is used to create new subscription plans. This endpoint does not require any authentication.
 
 ## Endpoint
 
 **POST** `http://localhost:3000/v1/subscriptions/create`
 
-## Authorization
-
-No authorization required.
-
 ## Headers
 
-```json
-{
-  "X-Karma-Admin-Auth": "CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab"
-}
-```
+- `X-Karma-Admin-Auth`: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
 
 ## Request Body
 
-The request body should be in JSON format and can include one or more subscription plans. The structure is as follows:
+The request body should be in JSON format containing an array of subscription objects. Each subscription should have the following fields:
+
+- `id` (string): Unique identifier for the subscription plan.
+- `monthly_fee` (number): The monthly fee for the subscription.
+- `discount` (number): Discount amount on the monthly fee.
+- `name` (string): Name of the subscription plan.
+- `bike_id` (string): Identifier for the associated bike.
+- `type` (string): Type of subscription (`"monthly"` or `"annual"`).
+- `security_deposit` (number): Security deposit amount for the subscription.
+
+### Example JSON Body
 
 ```json
 [
-  {
-    "id": "sub_001",
-    "monthly_fee": 29.99,
-    "discount": 5.00,
-    "name": "Standard Plan",
-    "bike_id": "01rvo0_nbh",
-    "type": "monthly",
-    "security_deposit": 10
-  },
-  {
-    "id": "sub_002",
-    "monthly_fee": 39.99,
-    "discount": 10.00,
-    "name": "Premium Plan",
-    "bike_id": "9tkdp5ra3p",
-    "type": "monthly",
-    "security_deposit": 10
-  },
-  {
-    "id": "sub_003",
-    "monthly_fee": 19.99,
-    "discount": 0.00,
-    "name": "Basic Plan",
-    "bike_id": "2_vnd6qjv1",
-    "type": "monthly",
-    "security_deposit": 10
-  },
-  {
-    "id": "sub_004",
-    "monthly_fee": 49.99,
-    "discount": 15.00,
-    "name": "Ultimate Plan",
-    "bike_id": "vu1v4kb4s6",
-    "type": "annual",
-    "security_deposit": 10
-  },
-  {
-    "id": "sub_005",
-    "monthly_fee": 25.99,
-    "discount": 5.00,
-    "name": "Student Plan",
-    "bike_id": "01rvo0_nbh",
-    "type": "monthly",
-    "security_deposit": 10
-  }
+    {
+        "id": "sub_001",
+        "monthly_fee": 29.99,
+        "discount": 5.00,
+        "name": "Standard Plan",
+        "bike_id": "01rvo0_nbh",
+        "type": "monthly",
+        "security_deposit": 10
+    },
+    {
+        "id": "sub_002",
+        "monthly_fee": 39.99,
+        "discount": 10.00,
+        "name": "Premium Plan",
+        "bike_id": "9tkdp5ra3p",
+        "type": "monthly",
+        "security_deposit": 10
+    },
+    {
+        "id": "sub_003",
+        "monthly_fee": 19.99,
+        "discount": 0.00,
+        "name": "Basic Plan",
+        "bike_id": "2_vnd6qjv1",
+        "type": "monthly",
+        "security_deposit": 10
+    },
+    {
+        "id": "sub_004",
+        "monthly_fee": 49.99,
+        "discount": 15.00,
+        "name": "Ultimate Plan",
+        "bike_id": "vu1v4kb4s6",
+        "type": "annual",
+        "security_deposit": 10
+    },
+    {
+        "id": "sub_005",
+        "monthly_fee": 25.99,
+        "discount": 5.00,
+        "name": "Student Plan",
+        "bike_id": "01rvo0_nbh",
+        "type": "monthly",
+        "security_deposit": 10
+    }
 ]
 ```
-
-## Description
-
-This API endpoint allows the creation of new subscription plans. Each subscription plan contains the following fields:
-
-- **id**: Unique identifier for the subscription.
-- **monthly_fee**: The monthly fee for the subscription.
-- **discount**: Any discount applied.
-- **name**: The name of the subscription plan.
-- **bike_id**: The ID of the bike associated with the subscription.
-- **type**: The type of subscription, either "monthly" or "annual".
-- **security_deposit**: The security deposit amount required for the subscription.

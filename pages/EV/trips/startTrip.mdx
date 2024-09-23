@@ -1,55 +1,39 @@
 ---
-name: startTrip
+title: startTrip API
 type: http
-seq: 1
+sequence: 1
 ---
 
-# Start Trip API
+## startTrip API
 
-## Endpoint
+The `startTrip` API initiates a new bike trip by specifying the bike ID, the station ID where the trip starts, and the start timestamp.
+
+### Endpoint
 
 **POST** `http://localhost:3000/v1/trips/start`
 
-## Description
+### Authentication
 
-Initiates a trip for a bike from a specified station at a given start time.
+This endpoint uses Bearer token authentication. Include the following token in the Authorization header of your request:
 
-## Authentication
-
-This endpoint requires Bearer Token authentication.
-
-**Token:**
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Request Body
+### Request Body
 
-The request body must be sent in JSON format and include the following fields:
+The request body should be in JSON format and include the following fields:
+
+- **bike_id**: The unique identifier for the bike.
+- **station_id**: The unique identifier for the station where the trip starts.
+- **start_timestamp**: The ISO 8601 formatted timestamp indicating when the trip starts.
+
+Example request body:
 
 ```json
 {
-    "bike_id": "i6bjwk0yhu",
-    "station_id": "a2m392c58f",
-    "start_timestamp": "2024-09-02T07:15:00Z"
-}
-```
-
-- **bike_id**: *string* (required) - The unique identifier of the bike.
-- **station_id**: *string* (required) - The unique identifier of the station.
-- **start_timestamp**: *string* (required) - The timestamp when the trip starts, in ISO 8601 format.
-
-## Example Request
-
-```bash
-POST /v1/trips/start HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-Content-Type: application/json
-
-{
-    "bike_id": "i6bjwk0yhu",
-    "station_id": "a2m392c58f",
-    "start_timestamp": "2024-09-02T07:15:00Z"
+  "bike_id": "i6bjwk0yhu",
+  "station_id": "a2m392c58f",
+  "start_timestamp": "2024-09-02T07:15:00Z"
 }
 ```

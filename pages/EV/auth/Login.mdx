@@ -4,23 +4,29 @@ type: http
 sequence: 1
 ---
 
-## Login API
+# Login API
 
-The Login API allows users to authenticate using their phone number.
+## Overview
 
-### Endpoint
+The Login API allows users to authenticate into the system by providing their phone number. This is the first step to access protected resources.
 
-**POST** `https://ev-backend.app.k8s.coffeecodes.in/v1/auth/login`
+## HTTP Method
 
-### Headers
+`POST`
 
-```json
-{
-  "X-Karma-Admin-Auth": "ajbkbakweiuy387yeuqqwfahdjhsabd"
-}
+## Endpoint
+
+```plaintext
+https://ev-backend.app.k8s.coffeecodes.in/v1/auth/login
 ```
 
-### Request Body
+## Headers
+
+| Key                   | Value                                      |
+|-----------------------|--------------------------------------------|
+| `X-Karma-Admin-Auth`  | ajbkbakweiuy387yeuqqwfahdjhsabd            |
+
+## Request Body
 
 The request body must be in JSON format.
 
@@ -30,6 +36,10 @@ The request body must be in JSON format.
 }
 ```
 
-### Authentication
+## Authentication
 
 No authentication is required for this endpoint.
+
+---
+
+End of the documentation file.

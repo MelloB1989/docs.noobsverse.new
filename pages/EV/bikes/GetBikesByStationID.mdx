@@ -1,68 +1,48 @@
 ---
-name: GetBikesByStationID
-type: http
-seq: 5
+title: GetBikesByStationID
+meta:
+  - name: GetBikesByStationID
+  - type: http
+  - seq: 5
 ---
 
-# GetBikesByStationID
+## GetBikesByStationID API
 
-## Overview
+The `GetBikesByStationID` API endpoint allows you to retrieve bike data for a specific station.
 
-This API endpoint retrieves a list of bikes available at a specific station identified by its ID.
+### HTTP Request
 
-## Endpoint
+#### URL
+```
+GET https://ev-backend.app.k8s.coffeecodes.in/v1/bikes/get/station/e6j_2fyc23
+```
 
-**GET** `https://ev-backend.app.k8s.coffeecodes.in/v1/bikes/get/station/e6j_2fyc23`
+#### Body
+No body required.
 
-## Authorization
+### Authentication
 
-This endpoint requires Bearer Token authentication.
+This endpoint requires bearer token authentication.
 
-### Bearer Token
-
+#### Bearer Token
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-## Request
+Make sure to replace this sample token with a valid token.
 
-### URL Parameters
+### Example Request
 
-- **station_id** (required): The unique identifier of the station.
-
-### Request Body
-
-None.
-
-## Response
-
-```json
-{
-  "status": "success",
-  "data": {
-    "station_id": "e6j_2fyc23",
-    "bikes": [
-      {
-        "bike_id": "bike_123",
-        "model": "Electric",
-        "battery_level": 85
-      },
-      {
-        "bike_id": "bike_124",
-        "model": "Electric",
-        "battery_level": 60
-      }
-    ]
-  }
-}
+```http
+GET /v1/bikes/get/station/e6j_2fyc23 HTTP/1.1
+Host: ev-backend.app.k8s.coffeecodes.in
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-## Example Usage
+### Response
 
-```bash
-curl -X GET \
-  https://ev-backend.app.k8s.coffeecodes.in/v1/bikes/get/station/e6j_2fyc23 \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0"
-```
+The response will contain bike data related to the specified station. 
 
-By using this endpoint, you can fetch a list of available bikes at the specified station ID, including the bike IDs, models, and current battery levels.
+---
+
+For more details and example responses, refer to the API documentation. Make sure to handle authentication and data parsing on the client side as per your application needs.

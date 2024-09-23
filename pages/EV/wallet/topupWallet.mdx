@@ -1,28 +1,59 @@
-# API Documentation: `topupWallet`
+---
+name: topupWallet
+type: http
+sequence: 3
+---
 
-## Meta Information
-- **Name:** topupWallet
-- **Type:** HTTP
-- **Sequence:** 3
+# topupWallet API Documentation
+
+## Overview
+
+The `topupWallet` API allows users to top up their wallet balance. This is an HTTP POST request that requires bearer token authentication and a JSON body specifying the top-up amount.
 
 ## Endpoint
-### HTTP Method: POST
-- **URL:** `http://localhost:3000/v1/wallet/topup`
+
+**URL:** `http://localhost:3000/v1/wallet/topup`
+
+**Method:** POST
 
 ## Authentication
-### Bearer Token
-Ensure you include the following Bearer Token in the Authorization header of your request.
+
+**Type:** Bearer Token
+
+**Token:**
 
 ```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
 
 ## Request Body
-### JSON Payload
-The body of the request should be in JSON format with the following structure:
+
+The request body should be in JSON format and must include the following parameter:
+
+| Parameter  | Type   | Description           |
+|------------|--------|-----------------------|
+| `balance`  | string | The amount to top up. |
+
+**Example:**
 
 ```json
 {
   "balance": "20"
 }
 ```
+
+## Example Request
+
+```http
+POST http://localhost:3000/v1/wallet/topup
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
+Content-Type: application/json
+
+{
+  "balance": "20"
+}
+```
+
+## Response
+
+The response will confirm the top-up amount and update the user's wallet balance accordingly. Check the server documentation or the actual implementation for detailed response structure.

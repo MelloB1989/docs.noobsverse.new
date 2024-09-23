@@ -1,56 +1,41 @@
 ---
-title: Get Fastest Bike API
+title: GetFastestBike API Documentation
 ---
 
-# GetFastestBike API
+# GetFastestBike
 
-## Overview
+This API endpoint retrieves the fastest bike based on speed.
 
-The `GetFastestBike` API allows you to retrieve information about the fastest bike. This is a secured endpoint, and you need a valid bearer token to access it.
+## Endpoint
 
-## HTTP Request
+### GET
 
-```http
-GET http://localhost:3000/v1/bikes/get/speed/fastest
+```
+http://localhost:3000/v1/bikes/get/speed/fastest
 ```
 
 ## Authentication
 
-This endpoint requires a bearer token for authentication.
+This endpoint requires Bearer Token authentication.
 
-### Bearer Token
+### Token
 
 ```plaintext
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-Include the token in the Authorization header:
-
-```http
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
-
 ## Request Body
 
-This endpoint does not require a request body.
+None. This endpoint does not require a body.
 
-## API Metadata
+## Sequence
 
-- **Name**: GetFastestBike
-- **Type**: HTTP
-- **Sequence**: 9
+- Type: HTTP
+- Sequence: 9
 
-## Example Request
+## Sample Request
 
 ```http
 GET http://localhost:3000/v1/bikes/get/speed/fastest
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
-
-## Response
-
-The response will include information about the fastest bike in the database. The structure of the response is specific to the implementation and will vary based on the application's data model.
-
----
-
-This API documentation provides necessary details for developers to implement the `GetFastestBike` endpoint efficiently and accurately. Make sure to replace the placeholder token with a valid token when making requests.

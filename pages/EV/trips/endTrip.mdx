@@ -1,34 +1,40 @@
 ---
-title: "API Documentation - endTrip"
+name: endTrip
+type: http
+seq: 2
 ---
 
-## Meta Information
+# End Trip API
 
-- **Name**: `endTrip`
-- **Type**: `http`
-- **Sequence**: `2`
+This API endpoint is used to mark the end of a trip.
 
-## POST Request Details
+## HTTP Request
 
-- **URL**: `http://localhost:3000/v1/trips/end`
-- **Body Type**: `json`
-- **Authentication**: `Bearer Token`
+### Method
 
-## Authentication
+`POST`
 
-To access the `endTrip` API endpoint, a Bearer Token must be included in the request header.
+### URL
 
-### Bearer Token
+`http://localhost:3000/v1/trips/end`
 
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
-}
+### Body Format
+
+`JSON`
+
+### Authentication
+
+`Bearer Token`
+
+## Authentication Details
+
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Request Body Schema
+## Request Body
 
-The body of the POST request should be in JSON format and contain the following fields:
+The following JSON object should be sent in the body of the POST request:
 
 ```json
 {
@@ -44,16 +50,26 @@ The body of the POST request should be in JSON format and contain the following 
 }
 ```
 
-### Field Descriptions
+### Parameters
 
-- **id**: Unique identifier for the trip.
-- **bike_id**: Identifier for the bike used.
-- **station_id**: Identifier for the station where the trip ended.
-- **start_timestamp**: ISO 8601 timestamp for when the trip started.
-- **end_timestamp**: ISO 8601 timestamp for when the trip ended.
-- **distance**: Total distance covered during the trip (in kilometers).
-- **duration**: Total trip duration (in minutes).
-- **average_speed**: Average speed during the trip (in km/h).
-- **path**: Base64 encoded string representing the path data of the trip.
+- `id`: Unique identifier for the trip.
+- `bike_id`: Identifier for the bike used in the trip.
+- `station_id`: Identifier for the station where the trip ended.
+- `start_timestamp`: ISO 8601 timestamp marking the start of the trip.
+- `end_timestamp`: ISO 8601 timestamp marking the end of the trip.
+- `distance`: The distance traveled during the trip in kilometers.
+- `duration`: The duration of the trip in minutes.
+- `average_speed`: The average speed during the trip in km/h.
+- `path`: The path of the trip encoded in Base64 format.
 
-Ensure all required fields are included in the request to avoid errors and facilitate successful trip termination.
+## Response
+
+A successful request will return a status code of `200 OK` along with a JSON object confirming the trip has ended.
+
+## Error Codes
+
+- `401 Unauthorized`: Authentication failed, invalid or missing token.
+- `400 Bad Request`: Missing or invalid parameters.
+- `500 Internal Server Error`: Server encountered an unexpected condition.
+
+Refer to the API specification for more details on error responses.
