@@ -1,31 +1,31 @@
 ---
-title: Signup API
-description: API documentation for user signup
+name: signup
+type: http
+seq: 3
 ---
-
-import { MDXProvider } from '@mdx-js/react';
 
 # Signup API
 
-## Meta
-- **Name**: signup
-- **Type**: http
-- **Sequence**: 3
+The Signup API allows new users to register to the system by submitting their personal and authentication details.
 
-## Post Request
+## HTTP Method
 
-### URL
-`http://localhost:3000/v1/auth/signup`
+**POST**
 
-### Body
-The body of the POST request should be in JSON format.
+## Endpoint
 
-### Authentication
-No authentication is required for this endpoint.
+```
+http://localhost:3000/v1/auth/signup
+```
+
+## Authentication
+
+This endpoint does not require authentication.
 
 ## Request Body
 
-### JSON Structure
+The body of the request should be in JSON format and include the following attributes:
+
 ```json
 {
   "phone": "+919812940706",
@@ -43,17 +43,21 @@ No authentication is required for this endpoint.
 }
 ```
 
-### Fields
+### Attributes
 
-- **phone**: The phone number of the user. *(Example: "+919812940706")*
-- **otp**: One-time password sent to the user's phone. *(Example: "316892")*
-- **email**: The email address of the user. *(Example: "mellob.mailer@gmail.com")*
-- **first_name**: The first name of the user. *(Example: "Kartik")*
-- **last_name**: The last name of the user. *(Example: "Deshmukh")*
-- **date_of_birth**: The date of birth of the user in DD/MM/YYYY format. *(Example: "27/11/2004")*
-- **password**: The password for the user's account. *(Example: "password")*
-- **type**: The type of user. *(Example: "student")*
-- **employee_id**: The employee ID of the user, if applicable. *(Example: "")*
-- **company**: The company of the user, if applicable. *(Example: "")*
-- **college**: The college of the user. *(Example: "AU")*
-- **student_id**: The student's ID of the user. *(Example: "34")*
+- **phone** (string): The user's phone number, including country code.
+- **otp** (string): The one-time password sent to the user's phone.
+- **email** (string): The user's email address.
+- **first_name** (string): The user's first name.
+- **last_name** (string): The user's last name.
+- **date_of_birth** (string): The user's date of birth in the format `dd/mm/yyyy`.
+- **password** (string): The user's password.
+- **type** (string): The type of user, can be `student`.
+- **employee_id** (string): The employee ID if the user is an employee (can be left empty for non-employees).
+- **company** (string): The company if the user is an employee (can be left empty for non-employees).
+- **college** (string): The college name if the user is a student.
+- **student_id** (string): The student ID if the user is a student.
+
+---
+
+This document outlines the necessary details for the `signup` API endpoint to ensure a clear understanding and smooth implementation process.

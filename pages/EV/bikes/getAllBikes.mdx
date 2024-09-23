@@ -1,61 +1,66 @@
 ---
-title: "getAllBikes API Documentation"
-metaTitle: "getAllBikes API Documentation"
-metaDescription: "Detailed documentation for the getAllBikes API"
+name: getAllBikes
+type: http
+sequence: 3
 ---
 
-# getAllBikes API Documentation
+# API Documentation: getAllBikes
 
-## Meta Information
-- **Name:** getAllBikes
-- **Type:** HTTP
-- **Sequence:** 3
+## Endpoint Summary
 
-## HTTP Method
-- **GET**
-
-## Endpoint
+- **Endpoint Type:** GET
 - **URL:** `http://localhost:3000/v1/bikes/get`
-
-## Request Body
-- **None**
+- **Authentication Required:** Yes (Bearer Token)
 
 ## Authentication
-- **Type:** Bearer Token
-- **Token:**
-  ```
-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-  ```
+
+This API requires a Bearer Token for authentication. Ensure that you include the following token in the `Authorization` header of your request:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+## HTTP GET Request
+
+- **Method:** `GET`
+- **URL:** `http://localhost:3000/v1/bikes/get`
+- **Request Body:** None required
+- **Headers:**
+  - `Authorization: Bearer <token>`
 
 ## Example Request
+
 ```http
-GET http://localhost:3000/v1/bikes/get
+GET /v1/bikes/get HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
 ## Response
-The response will be a JSON object containing the list of all bikes.
 
-Example:
+- **Content Type:** `application/json`
+- **Status Codes:**
+  - `200 OK` - Successfully retrieved the list of bikes.
+  - `401 Unauthorized` - Missing or invalid authentication token.
+  - `500 Internal Server Error` - An error occurred on the server.
+
+## Example Response
+
 ```json
-{
-  "bikes": [
-    {
-      "id": "1",
-      "model": "X100",
-      "manufacturer": "BikeCo",
-      "price": 1000.00
-    },
-    {
-      "id": "2",
-      "model": "Y200",
-      "manufacturer": "BikeWorks",
-      "price": 1500.00
-    }
-  ]
-}
+[
+  {
+    "id": "1",
+    "model": "Mountain Bike",
+    "brand": "Brand A",
+    "price": 500
+  },
+  {
+    "id": "2",
+    "model": "Road Bike",
+    "brand": "Brand B",
+    "price": 700
+  }
+]
 ```
 
-## Errors
-- `401 Unauthorized`: Returned when no or an invalid Bearer token is provided.
-- `500 Internal Server Error`: Returned when an unknown error occurs on the server.
+Ensure to replace the bearer token with a valid token.

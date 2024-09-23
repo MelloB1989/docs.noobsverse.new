@@ -4,80 +4,104 @@ type: http
 seq: 1
 ---
 
-# createSubscription API
-
-## Overview
-
-The `createSubscription` API is used to create new subscription plans. This endpoint does not require any authentication.
+# Create Subscription API
 
 ## Endpoint
 
 **POST** `http://localhost:3000/v1/subscriptions/create`
 
+## Authentication
+
+None
+
 ## Headers
 
-- `X-Karma-Admin-Auth`: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
+- `X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
 
 ## Request Body
 
-The request body should be in JSON format containing an array of subscription objects. Each subscription should have the following fields:
-
-- `id` (string): Unique identifier for the subscription plan.
-- `monthly_fee` (number): The monthly fee for the subscription.
-- `discount` (number): Discount amount on the monthly fee.
-- `name` (string): Name of the subscription plan.
-- `bike_id` (string): Identifier for the associated bike.
-- `type` (string): Type of subscription (`"monthly"` or `"annual"`).
-- `security_deposit` (number): Security deposit amount for the subscription.
-
-### Example JSON Body
+The body of the request should be in JSON format, containing an array of subscription objects. Below are some example objects:
 
 ```json
 [
-    {
-        "id": "sub_001",
-        "monthly_fee": 29.99,
-        "discount": 5.00,
-        "name": "Standard Plan",
-        "bike_id": "01rvo0_nbh",
-        "type": "monthly",
-        "security_deposit": 10
-    },
-    {
-        "id": "sub_002",
-        "monthly_fee": 39.99,
-        "discount": 10.00,
-        "name": "Premium Plan",
-        "bike_id": "9tkdp5ra3p",
-        "type": "monthly",
-        "security_deposit": 10
-    },
-    {
-        "id": "sub_003",
-        "monthly_fee": 19.99,
-        "discount": 0.00,
-        "name": "Basic Plan",
-        "bike_id": "2_vnd6qjv1",
-        "type": "monthly",
-        "security_deposit": 10
-    },
-    {
-        "id": "sub_004",
-        "monthly_fee": 49.99,
-        "discount": 15.00,
-        "name": "Ultimate Plan",
-        "bike_id": "vu1v4kb4s6",
-        "type": "annual",
-        "security_deposit": 10
-    },
-    {
-        "id": "sub_005",
-        "monthly_fee": 25.99,
-        "discount": 5.00,
-        "name": "Student Plan",
-        "bike_id": "01rvo0_nbh",
-        "type": "monthly",
-        "security_deposit": 10
-    }
+  {
+    "id": "sub_001",
+    "monthly_fee": 29.99,
+    "discount": 5.00,
+    "name": "Standard Plan",
+    "bike_id": "01rvo0_nbh",
+    "type": "monthly",
+    "security_deposit": 10
+  },
+  {
+    "id": "sub_002",
+    "monthly_fee": 39.99,
+    "discount": 10.00,
+    "name": "Premium Plan",
+    "bike_id": "9tkdp5ra3p",
+    "type": "monthly",
+    "security_deposit": 10
+  },
+  {
+    "id": "sub_003",
+    "monthly_fee": 19.99,
+    "discount": 0.00,
+    "name": "Basic Plan",
+    "bike_id": "2_vnd6qjv1",
+    "type": "monthly",
+    "security_deposit": 10
+  },
+  {
+    "id": "sub_004",
+    "monthly_fee": 49.99,
+    "discount": 15.00,
+    "name": "Ultimate Plan",
+    "bike_id": "vu1v4kb4s6",
+    "type": "annual",
+    "security_deposit": 10
+  },
+  {
+    "id": "sub_005",
+    "monthly_fee": 25.99,
+    "discount": 5.00,
+    "name": "Student Plan",
+    "bike_id": "01rvo0_nbh",
+    "type": "monthly",
+    "security_deposit": 10
+  }
 ]
 ```
+
+### Subscription Object Properties
+
+- `id` (string): Unique identifier for the subscription.
+- `monthly_fee` (number): The monthly fee for the subscription.
+- `discount` (number): The discount applied to the subscription.
+- `name` (string): The name of the subscription plan.
+- `bike_id` (string): The identifier for the bike associated with the subscription.
+- `type` (string): The type of the subscription (e.g., "monthly", "annual").
+- `security_deposit` (number): The security deposit required for the subscription.
+
+## Example Request
+
+```json
+POST /v1/subscriptions/create HTTP/1.1
+Host: localhost:3000
+X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab
+Content-Type: application/json
+
+[
+  {
+    "id": "sub_001",
+    "monthly_fee": 29.99,
+    "discount": 5.00,
+    "name": "Standard Plan",
+    "bike_id": "01rvo0_nbh",
+    "type": "monthly",
+    "security_deposit": 10
+  },
+  ...
+]
+```
+
+Ensure the request body is a valid JSON array containing various subscription objects for successful creation.

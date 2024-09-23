@@ -1,44 +1,67 @@
 ---
-title: GetBikesByTopSpeedLT API
+name: GetBikesByTopSpeedLT
+type: http
+seq: 7
 ---
 
-import { Meta } from '@mdx-js/meta'
+# GetBikesByTopSpeedLT
 
-<Meta name="GetBikesByTopSpeedLT" type="http" seq="7" />
+## Endpoint Details
 
-## Overview
-
-The `GetBikesByTopSpeedLT` endpoint retrieves a list of bikes that have a top speed less than 50 km/h.
-
-## Endpoint
-
-**GET** `http://localhost:3000/v1/bikes/get/speed_lt/50`
+- **Method:** GET
+- **URL:** `http://localhost:3000/v1/bikes/get/speed_lt/50`
+- **Body:** None
+- **Authentication:** Bearer Token
 
 ## Authentication
 
-This endpoint requires a Bearer Token for authentication.
+To access this endpoint, you need a bearer token. Below is an example of a bearer token for demonstration purposes:
 
-### Bearer Token
-
-```
+```plaintext
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-## Request
+In your request header, include the token like this:
 
-- **Method:** `GET`
-- **Body:** None
-
-## URL Example
-
+```plaintext
+Authorization: Bearer <your_token_here>
 ```
-http://localhost:3000/v1/bikes/get/speed_lt/50
+
+## Example Request
+
+```http
+GET http://localhost:3000/v1/bikes/get/speed_lt/50
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
 ## Response
 
-Returns a list of bikes with top speeds less than 50 km/h.
+The endpoint will return a list of bikes with a top speed less than 50.
 
-## Security
+### Success Response
 
-Ensure you include the provided Bearer Token in the request header for successful authentication.
+- **Code:** 200 OK
+- **Content:**
+
+```json
+[
+  {
+    "id": "bike1",
+    "name": "Speedster",
+    "top_speed": 45
+  },
+  {
+    "id": "bike2",
+    "name": "RoadRunner",
+    "top_speed": 48
+  }
+]
+```
+
+### Error Response
+
+- **Code:** 401 Unauthorized
+  - **Content:** `{"error": "Invalid or missing authentication token"}`
+
+- **Code:** 404 Not Found
+  - **Content:** `{"error": "No bikes found with top speed less than 50"}`

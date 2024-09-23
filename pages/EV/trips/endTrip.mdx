@@ -1,75 +1,73 @@
 ---
-name: endTrip
-type: http
-seq: 2
+title: End Trip API
 ---
 
-# End Trip API
+## End Trip API
 
-This API endpoint is used to mark the end of a trip.
+### Metadata
 
-## HTTP Request
+- **Name:** endTrip
+- **Type:** HTTP
+- **Sequence:** 2
 
-### Method
+### HTTP Request
 
-`POST`
-
-### URL
-
-`http://localhost:3000/v1/trips/end`
-
-### Body Format
-
-`JSON`
+- **Method:** POST
+- **URL:** `http://localhost:3000/v1/trips/end`
+- **Body Format:** JSON
+- **Authentication:** Bearer Token
 
 ### Authentication
 
-`Bearer Token`
-
-## Authentication Details
+Ensure to include the following bearer token in the authorization header:
 
 ```plaintext
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Request Body
+### Request Body
 
-The following JSON object should be sent in the body of the POST request:
+Provide the trip details in the JSON format:
 
 ```json
 {
-  "id": "ulj1iq0-0w",
-  "bike_id": "i6bjwk0yhu",
-  "station_id": "a2m392c58f",
-  "start_timestamp": "2024-09-02T07:15:00Z",
-  "end_timestamp": "2024-09-02T07:50:00Z",
-  "distance": 15.8,
-  "duration": 35.0,
-  "average_speed": 27.1,
-  "path": "base64_encoded_path_data_3"
+    "id": "ulj1iq0-0w",
+    "bike_id": "i6bjwk0yhu",
+    "station_id": "a2m392c58f",
+    "start_timestamp": "2024-09-02T07:15:00Z",
+    "end_timestamp": "2024-09-02T07:50:00Z",
+    "distance": 15.8,
+    "duration": 35.0,
+    "average_speed": 27.1,
+    "path": "base64_encoded_path_data_3"
 }
 ```
 
-### Parameters
+### Example CURL Command
 
-- `id`: Unique identifier for the trip.
-- `bike_id`: Identifier for the bike used in the trip.
-- `station_id`: Identifier for the station where the trip ended.
-- `start_timestamp`: ISO 8601 timestamp marking the start of the trip.
-- `end_timestamp`: ISO 8601 timestamp marking the end of the trip.
-- `distance`: The distance traveled during the trip in kilometers.
-- `duration`: The duration of the trip in minutes.
-- `average_speed`: The average speed during the trip in km/h.
-- `path`: The path of the trip encoded in Base64 format.
+Example of how to end a trip using CURL:
 
-## Response
+```bash
+curl -X POST http://localhost:3000/v1/trips/end \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw" \
+     -H "Content-Type: application/json" \
+     -d '{
+         "id": "ulj1iq0-0w",
+         "bike_id": "i6bjwk0yhu",
+         "station_id": "a2m392c58f",
+         "start_timestamp": "2024-09-02T07:15:00Z",
+         "end_timestamp": "2024-09-02T07:50:00Z",
+         "distance": 15.8,
+         "duration": 35.0,
+         "average_speed": 27.1,
+         "path": "base64_encoded_path_data_3"
+     }'
+```
 
-A successful request will return a status code of `200 OK` along with a JSON object confirming the trip has ended.
+### Response
 
-## Error Codes
+The endpoint will return a JSON response indicating the success or failure of the trip termination request. 
 
-- `401 Unauthorized`: Authentication failed, invalid or missing token.
-- `400 Bad Request`: Missing or invalid parameters.
-- `500 Internal Server Error`: Server encountered an unexpected condition.
+---
 
-Refer to the API specification for more details on error responses.
+Ensure to replace the `base64_encoded_path_data_3` with your actual encoded path data. This API endpoint is used to mark the end of a trip for bike-sharing services.

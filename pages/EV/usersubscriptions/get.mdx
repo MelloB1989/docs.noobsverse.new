@@ -1,31 +1,30 @@
 ---
-title: get User Subscription
-type: http
+name: Get User Subscription
+type: HTTP
 seq: 2
 ---
 
-# Get User Subscription
+## Overview
 
-Fetch the details of a user subscription from the API.
+This API allows retrieving user subscription details.
 
 ## Endpoint
 
-- **URL:** `http://localhost:3000/v1/user_subscription/get`
-- **Method:** GET
-- **Authorization:** Bearer Token
-- **Body Type:** JSON
+**URL:** `http://localhost:3000/v1/user_subscription/get`
 
-## Authorization
+**Method:** GET
 
-You need to include the following bearer token in the headers for authentication.
+## Authentication
 
-```http
+The endpoint requires Bearer Token authentication.
+
+```plaintext
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ## Request Body
 
-Pass the following JSON object in the request body.
+The request body must be in JSON format.
 
 ```json
 {
@@ -35,16 +34,14 @@ Pass the following JSON object in the request body.
 }
 ```
 
-## Example
+## Response
 
-```http
-GET http://localhost:3000/v1/user_subscription/get
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-Content-Type: application/json
+The API will return the subscription details.
 
-{
-  "subscription_id": "ftx0li8efd",
-  "start_date": "27/11/2004",
-  "end_date": "27/11/2004"
-}
-```
+---
+
+**Sequence:** 2
+
+---
+
+For further details, refer to the API documentation provided or contact the API support team.

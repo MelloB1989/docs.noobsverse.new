@@ -1,39 +1,46 @@
 ---
-title: GetUserTripsByLongestDuration API
-description: API to retrieve user trips sorted by the longest duration.
+name: GetUserTripsByLongestDuration
+type: http
+sequence: 8
 ---
 
-## GetUserTripsByLongestDuration
+# GetUserTripsByLongestDuration API
 
-### Metadata
-- **Type:** HTTP
-- **Sequence:** 8
+## Overview
 
-### HTTP Method
-- **GET**
+This API endpoint retrieves the user trips sorted by the longest duration.
 
-### URL
-`http://localhost:3000/v1/trips/duration/longest?limit=10`
+## HTTP Method
 
-### Request Body
-- **None**
+- **GET** 
 
-### Query Parameters
-| Name  | Type | Description       | Required | Default |
-|-------|------|-------------------|----------|---------|
-| limit | int  | Maximum number of trips to retrieve | No       | 10      |
+## URL
 
-### Authentication
-This API requires bearer authentication.
+- `http://localhost:3000/v1/trips/duration/longest`
 
-#### Bearer Token
+## Query Parameters
+
+| Name  | Type | Required | Description                           |
+|-------|------|----------|---------------------------------------|
+| limit | int  | Optional | Limits the number of records returned |
+
+### Example
+
+- **URL with Query Parameter**:
+  ```
+  http://localhost:3000/v1/trips/duration/longest?limit=10
+  ```
+
+## Request Body
+
+- No request body needed.
+
+## Authentication
+
+This endpoint requires Bearer Token authentication.
+
+### Example Bearer Token
+
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-### Example Request
-```http
-GET /v1/trips/duration/longest?limit=10 HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```

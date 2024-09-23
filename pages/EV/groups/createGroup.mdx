@@ -1,38 +1,25 @@
 ---
-name: createGroup
-type: http
-seq: 1
+title: Create Group API
 ---
 
-# API Documentation: createGroup
+## Create Group
 
-## Endpoint
+### Description
+This API endpoint allows you to create a new group.
 
-### URL
-
-`POST http://localhost:3000/v1/groups/create`
+### Endpoint
+**HTTP Method:** POST  
+**URL:** `http://localhost:3000/v1/groups/create`
 
 ### Authentication
+**Type:** Bearer Token
 
-- Type: Bearer Token
-- Example Token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
-
-### Headers
-
-```json
-{
-  "Authorization": "Bearer <your_token>",
-  "Content-Type": "application/json"
-}
+```plaintext
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Request Body
-
-### Content-Type
-
-`application/json`
-
-### Payload
+### Request Body
+**Content-Type:** application/json
 
 ```json
 {
@@ -41,26 +28,33 @@ seq: 1
 }
 ```
 
-## Description
-
-The `createGroup` endpoint is used to create a new group with specific details such as the group's name and description. The request must include a valid bearer token for authentication.
+### Sequence
+This API call should be made first in the sequence of operations.
 
 ### Example Request
 
-```bash
-curl -X POST http://localhost:3000/v1/groups/create \
--H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw" \
--H "Content-Type: application/json" \
--d '{
+```http
+POST http://localhost:3000/v1/groups/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+Content-Type: application/json
+
+{
   "name": "Green Warriors",
   "description": "A group focused on reducing carbon emissions."
-}'
+}
 ```
 
 ### Example Response
 
-Assuming the group creation is successful, the response body would include details about the newly created group, such as group ID, name, and description. The exact structure of the response will depend on the API implementation.
+```json
+{
+  "id": "abc123",
+  "name": "Green Warriors",
+  "description": "A group focused on reducing carbon emissions.",
+  "created_at": "2023-10-01T12:00:00Z"
+}
+```
 
----
-
-For more details and advanced usage, please refer to the full API documentation.
+### Notes
+- Ensure the bearer token is valid and not expired.
+- The `name` and `description` fields are mandatory in the request body.

@@ -4,31 +4,33 @@ type: HTTP
 seq: 4
 ---
 
-# Webhook API
+# Webhook API Documentation
 
-## Retrieve Webhook Information
+This documentation provides details about the `Webhook` API.
 
-### HTTP Request
+## Endpoint
 
-`GET http://localhost:3000/v1/wallet/webhook`
+### GET
 
-### Query Parameters
+#### URL
+`http://localhost:3000/v1/wallet/webhook`
 
-- `uid`: `5geapgapxs` — Unique identifier for the user.
-- `balance`: `10000000000` — Current balance of the user's wallet.
-- `webhook_key`: `coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda` — Key for webhook authentication.
+#### Query Parameters
 
-### Request Headers
+- **uid**: `5geapgapxs`
+- **balance**: `10000000000`
+- **webhook_key**: `coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda`
 
-- `Authorization`: `Bearer` `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I`
+#### Body
+None
 
-### Response
+#### Authorization
+Bearer Token required.
 
-The response will contain relevant webhook information.
-
-### Example Request
-
-```http
-GET http://localhost:3000/v1/wallet/webhook?uid=5geapgapxs&balance=10000000000&webhook_key=coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
+```
+
+---
+
+Ensure to include the Bearer token in the request header for authentication.

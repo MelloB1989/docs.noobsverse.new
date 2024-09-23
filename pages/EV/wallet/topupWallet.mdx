@@ -1,40 +1,27 @@
 ---
-name: topupWallet
-type: http
-sequence: 3
+title: Top Up Wallet API
+description: API for topping up a user's wallet
 ---
 
-# topupWallet API Documentation
+import { Meta } from '@components/Meta';
 
-## Overview
-
-The `topupWallet` API allows users to top up their wallet balance. This is an HTTP POST request that requires bearer token authentication and a JSON body specifying the top-up amount.
+<Meta 
+  name="topupWallet"
+  type="HTTP"
+  sequence="3"
+/>
 
 ## Endpoint
-
-**URL:** `http://localhost:3000/v1/wallet/topup`
-
-**Method:** POST
+`POST http://localhost:3000/v1/wallet/topup`
 
 ## Authentication
-
-**Type:** Bearer Token
-
-**Token:**
-
+This endpoint requires a Bearer Token.
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
 
 ## Request Body
-
-The request body should be in JSON format and must include the following parameter:
-
-| Parameter  | Type   | Description           |
-|------------|--------|-----------------------|
-| `balance`  | string | The amount to top up. |
-
-**Example:**
+The request body should be in JSON format and must include the balance to top up:
 
 ```json
 {
@@ -43,9 +30,9 @@ The request body should be in JSON format and must include the following paramet
 ```
 
 ## Example Request
-
 ```http
-POST http://localhost:3000/v1/wallet/topup
+POST /v1/wallet/topup HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 Content-Type: application/json
 
@@ -55,5 +42,13 @@ Content-Type: application/json
 ```
 
 ## Response
+On success, the server will return a status code of 200 OK along with the updated wallet details.
 
-The response will confirm the top-up amount and update the user's wallet balance accordingly. Check the server documentation or the actual implementation for detailed response structure.
+```json
+{
+  "message": "Wallet topped up successfully",
+  "newBalance": 100
+}
+```
+
+If the request fails, the server will return an appropriate error code with a message describing the error.

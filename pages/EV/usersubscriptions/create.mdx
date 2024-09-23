@@ -1,32 +1,32 @@
 ---
-title: Create User Subscription API
+title: Create User Subscription
 ---
 
-import { Meta } from '@docgeni/view';
-<Meta title="Create User Subscription API" />
+## Endpoint: Create User Subscription
 
-# Create User Subscription API
+This API endpoint allows you to create a user subscription.
 
-This API allows you to create a user subscription.
+### HTTP Method
 
-## Endpoint
+`POST`
 
-**POST** `http://localhost:3000/v1/user_subscription/create`
+### URL
 
-## Authentication
+`http://localhost:3000/v1/user_subscription/create`
 
-This endpoint requires Bearer Token authentication.
+### Authentication
 
-**Bearer Token:**
+Bearer token is required for this endpoint.
+
+#### Example
+
+```plaintext
+Bearer <YOUR_TOKEN_HERE>
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
 
-## Request Body
+### Request Body
 
-The request body should be in JSON format.
-
-### Example Request Body
+The request body should be in JSON format and should contain the following fields:
 
 ```json
 {
@@ -36,23 +36,23 @@ The request body should be in JSON format.
 }
 ```
 
-## Example Request
+### Example Request
 
-```http
-POST /v1/user_subscription/create HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-Content-Type: application/json
-
-{
-  "subscription_id": "qcxt0ky6xg",
-  "start_date": "27/11/2004",
-  "end_date": "27/11/2004"
-}
+```curl
+curl -X POST http://localhost:3000/v1/user_subscription/create \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw" \
+     -H "Content-Type: application/json" \
+     -d '{
+           "subscription_id": "qcxt0ky6xg",
+           "start_date": "27/11/2004",
+           "end_date": "27/11/2004"
+         }'
 ```
 
-## Response
+### Response
 
-The response format has not been provided. Please refer to the API documentation for more details.
+The API will return a response with details regarding the created subscription. The structure of the response will be provided by the API documentation.
 
-**Note:** Always keep your Bearer Token secure and avoid sharing it publicly.
+## Summary
+
+This endpoint is designed for creating subscriptions for users with a required bearer token for authorization and a JSON body specifying `subscription_id`, `start_date`, and `end_date`.

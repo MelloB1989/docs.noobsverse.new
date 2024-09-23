@@ -1,34 +1,28 @@
 ---
 name: Login
-type: http
-sequence: 1
+type: HTTP
+seq: 1
 ---
 
-# Login API
+## Login
 
-## Overview
-
-The Login API allows users to authenticate into the system by providing their phone number. This is the first step to access protected resources.
-
-## HTTP Method
+### HTTP Method
 
 `POST`
 
-## Endpoint
+### Endpoint
 
-```plaintext
-https://ev-backend.app.k8s.coffeecodes.in/v1/auth/login
+`https://ev-backend.app.k8s.coffeecodes.in/v1/auth/login`
+
+### Headers
+
+```json
+{
+  "X-Karma-Admin-Auth": "ajbkbakweiuy387yeuqqwfahdjhsabd"
+}
 ```
 
-## Headers
-
-| Key                   | Value                                      |
-|-----------------------|--------------------------------------------|
-| `X-Karma-Admin-Auth`  | ajbkbakweiuy387yeuqqwfahdjhsabd            |
-
-## Request Body
-
-The request body must be in JSON format.
+### Request Body (JSON)
 
 ```json
 {
@@ -36,10 +30,6 @@ The request body must be in JSON format.
 }
 ```
 
-## Authentication
+### Authentication
 
-No authentication is required for this endpoint.
-
----
-
-End of the documentation file.
+None

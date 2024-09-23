@@ -1,53 +1,27 @@
 ---
 name: GetBikeByFrameNumber
 type: http
-sequence: 4
+seq: 4
 ---
 
-## GetBikeByFrameNumber API
+# Get a Bike by Frame Number
 
-The `GetBikeByFrameNumber` API allows you to retrieve information about a bike using its frame number.
+## Endpoint Description
+This API endpoint retrieves detailed information about a bike using its unique frame number.
 
-### HTTP Request
+## HTTP Method
+`GET`
 
-**GET** `http://localhost:3000/v1/bikes/get/frame/FR123456789`
+## URL
+`http://localhost:3000/v1/bikes/get/frame/FR123456789`
 
-### Request Headers
+## Authentication
+This endpoint requires Bearer Token authentication.
 
-- **Authorization**: Bearer {token}
-
-### Authorization
-
-This API requires a bearer token for authentication. Include the token in the `Authorization` header as follows:
-
+### Bearer Token
 ```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
-
-### Request Body
-
-None.
-
-### Usage Example
-
-```http
-GET /v1/bikes/get/frame/FR123456789 HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-### Response
-
-The response will contain the details of the bike associated with the provided frame number. 
-
-```json
-{
-  // Response content here
-}
-```
-
-### Notes
-
-- Ensure that the frame number `FR123456789` is valid and corresponds to an available bike.
-- The bearer token should be replaced with a valid token generated from the authentication system.
-- This API does not require any request body.
+## Request Body
+No request body is required for this endpoint.

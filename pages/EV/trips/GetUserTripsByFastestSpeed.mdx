@@ -1,56 +1,45 @@
 ---
-id: GetUserTripsByFastestSpeed
-title: Get User Trips By Fastest Speed
-description: Retrieve the user's trips sorted by the fastest speed.
+name: GetUserTripsByFastestSpeed
+type: http
+sequence: 10
 ---
 
-## GetUserTripsByFastestSpeed
+# GetUserTripsByFastestSpeed API
 
-Retrieve the user's trips sorted by the fastest speed.
+## Description
 
-### HTTP Request
+Fetches the user's trips ordered by the fastest speed. The result can be limited by a query parameter.
 
-`GET http://localhost:3000/v1/trips/speed/fastest?limit=10`
+## HTTP Request
+
+**GET** `http://localhost:3000/v1/trips/speed/fastest?limit=10`
+
+## Parameters
 
 ### Query Parameters
 
-| Parameter | Type | Description          | Required | Default |
-|-----------|------|----------------------|----------|---------|
-| limit     | int  | Limit the number of results | Yes      | 10      |
+- `limit` (optional): The maximum number of trips to return. Default is set to 10.
 
-### Authentication
+## Authentication
 
-This endpoint requires a Bearer Token.
+This endpoint requires Bearer authentication.
 
-#### Bearer Token
+### Bearer Token
 
-`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+Provide your Bearer token in the request header for authentication.
 
-### Example Request
+**Token:**
 
-```http
-GET http://localhost:3000/v1/trips/speed/fastest?limit=10
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Response
+> **Note:** Replace this token with your actual Bearer token.
 
-The response includes details about the user's trips sorted by the fastest speed.
+## No Request Body
 
-```json
-{
-  "trips": [
-    {
-      "tripId": "1",
-      "startLocation": "Location A",
-      "endLocation": "Location B",
-      "speed": "120 km/h",
-      // more trip details 
-    }
-  ]
-}
-```
+This endpoint does not require a request body.
 
-### Notes
+---
 
-- Ensure to replace the Bearer Token with a valid one.
+This API can be used to fetch a limited number of trips sorted by the fastest speed, providing insights into the user's travel speed patterns.

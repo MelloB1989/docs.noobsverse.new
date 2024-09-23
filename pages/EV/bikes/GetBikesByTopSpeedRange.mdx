@@ -1,36 +1,63 @@
 ---
-title: GetBikesByTopSpeedRange API Documentation
+name: GetBikesByTopSpeedRange
+type: http
+seq: 6
 ---
 
-## GetBikesByTopSpeedRange
+# GetBikesByTopSpeedRange API
 
-### API Type
-- **Type**: HTTP
-- **Sequence**: 6
+## Overview
 
-### Endpoint
-- **URL**: `http://localhost:3000/v1/bikes/get/speed/50/47`
-- **Method**: `GET`
-- **Request Body**: None
+The `GetBikesByTopSpeedRange` API allows you to retrieve a list of bikes within a specific top speed range. It is an HTTP GET endpoint that requires a bearer token for authentication.
 
-### Authentication
-- **Type**: Bearer Token
-- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
+## HTTP Request
 
-### Example Request
-```http
-GET /v1/bikes/get/speed/50/47 HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+- **Method:** GET
+- **URL:** `http://localhost:3000/v1/bikes/get/speed/50/47`
+- **Body:** None
+
+## Authentication
+
+This endpoint requires a bearer token for authentication. The token must be included in the header of the HTTP request.
+
+### Bearer Token Example:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-### Response
-The response body will contain the list of bikes within the specified top speed range. The structure of the response will be in JSON format and will typically include bike details such as model, speed, and other relevant attributes.
+## Example cURL Request
 
-### Notes
-- Ensure the Bearer Token is valid and not expired for successful requests.
-- The speed range in the URL should be adjusted as needed to filter bikes by different top speed ranges.
+```bash
+curl -X GET http://localhost:3000/v1/bikes/get/speed/50/47 \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0"
+```
 
----
+## Response
 
-This documentation provides an overview of the GetBikesByTopSpeedRange API endpoint, including its method, required authentication, and expected response.
+The response will be a JSON object containing the list of bikes that fall within the specified top speed range.
+
+Example:
+
+```json
+{
+  "bikes": [
+    {
+      "id": "bike1",
+      "model": "Speedster",
+      "topSpeed": 48
+    },
+    {
+      "id": "bike2",
+      "model": "Flash",
+      "topSpeed": 49
+    }
+  ]
+}
+```
+
+## Errors
+
+- **401 Unauthorized:** The bearer token is missing or invalid.
+- **404 Not Found:** No bikes were found within the specified speed range.
+- **500 Internal Server Error:** An unexpected error occurred on the server.

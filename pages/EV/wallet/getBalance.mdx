@@ -1,7 +1,8 @@
 ---
-title: "getBalance API Documentation"
-description: "Detailed documentation for the getBalance API"
+title: getBalance API Documentation
 ---
+
+# getBalance
 
 ## Meta Information
 
@@ -9,19 +10,22 @@ description: "Detailed documentation for the getBalance API"
 - **Type:** HTTP
 - **Sequence:** 2
 
-## Endpoint
+## HTTP GET Request
 
-### GET Request
+### URL
 
-- **URL:** `http://localhost:3000/v1/wallet/get`
-- **Body:** None
+`http://localhost:3000/v1/wallet/get`
 
-## Authentication
+### Body
 
-- **Type:** Bearer Token
+None
 
-  **Token:**
-  
-  ```
-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
-  ```
+### Authentication
+
+Bearer Token
+
+### Auth Token Example
+
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
+```

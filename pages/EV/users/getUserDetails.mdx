@@ -1,52 +1,23 @@
 ---
-title: Get User Details API
-description: Documentation for the `getUserDetails` API endpoint
+title: getUserDetails API Documentation
 ---
 
-## API Overview
+## getUserDetails
 
-### Name
-`getUserDetails`
+The `getUserDetails` API is used to retrieve the details of a user. This is an HTTP GET request that requires a bearer token for authentication.
 
-### Type
-`HTTP`
+### HTTP Request
 
-### Sequence
-`1`
-
-## HTTP Method: GET
-
-### Endpoint
-`http://localhost:3000/v1/user/get`
+**GET** `http://localhost:3000/v1/user/get`
 
 ### Request Body
-None
+
+None. This API does not require a request body.
 
 ### Authentication
-Bearer Token
 
-### Bearer Token Example
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
+This endpoint uses bearer token authentication. Include the following token in the Authorization header of your HTTP request:
 
-## Usage Example
-
-### Request
-
-```http
-GET /v1/user/get HTTP/1.1
-Host: localhost:3000
+```text
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
-
-### Response
-
-```json
-{
-  "uid": "afrwuvd_1j",
-  "phone": "+919812940706",
-  "name": "John Doe",
-  "email": "johndoe@example.com"
-}
 ```

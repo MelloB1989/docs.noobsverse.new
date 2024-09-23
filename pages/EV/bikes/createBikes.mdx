@@ -1,121 +1,135 @@
 ---
 id: createBikes
 title: Create Bikes
+description: API documentation for creating bike entries.
 ---
 
-# Create Bikes API Documentation
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Endpoint Information
+## Overview
 
-- **Endpoint Name**: Create Bikes
-- **Type**: HTTP
-- **Sequence**: 1
+The `createBikes` API is used to create multiple bike entries in the system. This document provides a detailed description of the API endpoint, including the request and response details.
 
-## HTTP Request
+## Endpoint
 
-### Method: POST
+### POST
+`http://localhost:3000/v1/bikes/create`
 
-- **URL**: `http://localhost:3000/v1/bikes/create`
-- **Body Format**: JSON
-- **Authentication**: None required
+## Authentication
+
+This endpoint does not require authentication. However, it includes a custom header for admin authorization.
 
 ### Headers
 
-- **X-Karma-Admin-Auth**: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
+| Key                      | Value                                                                                 |
+|--------------------------|---------------------------------------------------------------------------------------|
+| X-Karma-Admin-Auth       | CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab         |
 
 ## Request Body
 
-The request body should be a JSON array containing the bike objects to be created. Each object should have the following structure:
+The request body should be in JSON format and contain an array of bike objects. Each bike object should have the following fields:
 
-```json
-{
-    "frame_number": "string",
-    "name": "string",
-    "station_id": "string",
-    "top_speed": number,
-    "range": number,
-    "time_to_station": number,
-    "images": ["string"]
-}
-```
+- `frame_number`: String (Unique identifier for the bike's frame)
+- `name`: String (Name of the bike)
+- `station_id`: String (ID of the station where the bike is located)
+- `top_speed`: Number (Top speed of the bike in km/h)
+- `range`: Number (Range of the bike in km)
+- `time_to_station`: Number (Time in minutes to reach the station)
+- `images`: Array of Strings (URLs of bike images)
 
-### Example Input
+Here is an example request body:
+
+<Tabs>
+<TabItem value="JSON" label="JSON" default>
 
 ```json
 [
-    {
-        "frame_number": "FR123456789",
-        "name": "Speedster X1",
-        "station_id": "1ub1d98p_5",
-        "top_speed": 45,
-        "range": 100,
-        "time_to_station": 5,
-        "images": [
-            "https://bd.gaagicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    },
-    {
-        "frame_number": "FR987654321",
-        "name": "Thunderbolt Z3",
-        "station_id": "2jk5h43t_7",
-        "top_speed": 50,
-        "range": 120,
-        "time_to_station": 7,
-        "images": [
-            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    },
-    {
-        "frame_number": "FR112233445",
-        "name": "Lightning T4",
-        "station_id": "3mn8l29q_2",
-        "top_speed": 55,
-        "range": 150,
-        "time_to_station": 4,
-        "images": [
-            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    },
-    {
-        "frame_number": "FR556677889",
-        "name": "Storm Rider G2",
-        "station_id": "4pl0z87w_9",
-        "top_speed": 60,
-        "range": 140,
-        "time_to_station": 6,
-        "images": [
-            "https://bd.gaagicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    },
-    {
-        "frame_number": "FR998877665",
-        "name": "Cyclone V6",
-        "station_id": "5qr2m65y_4",
-        "top_speed": 65,
-        "range": 160,
-        "time_to_station": 3,
-        "images": [
-            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    },
-    {
-        "frame_number": "FR554433221",
-        "name": "Hurricane F5",
-        "station_id": "6st1o23x_8",
-        "top_speed": 70,
-        "range": 180,
-        "time_to_station": 2,
-        "images": [
-            "https://bd.gaagicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    }
+  {
+    "frame_number": "FR123456789",
+    "name": "Speedster X1",
+    "station_id": "1ub1d98p_5",
+    "top_speed": 45,
+    "range": 100,
+    "time_to_station": 5,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  },
+  {
+    "frame_number": "FR987654321",
+    "name": "Thunderbolt Z3",
+    "station_id": "2jk5h43t_7",
+    "top_speed": 50,
+    "range": 120,
+    "time_to_station": 7,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  },
+  {
+    "frame_number": "FR112233445",
+    "name": "Lightning T4",
+    "station_id": "3mn8l29q_2",
+    "top_speed": 55,
+    "range": 150,
+    "time_to_station": 4,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  },
+  {
+    "frame_number": "FR556677889",
+    "name": "Storm Rider G2",
+    "station_id": "4pl0z87w_9",
+    "top_speed": 60,
+    "range": 140,
+    "time_to_station": 6,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  },
+  {
+    "frame_number": "FR998877665",
+    "name": "Cyclone V6",
+    "station_id": "5qr2m65y_4",
+    "top_speed": 65,
+    "range": 160,
+    "time_to_station": 3,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  },
+  {
+    "frame_number": "FR554433221",
+    "name": "Hurricane F5",
+    "station_id": "6st1o23x_8",
+    "top_speed": 70,
+    "range": 180,
+    "time_to_station": 2,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  }
 ]
 ```
 
+</TabItem>
+</Tabs>
+
 ## Response
 
-This endpoint will return a success message confirming the creation of the bikes, or an error message if the creation fails. The details of the response will depend on the implementation of the server handling this endpoint.
+Upon successful creation of the bike entries, the API will return a success message and details of the created bikes.
+
+## Error Handling
+
+In case of errors, the API will return an appropriate error message with a corresponding HTTP status code.
+
+### Example Errors
+
+- **400 Bad Request**: Validations errors or missing required fields.
+- **500 Internal Server Error**: Something went wrong on the server side.
 
 ---
 
-This completes the documentation for the Create Bikes API endpoint. If you have any further questions, feel free to reach out!
+This documentation should provide you with all the necessary details to successfully use the `createBikes` API. If you have any questions or need further assistance, please feel free to reach out.

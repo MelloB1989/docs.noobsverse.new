@@ -2,40 +2,33 @@
 title: GetFastestBike API Documentation
 ---
 
-# GetFastestBike
+## GetFastestBike
 
-This API endpoint retrieves the fastest bike based on speed.
+### Endpoint
 
-## Endpoint
+- **Type:** `http`
+- **Sequence:** `9`
 
-### GET
+### GET Request
 
-```
-http://localhost:3000/v1/bikes/get/speed/fastest
-```
+- **URL:** `http://localhost:3000/v1/bikes/get/speed/fastest`
+- **Request Body:** None
+- **Authorization:** Bearer Token
 
-## Authentication
+### Authorization
 
-This endpoint requires Bearer Token authentication.
-
-### Token
+To access this endpoint, you must include the following bearer token in your request headers:
 
 ```plaintext
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-## Request Body
+### Example
 
-None. This endpoint does not require a body.
+#### cURL
 
-## Sequence
-
-- Type: HTTP
-- Sequence: 9
-
-## Sample Request
-
-```http
-GET http://localhost:3000/v1/bikes/get/speed/fastest
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```bash
+curl -X GET "http://localhost:3000/v1/bikes/get/speed/fastest" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0"
 ```
+
+Ensure you replace `http://localhost:3000` with the actual host if different.

@@ -1,46 +1,73 @@
 ---
-title: GetUserTripsBySlowestSpeed API
+id: GetUserTripsBySlowestSpeed
+title: GetUserTripsBySlowestSpeed
+sidebar_position: 11
 ---
 
-## GetUserTripsBySlowestSpeed
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-### Description
+# GetUserTripsBySlowestSpeed
 
-Fetches user trips sorted by the slowest speed, limited to a specified number of results.
+## Description
+The `GetUserTripsBySlowestSpeed` API endpoint retrieves user trips sorted by the slowest speed. You can limit the number of results returned using a query parameter.
 
-### HTTP Request
+## Endpoint
+### GET
+```
+http://localhost:3000/v1/trips/speed/slowest?limit=10
+```
 
-**GET** `http://localhost:3000/v1/trips/speed/slowest?limit=10`
+## Authentication
+This endpoint requires Bearer token authentication.
 
-### Authentication
-
-This endpoint requires a Bearer token for authentication.
-
-#### Bearer Token
-
-```plaintext
+### Example Bearer Token
+```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Parameters
+## Query Parameters
 
-#### Query Parameters
+| Name  | Type | Required | Description                                |
+|-------|------|----------|--------------------------------------------|
+| limit | int  | No       | The maximum number of trip records to return. Default is 10. |
 
-| Name | Type | Description         | Required | Default |
-|------|------|---------------------|----------|---------|
-| limit | int  | Number of results to return. | yes      | 10      |
+## Request Body
+This endpoint does not require a request body.
 
-### Response
-
-Returns a list of user trips sorted by the slowest speed.
-
-### Example Request
-
-```shell
-curl -X GET "http://localhost:3000/v1/trips/speed/slowest?limit=10" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
+## Example Request
+```bash
+curl -X GET 'http://localhost:3000/v1/trips/speed/slowest?limit=10' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw'
 ```
 
-### Notes
+## Response
+The response contains the trip records sorted by their speeds in ascending order.
 
-- Remember to replace the hardcoded token in the example request with an actual token.
-- Ensure the specified results limit is a positive integer.
+### Example Response
+```json
+[
+  {
+    "tripId": "1234",
+    "userId": "5678",
+    "speed": "5 km/h",
+    "startTime": "2023-10-01T10:00:00Z",
+    "endTime": "2023-10-01T10:30:00Z"
+  },
+  {
+    "tripId": "5678",
+    "userId": "91011",
+    "speed": "8 km/h",
+    "startTime": "2023-10-01T11:00:00Z",
+    "endTime": "2023-10-01T11:30:00Z"
+  }
+]
+```
+
+## Errors
+- `401 Unauthorized`: Authentication failed or no token provided.
+- `400 Bad Request`: Invalid parameters.
+
+## Notes
+- Ensure that the limit parameter is a positive integer.
+- The default limit value is set to 10 if the query parameter is not provided.

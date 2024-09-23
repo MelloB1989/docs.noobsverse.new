@@ -1,48 +1,35 @@
 ---
-name: getTransactions
-type: http
-seq: 1
+title: Get Transactions API Documentation
 ---
 
 # Get Transactions API
 
-## Overview
+## Meta Information
 
-This API endpoint allows retrieving all transactions.
+- **Name**: getTransactions
+- **Type**: HTTP
+- **Sequence**: 1
 
-## Endpoint
+## HTTP Request
+
+### Method: GET
 
 - **URL**: `http://localhost:3000/v1/transactions/getAll`
-- **Method**: `GET`
+- **Body**: None
+- **Authorization**: Bearer Token
 
-## Request
+## Authorization
 
-### Headers
+To access the `getTransactions` API, you need to include a bearer token in the authorization header of your request. 
 
-- **Authorization**: Bearer
+### Bearer Token
 
-### Body
-
-None
-
-## Authentication
-
-This API requires a bearer token for authentication. The required token is:
-
-```
-Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Response
+Include the token in the `Authorization` header as follows:
 
-The response will consist of all transactions in the system. The format and structure of the response are not detailed in this documentation.
-
-## Example Request
-
-```http
-GET /v1/transactions/getAll HTTP/1.1
-Host: localhost:3000
+```plaintext
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-
-Ensure you replace the URL and token with the actual credentials and endpoint details.

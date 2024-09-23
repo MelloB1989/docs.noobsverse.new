@@ -1,37 +1,33 @@
 ---
-title: GetUserTripsBySmallestDistance API
-type: HTTP
-sequence: 7
+meta:
+  name: GetUserTripsBySmallestDistance
+  type: http
+  seq: 7
 ---
 
 # GetUserTripsBySmallestDistance API
 
-This API retrieves a list of user trips ordered by the shortest distance.
+## Description
 
-## HTTP Method
+The `GetUserTripsBySmallestDistance` API retrieves a list of user trips sorted by the smallest distance.
 
-**GET**
+## HTTP Request
 
-## URL
+### GET
 
-`http://localhost:3000/v1/trips/distance/shortest?limit=10`
+- **URL**: `http://localhost:3000/v1/trips/distance/shortest?limit=10`
+- **Body**: None
+- **Authentication**: Bearer Token
 
 ## Query Parameters
 
-- `limit`: Integer (optional, default 10) - Specifies the number of trips to be returned.
-
-## Request Body
-
-None.
+- `limit`: The maximum number of trips to return. Default is 10.
 
 ## Authentication
 
-This endpoint requires Bearer token authentication.
+This endpoint requires a Bearer Token for authentication.
 
-### Bearer Token
-
-`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
-
----
-
-Ensure to replace the example Bearer token with a valid token when making requests.
+**Token**:
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
