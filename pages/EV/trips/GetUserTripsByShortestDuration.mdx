@@ -1,53 +1,38 @@
 ---
-title: GetUserTripsByShortestDuration API
-order: 9
+title: GetUserTripsByShortestDuration
+sidebar_position: 9
 ---
 
-# GetUserTripsByShortestDuration API
+# GetUserTripsByShortestDuration
 
-This API retrieves user trips sorted by the shortest duration.
+This API retrieves user trips sorted by shortest duration.
 
 ## HTTP Request
 
-**GET** `http://localhost:3000/v1/trips/duration/shortest?limit=10`
+### GET
+**URL:** `http://localhost:3000/v1/trips/duration/shortest?limit=10`
 
-## Authentication
+**Body:** None
 
-This endpoint requires a Bearer token for authentication.
-
-**Header:**
-
-```plaintext
-Authorization: Bearer {token}
-```
-
-**Example Token:**
-
-```plaintext
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+**Authentication:** Bearer Token
 
 ## Query Parameters
 
-| Parameter | Type  | Description                                   | Required | Default Value |
-|-----------|-------|-----------------------------------------------|----------|---------------|
-| limit     | number| The number of trips to retrieve (maximum: 10) | yes      | 10            |
+| Parameter | Type | Description               | Example |
+|-----------|------|---------------------------|---------|
+| limit     | int  | The maximum number of results to retrieve | `10`     |
 
-## Example Request
+## Authentication
 
-```plaintext
+This endpoint requires a Bearer Token.
+
+**Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+
+### Example Request
+
+```http
 GET http://localhost:3000/v1/trips/duration/shortest?limit=10
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-> Ensure that you replace the `{token}` in the Authorization header with your actual Bearer token.
-
-## Response
-
-The response will contain the trips sorted by the shortest duration based on the limit specified.
-
----
-
-This concludes the documentation for the GetUserTripsByShortestDuration API.
-
-If you encounter any issues or have questions, please refer to the [API support page](#) or contact the support team for further assistance.
+Make sure to replace the example token with a valid one.

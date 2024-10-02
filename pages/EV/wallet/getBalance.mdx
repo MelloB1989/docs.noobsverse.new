@@ -1,40 +1,28 @@
 ---
-title: Get Balance API Documentation
+name: getBalance
+type: http
+sequence: 2
 ---
 
-## Get Balance API
+# `getBalance` API
 
-### Meta Information
+## HTTP Method: GET
 
-- **Name:** getBalance
-- **Type:** HTTP
-- **Sequence:** 2
-
-### GET Request
-
-- **URL:** `http://localhost:3000/v1/wallet/get`
-- **Body:** None
-- **Auth:** Bearer token
+### URL
+`http://localhost:3000/v1/wallet/get`
 
 ### Authentication
+- Type: Bearer Token
 
-- **Type:** Bearer
-- **Token:**
-  ```
-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
-  ```
-
-### Example Request
-
-```http request
-GET http://localhost:3000/v1/wallet/get
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
+#### Example Token
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
 ```
 
-### Response
+### Request Body
+None
 
-The response will contain the balance information of the user's wallet. The exact structure will depend on the implementation.
-
----
-
-Make sure to replace the token with a valid one where necessary.
+### Responses
+- **200 OK**: Successfully retrieved the balance.
+- **401 Unauthorized**: Missing or invalid authentication token.
+- **500 Internal Server Error**: An error occurred on the server.

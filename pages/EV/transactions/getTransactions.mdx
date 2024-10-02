@@ -4,59 +4,32 @@ type: http
 seq: 1
 ---
 
-## getTransactions API
+# API Documentation: getTransactions
 
-### Overview
+## Endpoint Summary
 
-This API retrieves all transactions.
+- **Name**: getTransactions
+- **Type**: HTTP
+- **Sequence**: 1
 
-### HTTP Method: GET
+## HTTP GET Endpoint
 
-#### URL
-`http://localhost:3000/v1/transactions/getAll`
-
-#### Body
-No request body is required for this API.
-
-### Authorization
-
-This endpoint requires a Bearer token for authorization.
-
-#### Example Bearer Token
-
+### URL
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+http://localhost:3000/v1/transactions/getAll
 ```
 
-Ensure to replace the example token with a valid token when making your request.
+### Request
+- **Body**: none
+- **Authentication**: Bearer Token
 
-### Example Request
+### Authentication Details
+- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+
+## Example Request
 
 ```http
 GET /v1/transactions/getAll HTTP/1.1
 Host: localhost:3000
-Authorization: Bearer <your_token_here>
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-
-### Example Response
-
-```json
-[
-  {
-    "id": "transaction_1",
-    "amount": 100,
-    "currency": "USD",
-    "status": "completed",
-    "timestamp": "2023-10-02T14:48:00.000Z"
-  },
-  {
-    "id": "transaction_2",
-    "amount": 50,
-    "currency": "USD",
-    "status": "pending",
-    "timestamp": "2023-10-02T15:00:00.000Z"
-  }
-]
-```
-
-Make sure to replace `<your_token_here>` with a valid Bearer token in the actual request.

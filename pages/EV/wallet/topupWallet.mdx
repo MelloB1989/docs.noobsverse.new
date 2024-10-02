@@ -1,39 +1,36 @@
 ---
-name: Topup Wallet API
-type: HTTP
-sequence: 3
+id: topupWallet
+title: Top Up Wallet
+description: API endpoint to top up the wallet balance
 ---
 
-# Topup Wallet API
+## API Endpoint: Top Up Wallet
 
-## Overview
+This API endpoint allows the user to top up their wallet balance.
 
-The Topup Wallet API allows you to add funds to a user's wallet. This endpoint requires authentication through a bearer token.
+### HTTP Method
 
-## Endpoint
+**POST**
 
-### POST /v1/wallet/topup
+### URL
 
-- **URL**: `http://localhost:3000/v1/wallet/topup`
-- **Method**: `POST`
-- **Body**: JSON
-- **Authentication**: Bearer token
+`http://localhost:3000/v1/wallet/topup`
 
-## Authentication
+### Authentication
 
-To access this endpoint, you must include a bearer token in your request headers. Here's an example of a bearer token:
+This endpoint requires Bearer Token authentication.
 
-```plaintext
+#### Bearer Token
+
+```json
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
 
-## Request Body
+### Request Body
 
-The request body should be in JSON format and include the following field:
+The request body should be in JSON format.
 
-- **balance**: The amount to add to the wallet as a string.
-
-### Example
+#### JSON Body Example
 
 ```json
 {
@@ -41,4 +38,6 @@ The request body should be in JSON format and include the following field:
 }
 ```
 
-Make sure to replace the placeholder values with actual data as needed.
+### Sequence
+
+This is the 3rd API call in the wallet service sequence.

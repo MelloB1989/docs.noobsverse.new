@@ -1,52 +1,38 @@
 ---
-title: GetBikesByTopSpeedGT API Documentation
+id: get-bikes-by-top-speed-gt
+title: Get Bikes By Top Speed Greater Than 50
 ---
 
-# GetBikesByTopSpeedGT
+## GetBikesByTopSpeedGT
 
-## Overview
+### Description
 
-The `GetBikesByTopSpeedGT` API is an HTTP-based service that allows users to retrieve a list of bikes with a top speed greater than 50 km/h. This endpoint requires Bearer token authentication.
+This API endpoint retrieves a list of bikes that have a top speed greater than 50.
 
-## Endpoint
+### HTTP Request
 
-### HTTP Method: GET
+`GET http://localhost:3000/v1/bikes/get/speed_gt/50`
 
-- **URL:** `http://localhost:3000/v1/bikes/get/speed_gt/50`
+### Response Body
 
-### Request Details
+No request body is required for this endpoint.
 
-- **Body:** None
-- **Authentication:** Bearer token
+### Authentication
 
-## Authentication
+This endpoint requires Bearer token authentication. The token must be included in the `Authorization` header of the request.
 
-To access the `GetBikesByTopSpeedGT` endpoint, you need to include a Bearer token in the request header. Below is an example token:
-
+Example token:
 ```
-Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-Replace the above token with your actual token for authentication.
-
-## Sequence
-
-- **Sequence:** 8
-
-## Example Request
+### Example Request
 
 ```http
-GET /v1/bikes/get/speed_gt/50 HTTP/1.1
-Host: localhost:3000
+GET http://localhost:3000/v1/bikes/get/speed_gt/50
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-Ensure you replace the example Bearer token with your valid authentication token when making the request.
+### Example Response
 
-## Response
-
-The response will contain the list of bikes with a top speed greater than 50 km/h. The exact structure of the response can vary but typically includes bike details such as model, speed, and other relevant information.
-
----
-
-By exactly following the endpoint and ensuring proper authentication, you can successfully retrieve data using the `GetBikesByTopSpeedGT` API.
+If the request is successful, the server will respond with a list of bikes. The structure of the response will depend on the implementation. Ensure to replace the token value with a valid token when making actual requests.

@@ -1,0 +1,52 @@
+---
+title: Update User API
+---
+
+## Update User API
+
+An API endpoint to update user details.
+
+### Endpoint Details
+
+- **Name:** `updateUser`
+- **Type:** `HTTP`
+- **Sequence:** `4`
+
+### HTTP Request
+
+- **Method:** `POST`
+- **URL:** `http://localhost:3000/v1/user/update`
+- **Body Type:** `JSON`
+- **Authentication:** Bearer Token
+
+### Authentication
+
+To authenticate, use the following Bearer Token:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+### Request Body
+
+The request body should be in JSON format and include the following fields:
+
+```json
+{
+  "age": "69",
+  "weight": "86"
+}
+```
+
+### Example Request
+
+```http
+POST http://localhost:3000/v1/user/update
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+Content-Type: application/json
+
+{
+  "age": "69",
+  "weight": "86"
+}
+```

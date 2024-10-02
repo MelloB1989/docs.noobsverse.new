@@ -4,20 +4,13 @@ type: http
 seq: 2
 ---
 
-## `getSubscription`
+# getSubscription API
 
-### Description
-Retrieve the subscription details.
-
-### Method
-`GET`
+## Endpoint
 
 ### URL
-`http://localhost:3000/v1/subscriptions/get`
 
-### Headers
-
-- `X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
+`GET http://localhost:3000/v1/subscriptions/get`
 
 ### Authentication
 
@@ -26,7 +19,11 @@ Bearer Token:
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
 
-### Request Body (JSON)
+### Headers
+
+- `X-Karma-Admin-Auth`: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
+
+### Request Body
 
 ```json
 [
@@ -72,3 +69,39 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI
     }
 ]
 ```
+
+---
+
+## Overview
+
+The `getSubscription` API endpoint is used to retrieve details of various subscription plans. This endpoint requires a bearer token for authentication and a custom header for admin authorization.
+
+### Method
+
+`GET`
+
+### Authentication
+
+This endpoint requires bearer token authentication. Include the following token in your request header:
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
+```
+
+## Custom Headers
+
+- **X-Karma-Admin-Auth:** This custom header must be included in the request to verify administrative privileges.
+
+```
+X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab
+```
+
+## Request Body Details
+
+The JSON array in the request body contains subscription details as follows:
+
+- **id**: Unique identifier for the subscription plan.
+- **monthly_fee**: Monthly cost of the subscription.
+- **discount**: Discount available on the subscription.
+- **name**: Name of the subscription plan.
+- **bike_id**: Identifier for the bike associated with the subscription.
+- **type**: Type of subscription (e.g., `monthly`, `annual`).

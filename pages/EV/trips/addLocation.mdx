@@ -1,26 +1,34 @@
 ---
-name: addLocation
-type: http
-seq: 13
+title: Add Location
+description: Add a new location to a trip.
 ---
 
-# Add Location
+## addLocation API
 
-Adds a location to an existing trip.
+### Meta
 
-## Endpoint
+- **Name:** addLocation
+- **Type:** HTTP
+- **Sequence:** 13
 
-**POST** `http://localhost:3000/v1/trips/ulj1iq0-0w/location`
+### HTTP Request
 
-## Authentication
+- **Method:** POST
+- **URL:** `http://localhost:3000/v1/trips/ulj1iq0-0w/location`
+- **Body Format:** JSON
+- **Authentication:** Bearer Token
 
-This endpoint requires a Bearer Token for authentication.
+### Authentication
 
-**Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHNzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+To authenticate, use the following bearer token:
 
-## Request Body
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
 
-The request body should be in JSON format and contain the following fields:
+### Request Body
+
+Provide the latitude and longitude of the location in the request body as JSON:
 
 ```json
 {
@@ -28,6 +36,3 @@ The request body should be in JSON format and contain the following fields:
   "long": -122.426
 }
 ```
-
-- **lat**: Latitude of the location (e.g., `37.776`).
-- **long**: Longitude of the location (e.g., `-122.426`).

@@ -1,53 +1,49 @@
 ---
-name: GetUserTripsByBikeID
-type: http
-seq: 5
+title: GetUserTripsByBikeID API Documentation
+sidebar_label: GetUserTripsByBikeID
 ---
 
-# GetUserTripsByBikeID API
+import { MDXProvider } from '@mdx-js/react'
+import Highlight, { defaultProps } from 'prism-react-renderer'
+
+<MDXProvider components={{ Highlight }}>
+  {{props.children}}
+</MDXProvider>
 
 ## Overview
 
-The `GetUserTripsByBikeID` API endpoint allows users to retrieve a list of trips associated with a specific bike ID.
+The `GetUserTripsByBikeID` API allows you to retrieve all trips associated with a specific bike ID. This is a GET HTTP request that requires Bearer token authentication.
 
-## HTTP Method
+## Endpoint
 
-`GET`
-
-## URL
-
-`http://localhost:3000/v1/trips/bike/{bikeID}`
-
-Replace `{bikeID}` with the actual Bike ID, e.g., `i6bjwk0yhu`.
-
-## Body
-
-None.
+```http
+GET http://localhost:3000/v1/trips/bike/i6bjwk0yhu
+```
 
 ## Authentication
 
-This endpoint requires Bearer Token authentication.
+The endpoint requires Bearer token authentication. Include the following token in the authorization header:
 
-### Bearer Token
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```plaintext
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ## Example Request
 
-```http
-GET /v1/trips/bike/i6bjwk0yhu HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```bash
+curl -X GET http://localhost:3000/v1/trips/bike/i6bjwk0yhu \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
 ```
 
 ## Response
 
-The response will contain details of the trips associated with the specified bike ID. The structure and content of the response will depend on the implementation of the endpoint.
+The response will contain a list of user trips associated with the specified bike ID. The structure of the response will depend on the implementation of the API.
 
-## Status Codes
+## Notes
 
-- `200 OK`: Request was successful, and the trips data is included in the response.
-- `401 Unauthorized`: Authentication failed or the token is missing/invalid.
-- `404 Not Found`: The bike ID does not exist.
+- Make sure to replace the fixed token and bike ID values with dynamic values for production use.
+- For security reasons, handle the token securely and never expose it in client-side code.
+
+## Conclusion
+
+The `GetUserTripsByBikeID` API is useful for retrieving trip details associated with a specific bike. It is secured with Bearer token authentication to ensure that only authorized users can access the information.

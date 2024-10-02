@@ -1,0 +1,51 @@
+---
+name: getGroupMembers
+type: http
+seq: 4
+---
+
+# getGroupMembers API
+
+## Description
+
+The `getGroupMembers` API endpoint retrieves the list of members in a given group.
+
+## HTTP Method
+
+**GET**
+
+## Endpoint
+
+```
+http://localhost:3000/v1/groups/2/members
+```
+
+## Request
+
+### Headers
+
+- **Authorization**: Bearer Token
+
+### Body
+
+None
+
+## Authorization
+
+This API requires Bearer Token authentication.
+
+### Bearer Token
+
+Example Token:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Response
+
+The response will contain the list of group members.
+
+---
+
+Make sure to replace the example Bearer Token with a valid token obtained from your authentication provider.

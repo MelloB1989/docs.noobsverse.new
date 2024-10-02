@@ -1,57 +1,58 @@
 ---
-title: "Create Group API Documentation"
+name: Create Group
+type: HTTP
+sequence: 1
 ---
 
-# Create Group API
+# createGroup
 
-This documentation provides details on how to use the `createGroup` API to create a new group.
+This API endpoint is used to create a new group.
 
-## Endpoint Details
+## Endpoint
 
-### HTTP Method
+**POST** `http://localhost:3000/v1/groups/create`
 
-`POST`
+## Headers
 
-### URL
+### Authorization
 
-`http://localhost:3000/v1/groups/create`
+This API requires a Bearer token for authentication.
 
-### Authentication
-
-Bearer Token authentication is required for this endpoint.
-
+```http
+Authorization: Bearer <token>
 ```
+
+Example:
+
+```plaintext
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ## Request Body
 
-The request body should be in JSON format and include the following parameters:
+The request body should be in JSON format.
 
 ```json
 {
-  "name": "Green Warriors",
-  "description": "A group focused on reducing carbon emissions."
+  "name": "Eco Blasters",
+  "description": "A group focused on being eco friendly."
 }
 ```
 
 ### Parameters
 
-- `name` (string): The name of the group.
-- `description` (string): A brief description of the group's focus.
+- **name**: The name of the group.
+- **description**: A brief description of the group.
 
 ## Example Request
 
 ```http
-POST /v1/groups/create HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+POST http://localhost:3000/v1/groups/create
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 
 {
-  "name": "Green Warriors",
-  "description": "A group focused on reducing carbon emissions."
+  "name": "Eco Blasters",
+  "description": "A group focused on being eco friendly."
 }
 ```
-
-Make sure to replace the example bearer token with a valid token.

@@ -1,0 +1,31 @@
+---
+name: getGroupAggregate
+type: http
+seq: 7
+---
+
+# getGroupAggregate API
+
+## Endpoint
+
+### GET
+
+- **URL:** `http://localhost:3000/v1/groups/2/aggregate`
+- **Body:** None
+- **Authentication:** Bearer Token
+
+## Authorization
+
+### Bearer Token
+
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Description
+
+The `getGroupAggregate` API retrieves aggregate data for a specific group. In this instance, it fetches the aggregate data for the group with ID `2`.
+
+## Usage
+
+To use this endpoint, make a GET request to the provided URL with the appropriate bearer token for authentication. No request body is needed for this endpoint.

@@ -1,51 +1,56 @@
 ---
-title: GetFastestBike API Documentation
+title: GetFastestBike API
+description: Retrieve the fastest bike information utilizing the GetFastestBike API endpoint.
 ---
 
-## GetFastestBike
+## Meta Information
 
-**Endpoint:** `GET http://localhost:3000/v1/bikes/get/speed/fastest`
+- **Name:** GetFastestBike
+- **Type:** HTTP
+- **Sequence:** 9
 
-**Type:** HTTP
+## Endpoint Details
 
-**Authorization:** Bearer Token
+### GET Request
 
-## Summary
+- **URL:** `http://localhost:3000/v1/bikes/get/speed/fastest`
+- **Body:** None
+- **Authentication:** Bearer Token
 
-The `GetFastestBike` endpoint retrieves the fastest bike from the database. This endpoint requires a bearer token for authorization.
+## Authentication
 
-## Request
+### Bearer Token
 
-### URL
-
-`http://localhost:3000/v1/bikes/get/speed/fastest`
-
-### Method
-
-`GET`
-
-### Body
-
-None
-
-### Headers
-
-- Authorization: Bearer token
-
-## Example Request
-
-```http
-GET http://localhost:3000/v1/bikes/get/speed/fastest HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
-
-## Authorization
-
-To authorize the request, you need to include a bearer token in the header.
-
-### Example Token
+To authorize, use the bearer token provided below:
 
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
+
+## Example Request
+
+```http
+GET /v1/bikes/get/speed/fastest HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+## Response
+
+The response will include details about the fastest bike from the database. Here is a sample successful response:
+
+```json
+{
+  "bike_id": "12345",
+  "name": "Speedster 3000",
+  "max_speed": "100 km/h",
+  "manufacturer": "Fast Bikes Co."
+}
+```
+
+## Notes
+
+- Ensure your bearer token is correctly included in the `Authorization` header to access the endpoint.
+- This endpoint requires no body content.
+
+For any issues or questions, please refer to the API documentation or contact the support team.

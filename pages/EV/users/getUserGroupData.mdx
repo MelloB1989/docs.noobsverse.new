@@ -1,0 +1,47 @@
+---
+title: "getUserGroupData API Documentation"
+---
+
+# Get User Group Data
+
+## Overview
+
+This API endpoint retrieves data for a specific user group.
+
+### HTTP Method
+
+`GET`
+
+### Endpoint
+
+`http://localhost:3000/v1/user/groups/data`
+
+### Authentication
+
+- Type: Bearer Token
+- Example: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+
+## Request Parameters
+
+### Query Parameters
+
+| Parameter | Type   | Description        | Example |
+|-----------|--------|--------------------|---------|
+| group_id  | string | ID of the user group | 2       |
+
+## Example Request
+
+```http
+GET /v1/user/groups/data?group_id=2 HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Response
+
+The response will contain the data related to the specified user group.
+
+## Notes
+
+- Ensure that you replace the bearer token with a valid one to authenticate the request.
+- The `group_id` must be specified in the query parameters to retrieve the data for the respective user group.

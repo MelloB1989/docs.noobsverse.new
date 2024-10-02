@@ -1,24 +1,26 @@
 ---
-title: Login API Documentation
+name: Login
+type: http
+seq: 1
 ---
 
-## Overview
+# Login API
 
-The Login API allows users to authenticate by providing their phone number. This API does not require any authentication headers, and the request body should be in JSON format.
+The Login API is used to authenticate a user by their phone number.
 
-## Endpoint
+## HTTP Request
 
 **POST** `https://ev-backend.app.k8s.coffeecodes.in/v1/auth/login`
 
-## Headers
+## Request Headers
 
-| Header Name           | Value                                       |
-| --------------------- | ------------------------------------------- |
-| X-Karma-Admin-Auth    | ajbkbakweiuy387yeuqqwfahdjhsabd             |
+| Header                  | Value                                | Description                          |
+|-------------------------|--------------------------------------|--------------------------------------|
+| `X-Karma-Admin-Auth`    | ajbkbakweiuy387yeuqqwfahdjhsabd      | Static token for initial authentication |
 
 ## Request Body
 
-The request body should be in JSON format:
+The request body should be sent in JSON format.
 
 ```json
 {
@@ -26,32 +28,8 @@ The request body should be in JSON format:
 }
 ```
 
-## Example Request
+- `phone` (string): The phone number of the user.
 
-```http
-POST /v1/auth/login HTTP/1.1
-Host: ev-backend.app.k8s.coffeecodes.in
-Content-Type: application/json
-X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
+## Authentication
 
-{
-  "phone": "+919812940706"
-}
-```
-
-## Response
-
-The API will return a JSON response. The exact structure and details of the response will depend on the implementation of the backend server. Usually, it includes authentication tokens and user information upon successful login.
-
-## Summary
-
-- **Method:** POST
-- **URL:** `https://ev-backend.app.k8s.coffeecodes.in/v1/auth/login`
-- **Headers:** `X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd`
-- **Body Type:** JSON
-- **Body Content:**
-  ```json
-  {
-    "phone": "+919812940706"
-  }
-  ```
+This endpoint does not require any authentication tokens in the header aside from the static `X-Karma-Admin-Auth`. There is no additional authentication method required.

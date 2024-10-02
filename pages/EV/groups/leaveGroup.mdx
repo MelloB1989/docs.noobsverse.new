@@ -1,0 +1,28 @@
+---
+id: leaveGroup
+title: Leave Group
+type: http
+sequence: 3
+---
+
+# Leave Group API
+
+This API endpoint allows a user to leave a group.
+
+## HTTP Request
+
+### GET
+`GET http://localhost:3000/v1/groups/2/leave`
+
+## Authentication
+
+This endpoint requires a Bearer token for authentication.
+
+### Bearer Token
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Response
+
+The response will confirm that the user has successfully left the group.

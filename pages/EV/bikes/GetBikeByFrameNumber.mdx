@@ -1,27 +1,31 @@
 ---
-name: GetBikeByFrameNumber
-type: http
-seq: 4
+title: GetBikeByFrameNumber API Documentation
 ---
 
-# GetBikeByFrameNumber
+## GetBikeByFrameNumber
 
-## Request Method
+### Meta
 
-`GET`
+- **Name**: GetBikeByFrameNumber
+- **Type**: HTTP
+- **Sequence**: 4
 
-## URL
+### HTTP Method: GET
 
-`http://localhost:3000/v1/bikes/get/frame/FR123456789`
+- **URL**: `http://localhost:3000/v1/bikes/get/frame/FR123456789`
+- **Request Body**: None
+- **Authentication**: Bearer Token
 
-## Request Body
+### Authentication
 
-None
+To access this endpoint, you need to include a Bearer token in the Authorization header of your request.
 
-## Authentication
+- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
 
-### Bearer Token
+### Example Request
 
-```plaintext
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```http
+GET /v1/bikes/get/frame/FR123456789 HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```

@@ -1,70 +1,56 @@
 ---
-title: Get Stations API
-description: Documentation for the getStations API.
+title: getStations API Documentation
 ---
 
-import { Meta } from '@mdx-js/tag';
+# getStations API
 
-<Meta name="getStations" type="http" seq="2" />
+The `getStations` endpoint is used to retrieve a list of stations. This document explains how to interact with this endpoint.
 
-## Get Stations API
+## Meta Information
 
-The `getStations` endpoint allows you to retrieve a list of stations.
+- **Name**: getStations
+- **Type**: HTTP
+- **Sequence**: 2
 
-### Endpoint
+## HTTP GET Request
 
-**GET** `http://localhost:3000/v1/stations/get`
+- **URL**: `http://localhost:3000/v1/stations/get`
+- **Body**: None
+- **Authentication Required**: None
 
-### Authentication
+## Headers
 
-No authentication is required for this endpoint.
+The request must include the following header:
 
-### Headers
+- **X-Karma-Admin-Auth**: `ajbkbakweiuy387yeuqqwfahdjhsabd`
 
-Include the following header to authorize your request:
-
-- `X-Karma-Admin-Auth`: `ajbkbakweiuy387yeuqqwfahdjhsabd`
-
-### Request Body
-
-This endpoint does not require a request body.
-
-### Response
-
-On success, the endpoint will return a list of stations.
-
-### Example Request
+## Example Request
 
 ```http
-GET http://localhost:3000/v1/stations/get
+GET /v1/stations/get HTTP/1.1
+Host: localhost:3000
+X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
 ```
 
-### Example Response
+## Response
+
+The response will contain the list of stations in JSON format.
 
 ```json
-[
-  {
-    "id": "station1",
-    "name": "First Station",
-    "location": "Location 1"
-  },
-  {
-    "id": "station2",
-    "name": "Second Station",
-    "location": "Location 2"
-  }
-]
+{
+  "stations": [
+    {
+      "id": "station1",
+      "name": "Station 1"
+    },
+    {
+      "id": "station2",
+      "name": "Station 2"
+    }
+  ]
+}
 ```
 
-### Status Codes
+## Notes
 
-- `200 OK`: The request was successful, and the list of stations is returned.
-- `400 Bad Request`: The request could not be understood or was missing required parameters.
-- `401 Unauthorized`: Authentication failed or was not provided.
-- `500 Internal Server Error`: An error occurred on the server.
-
-### Notes
-
-Make sure to replace the placeholder in the `X-Karma-Admin-Auth` header with the correct authentication token.
-
-For further information, please contact the API support team.
+- Ensure that the `X-Karma-Admin-Auth` header is included with the correct value to successfully authenticate the request.

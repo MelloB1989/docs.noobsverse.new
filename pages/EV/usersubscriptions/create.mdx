@@ -1,28 +1,28 @@
 ---
-name: create
-type: http
-seq: 1
+name: Create User Subscription
+type: HTTP
+sequence: 1
 ---
 
-## Create User Subscription
+# Create User Subscription
 
-This endpoint allows you to create a user subscription.
+## Endpoint
 
-### HTTP Request
+`POST http://localhost:3000/v1/user_subscription/create`
 
-**POST** `http://localhost:3000/v1/user_subscription/create`
+## Authorization
 
-### Authentication
+This endpoint requires a Bearer Token for authorization.
 
-This endpoint requires a bearer token.
-
-#### Bearer Token
+### Bearer Token
 
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Request Body
+## Request Body
+
+The request body must be in JSON format.
 
 ```json
 {
@@ -31,7 +31,3 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI
   "end_date": "27/11/2004"
 }
 ```
-
-### Response
-
-A successful request will result in a response with the created user subscription details. Detailed information on response structure and possible status codes should be provided by further documentation.

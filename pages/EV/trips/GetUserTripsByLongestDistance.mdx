@@ -1,45 +1,59 @@
 ---
-title: GetUserTripsByLongestDistance API
-type: HTTP
-sequence: 6
+title: "GetUserTripsByLongestDistance API"
 ---
 
 # GetUserTripsByLongestDistance API
 
-This API retrieves user trips ordered by the longest distance.
+## Metadata
 
-## Endpoint
+- **Name:** GetUserTripsByLongestDistance
+- **Type:** HTTP
+- **Sequence:** 6
 
-### GET
+## GET Request
 
-#### URL
+- **URL:** `http://localhost:3000/v1/trips/distance/longest`
+- **Query Parameter:** `limit`
+- **Body:** None
+- **Auth Type:** Bearer Token
 
-    http://localhost:3000/v1/trips/distance/longest?limit=10
+### Query Parameters
 
-#### Body
+| Parameter | Type | Description                   | Example |
+|-----------|------|-------------------------------|---------|
+| limit     | int  | Limit the number of results   | 10      |
 
-    None
+### Authorization
 
-### Authentication
+This API requires a bearer token for authorization.
 
-#### Type
+- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
-    Bearer
-
-#### Token
-
-    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-
-## Parameters
-
-### Query
-
-- `limit`: (integer) The maximum number of user trips to retrieve. Default is `10`.
-
-## Usage Example
+### Example Request
 
 ```http
 GET /v1/trips/distance/longest?limit=10 HTTP/1.1
 Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
+
+### Example Response
+
+The response will return a list of trips ordered by the longest distance, limited to the specified number of results.
+
+```json
+[
+  {
+    "tripId": "string",
+    "userId": "string",
+    "distance": "number",
+    "startLocation": "string",
+    "endLocation": "string",
+    "startTime": "string",
+    "endTime": "string"
+  }
+  // additional trip objects
+]
+```
+
+Ensure you replace the placeholder texts with actual data values where applicable.

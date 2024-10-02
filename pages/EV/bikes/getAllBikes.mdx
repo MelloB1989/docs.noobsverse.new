@@ -1,50 +1,43 @@
 ---
-title: getAllBikes API Documentation
-sidebar_position: 3
+title: API Documentation for `getAllBikes`
+meta:
+  - name: getAllBikes
+  - type: http
+  - seq: 3
 ---
 
-## getAllBikes
+## API Name: getAllBikes
 
-The `getAllBikes` API is an HTTP GET endpoint used to retrieve information on all bikes available.
+### Type: HTTP
 
-### Endpoint
+### Sequence: 3
 
-- **URL:** `http://localhost:3000/v1/bikes/get`
-- **Method:** `GET`
+## HTTP GET Request
 
-### Request
+### URL
 
-- **Body:** None
-- **Authorization:** Bearer Token
+`http://localhost:3000/v1/bikes/get`
 
-### Authorization
+### Request Body
 
-This endpoint requires a bearer token for authorization. Include the following token in the Authorization header of your request:
+None
 
+### Authentication
+
+#### Type: Bearer Token
+
+```plaintext
+Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
+
+Make sure to include this token in the `Authorization` header of your HTTP request.
+
+### Example Request
+
+```http
+GET /v1/bikes/get HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-### Response
-
-The API will return a JSON object with the details of all available bikes. Example response:
-
-```json
-[
-  {
-    "id": "bike1",
-    "model": "Mountain Bike",
-    "brand": "BrandA",
-    "availability": "In stock"
-  },
-  {
-    "id": "bike2",
-    "model": "Road Bike",
-    "brand": "BrandB",
-    "availability": "Out of stock"
-  }
-  // More bike objects...
-]
-```
-
-This documentation outlines how to use the `getAllBikes` API to fetch information about all bikes. Ensure you include the correct bearer token to authenticate your requests.
+This should provide a clear and concise MDX documentation file for the `getAllBikes` API.

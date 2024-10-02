@@ -6,32 +6,46 @@ seq: 4
 
 # Webhook API
 
-The Webhook API allows you to receive updates about events related to wallets.
+The Webhook API allows you to send events or updates to a specified URL. Below are the details for using this endpoint.
 
-## Endpoint
+## HTTP GET Request
 
-### GET
-- **URL:** `http://localhost:3000/v1/wallet/webhook`
-- **Authorization:** Bearer Token
+### URL
 
-## Query Parameters
+`http://localhost:3000/v1/wallet/webhook`
 
-| Parameter      | Type   | Description                                    | Example                                      |
-| -------------- | ------ | ---------------------------------------------- | -------------------------------------------- |
-| `uid`          | string | Unique identifier for the user                 | `5geapgapxs`                                 |
-| `balance`      | string | Current balance of the wallet                  | `10000000000`                                |
-| `webhook_key`  | string | Key used to identify the webhook               | `coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda` |
+### Query Parameters
 
-## Authentication
+| Name           | Type   | Description                     | Example                                          |
+| -------------- | ------ | ------------------------------- | ------------------------------------------------ |
+| `uid`          | string | Unique user identifier          | `5geapgapxs`                                     |
+| `balance`      | string | Balance value                   | `10000000000`                                    |
+| `webhook_key`  | string | Key for webhook authentication  | `coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda` |
 
-To access this endpoint, a bearer token is required.
+### Authentication
 
-### Bearer Token
-- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I`
+This endpoint requires bearer token authentication. Include the token in the `Authorization` header:
 
-### Example Request
+```
+Authorization: Bearer <TOKEN>
+```
+
+Example token format:
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
+```
+
+## Example Request
 
 ```http
 GET http://localhost:3000/v1/wallet/webhook?uid=5geapgapxs&balance=10000000000&webhook_key=coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
+
+## Response
+
+The response will be defined by the destination server set up to receive the webhook.
+
+---
+
+This document provides the necessary information for using the Webhook API. Ensure you replace the placeholder values with actual data when making requests.

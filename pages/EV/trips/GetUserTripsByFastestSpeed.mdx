@@ -1,71 +1,65 @@
 ---
-id: GetUserTripsByFastestSpeed
-title: Get User Trips By Fastest Speed
+title: GetUserTripsByFastestSpeed API Documentation
 ---
 
-## Overview
+## GetUserTripsByFastestSpeed
 
-The **GetUserTripsByFastestSpeed** API endpoint retrieves user trips sorted by the fastest speed. This endpoint is part of the `/v1/trips/speed` namespace and accesses the `fastest` resource.
+### Endpoint Information
 
-## HTTP Request
+- **Type**: HTTP
+- **Sequence**: 10
 
-**GET** `http://localhost:3000/v1/trips/speed/fastest?limit=10`
+### HTTP Method: GET
 
-## Authentication
+- **URL**: [http://localhost:3000/v1/trips/speed/fastest?limit=10](http://localhost:3000/v1/trips/speed/fastest?limit=10)
+- **Request Body**: None
+- **Authentication**: Bearer token
 
-This endpoint requires a bearer token for authentication.
+### Query Parameters
 
-### Bearer Token
+| Parameter | Type | Description      |
+| --------- | ---- | ---------------- |
+| limit     | int  | Limit of results |
+
+### Authentication
+
+This endpoint requires a Bearer token for authentication.
 
 - **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
-## Query Parameters
+Ensure the token is included in the request header as shown below:
 
-| Name  | Type | Required | Description                          |
-|-------|------|----------|--------------------------------------|
-| limit | int  | Yes      | The number of trips to retrieve. Default is 10. |
+```http
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
 
-## Response
-
-The endpoint responds with a JSON object containing the user trips sorted by fastest speed. 
-
-## Example Request
+### Example Request
 
 ```http
 GET http://localhost:3000/v1/trips/speed/fastest?limit=10
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Example Response
+### Example Response
 
 ```json
-{
-  "trips": [
-    {
-      "tripId": "1",
-      "speed": 120,
-      "distance": 300,
-      "duration": 2,
-      ...
-    },
-    {
-      "tripId": "2",
-      "speed": 110,
-      "distance": 250,
-      "duration": 2.5,
-      ...
-    }
-    ...
-  ]
-}
+[
+  {
+    "tripId": "1",
+    "speed": 120,
+    "userId": "5geagpapxs"
+  },
+  {
+    "tripId": "2",
+    "speed": 115,
+    "userId": "5geagpapxs"
+  }
+  // more trips
+]
 ```
 
-## Error Handling
+### Notes
 
-- **401 Unauthorized**: Returned if the bearer token is missing or invalid.
-- **400 Bad Request**: Returned if the query parameter `limit` is invalid.
-
-## Notes
-
-- Maximum limit is set to 100. Exceeding this amount will default to the maximum limit.
-- Ensure the bearer token is valid and up to date to avoid authentication errors.
+- Adjust the `limit` parameter as needed to retrieve a different number of trips.
+- Ensure the Bearer token is valid and has the necessary permissions to access this endpoint.
+- The response is an array of trips sorted by the fastest speed.

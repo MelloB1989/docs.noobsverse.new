@@ -1,41 +1,43 @@
 ---
-title: API Documentation - getStation
+title: getStation API
+type: http
+sequence: 3
 ---
 
-## API Name: getStation
+# getStation API
 
-### Type
-- **Type:** HTTP
+The `getStation` API is used to fetch details of a specific station. Below are the details for the API endpoint and its usage.
 
-### Sequence
-- **Sequence:** 3
+## HTTP Request
 
-## HTTP GET Request
+### GET
 
-### URL
-`http://localhost:3000/v1/stations/get/wxyoqxff83`
+```http
+GET http://localhost:3000/v1/stations/get/wxyoqxff83
+```
 
-### Request Body
-- **Body:** None
+## Request Headers
 
-### Authentication
-- **Authentication:** None
+| Header                 | Value                                    | Description                             |
+|------------------------|------------------------------------------|-----------------------------------------|
+| X-Karma-Admin-Auth     | ajbkbakweiuy387yeuqqwfahdjhsabd          | Authentication token for admin access   |
 
-### Headers
+## Request Body
 
-| Header Name             | Value                            |
-|-------------------------|----------------------------------|
-| X-Karma-Admin-Auth      | ajbkbakweiuy387yeuqqwfahdjhsabd  |
+No body parameters are required for this request.
 
-## Sample Request
+## Authentication
+
+No additional authentication is required other than the `X-Karma-Admin-Auth` header.
+
+## Example Request
 
 ```http
 GET http://localhost:3000/v1/stations/get/wxyoqxff83
 X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
 ```
 
-## Response
+## Notes
 
-- The details about the response will be provided by the API upon a successful request.
-
-This concludes the documentation of the `getStation` API endpoint.
+- Make sure to replace the `X-Karma-Admin-Auth` value with a valid authentication token.
+- Ensure the endpoint URL is correct and accessible from your server environment.

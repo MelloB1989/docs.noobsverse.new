@@ -1,0 +1,49 @@
+---
+name: unfollowUser
+type: http
+seq: 6
+---
+
+# unfollowUser API
+
+## Overview
+
+The `unfollowUser` API allows authenticated users to unfollow another user.
+
+## Endpoint
+
+### GET Request
+
+**URL:** `http://localhost:3000/v1/user/unfollow/:userId`
+
+Replace `:userId` with the actual user ID of the user you wish to unfollow.
+
+**Body:** None
+
+**Authentication:** Bearer token required
+
+## Authentication
+
+To access the `unfollowUser` API, include the following bearer token in the request headers:
+
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Example Request
+
+```http
+GET /v1/user/unfollow/-sx7zvg7n1 HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+Make sure to replace `-sx7zvg7n1` with the ID of the user you want to unfollow.
+
+## Response
+
+The API will respond with an appropriate status message indicating whether the unfollow action was successful.
+
+## Error Handling
+
+If there is an error (e.g., invalid token or user ID), the API will respond with an error message explaining the issue.

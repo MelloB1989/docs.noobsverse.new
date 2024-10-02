@@ -1,0 +1,39 @@
+---
+title: "getAllUsers API Documentation"
+---
+
+## Overview
+This document provides details about the `getAllUsers` API endpoint. This endpoint is used to retrieve a list of all users.
+
+## Metadata
+- **Name**: getAllUsers
+- **Type**: HTTP
+- **Sequence**: 8
+
+## HTTP Request
+
+### GET Method
+- **URL**: `http://localhost:3000/v1/user/getAll`
+- **Body**: None
+- **Authentication**: Bearer Token
+
+## Authentication
+To access this endpoint, a bearer token is required in the authorization header.
+
+**Bearer Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+
+## Example Request
+```
+GET /v1/user/getAll HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Response
+The response will contain a list of users in JSON format.
+
+## Notes
+- Ensure your bearer token is valid and has not expired.
+- This API is part of the v1 version of the user module.
+
+For further assistance or queries, contact the API support team.

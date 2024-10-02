@@ -1,28 +1,24 @@
 ---
-title: "verifyOTP API Documentation"
-type: "http"
-sequence: 2
+id: verifyOTP
+title: verifyOTP API
+sidebar_position: 2
 ---
 
-# verifyOTP
+# verifyOTP API
 
-## Overview
+The `verifyOTP` API allows you to verify a One-Time Password (OTP) sent to a user's phone number.
 
-The `verifyOTP` API endpoint is used to verify the OTP (One-Time Password) sent to a user's phone number. This is a POST request that accepts a JSON body and does not require authentication.
+## HTTP Request
 
-## Endpoint
+### POST
 
 **URL:** `http://localhost:3000/v1/auth/verify_otp`
 
-**Method:** POST
+**Auth:** None required
 
-## Request
+## Request Body
 
-### Headers
-
-No authentication headers are required for this endpoint.
-
-### Body (JSON)
+The request body should be sent in JSON format and contain the following fields:
 
 ```json
 {
@@ -31,10 +27,27 @@ No authentication headers are required for this endpoint.
 }
 ```
 
-- **phone**: The phone number to which the OTP was sent. (e.g., `"+919812940706"`)
-- **otp**: The OTP received by the user. (e.g., `"815897"`)
+| Field   | Type   | Description                            |
+|---------|--------|----------------------------------------|
+| `phone` | String | The phone number to which the OTP was sent. |
+| `otp`   | String | The One-Time Password to be verified.      |
+
+## Example
+
+### Request
+
+```json
+POST http://localhost:3000/v1/auth/verify_otp
+Content-Type: application/json
+
+{
+  "phone": "+919812940706",
+  "otp": "815897"
+}
+```
 
 ## Response
 
-The API will return a response indicating whether the OTP verification was successful or not. The specific structure of the response is not detailed here but will typically contain status codes and possible error messages or success confirmations.
+The response structure will vary depending on the implementation. Typically, the server will return a status indicating whether the OTP was successfully verified or not.
 
+Make sure to handle different response statuses to ensure robustness of your application.

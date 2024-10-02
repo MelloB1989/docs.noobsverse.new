@@ -1,48 +1,31 @@
 ---
-title: "GetUserTripsByStationID"
-description: "Retrieve user trips by specifying a station ID."
+title: GetUserTripsByStationID API Documentation
+meta:
+  - name: GetUserTripsByStationID
+  - type: http
+  - seq: 4
 ---
 
-# GetUserTripsByStationID API
-
-## Overview
-
-The `GetUserTripsByStationID` API allows clients to retrieve user trips based on a specified station ID.
-
-## HTTP Method
-
-`GET`
+# GetUserTripsByStationID
 
 ## Endpoint
-
-```
-http://localhost:3000/v1/trips/station/a2m392c58f
-```
+- **Type**: `HTTP GET`
+- **URL**: `http://localhost:3000/v1/trips/station/a2m392c58f`
 
 ## Authentication
+- **Type**: Bearer Token
+- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
-The API uses Bearer Token authentication. Provide the following token in the request header:
+## Request Details
+- **Body**: None
 
-```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-## Request Body
-
-None
+## Summary
+The `GetUserTripsByStationID` API retrieves the trips associated with a particular station ID. Ensure to use the provided bearer token for authorization.
 
 ## Example Request
-
 ```http
-GET /v1/trips/station/a2m392c58f HTTP/1.1
-Host: localhost:3000
+GET http://localhost:3000/v1/trips/station/a2m392c58f
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Response
-
-The response will contain the user trips associated with the specified station ID, formatted as JSON.
-
----
-
-For more details and examples, refer to the documentation specific to other endpoints and usage scenarios.
+Note: Replace the bearer token with an appropriate token if needed.

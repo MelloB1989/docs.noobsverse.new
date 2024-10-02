@@ -1,0 +1,54 @@
+---
+name: getTimeTraveled
+type: http
+seq: 9
+---
+
+# getTimeTraveled API
+
+## Overview
+The `getTimeTraveled` API endpoint allows users to get the time traveled within a specified date range.
+
+## HTTP Request
+### Method: GET
+### URL
+```
+http://localhost:3000/v1/user/time_travelled
+```
+
+### Query Parameters
+| Name       | Type   | Description                      | Example          |
+|------------|--------|----------------------------------|------------------|
+| start_date | string | The start date of the period     | 2024-09-01       |
+| end_date   | string | The end date of the period       | 2024-09-10       |
+
+### Example Request
+```
+GET /v1/user/time_travelled?start_date=2024-09-01&end_date=2024-09-10 HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Authentication
+This endpoint requires a Bearer token for authentication.
+
+### Bearer Token
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Response
+The API will return the time traveled within the date range specified.
+
+## Example Response
+```json
+{
+  "success": true,
+  "data": {
+    "time_traveled": "120 hours"
+  }
+}
+```
+
+## Error Handling
+In the case of an error, the API will return an appropriate status code and an error message in the response body.

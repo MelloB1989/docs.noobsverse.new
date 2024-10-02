@@ -1,60 +1,69 @@
 ---
-title: GetUserTripsByLongestDuration API Documentation
-sidebar_position: 8
+id: get-user-trips-by-longest-duration
+title: GetUserTripsByLongestDuration
+sidebar_label: Get User Trips By Longest Duration
 ---
 
-# GetUserTripsByLongestDuration
+## Overview
 
-The `GetUserTripsByLongestDuration` API retrieves the user's trips sorted by the longest duration.
+`GetUserTripsByLongestDuration` is an HTTP GET endpoint that retrieves user trips sorted by the longest duration. The endpoint allows specifying a limit to control the number of trips returned.
 
-## HTTP Request
+## Endpoint
 
-### GET
+### URL
 
-```http
-GET http://localhost:3000/v1/trips/duration/longest?limit=10
+`http://localhost:3000/v1/trips/duration/longest`
+
+### Method
+
+`GET`
+
+## Query Parameters
+
+| Name  | Type | Description                     | Default |
+|-------|------|---------------------------------|---------|
+| limit | int  | The number of trips to retrieve | `10`    |
+
+### Example
+
+```plaintext
+http://localhost:3000/v1/trips/duration/longest?limit=10
 ```
 
-### Query Parameters
+## Authentication
 
-| Name  | Type | Description       | Default |
-|-------|------|-------------------|---------|
-| limit | int  | Maximum number of trips to retrieve | 10      |
+This endpoint requires a Bearer Token for authentication.
 
-### Authorization
-
-This endpoint requires a Bearer token.
-
-#### Example Bearer Token
+### Bearer Token
 
 ```plaintext
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Example Request
+## Headers
 
-```http
-GET http://localhost:3000/v1/trips/duration/longest?limit=10
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+| Name            | Value                         |
+|-----------------|-------------------------------|
+| Authorization   | Bearer {your_token_here}      |
 
 ## Response
 
-The response will contain an array of trips sorted by the longest duration.
+### JSON Response
 
-**Status Code:** 200 OK
+The response will be a JSON array of user trips sorted by duration.
 
-**Response Body:**
+### Example
 
 ```json
 [
   {
-    "tripId": "string",
-    "duration": "number",
-    "otherTripDetails": "object"
+    "tripId": "123456",
+    "userId": "5geapgapsx",
+    "duration": 120,
+    "startLocation": "Location A",
+    "endLocation": "Location B",
+    ...
   },
-  // More trip objects...
+  ...
 ]
 ```
-
-Make sure to replace the bearer token with an appropriate token when making requests to this endpoint.

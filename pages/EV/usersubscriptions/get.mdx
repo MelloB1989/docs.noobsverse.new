@@ -1,33 +1,18 @@
 ---
-name: get
-type: http
+name: Get User Subscription
+type: HTTP
 seq: 2
 ---
 
-# API Documentation: Get User Subscription
+# Get User Subscription
 
-## Overview
+## Endpoint
 
-This API endpoint retrieves details of a user subscription.
+`GET http://localhost:3000/v1/user_subscription/get`
 
-## HTTP Request
+## Body
 
-- **URL:** `http://localhost:3000/v1/user_subscription/get`
-- **Method:** `GET`
-- **Body Format:** JSON
-- **Authentication:** Bearer Token
-
-## Authentication
-
-To authenticate, include the following Bearer Token in your request headers:
-
-```plaintext
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-## Request Body
-
-Include the following JSON object in the body of your request:
+The request body should be in JSON format and include the following parameters:
 
 ```json
 {
@@ -36,3 +21,13 @@ Include the following JSON object in the body of your request:
   "end_date": "27/11/2004"
 }
 ```
+
+## Authentication
+
+This endpoint requires Bearer token authentication. Include the following token in your request header:
+
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+Ensure that your request header contains the Authorization key with the above token.

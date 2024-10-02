@@ -1,47 +1,64 @@
 ---
-name: getUserDetails
-type: http
-seq: 1
+title: getUserDetails API Documentation
 ---
 
-# getUserDetails API
+# getUserDetails
 
-This endpoint retrieves the details of a user based on the provided authentication token.
+The `getUserDetails` endpoint provides the functionality to retrieve user details. This is an HTTP API that requires bearer token authentication.
 
-## HTTP Method
+## Request
 
-- `GET`
+### HTTP Method
 
-## URL
+`GET`
 
-- `http://localhost:3000/v1/user/get`
+### URL
 
-## Authentication
+`http://localhost:3000/v1/user/get`
 
-This endpoint requires a Bearer token for authentication.
+### Authentication
 
-### Bearer Token
+This endpoint requires a bearer token for authentication.
+
+- **Type**: Bearer
+- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
+
+### Request Body
+
+No request body is required for this endpoint.
+
+### Headers
+
+Ensure to include the authorization header with the bearer token.
 
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
-
-## Request Body
-
-- None required.
-
-## Response
-
-- A JSON object containing user details.
-
-## Example Request
-
-```http
-GET /v1/user/get HTTP/1.1
-Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-## Note
+## Example Request
 
-Ensure the provided token is valid and not expired.
+```
+GET http://localhost:3000/v1/user/get
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+## Responses
+
+The possible responses from the `getUserDetails` endpoint are as follows.
+
+### Success
+
+- **Code**: 200 OK
+- **Response Body**: JSON containing user details
+
+### Error
+
+- **Code**: 401 Unauthorized
+- **Response Body**: JSON containing error message if the token is missing or invalid
+
+- **Code**: 404 Not Found
+- **Response Body**: JSON containing error message if the user does not exist
+
+---
+
+This completes the API documentation for the `getUserDetails` endpoint. Ensure proper bearer token authentication to successfully call this API.

@@ -1,34 +1,67 @@
 ---
-name: GetUserTripsBySlowestSpeed
-type: http
-seq: 11
+title: Get User Trips By Slowest Speed
+meta:
+  name: GetUserTripsBySlowestSpeed
+  type: http
+  seq: 11
 ---
 
-# GetUserTripsBySlowestSpeed API
+## GetUserTripsBySlowestSpeed
 
-## Endpoint
+`GetUserTripsBySlowestSpeed` retrieves user trips sorted by the slowest speed.
+
+### HTTP Request
 
 **GET** `http://localhost:3000/v1/trips/speed/slowest?limit=10`
 
-## Authentication
+### Authentication
 
-Type: Bearer Token
+This endpoint requires a Bearer token.
 
-**Token:**
+#### Example Bearer Token
 
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Query Parameters
+### Query Parameters
 
-| Name  | Type | Description              |
-|-------|------|--------------------------|
-| limit | int  | The maximum number of trips to retrieve (default: 10) |
+| Parameter | Type | Description               | Example |
+|-----------|------|---------------------------|---------|
+| limit     | int  | The number of trips to return. Max: 10 | 10      |
 
-## Example Curl Command
+### Response
 
-```bash
-curl -X GET "http://localhost:3000/v1/trips/speed/slowest?limit=10" \
-     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
+The response will contain a list of user trips sorted by the slowest speed.
+
+### Example Request
+
+```http
+GET http://localhost:3000/v1/trips/speed/slowest?limit=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
+
+### Example Response
+
+```json
+[
+  {
+    "trip_id": "1",
+    "user_id": "user_001",
+    "speed": 5.0,
+    "details": "Trip details here..."
+  },
+  {
+    "trip_id": "2",
+    "user_id": "user_002",
+    "speed": 6.0,
+    "details": "Trip details here..."
+  }
+  // additional trips
+]
+```
+
+### Notes
+
+- Ensure the Bearer token is valid and not expired.
+- Adjust the `limit` parameter as needed, keeping within constraints.

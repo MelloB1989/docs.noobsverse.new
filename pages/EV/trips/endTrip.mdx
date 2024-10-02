@@ -1,75 +1,52 @@
 ---
-title: End Trip API
-type: HTTP
-sequence: 2
+name: endTrip
+type: http
+seq: 2
 ---
 
-# End Trip API
+# endTrip API Documentation
 
-The End Trip API allows you to mark a trip as completed.
+## Endpoint Details
 
-## Endpoint
-
-```http
-POST http://localhost:3000/v1/trips/end
-```
+- **Method**: `POST`
+- **URL**: `http://localhost:3000/v1/trips/end`
+- **Request Body Format**: JSON
+- **Authentication**: Bearer Token
 
 ## Authentication
 
-The API uses bearer token authentication. 
+To authorize requests to this endpoint, include a Bearer token in the request headers as shown below:
 
-### Bearer Token
-
-```json
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ## Request Body
 
-The request body must be in JSON format containing the details of the trip to be marked as completed.
+The following JSON object should be included in the request body:
 
 ```json
 {
-  "id": "ulj1iq0-0w",
-  "bike_id": "i6bjwk0yhu",
-  "station_id": "a2m392c58f",
-  "start_timestamp": "2024-09-02T07:15:00Z",
-  "end_timestamp": "2024-09-02T07:50:00Z",
-  "distance": 15.8,
-  "duration": 35.0,
-  "average_speed": 27.1,
-  "path": "base64_encoded_path_data_3"
+    "id": "ulj1iq0-0w",
+    "bike_id": "i6bjwk0yhu",
+    "station_id": "a2m392c58f",
+    "start_timestamp": "2024-09-02T07:15:00Z",
+    "end_timestamp": "2024-09-02T07:50:00Z",
+    "distance": 15.8,
+    "duration": 35.0,
+    "average_speed": 27.1,
+    "path": "base64_encoded_path_data_3"
 }
 ```
 
-### Parameters
+### Fields Description
 
-- `id`: Unique identifier of the trip.
-- `bike_id`: Unique identifier of the bike used for the trip.
-- `station_id`: Unique identifier of the station where the trip started.
-- `start_timestamp`: The start time of the trip in ISO 8601 format.
-- `end_timestamp`: The end time of the trip in ISO 8601 format.
-- `distance`: The total distance covered during the trip in kilometers.
-- `duration`: The total duration of the trip in minutes.
-- `average_speed`: The average speed during the trip in km/h.
-- `path`: The path of the trip encoded in base64 format.
-
-## Example Request
-
-```http
-POST http://localhost:3000/v1/trips/end
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-Content-Type: application/json
-
-{
-  "id": "ulj1iq0-0w",
-  "bike_id": "i6bjwk0yhu",
-  "station_id": "a2m392c58f",
-  "start_timestamp": "2024-09-02T07:15:00Z",
-  "end_timestamp": "2024-09-02T07:50:00Z",
-  "distance": 15.8,
-  "duration": 35.0,
-  "average_speed": 27.1,
-  "path": "base64_encoded_path_data_3"
-}
-```
+- **id**: Unique identifier for the trip (string).
+- **bike_id**: Unique identifier for the bike used in the trip (string).
+- **station_id**: Unique identifier for the station where the trip started and ended (string).
+- **start_timestamp**: ISO 8601 formatted timestamp indicating when the trip started (string).
+- **end_timestamp**: ISO 8601 formatted timestamp indicating when the trip ended (string).
+- **distance**: Total distance covered during the trip, in kilometers (number).
+- **duration**: Total duration of the trip, in minutes (number).
+- **average_speed**: Average speed during the trip, in km/h (number).
+- **path**: Base64 encoded data representing the path taken during the trip (string).

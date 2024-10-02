@@ -4,34 +4,46 @@ type: http
 seq: 1
 ---
 
-# Start Trip API
+# startTrip API
 
-This API allows users to start a trip by posting the necessary trip details.
+## Description
 
-## Endpoint
+This endpoint is used to start a trip with a bike from a specific station. The request must be authenticated using a bearer token.
+
+## HTTP Request
 
 **POST** `http://localhost:3000/v1/trips/start`
 
 ## Authentication
 
-This API uses Bearer Token authentication. Include the following token in the `Authorization` header:
+This request requires a bearer token for authentication.
+
+### Bearer Token
 
 ```
-Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ## Request Body
 
-The request body should be in JSON format and include the following fields:
+The body of the request should be in JSON format.
 
 ```json
 {
-  "bike_id": "i6bjwk0yhu",
-  "station_id": "a2m392c58f",
-  "start_timestamp": "2024-09-02T07:15:00Z"
+    "bike_id": "i6bjwk0yhu",
+    "station_id": "a2m392c58f",
+    "start_timestamp": "2024-09-02T07:15:00Z"
 }
 ```
 
-- `bike_id` (string) - The unique identifier of the bike.
-- `station_id` (string) - The unique identifier of the station.
-- `start_timestamp` (string) - The timestamp when the trip starts in ISO 8601 format.
+### Parameters
+
+- **bike_id**: The identifier of the bike (string).
+- **station_id**: The identifier of the station where the trip starts (string).
+- **start_timestamp**: The timestamp when the trip starts in ISO 8601 format (string).
+
+## Response
+
+A successful response will start the trip and return the details of the trip started. The exact response structure should be specified in your API documentation.
+
+---

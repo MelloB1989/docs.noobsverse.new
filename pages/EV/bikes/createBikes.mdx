@@ -1,98 +1,101 @@
 ---
-name: createBikes
-type: HTTP
-sequence: 1
+title: createBikes API Documentation
 ---
 
-## API Documentation: `createBikes`
+# createBikes API
 
-### Endpoint Details
+## Overview
+The `createBikes` API allows you to create multiple bike records in the system.
 
-- **Type**: POST
-- **URL**: `http://localhost:3000/v1/bikes/create`
-- **Authentication**: None
+## Endpoint Details
+- **Type:** HTTP
+- **Sequence:** 1
 
-### Headers
+## POST Request
+- **URL:** `http://localhost:3000/v1/bikes/create`
+- **Body Format:** JSON
+- **Authentication:** None
 
-Include the following header for authenticated access:
+## Headers
+Include the following headers in your request:
+```plaintext
+X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab
+```
 
-- `X-Karma-Admin-Auth`: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
+## Request Body
+The body of the request must be a JSON array of objects, where each object represents a bike to be created. 
 
-### Request Body
-
-The request body should be sent as JSON. Below is the structure and an example of the request body:
-
+### Example:
 ```json
 [
-  {
-    "frame_number": "FR123456789",
-    "name": "Speedster X1",
-    "station_id": "1ub1d98p_5",
-    "top_speed": 45,
-    "range": 100,
-    "time_to_station": 5,
-    "images": [
-      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-    ]
-  },
-  {
-    "frame_number": "FR987654321",
-    "name": "Thunderbolt Z3",
-    "station_id": "2jk5h43t_7",
-    "top_speed": 50,
-    "range": 120,
-    "time_to_station": 7,
-    "images": [
-      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-    ]
-  },
-  {
-    "frame_number": "FR112233445",
-    "name": "Lightning T4",
-    "station_id": "3mn8l29q_2",
-    "top_speed": 55,
-    "range": 150,
-    "time_to_station": 4,
-    "images": [
-      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-    ]
-  },
-  {
-    "frame_number": "FR556677889",
-    "name": "Storm Rider G2",
-    "station_id": "4pl0z87w_9",
-    "top_speed": 60,
-    "range": 140,
-    "time_to_station": 6,
-    "images": [
-      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-    ]
-  },
-  {
-    "frame_number": "FR998877665",
-    "name": "Cyclone V6",
-    "station_id": "5qr2m65y_4",
-    "top_speed": 65,
-    "range": 160,
-    "time_to_station": 3,
-    "images": [
-      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-    ]
-  },
-  {
-    "frame_number": "FR554433221",
-    "name": "Hurricane F5",
-    "station_id": "6st1o23x_8",
-    "top_speed": 70,
-    "range": 180,
-    "time_to_station": 2,
-    "images": [
-      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-    ]
-  }
+    {
+        "frame_number": "FR123456789",
+        "name": "Speedster X1",
+        "station_id": "1ub1d98p_5",
+        "top_speed": 45,
+        "range": 100,
+        "time_to_station": 5,
+        "images": [
+            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+        ]
+    },
+    {
+        "frame_number": "FR987654321",
+        "name": "Thunderbolt Z3",
+        "station_id": "2jk5h43t_7",
+        "top_speed": 50,
+        "range": 120,
+        "time_to_station": 7,
+        "images": [
+            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+        ]
+    },
+    {
+        "frame_number": "FR112233445",
+        "name": "Lightning T4",
+        "station_id": "3mn8l29q_2",
+        "top_speed": 55,
+        "range": 150,
+        "time_to_station": 4,
+        "images": [
+            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+        ]
+    },
+    {
+        "frame_number": "FR556677889",
+        "name": "Storm Rider G2",
+        "station_id": "4pl0z87w_9",
+        "top_speed": 60,
+        "range": 140,
+        "time_to_station": 6,
+        "images": [
+            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+        ]
+    },
+    {
+        "frame_number": "FR998877665",
+        "name": "Cyclone V6",
+        "station_id": "5qr2m65y_4",
+        "top_speed": 65,
+        "range": 160,
+        "time_to_station": 3,
+        "images": [
+            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+        ]
+    },
+    {
+        "frame_number": "FR554433221",
+        "name": "Hurricane F5",
+        "station_id": "6st1o23x_8",
+        "top_speed": 70,
+        "range": 180,
+        "time_to_station": 2,
+        "images": [
+            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+        ]
+    }
 ]
 ```
 
-### Notes
-
-Ensure the content type of the request is set to `application/json`. This API does not require any form of user authentication, but it does require the `X-Karma-Admin-Auth` header for administrative privileges.
+## Response
+On successful creation, the API returns a status code of `201 Created` along with relevant details of the newly created bikes.

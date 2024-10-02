@@ -1,0 +1,32 @@
+---
+title: getGroupDetails API Documentation
+---
+
+## getGroupDetails
+
+The `getGroupDetails` endpoint allows you to retrieve details of a specific group.
+
+### Metadata
+- **Name:** getGroupDetails
+- **Type:** HTTP
+
+### Request
+- **Method:** GET
+- **URL:** `http://localhost:3000/v1/groups/2`
+- **Body:** None required
+- **Authentication:** Bearer token
+
+### Authentication
+To access this endpoint, a bearer token is required. Below is the format of the bearer token:
+```
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+### Example Request
+```http
+GET http://localhost:3000/v1/groups/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+### Sequence
+- **Sequence Number:** 5

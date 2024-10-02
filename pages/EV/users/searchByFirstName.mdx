@@ -1,0 +1,41 @@
+---
+name: searchByFirstName
+type: http
+seq: 7
+---
+
+# searchByFirstName API
+
+This API is used to search for a user by their first name.
+
+## HTTP Request
+
+### GET
+
+**URL**: `http://localhost:3000/v1/user/search/manas`
+
+**Body**: None
+
+## Authentication
+
+This API requires bearer token authentication.
+
+### Bearer Token
+
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+Make sure to include the above token in the Authorization header as follows:
+
+```http
+Authorization: Bearer [Your Token Here]
+```
+
+## Example Request
+
+```http
+GET /v1/user/search/manas HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```

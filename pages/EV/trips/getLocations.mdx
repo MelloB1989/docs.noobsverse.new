@@ -1,33 +1,50 @@
 ---
-name: getLocations
-type: http
-seq: 12
+title: getLocations API Documentation
 ---
 
 # getLocations API
 
-The `getLocations` API is used to retrieve a list of locations for a specific trip.
+## Overview
+
+The `getLocations` API allows users to retrieve the locations for a specific trip using an HTTP GET request. This endpoint is secured with bearer token authentication.
 
 ## HTTP Method
 
-**GET**
+- **GET**
 
 ## Endpoint
 
-```
-http://localhost:3000/v1/trips/ulj1iq0-0w/locations
-```
-
-## Request Body
-
-No request body is required.
+- **URL:** `http://localhost:3000/v1/trips/ulj1iq0-0w/locations`
 
 ## Authentication
 
-The `getLocations` API requires Bearer authentication.
+This endpoint requires bearer token authentication. Ensure you include the following token in the `Authorization` header of your request:
 
-### Bearer Token
+```plaintext
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
 
+## Request Parameters
+
+This endpoint does not require a request body.
+
+## Example Request
+
+```http
+GET http://localhost:3000/v1/trips/ulj1iq0-0w/locations
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+
+## Response
+
+The response will contain the locations associated with the specified trip. The structure of the response is determined by the implementation of the API.
+
+## Common Status Codes
+
+- **200 OK:** The request was successful, and the locations are returned.
+- **401 Unauthorized:** The bearer token is missing or invalid.
+- **404 Not Found:** The specified trip or locations were not found.
+
+## Additional Information
+
+- **Sequence Number:** 12
