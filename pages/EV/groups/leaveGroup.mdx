@@ -1,28 +1,39 @@
 ---
-id: leaveGroup
-title: Leave Group
+name: leaveGroup
 type: http
 sequence: 3
 ---
 
-# Leave Group API
+# leaveGroup API
 
-This API endpoint allows a user to leave a group.
+The `leaveGroup` API allows a user to leave a specific group.
 
-## HTTP Request
+## Endpoint
 
-### GET
-`GET http://localhost:3000/v1/groups/2/leave`
+**GET** `http://localhost:3000/v1/groups/2/leave`
 
 ## Authentication
 
-This endpoint requires a Bearer token for authentication.
+This endpoint requires Bearer Token authentication.
 
-### Bearer Token
+```plaintext
+Bearer Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+
+## Request Body
+
+No request body is needed for this API.
 
 ## Response
 
-The response will confirm that the user has successfully left the group.
+The response will indicate whether the user has successfully left the group.
+
+## Example
+
+```http
+GET /v1/groups/2/leave HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+Make sure to replace the `Authorization` header with your actual token.

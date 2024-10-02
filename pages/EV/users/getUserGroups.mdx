@@ -1,63 +1,25 @@
 ---
-title: getUserGroups API Documentation
+name: getUserGroups
+type: http
+seq: 2
 ---
 
-# getUserGroups API
+## getUserGroups
 
-## Overview
+The `getUserGroups` API allows you to retrieve the list of groups associated with a user.
 
-The `getUserGroups` API retrieves the groups associated with a user.
+### Endpoint
 
-## Endpoint Details
+#### GET
 
-- **Type**: HTTP
-- **URL**: `http://localhost:3000/v1/user/groups`
-- **Sequence**: 2
+`http://localhost:3000/v1/user/groups`
 
-## Method: GET
+### Authentication
 
-### Request
+This endpoint requires a Bearer token for authentication.
 
-- **URL**: `http://localhost:3000/v1/user/groups`
-- **Body**: None
-- **Authorization**: Bearer Token
+#### Bearer Token
 
-### Authorization
-
-The API requires a Bearer Token for authentication.
-
-- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
-
-## Example Request
-
-```http
-GET /v1/user/groups HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-
-## Example Response
-
-```json
-{
-  "groups": [
-    {
-      "id": "group1",
-      "name": "Admin Group"
-    },
-    {
-      "id": "group2",
-      "name": "User Group"
-    }
-  ]
-}
-```
-
-## Notes
-
-- Ensure your Bearer Token is valid and not expired.
-- No request body is required for this API.
-
-## Conclusion
-
-The `getUserGroups` API allows you to fetch the user groups with the appropriate Bearer Token authentication. Use the provided token for access and ensure it remains secure.

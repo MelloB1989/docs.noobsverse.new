@@ -1,22 +1,20 @@
 ---
 name: startTrip
 type: http
-seq: 1
+sequence: 1
 ---
 
-# startTrip API
+# Start Trip API
 
-## Description
+Initiate a trip using this API. This endpoint allows the user to start a trip associated with a bike and a station.
 
-This endpoint is used to start a trip with a bike from a specific station. The request must be authenticated using a bearer token.
-
-## HTTP Request
+## Endpoint
 
 **POST** `http://localhost:3000/v1/trips/start`
 
 ## Authentication
 
-This request requires a bearer token for authentication.
+This endpoint requires Bearer token authentication.
 
 ### Bearer Token
 
@@ -26,7 +24,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI
 
 ## Request Body
 
-The body of the request should be in JSON format.
+Send the following JSON payload in the body of the request:
 
 ```json
 {
@@ -38,12 +36,8 @@ The body of the request should be in JSON format.
 
 ### Parameters
 
-- **bike_id**: The identifier of the bike (string).
-- **station_id**: The identifier of the station where the trip starts (string).
-- **start_timestamp**: The timestamp when the trip starts in ISO 8601 format (string).
+- **bike_id** (string): ID of the bike starting the trip.
+- **station_id** (string): ID of the station from which the trip starts.
+- **start_timestamp** (string): ISO 8601 formatted timestamp indicating the start time of the trip. 
 
-## Response
-
-A successful response will start the trip and return the details of the trip started. The exact response structure should be specified in your API documentation.
-
----
+Ensure the request header includes `Content-Type: application/json` and the Authorization header is set to `Bearer <your-token>`.

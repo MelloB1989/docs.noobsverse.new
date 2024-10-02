@@ -1,68 +1,68 @@
 ---
-title: GetBikesByTopSpeedRange API
-meta:
-  name: GetBikesByTopSpeedRange
-  type: http
-  seq: 6
+name: GetBikesByTopSpeedRange
+type: http
+seq: 6
 ---
 
 # GetBikesByTopSpeedRange API
 
 ## Description
-The `GetBikesByTopSpeedRange` API allows you to fetch details of bikes that fall within a specified speed range.
 
-## Endpoint
-**URL:** `http://localhost:3000/v1/bikes/get/speed/{upperSpeed}/{lowerSpeed}`
+Fetches bikes within a specific top speed range.
 
-| Method | URL                                                  |
-|--------|------------------------------------------------------|
-| GET    | `http://localhost:3000/v1/bikes/get/speed/50/47`     |
+## HTTP Request
 
-Ensure you replace `{upperSpeed}` and `{lowerSpeed}` with appropriate values.
+### Method: GET
+### URL
+`http://localhost:3000/v1/bikes/get/speed/50/47`
 
-## Request
-### Headers
-| Key       | Value              |
-|-----------|--------------------|
-| Authorization | Bearer `{{token}}` |
+### Request Body
+No request body required.
 
-### Auth
-**Type:** Bearer Token  
-**Token:**
+### Authentication
 
+This endpoint uses bearer token authentication.
+
+**Authorization Header Format:**
+```
+Authorization: Bearer <token>
+```
+
+**Example Token:**
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-### Body
-This endpoint does not require a request body.
+### Response
 
-## Response
-The response will be a JSON object containing the bikes' details that fall within the specified speed range.
+The response will contain the list of bikes within the specified top speed range.
 
-Example:
+## Example Request
 
-```json
-{
-  "data": [
-    {
-      "id": "bike1",
-      "make": "BrandA",
-      "model": "ModelX",
-      "topSpeed": 49
-    },
-    {
-      "id": "bike2",
-      "make": "BrandB",
-      "model": "ModelY",
-      "topSpeed": 48
-    }
-  ]
-}
+```http
+GET http://localhost:3000/v1/bikes/get/speed/50/47
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-## Notes
-- Replace `{{token}}` with your actual bearer token in the Authorization header.
-- Ensure the speed values in the URL path are integers.
+## Example Response
 
-For further queries or support, please reach out to the API development team.
+```json
+[
+  {
+    "id": "bike1",
+    "model": "Model S",
+    "brand": "BrandX",
+    "top_speed": 49
+  },
+  {
+    "id": "bike2",
+    "model": "Model Y",
+    "brand": "BrandY",
+    "top_speed": 48
+  }
+]
+```
+
+## Conclusion
+
+This endpoint retrieves bikes that have a top speed in the requested range. Ensure that the bearer token is accurate and up-to-date for a successful request.

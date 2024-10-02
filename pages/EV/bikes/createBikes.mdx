@@ -1,31 +1,39 @@
 ---
-title: createBikes API Documentation
+name: createBikes
+type: http
+seq: 1
 ---
 
-# createBikes API
-
-## Overview
-The `createBikes` API allows you to create multiple bike records in the system.
+# Create Bikes API
 
 ## Endpoint Details
-- **Type:** HTTP
-- **Sequence:** 1
 
-## POST Request
-- **URL:** `http://localhost:3000/v1/bikes/create`
-- **Body Format:** JSON
-- **Authentication:** None
+**URL:** `http://localhost:3000/v1/bikes/create`  
+**Method:** `POST`  
+**Authentication:** None
 
 ## Headers
-Include the following headers in your request:
-```plaintext
-X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab
+
+Include the following headers in the request:
+
+```http
+X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab  
 ```
 
-## Request Body
-The body of the request must be a JSON array of objects, where each object represents a bike to be created. 
+## Request Body (JSON)
 
-### Example:
+The body of the request should be a JSON array containing one or more bike objects. Each bike object must have the following fields:
+
+- `frame_number` (string): Unique identifier for the bike's frame.
+- `name` (string): Name of the bike.
+- `station_id` (string): ID of the station where the bike is located.
+- `top_speed` (number): Maximum speed of the bike (km/h).
+- `range` (number): Maximum range of the bike (km).
+- `time_to_station` (number): Estimated time to reach the station (minutes).
+- `images` (array of strings): URLs to images of the bike.
+
+### Example Request Body
+
 ```json
 [
     {
@@ -96,6 +104,3 @@ The body of the request must be a JSON array of objects, where each object repre
     }
 ]
 ```
-
-## Response
-On successful creation, the API returns a status code of `201 Created` along with relevant details of the newly created bikes.

@@ -1,55 +1,43 @@
 ---
-title: GetUserTripsBySmallestDistance
+name: GetUserTripsBySmallestDistance
+type: http
+seq: 7
 ---
 
-# GetUserTripsBySmallestDistance
+# GetUserTripsBySmallestDistance API
 
-## Overview
+## Description
 
-This API retrieves user trips sorted by the smallest distance. The response is limited to a specified number of trips.
+This API endpoint retrieves user trips sorted by the smallest distance. The endpoint accepts an optional limit parameter specifying the maximum number of trips to return.
 
-## HTTP Request
+## HTTP Method
 
-### GET 
+### GET
+
+**URL:**
+
 `http://localhost:3000/v1/trips/distance/shortest?limit=10`
+
+**Body:**
+
+None
+
+**Authentication:**
+
+Bearer
+
+## Parameters
 
 ### Query Parameters
 
-- **limit**: The maximum number of trips to return. (`default`: 10)
+- **limit**: (Optional) The maximum number of trips to return.
 
-### Authentication
+## Authentication
 
-This API uses Bearer Token authentication. You must include a valid JWT token in the Authorization header of your request.
+The endpoint requires a Bearer token for authorization.
 
-#### Bearer Token Example:
+### Bearer Token
+
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-### Example Request
-
-```http
-GET http://localhost:3000/v1/trips/distance/shortest?limit=10
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-## Response
-
-The response will include the trips sorted by the shortest distance based on the provided limit.
-
-## Example Response
-
-```json
-[
-  {
-    "trip_id": "1",
-    "distance": 3.5,
-    "start_location": "Location A",
-    "end_location": "Location B",
-    "duration": "00:15:30"
-  },
-  // more trips
-]
-```
-
-Remember to replace the token in the example with a valid token for real requests.

@@ -1,31 +1,30 @@
 ---
-title: Create Subscription API
+title: "createSubscription API Documentation"
+meta:
+  - name: createSubscription
+  - type: http
+  - seq: 1
 ---
 
-# Create Subscription
+# createSubscription API
 
-## Overview
+The `createSubscription` API endpoint allows you to create a new subscription plan.
 
-The `createSubscription` API endpoint is used to create new subscription plans.
+## Endpoint Details
 
-## Endpoint
-
-**URL:** `http://localhost:3000/v1/subscriptions/create`  
-**Method:** `POST`  
-**Body Format:** JSON  
-**Authentication:** None
+- **Method:** POST
+- **URL:** `http://localhost:3000/v1/subscriptions/create`
+- **Authentication:** None required
 
 ## Headers
 
-```json
-{
-  "X-Karma-Admin-Auth": "CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab"
-}
-```
+Include the following header for authorization purposes.
+
+- **X-Karma-Admin-Auth:** `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
 
 ## Request Body
 
-The request body should be a JSON array containing subscription objects. Each object should have the following structure:
+The request body must be in JSON format. Below is the structure you should follow when creating a subscription.
 
 ```json
 [
@@ -77,12 +76,20 @@ The request body should be a JSON array containing subscription objects. Each ob
 ]
 ```
 
-### Fields
+Each object in the JSON array represents a subscription plan with the following fields:
 
-- `id` (string): The unique identifier for the subscription plan.
-- `monthly_fee` (number): The monthly fee for the subscription plan.
-- `discount` (number): The discount applied to the monthly fee.
-- `name` (string): The name of the subscription plan.
-- `bike_id` (string): The unique identifier for the bike related to the subscription plan.
-- `type` (string): The type of the subscription (e.g., `monthly`, `annual`).
-- `security_deposit` (number): The security deposit required for the subscription plan.
+- **id**: A unique identifier for the subscription plan.
+- **monthly_fee**: The monthly fee for the subscription.
+- **discount**: The discount applied to the subscription.
+- **name**: The name of the subscription plan.
+- **bike_id**: The identifier of the bike associated with the subscription.
+- **type**: The type of subscription, e.g., "monthly" or "annual".
+- **security_deposit**: The security deposit required for the subscription.
+
+## Usage
+
+To create a subscription, send a POST request to the specified URL with the correct headers and JSON-formatted body. The server will process the request and create the corresponding subscription plan.
+
+## Response
+
+On successful creation, the server will return a confirmation message with the details of the newly created subscription plan. If there are any errors, the server will respond with an appropriate error message.

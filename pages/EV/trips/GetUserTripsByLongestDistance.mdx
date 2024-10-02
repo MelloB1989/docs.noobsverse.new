@@ -1,59 +1,49 @@
 ---
-title: "GetUserTripsByLongestDistance API"
+title: GetUserTripsByLongestDistance
+type: http
+sequence: 6
 ---
 
-# GetUserTripsByLongestDistance API
+# GetUserTripsByLongestDistance
 
-## Metadata
+## Description
 
-- **Name:** GetUserTripsByLongestDistance
-- **Type:** HTTP
-- **Sequence:** 6
+Retrieve user trips sorted by the longest distance. 
 
-## GET Request
+## Endpoint
 
-- **URL:** `http://localhost:3000/v1/trips/distance/longest`
-- **Query Parameter:** `limit`
-- **Body:** None
-- **Auth Type:** Bearer Token
+**GET** `http://localhost:3000/v1/trips/distance/longest?limit=10`
 
-### Query Parameters
+## Authentication
 
-| Parameter | Type | Description                   | Example |
-|-----------|------|-------------------------------|---------|
-| limit     | int  | Limit the number of results   | 10      |
+This endpoint requires a Bearer token for authentication.
 
-### Authorization
+**Example Bearer Token:**
 
-This API requires a bearer token for authorization.
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
 
-- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+## Query Parameters
 
-### Example Request
+| Name  | Type | Default | Description                     |
+|-------|------|---------|---------------------------------|
+| limit | int  | 10      | The number of trips to retrieve |
+
+## Example Request
 
 ```http
-GET /v1/trips/distance/longest?limit=10 HTTP/1.1
-Host: localhost:3000
+GET http://localhost:3000/v1/trips/distance/longest?limit=10
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Example Response
+## Response
 
-The response will return a list of trips ordered by the longest distance, limited to the specified number of results.
+The response contains a list of user trips sorted by the longest distance.
 
-```json
-[
-  {
-    "tripId": "string",
-    "userId": "string",
-    "distance": "number",
-    "startLocation": "string",
-    "endLocation": "string",
-    "startTime": "string",
-    "endTime": "string"
-  }
-  // additional trip objects
-]
-```
+## Notes
 
-Ensure you replace the placeholder texts with actual data values where applicable.
+- Ensure the bearer token is valid to access this endpoint.
+- Adjust the `limit` query parameter to retrieve the desired number of trips.
+
+---

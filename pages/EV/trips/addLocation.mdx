@@ -1,34 +1,34 @@
 ---
-title: Add Location
-description: Add a new location to a trip.
+title: Add Location API Documentation
 ---
 
-## addLocation API
+# Add Location API
 
-### Meta
+`addLocation` is an HTTP API that allows users to add a new location to a specific trip.
 
-- **Name:** addLocation
-- **Type:** HTTP
-- **Sequence:** 13
+## Endpoint
 
-### HTTP Request
+**POST** `http://localhost:3000/v1/trips/ulj1iq0-0w/location`
 
-- **Method:** POST
-- **URL:** `http://localhost:3000/v1/trips/ulj1iq0-0w/location`
-- **Body Format:** JSON
-- **Authentication:** Bearer Token
+## Authentication
 
-### Authentication
+This API requires Bearer Token authentication.
 
-To authenticate, use the following bearer token:
+### Bearer Token
 
 ```plaintext
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Request Body
+Include this token in the Authorization header of your HTTP request:
 
-Provide the latitude and longitude of the location in the request body as JSON:
+```
+Authorization: Bearer <token>
+```
+
+## Request Body
+
+The request body must be in JSON format, containing the latitude and longitude of the location:
 
 ```json
 {
@@ -36,3 +36,22 @@ Provide the latitude and longitude of the location in the request body as JSON:
   "long": -122.426
 }
 ```
+
+- `lat` (float): The latitude of the location.
+- `long` (float): The longitude of the location.
+
+## Example Request
+
+```http
+POST /v1/trips/ulj1iq0-0w/location HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+Content-Type: application/json
+
+{
+  "lat": 37.776,
+  "long": -122.426
+}
+```
+
+Use this API to add locations to your trips, ensuring you include the required authentication and correct parameters in your request body.

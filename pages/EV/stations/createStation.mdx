@@ -1,26 +1,35 @@
 ---
-name: createStation
-type: http
-seq: 1
+title: Create Station API Documentation
 ---
 
-# createStation
+# Create Station API
+
+This documentation covers the API endpoint for creating new stations within the system. The endpoint is a HTTP POST and does not require authentication. Below are the details of the endpoint and the expected request data.
 
 ## Endpoint
 
-**POST** `http://localhost:3000/v1/stations/create`
-
-## Description
-
-Creates a new station with specified details.
+- **URL**: `http://localhost:3000/v1/stations/create`
+- **Method**: `POST`
+- **Body Type**: `JSON`
+- **Authentication**: None required
 
 ## Headers
+
+The request should include the following headers:
 
 - `X-Karma-Admin-Auth`: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
 
 ## Request Body
 
-Content-Type: `application/json`
+The body of the request should be a JSON array containing one or more station objects. Each station object should have the following properties:
+
+- **name**: (string) The name of the station.
+- **location_latitude**: (string) The latitude of the station's location.
+- **location_longitude**: (string) The longitude of the station's location.
+- **capacity**: (integer) The total capacity of the station.
+- **current_capacity**: (integer) The current number of occupied spots at the station.
+
+### Example Request Body
 
 ```json
 [
@@ -61,3 +70,5 @@ Content-Type: `application/json`
   }
 ]
 ```
+
+By following the structured format for the request, you can successfully create one or multiple stations in the system using this API endpoint.

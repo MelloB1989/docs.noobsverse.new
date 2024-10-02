@@ -1,67 +1,46 @@
 ---
-title: Get User Trips By Slowest Speed
-meta:
-  name: GetUserTripsBySlowestSpeed
-  type: http
-  seq: 11
+name: GetUserTripsBySlowestSpeed
+type: http
+seq: 11
 ---
 
-## GetUserTripsBySlowestSpeed
+## GetUserTripsBySlowestSpeed API
 
-`GetUserTripsBySlowestSpeed` retrieves user trips sorted by the slowest speed.
+### Description
+
+This API retrieves a list of user trips sorted by the slowest speed. The results are limited by a specified number of trips.
 
 ### HTTP Request
 
-**GET** `http://localhost:3000/v1/trips/speed/slowest?limit=10`
+`GET http://localhost:3000/v1/trips/speed/slowest?limit=10`
 
 ### Authentication
 
-This endpoint requires a Bearer token.
-
-#### Example Bearer Token
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+This endpoint requires a bearer token for authentication.
 
 ### Query Parameters
 
-| Parameter | Type | Description               | Example |
-|-----------|------|---------------------------|---------|
-| limit     | int  | The number of trips to return. Max: 10 | 10      |
+| Name  | Type | Required | Description                          |
+|-------|------|----------|--------------------------------------|
+| limit | int  | No       | Maximum number of trips to retrieve. |
 
-### Response
+* **Default Value**: `10`
 
-The response will contain a list of user trips sorted by the slowest speed.
+### Sample Request Header
 
-### Example Request
+```http
+GET /v1/trips/speed/slowest?limit=10 HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+### Example
+
+To retrieve the slowest trips:
 
 ```http
 GET http://localhost:3000/v1/trips/speed/slowest?limit=10
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Example Response
-
-```json
-[
-  {
-    "trip_id": "1",
-    "user_id": "user_001",
-    "speed": 5.0,
-    "details": "Trip details here..."
-  },
-  {
-    "trip_id": "2",
-    "user_id": "user_002",
-    "speed": 6.0,
-    "details": "Trip details here..."
-  }
-  // additional trips
-]
-```
-
-### Notes
-
-- Ensure the Bearer token is valid and not expired.
-- Adjust the `limit` parameter as needed, keeping within constraints.
+Ensure you replace the provided token with your actual token obtained during the authentication process.

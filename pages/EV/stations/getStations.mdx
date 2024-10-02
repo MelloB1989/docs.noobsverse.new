@@ -1,56 +1,42 @@
 ---
-title: getStations API Documentation
+title: "API Documentation: getStations"
 ---
 
 # getStations API
 
-The `getStations` endpoint is used to retrieve a list of stations. This document explains how to interact with this endpoint.
+The `getStations` API is an HTTP endpoint designed to retrieve station data. Below, you'll find detailed information about the endpoint, including its URL, authentication requirements, and headers.
 
-## Meta Information
+## Endpoint Information
 
-- **Name**: getStations
-- **Type**: HTTP
-- **Sequence**: 2
+- **Type:** HTTP
+- **Sequence:** 2
 
 ## HTTP GET Request
 
-- **URL**: `http://localhost:3000/v1/stations/get`
-- **Body**: None
-- **Authentication Required**: None
+To access the station data, make a `GET` request to the following URL:
 
-## Headers
+### URL
 
-The request must include the following header:
-
-- **X-Karma-Admin-Auth**: `ajbkbakweiuy387yeuqqwfahdjhsabd`
-
-## Example Request
-
-```http
-GET /v1/stations/get HTTP/1.1
-Host: localhost:3000
-X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
+```
+http://localhost:3000/v1/stations/get
 ```
 
-## Response
+### Request Body
 
-The response will contain the list of stations in JSON format.
+No request body is required for this endpoint.
 
-```json
-{
-  "stations": [
-    {
-      "id": "station1",
-      "name": "Station 1"
-    },
-    {
-      "id": "station2",
-      "name": "Station 2"
-    }
-  ]
-}
+### Authentication
+
+No authentication is required to access this endpoint.
+
+### Headers
+
+To successfully call the `getStations` API, include the following header in your request:
+
+- `X-Karma-Admin-Auth`: Use the following value for the header:
+
+```
+ajbkbakweiuy387yeuqqwfahdjhsabd
 ```
 
-## Notes
-
-- Ensure that the `X-Karma-Admin-Auth` header is included with the correct value to successfully authenticate the request.
+Make sure the header is correctly included to ensure a successful API call.

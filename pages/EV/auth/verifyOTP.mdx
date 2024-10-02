@@ -1,24 +1,31 @@
 ---
-id: verifyOTP
-title: verifyOTP API
-sidebar_position: 2
+name: verifyOTP
+type: HTTP
+sequence: 2
 ---
 
 # verifyOTP API
 
-The `verifyOTP` API allows you to verify a One-Time Password (OTP) sent to a user's phone number.
+## Description
 
-## HTTP Request
+The `verifyOTP` API endpoint is used to verify the OTP (One-Time Password) sent to a user's phone number during the authentication process.
 
-### POST
+## Endpoint Information
 
-**URL:** `http://localhost:3000/v1/auth/verify_otp`
-
-**Auth:** None required
+- **URL**: `http://localhost:3000/v1/auth/verify_otp`
+- **Method**: `POST`
+- **Authentication**: None
 
 ## Request Body
 
-The request body should be sent in JSON format and contain the following fields:
+The request body must be in JSON format and include the following fields:
+
+| Field   | Type   | Description                   |
+|---------|--------|-------------------------------|
+| phone   | string | The user's phone number       |
+| otp     | string | The OTP sent to the phone     |
+
+### Example
 
 ```json
 {
@@ -27,16 +34,11 @@ The request body should be sent in JSON format and contain the following fields:
 }
 ```
 
-| Field   | Type   | Description                            |
-|---------|--------|----------------------------------------|
-| `phone` | String | The phone number to which the OTP was sent. |
-| `otp`   | String | The One-Time Password to be verified.      |
+## Usage
 
-## Example
+To use this API, send a POST request to the endpoint URL with the appropriate JSON body. This will verify the OTP for the provided phone number. Below is an example of how to structure the request:
 
-### Request
-
-```json
+```http
 POST http://localhost:3000/v1/auth/verify_otp
 Content-Type: application/json
 
@@ -45,9 +47,3 @@ Content-Type: application/json
   "otp": "815897"
 }
 ```
-
-## Response
-
-The response structure will vary depending on the implementation. Typically, the server will return a status indicating whether the OTP was successfully verified or not.
-
-Make sure to handle different response statuses to ensure robustness of your application.

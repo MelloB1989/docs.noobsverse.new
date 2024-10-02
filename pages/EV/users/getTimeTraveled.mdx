@@ -6,49 +6,43 @@ seq: 9
 
 # getTimeTraveled API
 
-## Overview
-The `getTimeTraveled` API endpoint allows users to get the time traveled within a specified date range.
+This document provides detailed information about the `getTimeTraveled` API.
 
-## HTTP Request
-### Method: GET
+## Endpoint
+
 ### URL
-```
-http://localhost:3000/v1/user/time_travelled
-```
+`GET http://localhost:3000/v1/user/time_travelled`
 
-### Query Parameters
-| Name       | Type   | Description                      | Example          |
-|------------|--------|----------------------------------|------------------|
-| start_date | string | The start date of the period     | 2024-09-01       |
-| end_date   | string | The end date of the period       | 2024-09-10       |
+### Method
+`GET`
 
-### Example Request
-```
+## Query Parameters
+
+- `start_date`: The start date for the time travel query in `YYYY-MM-DD` format. Example: `2024-09-01`
+- `end_date`: The end date for the time travel query in `YYYY-MM-DD` format. Example: `2024-09-10`
+
+## Example Request
+
+```http
 GET /v1/user/time_travelled?start_date=2024-09-01&end_date=2024-09-10 HTTP/1.1
 Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Authentication
-This endpoint requires a Bearer token for authentication.
+## Authorization
+
+This endpoint uses Bearer Token authentication.
 
 ### Bearer Token
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+
+- `token`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
 ## Response
-The API will return the time traveled within the date range specified.
 
-## Example Response
-```json
-{
-  "success": true,
-  "data": {
-    "time_traveled": "120 hours"
-  }
-}
-```
+The response will include details of the time traveled based on the specified `start_date` and `end_date`.
 
-## Error Handling
-In the case of an error, the API will return an appropriate status code and an error message in the response body.
+---
+
+Ensure to replace the example token with an actual bearer token when making real requests.
+
+For further information, please contact API support or refer to the main API documentation.

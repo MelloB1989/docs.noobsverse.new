@@ -1,36 +1,37 @@
 ---
-name: Create Group
-type: HTTP
-sequence: 1
+title: Create Group API
 ---
 
-# createGroup
+# Create Group API
 
-This API endpoint is used to create a new group.
+This endpoint allows you to create a new group by providing necessary details like the name and description of the group.
 
-## Endpoint
+## Endpoint Details
 
-**POST** `http://localhost:3000/v1/groups/create`
+- **Type:** HTTP
+- **Method:** POST
+- **URL:** `http://localhost:3000/v1/groups/create`
+- **Authentication:** Bearer Token
 
-## Headers
+## Authentication
 
-### Authorization
+To access this endpoint, you need to include a Bearer token in the Authorization header of your request.
 
-This API requires a Bearer token for authentication.
+### Bearer Token
 
-```http
-Authorization: Bearer <token>
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Example:
+Include this token in your request header as follows:
 
-```plaintext
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+Authorization: Bearer <token>
 ```
 
 ## Request Body
 
-The request body should be in JSON format.
+The request body must be in JSON format and include the following fields:
 
 ```json
 {
@@ -39,20 +40,23 @@ The request body should be in JSON format.
 }
 ```
 
-### Parameters
+### Fields
 
-- **name**: The name of the group.
-- **description**: A brief description of the group.
+- **name** (string): The name of the group.
+- **description** (string): A brief description of the group.
 
-## Example Request
+## Sample Request
 
 ```http
-POST http://localhost:3000/v1/groups/create
-Content-Type: application/json
+POST /v1/groups/create HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+Content-Type: application/json
 
 {
   "name": "Eco Blasters",
   "description": "A group focused on being eco friendly."
 }
 ```
+
+Utilize this endpoint to create new groups by following the structure and requirements outlined above. Make sure your request is properly authenticated using the provided Bearer token.

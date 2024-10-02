@@ -1,35 +1,33 @@
 ---
-name: followUser
-type: http
-seq: 5
+title: followUser API Documentation
 ---
 
 # followUser API
 
-## Overview
+## Meta
 
-The `followUser` API allows a user to follow another user. This API requires a bearer token for authentication.
+- **Name**: followUser
+- **Type**: HTTP
+- **Sequence**: 5
 
-## Request
+## GET Request
 
-### GET
+- **URL**: `http://localhost:3000/v1/user/follow/-sx7zvg7n1`
+- **Body**: None
+- **Authentication**: Bearer Token
 
-- **URL:** `http://localhost:3000/v1/user/follow/-sx7zvg7n1`
-- **Body:** None
-- **Authentication:** Bearer Token
+### Authentication Details
 
-### Authentication: Bearer
+To authenticate the request, use the following Bearer token in the Authorization header:
 
-To use this API, you need a valid bearer token.
+**Bearer Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
-- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
-
-## Usage
-
-To follow a user, make a GET request to the provided URL with the bearer token:
+### Example Request
 
 ```http
 GET /v1/user/follow/-sx7zvg7n1 HTTP/1.1
 Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
+
+Ensure your authorization header is correctly set to avoid unauthorized access errors.

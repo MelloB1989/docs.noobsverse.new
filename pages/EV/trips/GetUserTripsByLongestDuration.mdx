@@ -1,69 +1,45 @@
 ---
-id: get-user-trips-by-longest-duration
-title: GetUserTripsByLongestDuration
-sidebar_label: Get User Trips By Longest Duration
+title: GetUserTripsByLongestDuration API
 ---
 
-## Overview
+# GetUserTripsByLongestDuration API
 
-`GetUserTripsByLongestDuration` is an HTTP GET endpoint that retrieves user trips sorted by the longest duration. The endpoint allows specifying a limit to control the number of trips returned.
+This API endpoint retrieves the user's trips sorted by the longest duration.
 
-## Endpoint
+## Endpoint Overview
 
-### URL
+- **Name**: GetUserTripsByLongestDuration
+- **Type**: HTTP
+- **Sequence**: 8
 
-`http://localhost:3000/v1/trips/duration/longest`
+## HTTP Request
 
-### Method
+### GET
 
-`GET`
+- **URL**: `http://localhost:3000/v1/trips/duration/longest?limit=10`
+- **Body**: None
+- **Authentication**: Bearer Token
 
-## Query Parameters
+### Query Parameters
 
-| Name  | Type | Description                     | Default |
-|-------|------|---------------------------------|---------|
-| limit | int  | The number of trips to retrieve | `10`    |
+| Name  | Type  | Required | Description                              |
+|-------|-------|----------|------------------------------------------|
+| limit | Query | Yes      | Specifies the number of trips to return. |
 
-### Example
+#### Example Query
 
-```plaintext
-http://localhost:3000/v1/trips/duration/longest?limit=10
-```
+- `limit=10`
 
 ## Authentication
 
-This endpoint requires a Bearer Token for authentication.
+This API requires a Bearer Token for authentication.
 
 ### Bearer Token
 
-```plaintext
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-## Headers
-
-| Name            | Value                         |
-|-----------------|-------------------------------|
-| Authorization   | Bearer {your_token_here}      |
-
-## Response
-
-### JSON Response
-
-The response will be a JSON array of user trips sorted by duration.
-
-### Example
-
 ```json
-[
-  {
-    "tripId": "123456",
-    "userId": "5geapgapsx",
-    "duration": 120,
-    "startLocation": "Location A",
-    "endLocation": "Location B",
-    ...
-  },
-  ...
-]
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
+}
 ```
+
+Ensure to replace the token with a valid token while making real requests.

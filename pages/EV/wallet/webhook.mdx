@@ -1,51 +1,53 @@
 ---
-name: webhook
-type: http
-seq: 4
+name: Webhook API
+type: HTTP
+sequence: 4
 ---
 
-# Webhook API
+# Webhook API Documentation
 
-The Webhook API allows you to send events or updates to a specified URL. Below are the details for using this endpoint.
+The Webhook API allows clients to interact with the system using HTTP methods. The current version supports a GET request to retrieve wallet details using specific query parameters. The API implements bearer token authentication for securing access.
 
-## HTTP GET Request
+## GET Request
 
-### URL
+**Endpoint:**
 
-`http://localhost:3000/v1/wallet/webhook`
+```
+GET http://localhost:3000/v1/wallet/webhook
+```
 
 ### Query Parameters
 
-| Name           | Type   | Description                     | Example                                          |
-| -------------- | ------ | ------------------------------- | ------------------------------------------------ |
-| `uid`          | string | Unique user identifier          | `5geapgapxs`                                     |
-| `balance`      | string | Balance value                   | `10000000000`                                    |
-| `webhook_key`  | string | Key for webhook authentication  | `coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda` |
+The following query parameters are required for the GET request.
+
+- **uid**: The unique identifier for the user.
+  - Example: `5geapgapxs`
+
+- **balance**: The balance of the wallet.
+  - Example: `10000000000`
+
+- **webhook_key**: A key for accessing the webhook securely.
+  - Example: `coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda`
 
 ### Authentication
 
-This endpoint requires bearer token authentication. Include the token in the `Authorization` header:
+This API endpoint requires bearer token authentication. Pass the token in the HTTP header as shown below:
 
-```
-Authorization: Bearer <TOKEN>
-```
+- **Authorization**: `Bearer <token>`
 
-Example token format:
+**Example Token:**
+
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
 
-## Example Request
+### Example CURL Request
 
-```http
-GET http://localhost:3000/v1/wallet/webhook?uid=5geapgapxs&balance=10000000000&webhook_key=coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
+```bash
+curl -X GET "http://localhost:3000/v1/wallet/webhook?uid=5geapgapxs&balance=10000000000&webhook_key=coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I"
 ```
 
-## Response
+This request will execute a GET operation on the webhook endpoint, returning wallet details based on the provided query parameters and valid authentication token.
 
-The response will be defined by the destination server set up to receive the webhook.
-
----
-
-This document provides the necessary information for using the Webhook API. Ensure you replace the placeholder values with actual data when making requests.
+Ensure that you replace the URL and tokens with the appropriate values when making actual requests.

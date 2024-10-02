@@ -1,19 +1,44 @@
 ---
-name: signup
-type: http
-seq: 3
+title: Signup API Documentation
 ---
 
 # Signup API
 
-## Endpoint
-`POST http://localhost:3000/v1/auth/signup`
+## Overview
 
-## Description
-This endpoint allows a new user to sign up by providing their details.
+The Signup API allows users to create a new account in the system. It accepts user details and credentials, and upon successful account creation, the user is registered in the system.
+
+### Endpoint Information
+
+- **Type**: HTTP
+- **Sequence**: 3
+
+## HTTP Request
+
+- **Method**: POST
+- **URL**: `http://localhost:3000/v1/auth/signup`
+- **Authentication**: None
 
 ## Request Body
-The request body should be in JSON format and must include the following properties:
+
+The request body should be sent as JSON. Below are the details of the required fields:
+
+| Field         | Type   | Description                                    |
+|---------------|--------|------------------------------------------------|
+| `phone`       | string | The user's phone number, including country code. |
+| `otp`         | string | The one-time password for verifying the user's phone number. |
+| `email`       | string | The user's email address.                      |
+| `first_name`  | string | The user's first name.                         |
+| `last_name`   | string | The user's last name.                          |
+| `date_of_birth` | string | The user's date of birth in DD/MM/YYYY format. |
+| `password`    | string | The user's password.                           |
+| `type`        | string | User type, e.g., "student".                    |
+| `employee_id` | string | (Optional) The user's employee ID, if applicable. |
+| `company`     | string | (Optional) The user's company name, if applicable. |
+| `college`     | string | The user's college name.                       |
+| `student_id`  | string | The user's student ID.                         |
+
+### Example Request Body
 
 ```json
 {
@@ -32,22 +57,6 @@ The request body should be in JSON format and must include the following propert
 }
 ```
 
-### Parameters
+## Response
 
-| Name          | Type   | Description                         |
-|---------------|--------|-------------------------------------|
-| phone         | string | User's phone number in international format |
-| otp           | string | One-time password sent to user's phone |
-| email         | string | User's email address                |
-| first_name    | string | User's first name                   |
-| last_name     | string | User's last name                    |
-| date_of_birth | string | User's date of birth in DD/MM/YYYY format |
-| password      | string | Password chosen by the user         |
-| type          | string | User type (e.g., student)           |
-| employee_id   | string | Employee ID (optional, if user is not a student) |
-| company       | string | Company name (optional, if user is not a student) |
-| college       | string | College name                        |
-| student_id    | string | Student ID                          |
-
-## Authentication
-No authentication is required to access this endpoint.
+Upon successful registration, the server will respond with appropriate status and the details of the created account. Be sure to handle possible errors, such as invalid input or server issues, as per your application's requirements.

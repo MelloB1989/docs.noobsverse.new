@@ -1,18 +1,31 @@
 ---
-name: Get User Subscription
-type: HTTP
-seq: 2
+title: User Subscription API - Get Method
+meta:
+  name: Get User Subscription
+  type: HTTP
+  seq: 2
 ---
 
-# Get User Subscription
+## Overview
+
+The **Get User Subscription** API allows you to retrieve subscription details for a user. This endpoint requires authentication via a Bearer token.
 
 ## Endpoint
 
-`GET http://localhost:3000/v1/user_subscription/get`
+- **URL**: `http://localhost:3000/v1/user_subscription/get`
+- **Method**: `GET`
 
-## Body
+## Authentication
 
-The request body should be in JSON format and include the following parameters:
+This API uses Bearer Token authentication. Make sure to include the following token in the request header:
+
+```plaintext
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Request Body
+
+The request body must be in JSON format and include the following fields:
 
 ```json
 {
@@ -22,12 +35,29 @@ The request body should be in JSON format and include the following parameters:
 }
 ```
 
-## Authentication
+### Parameters
 
-This endpoint requires Bearer token authentication. Include the following token in your request header:
+- **subscription_id**: A unique identifier for the subscription.
+- **start_date**: The start date of the subscription in `dd/mm/yyyy` format.
+- **end_date**: The end date of the subscription in `dd/mm/yyyy` format.
 
+## Response
+
+The API will respond with subscription details in JSON format.
+
+## Example
+
+An example request using cURL is as follows:
+
+```bash
+curl -X GET http://localhost:3000/v1/user_subscription/get \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw" \
+  -H "Content-Type: application/json" \
+  --data-raw '{
+    "subscription_id": "ftx0li8efd",
+    "start_date": "27/11/2004",
+    "end_date": "27/11/2004"
+  }'
 ```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
 
-Ensure that your request header contains the Authorization key with the above token.
+Ensure all the details are correctly entered to successfully retrieve the subscription information.

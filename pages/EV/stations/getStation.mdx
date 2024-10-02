@@ -1,43 +1,35 @@
 ---
-title: getStation API
-type: http
-sequence: 3
+title: "getStation API Documentation"
 ---
 
 # getStation API
 
-The `getStation` API is used to fetch details of a specific station. Below are the details for the API endpoint and its usage.
+The `getStation` API is an HTTP endpoint that allows you to retrieve information about a specific station. Below is the detailed documentation for using this API.
 
-## HTTP Request
+## Meta Information
 
-### GET
+- **Name:** getStation
+- **Type:** HTTP
+- **Sequence:** 3
 
-```http
-GET http://localhost:3000/v1/stations/get/wxyoqxff83
-```
+## Endpoint
 
-## Request Headers
+- **Method:** GET
+- **URL:** `http://localhost:3000/v1/stations/get/wxyoqxff83`
 
-| Header                 | Value                                    | Description                             |
-|------------------------|------------------------------------------|-----------------------------------------|
-| X-Karma-Admin-Auth     | ajbkbakweiuy387yeuqqwfahdjhsabd          | Authentication token for admin access   |
+## Request Details
 
-## Request Body
+- **Request Body:** None
+- **Authentication:** None required
 
-No body parameters are required for this request.
+## Headers
 
-## Authentication
+You need to include the following header in your request:
 
-No additional authentication is required other than the `X-Karma-Admin-Auth` header.
+- **X-Karma-Admin-Auth:** `ajbkbakweiuy387yeuqqwfahdjhsabd`
 
-## Example Request
+## Response
 
-```http
-GET http://localhost:3000/v1/stations/get/wxyoqxff83
-X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
-```
+The response from this endpoint will include information related to the requested station. Details about the response structure are not provided in this documentation and should be referred to in related backend API documentation or examples.
 
-## Notes
-
-- Make sure to replace the `X-Karma-Admin-Auth` value with a valid authentication token.
-- Ensure the endpoint URL is correct and accessible from your server environment.
+Ensure you have the appropriate header set as shown to successfully call this API endpoint.

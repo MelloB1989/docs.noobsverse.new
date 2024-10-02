@@ -1,33 +1,26 @@
 ---
-title: Update User API
+title: UpdateUser API Documentation
 ---
 
-## Update User API
+# UpdateUser API
 
-An API endpoint to update user details.
+## Overview
 
-### Endpoint Details
+The `updateUser` API allows updating a user's information. This endpoint is part of a sequence of HTTP-based operations and requires authentication via a Bearer token.
 
-- **Name:** `updateUser`
-- **Type:** `HTTP`
-- **Sequence:** `4`
+## Endpoint
 
-### HTTP Request
+- **URL**: `http://localhost:3000/v1/user/update`
+- **Method**: `POST`
+- **Content Type**: `application/json`
 
-- **Method:** `POST`
-- **URL:** `http://localhost:3000/v1/user/update`
-- **Body Type:** `JSON`
-- **Authentication:** Bearer Token
+## Authentication
 
-### Authentication
+This API requires a Bearer token for authentication. The following token should be included in the request header.
 
-To authenticate, use the following Bearer Token:
+- **Authorization Header**: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-### Request Body
+## Request Body
 
 The request body should be in JSON format and include the following fields:
 
@@ -38,15 +31,30 @@ The request body should be in JSON format and include the following fields:
 }
 ```
 
-### Example Request
+- **age**: The age of the user.
+- **weight**: The weight of the user.
 
-```http
-POST http://localhost:3000/v1/user/update
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-Content-Type: application/json
+## Sequence
 
-{
+This API call is part of a sequence of operations, positioned as step number 4 in a series.
+
+## Example Request
+
+Here’s an example request using the `curl` command:
+
+```bash
+curl -X POST http://localhost:3000/v1/user/update \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw" \
+-H "Content-Type: application/json" \
+-d '{
   "age": "69",
   "weight": "86"
-}
+}'
 ```
+
+Ensure that the Bearer token is valid and has the necessary permissions for the update operation.
+
+## Notes
+
+- Make sure to replace the hardcoded Bearer token with a dynamically generated one when implementing this in a production environment.
+- The response of the API call will typically indicate the success or failure of the update operation.

@@ -1,28 +1,30 @@
 ---
-name: getClosestStation
-type: http
-seq: 4
+title: "getClosestStation API"
+version: 1.0.0
 ---
 
-# Get Closest Station API
+## getClosestStation API
 
-## Description
-The `getClosestStation` API retrieves nearby charging stations based on provided latitude and longitude coordinates. You can limit the number of stations returned by specifying the `limit` parameter.
+The `getClosestStation` API is an HTTP-based service designed to fetch the nearest stations based on geographic coordinates. The service does not require authentication and provides a straightforward query interface to obtain location-specific data.
 
-## HTTP Request
+### Endpoint
 
-### GET
-`https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby`
+- **HTTP Method:** GET
+- **URL:** `https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby`
 
 ### Query Parameters
-- `lat`: Latitude coordinate (example: `40`)
-- `lon`: Longitude coordinate (example: `-70`)
-- `limit`: Number of stations to return (example: `2`)
 
-### Headers
-- `X-Karma-Admin-Auth`: `ajbkbakweiuy387yeuqqwfahdjhsabd`
+- **lat**: The latitude coordinate around which to search for stations.
+- **lon**: The longitude coordinate around which to search for stations.
+- **limit**: The maximum number of stations to return.
 
-## Example Request
+### Required Headers
+
+To access the `getClosestStation` API, include the following header in your request:
+
+- **X-Karma-Admin-Auth**: `ajbkbakweiuy387yeuqqwfahdjhsabd`
+
+### Sample Request
 
 ```http
 GET /v1/stations/get_nearby?lat=40&lon=-70&limit=2 HTTP/1.1
@@ -30,9 +32,14 @@ Host: ev-backend.app.k8s.coffeecodes.in
 X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
 ```
 
-## Response
-A successful response contains a list of nearby charging stations. Each station includes details such as station ID, name, location coordinates, and other relevant information.
+### Response
 
-## Notes
-- Authentication is needed using the `X-Karma-Admin-Auth` header.
-- Ensure the query parameters are formatted correctly to receive accurate results.
+This API returns a list of nearby stations based on the provided latitude and longitude. The response includes key information about each station such as its ID, name, location, and other relevant details.
+
+### Notes
+
+- Ensure that the latitude (`lat`) and longitude (`lon`) are provided as query parameters.
+- The `limit` parameter restricts the number of stations returned by the API.
+- The X-Karma-Admin-Auth header is mandatory for the request to be processed successfully.
+
+This documentation provides everything you need to start using the `getClosestStation` API. If you have any questions or encounter issues, please reach out to our support team for further assistance.

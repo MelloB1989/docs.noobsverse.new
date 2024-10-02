@@ -1,34 +1,42 @@
 ---
-title: "getBikeByID API Documentation"
+title: "API Documentation: getBikeByID"
 ---
 
-## Meta
+# getBikeByID API
 
-- **Name:** getBikeByID
+This document provides details on accessing the `getBikeByID` API endpoint. The `getBikeByID` API is an HTTP endpoint designed to retrieve information about a specific bike using a unique identifier.
+
+## Endpoint Details
+
 - **Type:** HTTP
 - **Sequence:** 2
 
-## Endpoint
+### HTTP Request
 
 - **Method:** GET
 - **URL:** `http://localhost:3000/v1/bikes/get/jruefu191e`
-
-## Request
-
-### Body
-
-No request body required.
+- **Request Body:** None
 
 ### Authentication
 
-This endpoint requires Bearer Token authentication.
+This API requires bearer token authentication. Ensure that your request header includes the following bearer token for access:
 
-- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
+```plaintext
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+### Example Request
+
+```http
+GET /v1/bikes/get/jruefu191e HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
 
 ## Response
 
-The response will contain data related to the bike associated with the provided ID.
+Upon successful call, the API will return details of the bike associated with the provided identifier. The response will be in JSON format containing various attributes of the bike.
 
 ---
 
-For more details, refer to the API documentation or contact the support team.
+End of API documentation for `getBikeByID`.

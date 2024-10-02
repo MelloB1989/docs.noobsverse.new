@@ -1,31 +1,38 @@
 ---
-title: GetBikeByFrameNumber API Documentation
+title: GetBikeByFrameNumber API
+description: Retrieve bike details by frame number
 ---
 
 ## GetBikeByFrameNumber
 
-### Meta
+### Meta Information
 
 - **Name**: GetBikeByFrameNumber
 - **Type**: HTTP
 - **Sequence**: 4
 
-### HTTP Method: GET
+### HTTP Request
+
+#### GET
 
 - **URL**: `http://localhost:3000/v1/bikes/get/frame/FR123456789`
 - **Request Body**: None
-- **Authentication**: Bearer Token
 
 ### Authentication
 
-To access this endpoint, you need to include a Bearer token in the Authorization header of your request.
-
+- **Type**: Bearer Token
 - **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
 
-### Example Request
+### Summary
+
+The `GetBikeByFrameNumber` API endpoint allows you to retrieve detailed information about a bike by providing its unique frame number. This request must be authenticated using a Bearer Token. No request body is required for this endpoint.
+
+#### Example Request
 
 ```http
 GET /v1/bikes/get/frame/FR123456789 HTTP/1.1
 Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
+
+Make sure to replace the placeholder token in your request with a valid Bearer Token to successfully authenticate the request.

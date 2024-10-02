@@ -1,64 +1,44 @@
 ---
-title: getUserDetails API Documentation
+title: "API Documentation - getUserDetails"
 ---
 
-# getUserDetails
+## getUserDetails
 
-The `getUserDetails` endpoint provides the functionality to retrieve user details. This is an HTTP API that requires bearer token authentication.
+### Overview
 
-## Request
+`getUserDetails` is an HTTP API endpoint used to retrieve user details. 
 
-### HTTP Method
+### HTTP Request
 
+#### Method
 `GET`
 
-### URL
-
+#### URL
 `http://localhost:3000/v1/user/get`
 
 ### Authentication
 
-This endpoint requires a bearer token for authentication.
+This endpoint requires a Bearer token for authentication.
 
-- **Type**: Bearer
-- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
+Sample Bearer Token:
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+Pass this token in the `Authorization` header:
+
+```http
+Authorization: Bearer <Your_Token>
+```
 
 ### Request Body
 
-No request body is required for this endpoint.
+This endpoint does not require a request body.
 
-### Headers
+### Response
 
-Ensure to include the authorization header with the bearer token.
-
-```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
-
-## Example Request
-
-```
-GET http://localhost:3000/v1/user/get
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
-
-## Responses
-
-The possible responses from the `getUserDetails` endpoint are as follows.
-
-### Success
-
-- **Code**: 200 OK
-- **Response Body**: JSON containing user details
-
-### Error
-
-- **Code**: 401 Unauthorized
-- **Response Body**: JSON containing error message if the token is missing or invalid
-
-- **Code**: 404 Not Found
-- **Response Body**: JSON containing error message if the user does not exist
+The response will include the details of the user. The exact schema of the response may vary based on the implementation.
 
 ---
 
-This completes the API documentation for the `getUserDetails` endpoint. Ensure proper bearer token authentication to successfully call this API.
+This documentation is intended to provide a clear and concise understanding of the `getUserDetails` API endpoint. Ensure to replace `<Your_Token>` with a valid Bearer token.

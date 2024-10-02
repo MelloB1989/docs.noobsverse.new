@@ -1,52 +1,60 @@
 ---
-name: endTrip
-type: http
-seq: 2
+title: API Documentation - endTrip
 ---
 
-# endTrip API Documentation
+## Meta Information
 
-## Endpoint Details
+This section provides basic meta information about the `endTrip` API:
 
-- **Method**: `POST`
-- **URL**: `http://localhost:3000/v1/trips/end`
-- **Request Body Format**: JSON
-- **Authentication**: Bearer Token
+- **Name:** endTrip
+- **Type:** HTTP
+- **Sequence:** 2
+
+## Endpoint
+
+The `endTrip` API endpoint is used to mark the end of a trip. The details are as follows:
+
+- **Method:** POST
+- **URL:** `http://localhost:3000/v1/trips/end`
+- **Body Type:** JSON
+- **Authentication:** Bearer Token
 
 ## Authentication
 
-To authorize requests to this endpoint, include a Bearer token in the request headers as shown below:
+To use this endpoint, a Bearer Token is required. The token must be included in the request header as shown below:
+
+### Bearer Token
 
 ```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ## Request Body
 
-The following JSON object should be included in the request body:
+The request body must be in JSON format and contain the following fields:
+
+- **id** (string): Unique identifier for the trip
+- **bike_id** (string): Identifier for the bike used in the trip
+- **station_id** (string): Identifier for the station where the trip ends
+- **start_timestamp** (string, ISO 8601): Timestamp when the trip started
+- **end_timestamp** (string, ISO 8601): Timestamp when the trip ended
+- **distance** (number): Distance covered in the trip (in kilometers)
+- **duration** (number): Duration of the trip (in minutes)
+- **average_speed** (number): Average speed during the trip (in km/h)
+- **path** (string): Base64 encoded path data representing the trip route
+
+Example of a valid request body:
 
 ```json
 {
-    "id": "ulj1iq0-0w",
-    "bike_id": "i6bjwk0yhu",
-    "station_id": "a2m392c58f",
-    "start_timestamp": "2024-09-02T07:15:00Z",
-    "end_timestamp": "2024-09-02T07:50:00Z",
-    "distance": 15.8,
-    "duration": 35.0,
-    "average_speed": 27.1,
-    "path": "base64_encoded_path_data_3"
+  "id": "ulj1iq0-0w",
+  "bike_id": "i6bjwk0yhu",
+  "station_id": "a2m392c58f",
+  "start_timestamp": "2024-09-02T07:15:00Z",
+  "end_timestamp": "2024-09-02T07:50:00Z",
+  "distance": 15.8,
+  "duration": 35.0,
+  "average_speed": 27.1,
+  "path": "base64_encoded_path_data_3"
 }
 ```
-
-### Fields Description
-
-- **id**: Unique identifier for the trip (string).
-- **bike_id**: Unique identifier for the bike used in the trip (string).
-- **station_id**: Unique identifier for the station where the trip started and ended (string).
-- **start_timestamp**: ISO 8601 formatted timestamp indicating when the trip started (string).
-- **end_timestamp**: ISO 8601 formatted timestamp indicating when the trip ended (string).
-- **distance**: Total distance covered during the trip, in kilometers (number).
-- **duration**: Total duration of the trip, in minutes (number).
-- **average_speed**: Average speed during the trip, in km/h (number).
-- **path**: Base64 encoded data representing the path taken during the trip (string).

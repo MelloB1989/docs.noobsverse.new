@@ -1,51 +1,35 @@
 ---
-name: getGroupMembers
-type: http
-seq: 4
+title: API Documentation - getGroupMembers
 ---
 
-# getGroupMembers API
+## getGroupMembers
 
-## Description
+### Metadata
+- **Name:** getGroupMembers
+- **Type:** HTTP
+- **Sequence:** 4
 
-The `getGroupMembers` API endpoint retrieves the list of members in a given group.
+### HTTP GET Request
 
-## HTTP Method
+#### URL
+`http://localhost:3000/v1/groups/2/members`
 
-**GET**
+#### Body
+_None_
 
-## Endpoint
+#### Authentication
+- **Type:** Bearer Token
+- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
-```
-http://localhost:3000/v1/groups/2/members
-```
+### Example Request
 
-## Request
-
-### Headers
-
-- **Authorization**: Bearer Token
-
-### Body
-
-None
-
-## Authorization
-
-This API requires Bearer Token authentication.
-
-### Bearer Token
-
-Example Token:
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```http
+GET /v1/groups/2/members HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Response
+### Response
+The response will contain the list of group members for the specified group.
 
-The response will contain the list of group members.
-
----
-
-Make sure to replace the example Bearer Token with a valid token obtained from your authentication provider.
+_Note: Ensure that you replace the placeholder bearer token with a valid token for authenticated requests._

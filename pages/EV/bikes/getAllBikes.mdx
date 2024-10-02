@@ -1,43 +1,36 @@
 ---
-title: API Documentation for `getAllBikes`
-meta:
-  - name: getAllBikes
-  - type: http
-  - seq: 3
+name: getAllBikes
+type: http
+seq: 3
 ---
 
-## API Name: getAllBikes
+# getAllBikes API
 
-### Type: HTTP
+The `getAllBikes` API is used to retrieve a list of all bikes.
 
-### Sequence: 3
+## Endpoint
 
-## HTTP GET Request
+`GET http://localhost:3000/v1/bikes/get`
+
+## Request
 
 ### URL
-
 `http://localhost:3000/v1/bikes/get`
 
-### Request Body
+### Method
+`GET`
 
+### Body
 None
 
 ### Authentication
+Bearer token is required.
 
-#### Type: Bearer Token
-
-```plaintext
-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+Authorization: Bearer <token>
 ```
 
-Make sure to include this token in the `Authorization` header of your HTTP request.
-
-### Example Request
-
-```http
-GET /v1/bikes/get HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+Example token:
 ```
-
-This should provide a clear and concise MDX documentation file for the `getAllBikes` API.
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```

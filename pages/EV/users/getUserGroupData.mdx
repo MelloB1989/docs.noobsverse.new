@@ -1,47 +1,51 @@
 ---
-title: "getUserGroupData API Documentation"
+id: getUserGroupData
+title: getUserGroupData
+description: Retrieve data for a specific user group based on the provided group_id.
 ---
-
-# Get User Group Data
 
 ## Overview
 
-This API endpoint retrieves data for a specific user group.
+The `getUserGroupData` API endpoint allows you to retrieve data for a specific user group by providing the `group_id` as a query parameter. This endpoint requires bearer token authentication.
 
-### HTTP Method
+## Endpoint Details
 
-`GET`
+- **Type**: HTTP GET
+- **URL**: `http://localhost:3000/v1/user/groups/data`
+- **Authentication**: Bearer Token
 
-### Endpoint
+## Query Parameters
 
-`http://localhost:3000/v1/user/groups/data`
+- **group_id** (required): The ID of the group to retrieve data for.
+  - **Example**: `2`
 
-### Authentication
+## Auth Requirements
 
-- Type: Bearer Token
-- Example: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+To access this endpoint, a valid bearer token must be included in the request header.
 
-## Request Parameters
-
-### Query Parameters
-
-| Parameter | Type   | Description        | Example |
-|-----------|--------|--------------------|---------|
-| group_id  | string | ID of the user group | 2       |
+- **Format**: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 
 ## Example Request
 
 ```http
-GET /v1/user/groups/data?group_id=2 HTTP/1.1
-Host: localhost:3000
+GET http://localhost:3000/v1/user/groups/data?group_id=2
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ## Response
 
-The response will contain the data related to the specified user group.
+- **Status**: 200 OK
+- **Body**: The response body will contain data for the specified user group.
 
 ## Notes
 
-- Ensure that you replace the bearer token with a valid one to authenticate the request.
-- The `group_id` must be specified in the query parameters to retrieve the data for the respective user group.
+- Ensure that the bearer token is valid and has the necessary permissions to access the user group data.
+- The `group_id` should be correctly specified as a query parameter.
+
+## Sequence
+
+This is the third endpoint in the sequence of the API operations, indicating its order of implementation or usage.
+
+---
+
+Please ensure that you replace the example bearer token and `group_id` with valid values as needed.

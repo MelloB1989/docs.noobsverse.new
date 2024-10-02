@@ -1,31 +1,34 @@
 ---
-title: "getAllGroups API Documentation"
-description: "Documentation for the getAllGroups HTTP API"
-order: 8
+title: API Documentation - getAllGroups
 ---
 
-# getAllGroups API
+# getAllGroups
 
-The `getAllGroups` API allows you to retrieve a list of all groups.
+## Meta Information
 
-## Endpoint
+- **Name**: getAllGroups
+- **Type**: HTTP
+- **Sequence**: 8
 
-### GET Request
+## GET Request
 
-- **URL:** `http://localhost:3000/v1/groups/getAll`
-- **Authentication:** None required
-- **Request Body:** None
+### Endpoint
 
-### Example Request
+`http://localhost:3000/v1/groups/getAll`
 
-```sh
-curl -X GET "http://localhost:3000/v1/groups/getAll"
-```
+### Request Body
 
-## Response
+None
 
-The response will typically include details about the groups.
+### Authentication
 
-## Notes
+Bearer token is required for this endpoint.
 
-No authentication is required to access this endpoint, and it does not necessitate a request body.
+#### Bearer Token
+
+`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+
+---
+
+This documentation provides the necessary details to successfully make a GET request to retrieve all groups. Ensure the correct authentication token is included in the request header.
+

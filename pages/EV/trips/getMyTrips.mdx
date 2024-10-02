@@ -1,75 +1,34 @@
 ---
-title: getMyTrips API Documentation
+title: "getMyTrips API"
+meta:
+  - name: getMyTrips
+  - type: HTTP
+  - sequence: 3
 ---
 
-import { Meta, Parameters, Responses } from 'components';
+# getMyTrips API Documentation
 
-## getMyTrips
+## Overview
 
-### Meta Information
+The `getMyTrips` endpoint is part of the HTTP API suite and is used to retrieve information about the user's trips. This is a secured endpoint that requires bearer authentication.
 
-<Meta 
-  name="getMyTrips"
-  type="http"
-  seq="3"
-/>
+## Endpoint Details
 
-### Endpoint
-
-```
-GET http://localhost:3000/v1/trips/mytrips
-```
-
-### Authentication
-
-This API requires a Bearer Token for authorization.
-
-#### Bearer Token Example
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-### Request
-
-- **Method**: GET
+- **HTTP Method**: GET
 - **URL**: `http://localhost:3000/v1/trips/mytrips`
-- **Body**: None
-- **Authorization**: Bearer Token
 
-### Responses
+## Authorization
 
-```json
-{
-  "200": {
-    "description": "A list of user trips",
-    "content": {
-      "application/json": {
-        "example": {
-          "trips": [
-            {
-              "id": "trip1",
-              "destination": "Paris",
-              "date": "2023-04-01"
-            },
-            {
-              "id": "trip2",
-              "destination": "New York",
-              "date": "2023-05-15"
-            }
-          ]
-        }
-      }
-    }
-  }
-}
-```
+This endpoint requires a bearer token for authentication.
 
-### Example Request
+### Bearer Token
 
-```bash
-curl -X GET http://localhost:3000/v1/trips/mytrips \
--H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw'
-```
+- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
-Ensure to replace the example token with an actual valid token.
+## Request Body
+
+This endpoint does not require a request body.
+
+## Response
+
+Upon successful request, the response will contain information about the user's trips. Ensure that you have the correct bearer token to access this information.

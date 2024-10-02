@@ -1,26 +1,29 @@
 ---
-name: Login
-type: http
-seq: 1
+title: Login API
+sequence: 1
 ---
 
 # Login API
 
-The Login API is used to authenticate a user by their phone number.
+## Overview
 
-## HTTP Request
+The Login API is used to authenticate users via their phone numbers. This is an unauthenticated endpoint meaning you do not need a prior token to access it.
+
+## Endpoint
 
 **POST** `https://ev-backend.app.k8s.coffeecodes.in/v1/auth/login`
 
-## Request Headers
+## Headers
 
-| Header                  | Value                                | Description                          |
-|-------------------------|--------------------------------------|--------------------------------------|
-| `X-Karma-Admin-Auth`    | ajbkbakweiuy387yeuqqwfahdjhsabd      | Static token for initial authentication |
+| Header                 | Value                                      | Required |
+|------------------------|--------------------------------------------|----------|
+| `X-Karma-Admin-Auth`   | ajbkbakweiuy387yeuqqwfahdjhsabd            | Yes      |
 
 ## Request Body
 
-The request body should be sent in JSON format.
+The request body must be in JSON format and includes the user's phone number.
+
+### JSON Payload
 
 ```json
 {
@@ -28,8 +31,20 @@ The request body should be sent in JSON format.
 }
 ```
 
-- `phone` (string): The phone number of the user.
+## Example
 
-## Authentication
+### Curl Command
 
-This endpoint does not require any authentication tokens in the header aside from the static `X-Karma-Admin-Auth`. There is no additional authentication method required.
+```bash
+curl -X POST https://ev-backend.app.k8s.coffeecodes.in/v1/auth/login \
+     -H "X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd" \
+     -H "Content-Type: application/json" \
+     -d '{"phone": "+919812940706"}'
+```
+
+## Usage Notes
+
+- Ensure the phone number is passed in the correct format.
+- Provided `X-Karma-Admin-Auth` header is necessary for the request to be processed.
+
+This concludes the documentation for the Login API. For further integrations, follow the general structure and replace the necessary details.

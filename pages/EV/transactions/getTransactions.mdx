@@ -1,35 +1,38 @@
 ---
-name: getTransactions
-type: http
-seq: 1
+title: getTransactions API
 ---
 
-# API Documentation: getTransactions
+# getTransactions API Documentation
 
-## Endpoint Summary
+API Name: **getTransactions**
 
-- **Name**: getTransactions
-- **Type**: HTTP
-- **Sequence**: 1
+**Type**: HTTP  
+**Sequence**: 1
 
-## HTTP GET Endpoint
+## Endpoint
 
-### URL
+### GET Request
+
+**URL**: `http://localhost:3000/v1/transactions/getAll`
+
+**Body**: None
+
+**Auth**: Bearer token required
+
+## Authorization
+
+To access the getTransactions endpoint, you must include a Bearer token in the Authorization header of your HTTP request.
+
+### Bearer Token Example
+
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-http://localhost:3000/v1/transactions/getAll
+
+Ensure your requests to the endpoint include the following header:
+
+```plaintext
+Authorization: Bearer <your-token>
 ```
 
-### Request
-- **Body**: none
-- **Authentication**: Bearer Token
-
-### Authentication Details
-- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
-
-## Example Request
-
-```http
-GET /v1/transactions/getAll HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+Replace `<your-token>` with the actual token provided.

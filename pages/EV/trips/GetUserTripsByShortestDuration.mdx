@@ -1,38 +1,63 @@
 ---
-title: GetUserTripsByShortestDuration
-sidebar_position: 9
+title: GetUserTripsByShortestDuration API
 ---
 
-# GetUserTripsByShortestDuration
+# GetUserTripsByShortestDuration API
 
-This API retrieves user trips sorted by shortest duration.
+The `GetUserTripsByShortestDuration` API provides the capability to retrieve a list of user trips sorted by the shortest duration.
 
-## HTTP Request
+## Sequence
 
-### GET
-**URL:** `http://localhost:3000/v1/trips/duration/shortest?limit=10`
+- API Sequence: 9
 
-**Body:** None
+## HTTP Method
 
-**Authentication:** Bearer Token
+- **GET**
 
-## Query Parameters
+## Endpoint
 
-| Parameter | Type | Description               | Example |
-|-----------|------|---------------------------|---------|
-| limit     | int  | The maximum number of results to retrieve | `10`     |
+- **URL:** `http://localhost:3000/v1/trips/duration/shortest?limit=10`
+
+## Request Details
+
+- **Request Body:** None
 
 ## Authentication
 
-This endpoint requires a Bearer Token.
+- **Type:** Bearer Token
 
-**Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+### Bearer Token
 
-### Example Request
+To authenticate requests to this endpoint, include the following bearer token in the request header.
+
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Query Parameters
+
+The API supports the following query parameter:
+
+- **limit:** Specifies the maximum number of user trips to return
+
+  - **Type:** Integer
+  - **Default Value:** 10
+
+## Example Request
+
+Below is an example of how you would structure a request to the GetUserTripsByShortestDuration API:
 
 ```http
-GET http://localhost:3000/v1/trips/duration/shortest?limit=10
+GET /v1/trips/duration/shortest?limit=10 HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Make sure to replace the example token with a valid one.
+## Response
+
+The response will contain the details of the user trips sorted by the shortest duration, based on the limit specified.
+
+## Notes
+
+- Ensure that the bearer token provided is valid and not expired to avoid authentication errors.
+- Adjust the limit query parameter according to your needs, but note that the default value is 10 if not provided.
