@@ -1,39 +1,53 @@
 ---
-title: GetUserTripsByBikeID API
+name: GetUserTripsByBikeID
+type: http
+sequence: 5
 ---
 
-## GetUserTripsByBikeID
+# GetUserTripsByBikeID API
 
-This API retrieves the trips associated with a specific bike ID.
+## Description
 
-### Endpoint Information
+The `GetUserTripsByBikeID` API endpoint allows you to retrieve a list of trips associated with a specific bike ID.
 
-- **Type:** HTTP
-- **Sequence:** 5
+## HTTP Request
 
-### HTTP Request
+- **Method**: `GET`
+- **URL**: `http://localhost:3000/v1/trips/bike/{bikeId}`
 
-- **Method:** GET
-- **URL:** `http://localhost:3000/v1/trips/bike/i6bjwk0yhu`
+  Replace `{bikeId}` with the actual bike ID.
 
-#### Request Body
-
-No request body is required for this endpoint.
-
-### Authentication
+## Authentication
 
 This endpoint requires Bearer token authentication.
 
-#### Bearer Token
+### Bearer Token
+
+You must include a valid bearer token in your request headers.
+
+- **Header**: `Authorization: Bearer {token}`
+
+#### Example Token
 
 ```plaintext
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Make sure to include this token in the `Authorization` header of your request:
+Replace `{token}` with your actual token when making requests.
 
-```
-Authorization: Bearer <token>
+## Request Body
+
+There is no request body required for this `GET` endpoint.
+
+## Response
+
+On success, the server will return a list of user trips associated with the specified bike ID.
+
+## Example Request
+
+```http
+GET http://localhost:3000/v1/trips/bike/i6bjwk0yhu
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Replace `<token>` with the provided token value.
+Ensure you replace the example values with actual data as required.

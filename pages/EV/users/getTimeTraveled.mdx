@@ -1,27 +1,32 @@
 ---
-name: getTimeTraveled
-type: http
-seq: 9
+title: getTimeTraveled API Documentation
 ---
 
-# getTimeTraveled API
+## Overview
 
-This document provides detailed information about the `getTimeTraveled` API.
+The `getTimeTraveled` API endpoint fetches the time traveled by a user between specified start and end dates. This endpoint requires authentication via a bearer token. 
 
-## Endpoint
+## Endpoint Details
 
-### URL
-`GET http://localhost:3000/v1/user/time_travelled`
-
-### Method
-`GET`
+- **Method**: `GET`
+- **URL**: `http://localhost:3000/v1/user/time_travelled`
 
 ## Query Parameters
 
-- `start_date`: The start date for the time travel query in `YYYY-MM-DD` format. Example: `2024-09-01`
-- `end_date`: The end date for the time travel query in `YYYY-MM-DD` format. Example: `2024-09-10`
+The API requires two query parameters representing the time period for which the travel time is to be fetched:
 
-## Example Request
+- **start_date**: The start date of the period (Format: `YYYY-MM-DD`).
+  - Example: `2024-09-01`
+
+- **end_date**: The end date of the period (Format: `YYYY-MM-DD`).
+  - Example: `2024-09-10`
+
+## Authentication
+
+- **Type**: Bearer Token
+- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+
+### Example Request
 
 ```http
 GET /v1/user/time_travelled?start_date=2024-09-01&end_date=2024-09-10 HTTP/1.1
@@ -29,20 +34,12 @@ Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Authorization
-
-This endpoint uses Bearer Token authentication.
-
-### Bearer Token
-
-- `token`: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
-
 ## Response
 
-The response will include details of the time traveled based on the specified `start_date` and `end_date`.
+The response will contain data regarding the time traveled by the user within the specified date range. The exact structure of the response data is not provided here, so refer to additional resources or documentation for more details.
 
----
+## Notes
 
-Ensure to replace the example token with an actual bearer token when making real requests.
-
-For further information, please contact API support or refer to the main API documentation.
+- Ensure that the bearer token is valid and has not expired before making the request.
+- Use the proper date format (YYYY-MM-DD) for `start_date` and `end_date`.
+- The base URL is configured for a local development environment (`http://localhost:3000`) and should be updated accordingly for production use.

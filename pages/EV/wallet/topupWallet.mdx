@@ -1,44 +1,34 @@
----
-title: "Topup Wallet API"
-meta: 
-  name: "topupWallet"
-  type: "http"
-  seq: 3
----
+# API Documentation: Topup Wallet
 
-# Topup Wallet API
+## Overview
 
-This API endpoint allows you to top up a user's wallet balance.
+The `topupWallet` API allows users to add funds to their wallet. This operation is executed via an HTTP POST request.
+
+- **Type**: HTTP
+- **Sequence**: 3
 
 ## Endpoint
 
-### POST
-
 - **URL**: `http://localhost:3000/v1/wallet/topup`
-- **Body Format**: JSON
-- **Authorization**: Bearer token
+- **Method**: POST
 
 ## Authentication
 
-To access this endpoint, you must provide a valid bearer token in the authorization header.
+This API requires Bearer token authentication. Ensure that you include a valid token in the authorization header while making the request.
 
-```plaintext
-Authorization: Bearer <token>
+Example auth header:
+
 ```
-
-### Example Token
-
-```plaintext
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
 
 ## Request Body
 
-The request body must be in JSON format and should include the following field:
+The body of the request should be in JSON format. It must contain the following field:
 
-- **balance**: The amount to top up in the wallet.
+- `balance`: The amount to be added to the wallet. It is a string representing the monetary value.
 
-### Example JSON Body
+### Example
 
 ```json
 {
@@ -46,4 +36,12 @@ The request body must be in JSON format and should include the following field:
 }
 ```
 
-Ensure the `balance` is provided as a string representing the amount to add to the wallet balance.
+## Response
+
+On successful top up, the server will respond with the updated balance and a success message. The specific response structure is not detailed here; refer to API response documentation for more details.
+
+Make sure to handle possible errors, such as authentication failure or invalid balance input, based on your application's requirements and server responses.
+
+---
+
+For further details or clarifications, refer to the complete API documentation or contact the API development team.

@@ -1,34 +1,27 @@
 ---
-title: Add Location API Documentation
+title: "addLocation API Documentation"
 ---
 
-# Add Location API
+# addLocation API
 
-`addLocation` is an HTTP API that allows users to add a new location to a specific trip.
+## Overview
+The `addLocation` API is an HTTP endpoint used to add a location to a specific trip. It is designed to handle `POST` requests and requires authentication via a bearer token.
 
 ## Endpoint
-
-**POST** `http://localhost:3000/v1/trips/ulj1iq0-0w/location`
+- **URL**: `http://localhost:3000/v1/trips/ulj1iq0-0w/location`
+- **Method**: `POST`
+- **Authentication**: Bearer Token
 
 ## Authentication
-
-This API requires Bearer Token authentication.
+To access the `addLocation` API, a valid bearer token must be included in the request headers. 
 
 ### Bearer Token
-
-```plaintext
+```text
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Include this token in the Authorization header of your HTTP request:
-
-```
-Authorization: Bearer <token>
-```
-
 ## Request Body
-
-The request body must be in JSON format, containing the latitude and longitude of the location:
+The request must include a JSON payload with the following structure:
 
 ```json
 {
@@ -37,21 +30,10 @@ The request body must be in JSON format, containing the latitude and longitude o
 }
 ```
 
-- `lat` (float): The latitude of the location.
-- `long` (float): The longitude of the location.
+- **lat**: Latitude of the location (e.g., `37.776`).
+- **long**: Longitude of the location (e.g., `-122.426`).
 
-## Example Request
+## Response
+The API will provide a response indicating the success or failure of the location addition. The response format and status codes will depend on the implementation details not provided here.
 
-```http
-POST /v1/trips/ulj1iq0-0w/location HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-Content-Type: application/json
-
-{
-  "lat": 37.776,
-  "long": -122.426
-}
-```
-
-Use this API to add locations to your trips, ensuring you include the required authentication and correct parameters in your request body.
+Please ensure that the endpoint and the token used are correctly configured for your environment and use case.

@@ -1,29 +1,32 @@
 ---
-title: Login API
-sequence: 1
+title: "Login API Documentation"
 ---
 
-# Login API
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
-## Overview
+## Login API
 
-The Login API is used to authenticate users via their phone numbers. This is an unauthenticated endpoint meaning you do not need a prior token to access it.
+### Overview
 
-## Endpoint
+The **Login** API is an HTTP service enabling users to authenticate by sending the required information in the request body without the need for prior authorization headers.
 
-**POST** `https://ev-backend.app.k8s.coffeecodes.in/v1/auth/login`
+### Endpoint
 
-## Headers
+**HTTP Method:** `POST`  
+**URL:** `https://ev-backend.app.k8s.coffeecodes.in/v1/auth/login`
 
-| Header                 | Value                                      | Required |
-|------------------------|--------------------------------------------|----------|
-| `X-Karma-Admin-Auth`   | ajbkbakweiuy387yeuqqwfahdjhsabd            | Yes      |
+### Request
 
-## Request Body
+#### Headers
 
-The request body must be in JSON format and includes the user's phone number.
+The following header must be included in the request:
 
-### JSON Payload
+- `X-Karma-Admin-Auth`: `ajbkbakweiuy387yeuqqwfahdjhsabd`
+
+#### Body
+
+The request body should be in JSON format. An example of the required body is as follows:
 
 ```json
 {
@@ -31,20 +34,34 @@ The request body must be in JSON format and includes the user's phone number.
 }
 ```
 
-## Example
+### Authentication
 
-### Curl Command
+No authentication is required to access the Login API.
+
+### Example Request
+
+<Tabs>
+  <TabItem value="curl" label="cURL" default>
 
 ```bash
 curl -X POST https://ev-backend.app.k8s.coffeecodes.in/v1/auth/login \
-     -H "X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd" \
-     -H "Content-Type: application/json" \
-     -d '{"phone": "+919812940706"}'
+  -H "Content-Type: application/json" \
+  -H "X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd" \
+  -d '{
+    "phone": "+919812940706"
+  }'
 ```
 
-## Usage Notes
+  </TabItem>
+</Tabs>
 
-- Ensure the phone number is passed in the correct format.
-- Provided `X-Karma-Admin-Auth` header is necessary for the request to be processed.
+### Response
 
-This concludes the documentation for the Login API. For further integrations, follow the general structure and replace the necessary details.
+Upon success, you will receive a response with authentication information (exact details of the response are subject to the implementation and are not detailed here).
+
+### Notes
+
+- The phone number in the request body must follow the international format, as shown in the example.
+- Ensure that the `X-Karma-Admin-Auth` header is correctly set for authentication purposes. 
+
+This document describes the login process only; further steps depend on the application's flow post authentication. For additional functionalities, please refer to the respective API documentation.

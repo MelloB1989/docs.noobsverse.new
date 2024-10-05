@@ -1,27 +1,32 @@
 ---
-title: API Documentation - getGroupMembers
+title: getGroupMembers API
+api_type: HTTP
+sequence: 4
 ---
 
-## getGroupMembers
+# getGroupMembers API
 
-### Metadata
-- **Name:** getGroupMembers
-- **Type:** HTTP
-- **Sequence:** 4
+The `getGroupMembers` API provides access to the members of a specific group.
 
-### HTTP GET Request
+## HTTP Request
 
-#### URL
-`http://localhost:3000/v1/groups/2/members`
+### Method: GET
 
-#### Body
-_None_
+- **URL**: `http://localhost:3000/v1/groups/2/members`
+- **Body**: None
+- **Authentication**: Bearer Token
 
-#### Authentication
-- **Type:** Bearer Token
-- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+## Authentication
 
-### Example Request
+This API requires Bearer Token authentication. You need to include the following token in the `Authorization` header of your HTTP request:
+
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+Make sure to replace the token if necessary for authentication in different environments.
+
+## Example Request
 
 ```http
 GET /v1/groups/2/members HTTP/1.1
@@ -29,7 +34,10 @@ Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Response
-The response will contain the list of group members for the specified group.
+## Responses
 
-_Note: Ensure that you replace the placeholder bearer token with a valid token for authenticated requests._
+- **200 OK**: Successfully retrieved the list of group members.
+- **401 Unauthorized**: Authentication failed. Ensure the token is correctly set.
+- **404 Not Found**: The specified group does not exist.
+
+Use this endpoint to get detailed information about the members of a group quickly and efficiently.

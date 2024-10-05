@@ -4,25 +4,41 @@ title: followUser API Documentation
 
 # followUser API
 
-## Meta
+The `followUser` API allows a client to follow a specific user. This document provides details on how to authenticate and make a request to the endpoint.
 
-- **Name**: followUser
-- **Type**: HTTP
-- **Sequence**: 5
+## Metadata
 
-## GET Request
+- **Name:** followUser
+- **Type:** HTTP
+- **Sequence:** 5
 
-- **URL**: `http://localhost:3000/v1/user/follow/-sx7zvg7n1`
-- **Body**: None
-- **Authentication**: Bearer Token
+## Endpoint
 
-### Authentication Details
+### HTTP GET Request
 
-To authenticate the request, use the following Bearer token in the Authorization header:
+- **URL:** `http://localhost:3000/v1/user/follow/-sx7zvg7n1`
+- **Body:** None
+- **Authentication Required:** Yes, Bearer Token
 
-**Bearer Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+## Authentication
 
-### Example Request
+To successfully call the `followUser` API, you must include a Bearer token in the request header. Below is the token to be used:
+
+### Bearer Token
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+Include the token in your request as follows:
+
+```
+Authorization: Bearer {token}
+```
+
+Replace `{token}` with the actual token provided.
+
+## Example Request
 
 ```http
 GET /v1/user/follow/-sx7zvg7n1 HTTP/1.1
@@ -30,4 +46,6 @@ Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Ensure your authorization header is correctly set to avoid unauthorized access errors.
+## Summary
+
+Ensure that your request includes the correct authentication token in the header to successfully use the `followUser` endpoint for following a particular user.

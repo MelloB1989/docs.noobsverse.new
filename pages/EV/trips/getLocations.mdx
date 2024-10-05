@@ -1,25 +1,45 @@
 ---
-name: getLocations
-type: http
-seq: 12
+title: Get Locations API
 ---
 
-# getLocations
+# Get Locations API
 
-## HTTP Request
+## Overview
 
-**GET** `http://localhost:3000/v1/trips/ulj1iq0-0w/locations`
+The `getLocations` API endpoint allows you to retrieve a list of locations associated with a specific trip. This endpoint is part of the Trip Management service, with the HTTP sequence number 12.
 
-## Request Body
+## Endpoint
 
-None
+- **URL:** `http://localhost:3000/v1/trips/ulj1iq0-0w/locations`
+- **Method:** GET
 
 ## Authentication
 
-**Type**: Bearer Token
+This endpoint requires Bearer Token authentication.
 
-**Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+### Bearer Token
 
-## Description
+Include the following Bearer Token in the `Authorization` header of your request:
 
-This API retrieves the list of locations related to the specified trip. Ensure that you include the Bearer token in the request header for authentication.
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Request
+
+- **Body:** None.
+
+## Response
+
+The response will contain a list of locations associated with the specified trip. Each location will have its own set of properties that describe it.
+
+## Usage Example
+
+Here is an example of how to call the `getLocations` endpoint using curl:
+
+```bash
+curl -X GET http://localhost:3000/v1/trips/ulj1iq0-0w/locations \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
+```
+
+This will return a JSON response with the details of the locations for the trip with the ID `ulj1iq0-0w`.

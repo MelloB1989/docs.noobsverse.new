@@ -1,45 +1,53 @@
 ---
-title: GetUserTripsByLongestDuration API
+title: API Documentation - GetUserTripsByLongestDuration
 ---
 
-# GetUserTripsByLongestDuration API
+# GetUserTripsByLongestDuration
 
-This API endpoint retrieves the user's trips sorted by the longest duration.
+## Overview
 
-## Endpoint Overview
-
-- **Name**: GetUserTripsByLongestDuration
-- **Type**: HTTP
-- **Sequence**: 8
+The `GetUserTripsByLongestDuration` API endpoint retrieves a list of user trips sorted by the longest duration. The endpoint provides the ability to limit the number of trips returned in the response.
 
 ## HTTP Request
 
-### GET
-
-- **URL**: `http://localhost:3000/v1/trips/duration/longest?limit=10`
-- **Body**: None
-- **Authentication**: Bearer Token
-
-### Query Parameters
-
-| Name  | Type  | Required | Description                              |
-|-------|-------|----------|------------------------------------------|
-| limit | Query | Yes      | Specifies the number of trips to return. |
-
-#### Example Query
-
-- `limit=10`
+- **Type:** GET
+- **URL:** `http://localhost:3000/v1/trips/duration/longest?limit=10`
 
 ## Authentication
 
-This API requires a Bearer Token for authentication.
+This endpoint requires Bearer Token authentication.
 
-### Bearer Token
+- **Type:** Bearer
+- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
-}
+Ensure that the token is included in the Authorization header of your request:
+
+```
+Authorization: Bearer <token>
 ```
 
-Ensure to replace the token with a valid token while making real requests.
+Where `<token>` is your JWT token.
+
+## Query Parameters
+
+- **limit** (optional): The maximum number of trips to return. Defaults to `10`.
+
+## Request Example
+
+```http
+GET /v1/trips/duration/longest?limit=10 HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Response
+
+The response will be a JSON array with the trip details sorted by the longest duration.
+
+## Error Handling
+
+Ensure that your requests contain a valid Bearer Token. Requests without authentication or with an invalid token will be rejected with an authentication error.
+
+## Conclusion
+
+The `GetUserTripsByLongestDuration` endpoint offers a streamlined way to fetch trips ordered by duration. Adjust the `limit` parameter to customize the number of records returned. Always include a valid Bearer Token to authorize your requests.

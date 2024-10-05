@@ -1,44 +1,42 @@
 ---
-title: "API Documentation - getUserDetails"
+title: "getUserDetails API Documentation"
+description: "Documentation for the getUserDetails API endpoint."
 ---
 
-## getUserDetails
+# getUserDetails API
 
-### Overview
+## Overview
 
-`getUserDetails` is an HTTP API endpoint used to retrieve user details. 
+The `getUserDetails` API is an HTTP endpoint designed to retrieve user details. This document will guide you through the request structure, authentication method, and other essential details required to successfully integrate with this API.
 
-### HTTP Request
+## HTTP GET Request
 
-#### Method
-`GET`
+### URL
 
-#### URL
 `http://localhost:3000/v1/user/get`
 
-### Authentication
+### Method
 
-This endpoint requires a Bearer token for authentication.
-
-Sample Bearer Token:
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
-
-Pass this token in the `Authorization` header:
-
-```http
-Authorization: Bearer <Your_Token>
-```
+`GET`
 
 ### Request Body
 
-This endpoint does not require a request body.
+No request body is required for this endpoint.
 
-### Response
+### Authentication
 
-The response will include the details of the user. The exact schema of the response may vary based on the implementation.
+This endpoint requires bearer token authentication. You must include a valid bearer token in the `Authorization` header of your request.
 
----
+#### Bearer Token Example
 
-This documentation is intended to provide a clear and concise understanding of the `getUserDetails` API endpoint. Ensure to replace `<Your_Token>` with a valid Bearer token.
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+### Sequence
+
+This API is part of a sequence of requests and should be executed as the first step (`seq: 1`) in the process.
+
+## Conclusion
+
+Ensure you include the provided bearer token in your request for authentication. This documentation should serve as a comprehensive guide to accessing the `getUserDetails` endpoint. If you encounter any issues, please verify that the token is valid and that the request follows the specified structure.

@@ -1,42 +1,32 @@
 ---
-title: "API Documentation: getBikeByID"
+title: API Reference - getBikeByID
 ---
 
-# getBikeByID API
+# getBikeByID
 
-This document provides details on accessing the `getBikeByID` API endpoint. The `getBikeByID` API is an HTTP endpoint designed to retrieve information about a specific bike using a unique identifier.
+This API call retrieves information about a specific bike using its unique ID.
 
-## Endpoint Details
+## Endpoint
 
-- **Type:** HTTP
-- **Sequence:** 2
-
-### HTTP Request
-
-- **Method:** GET
+- **Type:** HTTP GET
 - **URL:** `http://localhost:3000/v1/bikes/get/jruefu191e`
+
+## Authentication
+
+This endpoint requires bearer token authentication.
+
+- **Bearer Token:**
+  ```
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+  ```
+
+## Request
+
+- **HTTP Method:** `GET`
 - **Request Body:** None
 
-### Authentication
+## Sequence
 
-This API requires bearer token authentication. Ensure that your request header includes the following bearer token for access:
+- **Sequence Number:** 2
 
-```plaintext
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
-
-### Example Request
-
-```http
-GET /v1/bikes/get/jruefu191e HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
-
-## Response
-
-Upon successful call, the API will return details of the bike associated with the provided identifier. The response will be in JSON format containing various attributes of the bike.
-
----
-
-End of API documentation for `getBikeByID`.
+Use this API call to retrieve detailed information about a bike by providing its unique identifier in the URL path. Ensure that you include the bearer token in the request header for successful authentication.

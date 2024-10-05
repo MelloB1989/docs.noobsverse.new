@@ -1,51 +1,45 @@
 ---
-id: getUserGroupData
-title: getUserGroupData
-description: Retrieve data for a specific user group based on the provided group_id.
+title: API Documentation for `getUserGroupData`
 ---
 
 ## Overview
 
-The `getUserGroupData` API endpoint allows you to retrieve data for a specific user group by providing the `group_id` as a query parameter. This endpoint requires bearer token authentication.
+The `getUserGroupData` API is an HTTP GET request designed to retrieve data related to user groups.
 
-## Endpoint Details
+### Sequence
 
-- **Type**: HTTP GET
+- This API call is part of a sequence and is indexed as #3.
+
+## HTTP Request
+
+- **Method**: GET
 - **URL**: `http://localhost:3000/v1/user/groups/data`
-- **Authentication**: Bearer Token
 
-## Query Parameters
+### Query Parameters
 
-- **group_id** (required): The ID of the group to retrieve data for.
-  - **Example**: `2`
+- `group_id`: A required query parameter to specify the ID of the group for which data is being requested.
+  - **Example**: `group_id=2`
 
-## Auth Requirements
+## Authentication
 
-To access this endpoint, a valid bearer token must be included in the request header.
+- The `getUserGroupData` API requires Bearer token authentication.
 
-- **Format**: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+### Bearer Token
+
+Include the following Bearer token in the Authorization header of your request:
+
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
 
 ## Example Request
 
-```http
-GET http://localhost:3000/v1/user/groups/data?group_id=2
+```plaintext
+GET /v1/user/groups/data?group_id=2 HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ## Response
 
-- **Status**: 200 OK
-- **Body**: The response body will contain data for the specified user group.
-
-## Notes
-
-- Ensure that the bearer token is valid and has the necessary permissions to access the user group data.
-- The `group_id` should be correctly specified as a query parameter.
-
-## Sequence
-
-This is the third endpoint in the sequence of the API operations, indicating its order of implementation or usage.
-
----
-
-Please ensure that you replace the example bearer token and `group_id` with valid values as needed.
+The response will typically include the data related to the specified user group. The specific structure of the response will depend on the implementation details of the API server.

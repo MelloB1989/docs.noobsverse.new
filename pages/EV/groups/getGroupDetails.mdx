@@ -1,46 +1,36 @@
 ---
-title: "API Documentation: getGroupDetails"
-meta:
-  - name: "getGroupDetails"
-  - type: "http"
-  - seq: 5
+title: API Documentation - getGroupDetails
 ---
 
 # getGroupDetails API
 
-The `getGroupDetails` API allows you to retrieve details of a specific group using an HTTP GET request. This endpoint requires authentication via a Bearer token.
+## Overview
 
-## Endpoint
+The `getGroupDetails` API is an HTTP GET request designed to retrieve details about a specific group. This request is made to the local server and requires authentication via a bearer token.
 
-**URL**: `http://localhost:3000/v1/groups/2`
+## HTTP Request
 
-**Method**: `GET`
-
-**Authentication**: Bearer token
+- **Method**: GET
+- **URL**: `http://localhost:3000/v1/groups/2`
+- **Body**: None
 
 ## Authentication
 
-To access the `getGroupDetails` endpoint, a valid Bearer token must be included in the request header. 
+This API endpoint requires bearer token authentication. You must include a valid bearer token in the request header to successfully access the group details.
 
-### Bearer Token
+### Bearer Token Format
 
 ```plaintext
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Include the token in the Authorization header as follows:
+## Sequence
 
-```
-Authorization: Bearer <token>
-```
+This is sequence number 5 in the API documentation. Ensure that previous steps or related APIs are understood for better integration and usage.
 
-## Request 
+## Example Request
 
-The request does not require a body.
-
-### Example Request
-
-```
+```http
 GET /v1/groups/2 HTTP/1.1
 Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
@@ -48,8 +38,4 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4M
 
 ## Response
 
-The endpoint will return the details of the group specified by the ID in the URL.
-
-## Error Handling
-
-Ensure that the Bearer token is valid and has the necessary permissions to access the group details. Invalid tokens will result in an authentication error.
+Upon successful authentication and request, details about the specified group will be returned. Ensure error handling is in place for situations where the token is invalid or the group ID does not exist.

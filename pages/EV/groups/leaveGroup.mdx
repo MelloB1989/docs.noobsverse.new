@@ -1,34 +1,40 @@
 ---
-name: leaveGroup
-type: http
+title: leaveGroup API
+apiType: HTTP
 sequence: 3
 ---
 
-# leaveGroup API
+# leaveGroup API Documentation
 
-The `leaveGroup` API allows a user to leave a specific group.
+This document provides the details for the `leaveGroup` API endpoint.
 
-## Endpoint
+## Overview
 
-**GET** `http://localhost:3000/v1/groups/2/leave`
+The `leaveGroup` API is designed for users to leave a specific group. It is a simple `HTTP GET` request that requires authentication via a bearer token.
 
-## Authentication
+## Endpoint Details
 
-This endpoint requires Bearer Token authentication.
+- **Method**: `GET`
+- **URL**: `http://localhost:3000/v1/groups/2/leave`
+- **Authentication**: Bearer Token
 
-```plaintext
-Bearer Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+### Authentication Token
+
+To access the `leaveGroup` API, you need to include a bearer token in the Authorization header of your request.
+
+#### Bearer Token Example
+
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Request Body
+### Request Body
 
-No request body is needed for this API.
+This endpoint does not require a request body.
 
-## Response
+## Usage
 
-The response will indicate whether the user has successfully left the group.
-
-## Example
+To successfully make a call to the `leaveGroup` endpoint, ensure you include the correct URL and Authentication header:
 
 ```http
 GET /v1/groups/2/leave HTTP/1.1
@@ -36,4 +42,11 @@ Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Make sure to replace the `Authorization` header with your actual token.
+Replace the placeholder `Bearer ey...` with your actual bearer token.
+
+## Notes
+
+- Ensure token validity to successfully interact with the API.
+- The request does not require any parameters other than those included in the URL and headers.
+
+For any questions or assistance, please refer to the API support or documentation team.

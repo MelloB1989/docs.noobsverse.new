@@ -1,28 +1,39 @@
 ---
-title: UpdateUser API Documentation
+title: Update User API
+meta:
+  name: updateUser
+  type: http
+  seq: 4
 ---
 
-# UpdateUser API
+import { Tabs, TabItem } from '@theme/Tabs';
 
-## Overview
+# Update User API
 
-The `updateUser` API allows updating a user's information. This endpoint is part of a sequence of HTTP-based operations and requires authentication via a Bearer token.
+The Update User API allows you to modify user details such as age and weight.
 
-## Endpoint
+## HTTP Request
 
-- **URL**: `http://localhost:3000/v1/user/update`
-- **Method**: `POST`
-- **Content Type**: `application/json`
+Make a `POST` request to the following URL:
+
+```
+POST http://localhost:3000/v1/user/update
+```
 
 ## Authentication
 
-This API requires a Bearer token for authentication. The following token should be included in the request header.
+This endpoint requires Bearer Token authentication. Use the following token in the `Authorization` header of your request:
 
-- **Authorization Header**: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
 
 ## Request Body
 
 The request body should be in JSON format and include the following fields:
+
+<Tabs>
+<TabItem value="JSON" label="JSON" default>
 
 ```json
 {
@@ -31,30 +42,9 @@ The request body should be in JSON format and include the following fields:
 }
 ```
 
-- **age**: The age of the user.
-- **weight**: The weight of the user.
+</TabItem>
+</Tabs>
 
-## Sequence
+## Summary
 
-This API call is part of a sequence of operations, positioned as step number 4 in a series.
-
-## Example Request
-
-Here’s an example request using the `curl` command:
-
-```bash
-curl -X POST http://localhost:3000/v1/user/update \
--H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw" \
--H "Content-Type: application/json" \
--d '{
-  "age": "69",
-  "weight": "86"
-}'
-```
-
-Ensure that the Bearer token is valid and has the necessary permissions for the update operation.
-
-## Notes
-
-- Make sure to replace the hardcoded Bearer token with a dynamically generated one when implementing this in a production environment.
-- The response of the API call will typically indicate the success or failure of the update operation.
+When you send a `POST` request to the `/v1/user/update` endpoint with the required authentication and JSON body, you can update the user's information such as age and weight. Ensure that you include the correct authentication token in the `Authorization` header to successfully authenticate your request.

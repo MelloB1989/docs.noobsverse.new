@@ -1,35 +1,45 @@
 ---
-title: "getStation API Documentation"
+title: Get Station API
 ---
 
-# getStation API
+# Get Station API
 
-The `getStation` API is an HTTP endpoint that allows you to retrieve information about a specific station. Below is the detailed documentation for using this API.
+This document provides details for the `getStation` API endpoint, used to retrieve information about a specific station.
 
 ## Meta Information
 
-- **Name:** getStation
-- **Type:** HTTP
-- **Sequence:** 3
+- **Name**: `getStation`
+- **Type**: HTTP
+- **Sequence**: 3
+
+## HTTP Method
+
+This API uses the `GET` HTTP method.
 
 ## Endpoint
 
-- **Method:** GET
-- **URL:** `http://localhost:3000/v1/stations/get/wxyoqxff83`
+```
+http://localhost:3000/v1/stations/get/wxyoqxff83
+```
 
-## Request Details
+## Description
 
-- **Request Body:** None
-- **Authentication:** None required
+The `getStation` API is designed to fetch details about a specific station. No request body or authentication is required to access this endpoint.
 
-## Headers
+## Request Headers
 
-You need to include the following header in your request:
+Although not required for authentication, the following header can be optionally used:
 
-- **X-Karma-Admin-Auth:** `ajbkbakweiuy387yeuqqwfahdjhsabd`
+- **X-Karma-Admin-Auth**: `ajbkbakweiuy387yeuqqwfahdjhsabd`
 
 ## Response
 
-The response from this endpoint will include information related to the requested station. Details about the response structure are not provided in this documentation and should be referred to in related backend API documentation or examples.
+The API will return the details of the requested station. The structure of the response will depend on the implementation specifics, which may include details such as the station's name, location, and operational status.
 
-Ensure you have the appropriate header set as shown to successfully call this API endpoint.
+## Usage
+
+To use the `getStation` endpoint, make an HTTP `GET` request to the provided URL. The station identifier (`wxyoqxff83` in this case) should be adjusted to match the specific station you wish to inquire about.
+
+---
+
+For further information, refer to the API documentation or contact the API support team.

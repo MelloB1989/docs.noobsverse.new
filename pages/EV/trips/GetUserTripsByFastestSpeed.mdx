@@ -1,39 +1,42 @@
 ---
-title: GetUserTripsByFastestSpeed API
+title: GetUserTripsByFastestSpeed API Documentation
 ---
 
 ## Overview
 
-The `GetUserTripsByFastestSpeed` API endpoint provides a method to retrieve user trips sorted by the fastest speed. This documentation outlines the necessary details to successfully use this endpoint.
+The `GetUserTripsByFastestSpeed` API endpoint retrieves a list of user trips sorted by fastest speed. This endpoint is part of version 1 of the API and adheres to HTTP protocol standards.
 
-## HTTP Request
+## Endpoint Details
 
-- **Method:** GET
-- **URL:** `http://localhost:3000/v1/trips/speed/fastest`
+- **Type**: HTTP
+- **Sequence**: 10
+- **URL**: `http://localhost:3000/v1/trips/speed/fastest`
+
+## HTTP Method
+
+- **GET**
 
 ## Query Parameters
 
-| Parameter | Type | Description           | Default Value |
-| --------- | ---- | --------------------- | ------------- |
-| `limit`   | int  | Number of trips to retrieve | 10            |
+- **limit**: (optional) Number of records to return. Default is `10`.
+
+  Example:
+  ```
+  ?limit=10
+  ```
 
 ## Authentication
 
-This endpoint requires Bearer token authentication. Pass the token in the `Authorization` header in the following format:
+This endpoint requires Bearer Token authentication. You must include a valid token in the Authorization header of your request:
 
+- **Authorization Header**: `Bearer <your_token>`
+
+Example token:
 ```
-Authorization: Bearer <TOKEN>
-```
-
-### Example Token
-
-Use the following example token for authentication purposes:
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Example Request
+## Request Example
 
 ```http
 GET /v1/trips/speed/fastest?limit=10 HTTP/1.1
@@ -43,21 +46,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4M
 
 ## Response
 
-- **Status Code:** 200 OK
-- **Content:** JSON array of trips sorted by speed
+The response is a JSON array of trips, each object containing details about a user's trip and the speed data.
 
-```json
-[
-  {
-    "trip_id": "<trip_id>",
-    "user_id": "<user_id>",
-    "speed": "<fastest_speed>",
-    "other_details": "<other_trip_details>"
-  },
-  ...
-]
-```
+## Additional Notes
 
-## Notes
-
-The `limit` query parameter is optional and defaults to `10`. Use this parameter to control the number of trip records returned by the API. This endpoint only supports queries that return the top fastest trips.
+- Ensure the bearer token is kept secure and not exposed in public environments.
+- The endpoint's behavior with regards to data fidelity and consistency can vary based on the current load and state of the data back-end.

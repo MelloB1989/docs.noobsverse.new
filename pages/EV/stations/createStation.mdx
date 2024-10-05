@@ -1,35 +1,30 @@
 ---
-title: Create Station API Documentation
+title: createStation API Documentation
 ---
 
-# Create Station API
+## Meta
 
-This documentation covers the API endpoint for creating new stations within the system. The endpoint is a HTTP POST and does not require authentication. Below are the details of the endpoint and the expected request data.
+- **Name**: createStation
+- **Type**: HTTP
+- **Sequence**: 1
 
 ## Endpoint
 
+- **Method**: POST
 - **URL**: `http://localhost:3000/v1/stations/create`
-- **Method**: `POST`
-- **Body Type**: `JSON`
-- **Authentication**: None required
+- **Authentication**: None
 
 ## Headers
 
-The request should include the following headers:
+The following header is required when making a request to the API:
 
-- `X-Karma-Admin-Auth`: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
+| Key                     | Value                                                         |
+|-------------------------|---------------------------------------------------------------|
+| X-Karma-Admin-Auth      | CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab |
 
 ## Request Body
 
-The body of the request should be a JSON array containing one or more station objects. Each station object should have the following properties:
-
-- **name**: (string) The name of the station.
-- **location_latitude**: (string) The latitude of the station's location.
-- **location_longitude**: (string) The longitude of the station's location.
-- **capacity**: (integer) The total capacity of the station.
-- **current_capacity**: (integer) The current number of occupied spots at the station.
-
-### Example Request Body
+The request body must be in JSON format. Below is an example of how to structure the JSON data:
 
 ```json
 [
@@ -71,4 +66,14 @@ The body of the request should be a JSON array containing one or more station ob
 ]
 ```
 
-By following the structured format for the request, you can successfully create one or multiple stations in the system using this API endpoint.
+## Description
+
+The `createStation` API allows users to create multiple station records in one request. Each station information must include:
+
+- `name` (string): The name of the station.
+- `location_latitude` (string): The latitude of the station's location.
+- `location_longitude` (string): The longitude of the station's location.
+- `capacity` (integer): The total capacity the station can hold.
+- `current_capacity` (integer): The current number of occupants or units at the station.
+
+Ensure that all data points are provided correctly for successful creation of the station records.

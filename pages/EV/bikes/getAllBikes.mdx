@@ -1,36 +1,71 @@
 ---
 name: getAllBikes
 type: http
-seq: 3
+sequence: 3
 ---
 
-# getAllBikes API
+# API Documentation: getAllBikes
 
-The `getAllBikes` API is used to retrieve a list of all bikes.
+The `getAllBikes` API endpoint allows you to retrieve a list of all bikes available in the system. This is an HTTP GET request that requires bearer token authentication.
 
-## Endpoint
+## Endpoint Details
 
-`GET http://localhost:3000/v1/bikes/get`
+- **HTTP Method**: GET
+- **URL**: `http://localhost:3000/v1/bikes/get`
+
+## Authentication
+
+This endpoint requires a bearer token for authentication. You must include the token in the request header to successfully access the endpoint.
+
+- **Authentication Type**: Bearer Token
+- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
 
 ## Request
 
-### URL
-`http://localhost:3000/v1/bikes/get`
+The request to this endpoint does not require a request body. All necessary authentication must be provided via the bearer token in the request headers.
 
-### Method
-`GET`
+## Response
 
-### Body
-None
+A successful response will typically contain a list of bike objects. The structure and details of these objects depend on the server's exact implementation and data schema.
 
-### Authentication
-Bearer token is required.
+## Example Request
 
-```
-Authorization: Bearer <token>
+```http
+GET /v1/bikes/get HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-Example token:
+Ensure that you replace the provided token with a valid one issued by your authentication server, as this example token might be expired or invalid for your use.
+
+## Example Response
+
+A successful response might look like this:
+
+```json
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
+  {
+    "id": "bike_123",
+    "model": "Mountain Master",
+    "brand": "CyclePro",
+    "available": true
+  },
+  {
+    "id": "bike_456",
+    "model": "City Explorer",
+    "brand": "Urban Bikes",
+    "available": false
+  }
+]
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
+
+## Error Handling
+
+Should the request fail, possible error responses include:
+
+- **401 Unauthorized**: Invalid or missing authentication token.
+- **404 Not Found**: If the endpoint does not exist.
+- **500 Internal Server Error**: If an unexpected error occurs on the server side.

@@ -1,40 +1,49 @@
 ---
-id: searchByFirstName
-title: searchByFirstName API
+title: "searchByFirstName API"
+type: "HTTP"
+sequence: 7
 ---
 
-## searchByFirstName
+# searchByFirstName API
 
-### API Type
+The `searchByFirstName` API allows you to search for users by their first name. Below are the details of the API endpoint and how to use it.
 
-- HTTP
+## HTTP Method
 
-### Sequence
-
-- 7
+GET
 
 ## Endpoint
 
-### GET
+```plaintext
+http://localhost:3000/v1/user/search/manas
+```
 
-- **URL:** `http://localhost:3000/v1/user/search/manas`
-- **Body:** None
-- **Auth:** Bearer Token
+## Authentication
 
-## Authorization
+This API uses Bearer Token authentication. You must include a valid token in the Authorization header of your request.
 
 ### Bearer Token
 
-To access this endpoint, you need to provide the following Bearer token:
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-Use this token in your request header as follows:
-
-```
+```plaintext
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Ensure that the token is kept secure and not shared publicly.
+## Request Body
+
+No request body is needed for this endpoint.
+
+## Example Request
+
+```http
+GET /v1/user/search/manas HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Response
+
+The API will return a JSON response with user details matching the first name "manas".
+
+## Errors
+
+Ensure that you provide a valid Bearer Token; otherwise, the API will respond with an authentication error. If the requested user cannot be found or an internal server error occurs, appropriate error messages will be returned.

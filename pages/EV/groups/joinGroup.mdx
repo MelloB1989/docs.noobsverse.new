@@ -1,48 +1,47 @@
 ---
-name: joinGroup
-type: http
-sequence: 2
+title: Join Group API
 ---
 
-# joinGroup API Reference
+# Join Group API
 
-The `joinGroup` API allows a user to join a specific group. This is done via an HTTP POST request to a specified URL with bearer token authentication.
+This document provides the details for the `joinGroup` API, which allows a user to join a specific group.
 
-## HTTP Request
+## Metadata
 
-- **Method**: `POST`
-- **URL**: `http://localhost:3000/v1/groups/vDLvtaMVs7zAVXZWkX0lL/join`
-- **Body**: None, the request does not require a body.
-- **Authentication**: Bearer token
+- **Name:** joinGroup
+- **Type:** HTTP
+- **Sequence:** 2
 
-## Authentication
+## Endpoint
 
-To authenticate the request, a valid bearer token must be included in the request header. The structure of the header is as follows:
+This API uses a HTTP POST request.
 
-```
-Authorization: Bearer <token>
-```
+- **URL:** `http://localhost:3000/v1/groups/vDLvtaMVs7zAVXZWkX0lL/join`
+- **Method:** POST
 
-### Example Token
+## Request
 
-```plaintext
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+### Body
 
-## Example Request
+- **Body:** None
 
-```http
-POST /v1/groups/vDLvtaMVs7zAVXZWkX0lL/join HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+### Authentication
 
-## Response
+This API requires Bearer token authentication.
 
-Upon successful request, the server will process the join group action. The specifics of the response (such as status codes and any response body) are determined by the server implementation and are not covered in this reference.
+- **Type:** Bearer Token
+- **Token:** 
+  ```
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+  ```
 
-## Notes
+## Usage
 
-- Ensure that the bearer token is valid and corresponds to an authorized user.
-- This API does not require any body content in the request.
-- Follow security best practices to handle and store the bearer tokens securely.
+To use this API, make a POST request to the specified URL, including the bearer token in the request headers for authorization. No body content is needed for this request.
+
+- **Authorization Header:**
+  ```
+  Authorization: Bearer <token>
+  ```
+
+Replace `<token>` with the actual bearer token provided.

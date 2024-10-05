@@ -1,25 +1,40 @@
 ---
-name: getUserGroups
-type: http
-seq: 2
+title: "getUserGroups API Documentation"
 ---
 
-## getUserGroups
+# getUserGroups API
 
-The `getUserGroups` API allows you to retrieve the list of groups associated with a user.
+The `getUserGroups` API is used to retrieve the groups associated with a user. This is a HTTP-based API.
 
-### Endpoint
+## Overview
 
-#### GET
+- **Name**: getUserGroups
+- **Type**: HTTP
+- **API Sequence**: 2
 
-`http://localhost:3000/v1/user/groups`
+## HTTP GET Request
+
+- **URL**: `http://localhost:3000/v1/user/groups`
+- **Request Body**: None
+- **Authentication**: Bearer Token
 
 ### Authentication
 
-This endpoint requires a Bearer token for authentication.
+This API requires a Bearer Token for authentication. 
 
-#### Bearer Token
-
-```plaintext
+**Bearer Token**:
+```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
+
+Ensure your HTTP request includes the token in the `Authorization` header as follows:
+
+```
+Authorization: Bearer {token}
+```
+
+Replace `{token}` with the actual token provided above when making the HTTP request.
+
+## Conclusion
+
+The `getUserGroups` API is an essential endpoint for accessing user group information and requires proper authorization via a bearer token. Make sure to replace the placeholder token with the actual token provided to authenticate successfully.

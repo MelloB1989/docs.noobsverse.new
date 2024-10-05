@@ -1,30 +1,51 @@
----
-title: "createSubscription API Documentation"
-meta:
-  - name: createSubscription
-  - type: http
-  - seq: 1
----
+# createSubscription API Documentation
 
-# createSubscription API
+## Overview
 
-The `createSubscription` API endpoint allows you to create a new subscription plan.
+The `createSubscription` API is used to create new subscription plans in the system. This API supports multiple subscription options with different attributes for each plan.
 
-## Endpoint Details
+## Endpoint
 
-- **Method:** POST
-- **URL:** `http://localhost:3000/v1/subscriptions/create`
-- **Authentication:** None required
+- **URL**: `http://localhost:3000/v1/subscriptions/create`
+- **Method**: `POST`
+- **Authentication**: None required
 
 ## Headers
 
-Include the following header for authorization purposes.
-
-- **X-Karma-Admin-Auth:** `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
+- `X-Karma-Admin-Auth`: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
 
 ## Request Body
 
-The request body must be in JSON format. Below is the structure you should follow when creating a subscription.
+### Content Type
+
+- `application/json`
+
+### Body Structure
+
+The request body should contain an array of subscription objects. Each object must include the following fields:
+
+- **id**: `string`
+  - The unique identifier for the subscription.
+  
+- **monthly_fee**: `number`
+  - The monthly fee associated with the subscription plan.
+  
+- **discount**: `number`
+  - The discount amount applicable to the subscription.
+  
+- **name**: `string`
+  - The name of the subscription plan.
+  
+- **bike_id**: `string`
+  - The identifier for the bike associated with this subscription.
+  
+- **type**: `string`
+  - The type of subscription, can be either `monthly` or `annual`.
+  
+- **security_deposit**: `number`
+  - The security deposit amount required for the subscription.
+
+### Example Request Body
 
 ```json
 [
@@ -76,20 +97,12 @@ The request body must be in JSON format. Below is the structure you should follo
 ]
 ```
 
-Each object in the JSON array represents a subscription plan with the following fields:
-
-- **id**: A unique identifier for the subscription plan.
-- **monthly_fee**: The monthly fee for the subscription.
-- **discount**: The discount applied to the subscription.
-- **name**: The name of the subscription plan.
-- **bike_id**: The identifier of the bike associated with the subscription.
-- **type**: The type of subscription, e.g., "monthly" or "annual".
-- **security_deposit**: The security deposit required for the subscription.
-
-## Usage
-
-To create a subscription, send a POST request to the specified URL with the correct headers and JSON-formatted body. The server will process the request and create the corresponding subscription plan.
-
 ## Response
 
-On successful creation, the server will return a confirmation message with the details of the newly created subscription plan. If there are any errors, the server will respond with an appropriate error message.
+The response from the server will contain the status of the subscription creation operation. Responses may vary depending on the server implementation and are not detailed here.
+
+## Notes
+
+- Ensure the `X-Karma-Admin-Auth` header value is correct to authorize the creation of subscriptions.
+- The API currently does not require user authentication beyond the provided header.
+- Check each field's data type to match the format specified above to avoid errors during the request.

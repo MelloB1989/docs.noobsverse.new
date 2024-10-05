@@ -1,43 +1,42 @@
 ---
-name: startTrip
-type: http
-sequence: 1
+title: Start Trip API
 ---
 
 # Start Trip API
 
-Initiate a trip using this API. This endpoint allows the user to start a trip associated with a bike and a station.
+The `startTrip` API is an HTTP endpoint for initiating a trip in the system. Below are the details required to successfully call this API.
 
 ## Endpoint
 
-**POST** `http://localhost:3000/v1/trips/start`
+- **URL:** `http://localhost:3000/v1/trips/start`
+- **Method:** `POST`
 
-## Authentication
+## Authorization
 
-This endpoint requires Bearer token authentication.
+This endpoint requires Bearer Token authorization.
 
 ### Bearer Token
 
+You need to include the following bearer token in the header of your request:
+
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ## Request Body
 
-Send the following JSON payload in the body of the request:
+The body of the request should be in JSON format. Below is the required structure:
 
 ```json
 {
-    "bike_id": "i6bjwk0yhu",
-    "station_id": "a2m392c58f",
-    "start_timestamp": "2024-09-02T07:15:00Z"
+  "bike_id": "i6bjwk0yhu",
+  "station_id": "a2m392c58f",
+  "start_timestamp": "2024-09-02T07:15:00Z"
 }
 ```
 
-### Parameters
+- **bike_id**: The identifier of the bike being used for the trip.
+- **station_id**: The identifier of the station where the trip starts.
+- **start_timestamp**: The timestamp indicating when the trip starts, in ISO 8601 format.
 
-- **bike_id** (string): ID of the bike starting the trip.
-- **station_id** (string): ID of the station from which the trip starts.
-- **start_timestamp** (string): ISO 8601 formatted timestamp indicating the start time of the trip. 
-
-Ensure the request header includes `Content-Type: application/json` and the Authorization header is set to `Bearer <your-token>`.
+Ensure that all required fields are included and correctly formatted in your request to successfully start a trip.

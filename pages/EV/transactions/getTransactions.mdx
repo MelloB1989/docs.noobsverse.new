@@ -1,38 +1,48 @@
 ---
-title: getTransactions API
+title: getTransactions API Documentation
 ---
 
-# getTransactions API Documentation
+# getTransactions API
 
-API Name: **getTransactions**
+The `getTransactions` API endpoint is part of our HTTP based service that allows clients to retrieve all transaction records.
 
-**Type**: HTTP  
-**Sequence**: 1
+## Endpoint Details
 
-## Endpoint
+- **Sequence:** 1
+- **Type:** HTTP
 
-### GET Request
+## HTTP GET Request
 
-**URL**: `http://localhost:3000/v1/transactions/getAll`
+- **URL:** `http://localhost:3000/v1/transactions/getAll`
+- **Method:** GET
+- **Authentication:** Bearer Token (required)
 
-**Body**: None
+### Authentication
 
-**Auth**: Bearer token required
+To access the `getTransactions` endpoint, you need to provide a valid bearer token in the Authorization header of your request.
 
-## Authorization
+- **Bearer Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
-To access the getTransactions endpoint, you must include a Bearer token in the Authorization header of your HTTP request.
+### Request Body
 
-### Bearer Token Example
+- **Body:** None
 
-```plaintext
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+## Usage Example
+
+To make a request to the `getTransactions` endpoint, send an HTTP GET request with the bearer token included in the authorization header.
+
+### Example Request
+
+```http
+GET /v1/transactions/getAll HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Ensure your requests to the endpoint include the following header:
+This request will retrieve all transactions available on the server, provided that the token is valid and has the necessary permissions.
 
-```plaintext
-Authorization: Bearer <your-token>
-```
+## Notes
 
-Replace `<your-token>` with the actual token provided.
+- Ensure your token is kept secure and is not shared publicly.
+- Verify that the service running at `localhost:3000` is accessible and operational before making requests.
+- This endpoint does not require any payload in the request body.

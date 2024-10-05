@@ -1,34 +1,41 @@
 ---
-name: getSubscription
-type: http
-sequence: 2
+title: "Get Subscription API"
+meta:
+  - name: getSubscription
+  - type: http
+  - seq: 2
 ---
 
-# getSubscription
+## Overview
 
-## HTTP Request
+The `getSubscription` API is an HTTP-based service that allows users to retrieve subscription information. It is secured with Bearer authentication and is accessible at a specified endpoint URL.
 
-**GET** `http://localhost:3000/v1/subscriptions/get`
+## Endpoint
 
-## Authentication
-
-Type: Bearer Token
-
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I"
-}
-```
+- **URL**: `http://localhost:3000/v1/subscriptions/get`
+- **Method**: `GET`
 
 ## Headers
 
-```json
-{
-  "X-Karma-Admin-Auth": "CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab"
-}
-```
+The following custom header is required for authentication purposes:
 
-## Request Body
+- **X-Karma-Admin-Auth**: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
+
+## Authentication
+
+The API requires Bearer token authentication. Include the following token in the Authorization header:
+
+- **Authorization**: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I`
+
+## Request
+
+The request should be made with the following considerations:
+
+- **Content-Type**: `application/json`
+
+## Response
+
+The API returns a JSON array of subscription objects, each detailing a specific subscription plan. Below is an example structure:
 
 ```json
 [
@@ -74,3 +81,12 @@ Type: Bearer Token
   }
 ]
 ```
+
+Each subscription object contains the following fields:
+
+- **id**: Unique identifier for the subscription.
+- **monthly_fee**: Cost of the subscription per month.
+- **discount**: Discount applied to the subscription.
+- **name**: Name of the subscription plan.
+- **bike_id**: Identifier for the associated bike.
+- **type**: The type of subscription, indicating whether it is monthly or annual.

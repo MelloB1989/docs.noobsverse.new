@@ -1,31 +1,30 @@
 ---
-title: "GetBikesByStationID"
+title: "GetBikesByStationID API Documentation"
 ---
 
-## GetBikesByStationID API
+# GetBikesByStationID API
 
-The `GetBikesByStationID` API retrieves a list of bikes available at a specific station.
+The `GetBikesByStationID` API allows you to retrieve a list of bikes available at a specific station.
 
-### Meta
+## Sequence
 
-- **Name**: GetBikesByStationID
-- **Type**: HTTP
-- **Sequence**: 5
+- Sequence: 5
 
-### HTTP Request
+## HTTP Request
 
 - **Method**: GET
 - **URL**: `https://ev-backend.app.k8s.coffeecodes.in/v1/bikes/get/station/e6j_2fyc23`
-- **Request Body**: None
-- **Authorization**: Bearer Token
+- **Body**: None
 
-### Bearer Token
+## Authentication
 
-To access this API, you need to provide a valid bearer token in the authorization header.
+This API requires Bearer token authentication. You must include the following token in your request header:
 
-- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
+```plaintext
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
 
-### Example Request
+## Example Request
 
 ```http
 GET /v1/bikes/get/station/e6j_2fyc23 HTTP/1.1
@@ -33,23 +32,8 @@ Host: ev-backend.app.k8s.coffeecodes.in
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-### Response
+## Response
 
-The response will include the details of the bikes available at the specified station.
+A successful response contains the list of bikes available at the specified station.
 
-```json
-{
-  "station_id": "e6j_2fyc23",
-  "bikes": [
-    {
-      "bike_id": "bike_123",
-      "status": "available",
-      "battery_level": 85,
-      ...
-    },
-    ...
-  ]
-}
-```
-
-Ensure you replace the bearer token with an actual token obtained from the authentication process to access the endpoint successfully.
+Note: Detailed response format and examples are not provided in this documentation. Please refer to the specific implementation details for response structure.

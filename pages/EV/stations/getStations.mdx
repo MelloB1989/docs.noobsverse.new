@@ -1,42 +1,44 @@
 ---
-title: "API Documentation: getStations"
+title: API Documentation - `getStations`
 ---
 
-# getStations API
+## Overview
 
-The `getStations` API is an HTTP endpoint designed to retrieve station data. Below, you'll find detailed information about the endpoint, including its URL, authentication requirements, and headers.
+The `getStations` API is an HTTP service designed to retrieve information about stations. This API does not require any authentication and can be accessed using a simple GET request.
 
-## Endpoint Information
+- **Name**: `getStations`
+- **Type**: HTTP
+- **Sequence**: 2
 
-- **Type:** HTTP
-- **Sequence:** 2
+## Endpoint
 
-## HTTP GET Request
+- **Method**: GET
+- **URL**: `http://localhost:3000/v1/stations/get`
+- **Body**: None
+- **Authentication**: None
 
-To access the station data, make a `GET` request to the following URL:
+## Headers
 
-### URL
+When making requests to the `getStations` API, include the following header for authorization purposes:
 
-```
-http://localhost:3000/v1/stations/get
-```
+- `X-Karma-Admin-Auth`: `ajbkbakweiuy387yeuqqwfahdjhsabd`
 
-### Request Body
+## Usage Example
 
-No request body is required for this endpoint.
-
-### Authentication
-
-No authentication is required to access this endpoint.
-
-### Headers
-
-To successfully call the `getStations` API, include the following header in your request:
-
-- `X-Karma-Admin-Auth`: Use the following value for the header:
+To use the `getStations` API, perform a GET request to the provided URL with the specified header:
 
 ```
-ajbkbakweiuy387yeuqqwfahdjhsabd
+GET /v1/stations/get HTTP/1.1
+Host: localhost:3000
+X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
 ```
 
-Make sure the header is correctly included to ensure a successful API call.
+Make sure the request includes the `X-Karma-Admin-Auth` header with the appropriate token value to ensure proper access to the API.
+
+## Response
+
+The API will respond with data related to the stations. The response structure and details would depend on the server’s implementation and specific dataset provided by the `getStations` endpoint.
+
+## Conclusion
+
+The `getStations` API provides an easy method to retrieve station data without the need for additional authentication. Ensure the correct header is used in your request for it to be processed successfully.

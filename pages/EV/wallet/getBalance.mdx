@@ -1,70 +1,39 @@
 ---
-title: getBalance API Documentation
+title: "Get Balance API"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+## Overview
 
-# getBalance API Documentation
+The **Get Balance** API is part of the wallet service suite. It provides functionality to retrieve the current balance of a specific wallet.
 
-## Meta Information
-- **Name:** getBalance
+- **API Name:** getBalance
 - **Type:** HTTP
 - **Sequence:** 2
 
-## Endpoint Information
+## Endpoint Details
 
 ### HTTP GET Request
+
 - **URL:** `http://localhost:3000/v1/wallet/get`
 - **Request Body:** None
 - **Authentication:** Bearer Token
 
 ## Authentication
 
-To access the `getBalance` endpoint, you must include a Bearer token in the Authorization header of your HTTP request.
+The API requires a Bearer token for authentication. Ensure you include the following token in your request headers:
 
-### Bearer Token
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4"
-}
+```plaintext
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
 ```
 
-## Example Request
+## Usage Example
 
-Below is an example of how to structure the HTTP GET request to the `getBalance` endpoint using the Bearer token for authentication.
+When making a request to get the balance, use the following cURL command:
 
-###Example using cURL:
-
-```sh
-curl -X GET http://localhost:3000/v1/wallet/get \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4"
+```bash
+curl -X GET "http://localhost:3000/v1/wallet/get" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4"
 ```
 
-## Example Response
+## Response
 
-Upon a successful request, the API will return the wallet balance in the following structure:
-
-```json
-{
-  "balance": 100.00,
-  "currency": "USD"
-}
-```
-
-## Error Handling
-
-### Unauthorized Access
-If the Bearer token is missing or invalid, the API will return:
-
-- **Status Code:** 401 Unauthorized
-- **Response:**
-```json
-{
-  "error": "Unauthorized access. Please provide a valid Bearer token."
-}
-```
-
-## Conclusion
-
-The `getBalance` API is a simple and secure way to retrieve the balance information of a user’s wallet. Ensure that you have a valid Bearer token for authentication to access this endpoint.
+A successful response returns the current balance details of the wallet. Ensure you have the proper permissions and a valid token to access this endpoint successfully.

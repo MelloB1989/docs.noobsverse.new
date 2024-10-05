@@ -1,106 +1,109 @@
 ---
-name: createBikes
-type: http
-seq: 1
+title: Create Bikes API
+description: Documentation for the Create Bikes API endpoint
 ---
 
 # Create Bikes API
 
-## Endpoint Details
+The **Create Bikes API** allows you to add new bikes to the database. Here's how to use the endpoint effectively.
 
-**URL:** `http://localhost:3000/v1/bikes/create`  
-**Method:** `POST`  
-**Authentication:** None
+## Endpoint
+
+- **URL**: `http://localhost:3000/v1/bikes/create`
+- **Method**: `POST`
+- **Authentication**: None required
 
 ## Headers
 
-Include the following headers in the request:
+- `X-Karma-Admin-Auth`: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
 
-```http
-X-Karma-Admin-Auth: CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab  
-```
+## Request Body
 
-## Request Body (JSON)
+The request body should be in JSON format, containing an array of bike objects. Each bike object must have the following fields:
 
-The body of the request should be a JSON array containing one or more bike objects. Each bike object must have the following fields:
-
-- `frame_number` (string): Unique identifier for the bike's frame.
+- `frame_number` (string): Unique identifier for the bike.
 - `name` (string): Name of the bike.
-- `station_id` (string): ID of the station where the bike is located.
-- `top_speed` (number): Maximum speed of the bike (km/h).
-- `range` (number): Maximum range of the bike (km).
-- `time_to_station` (number): Estimated time to reach the station (minutes).
-- `images` (array of strings): URLs to images of the bike.
+- `station_id` (string): Identifier for the station where the bike is located.
+- `top_speed` (number): Maximum speed the bike can achieve (in km/h).
+- `range` (number): The maximum distance the bike can cover on a full charge (in km).
+- `time_to_station` (number): Estimated time in minutes to reach the nearest station.
+- `images` (array of strings): URLs of the images representing the bike.
 
 ### Example Request Body
 
 ```json
 [
-    {
-        "frame_number": "FR123456789",
-        "name": "Speedster X1",
-        "station_id": "1ub1d98p_5",
-        "top_speed": 45,
-        "range": 100,
-        "time_to_station": 5,
-        "images": [
-            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    },
-    {
-        "frame_number": "FR987654321",
-        "name": "Thunderbolt Z3",
-        "station_id": "2jk5h43t_7",
-        "top_speed": 50,
-        "range": 120,
-        "time_to_station": 7,
-        "images": [
-            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    },
-    {
-        "frame_number": "FR112233445",
-        "name": "Lightning T4",
-        "station_id": "3mn8l29q_2",
-        "top_speed": 55,
-        "range": 150,
-        "time_to_station": 4,
-        "images": [
-            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    },
-    {
-        "frame_number": "FR556677889",
-        "name": "Storm Rider G2",
-        "station_id": "4pl0z87w_9",
-        "top_speed": 60,
-        "range": 140,
-        "time_to_station": 6,
-        "images": [
-            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    },
-    {
-        "frame_number": "FR998877665",
-        "name": "Cyclone V6",
-        "station_id": "5qr2m65y_4",
-        "top_speed": 65,
-        "range": 160,
-        "time_to_station": 3,
-        "images": [
-            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    },
-    {
-        "frame_number": "FR554433221",
-        "name": "Hurricane F5",
-        "station_id": "6st1o23x_8",
-        "top_speed": 70,
-        "range": 180,
-        "time_to_station": 2,
-        "images": [
-            "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
-        ]
-    }
+  {
+    "frame_number": "FR123456789",
+    "name": "Speedster X1",
+    "station_id": "1ub1d98p_5",
+    "top_speed": 45,
+    "range": 100,
+    "time_to_station": 5,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  },
+  {
+    "frame_number": "FR987654321",
+    "name": "Thunderbolt Z3",
+    "station_id": "2jk5h43t_7",
+    "top_speed": 50,
+    "range": 120,
+    "time_to_station": 7,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  },
+  {
+    "frame_number": "FR112233445",
+    "name": "Lightning T4",
+    "station_id": "3mn8l29q_2",
+    "top_speed": 55,
+    "range": 150,
+    "time_to_station": 4,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  },
+  {
+    "frame_number": "FR556677889",
+    "name": "Storm Rider G2",
+    "station_id": "4pl0z87w_9",
+    "top_speed": 60,
+    "range": 140,
+    "time_to_station": 6,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  },
+  {
+    "frame_number": "FR998877665",
+    "name": "Cyclone V6",
+    "station_id": "5qr2m65y_4",
+    "top_speed": 65,
+    "range": 160,
+    "time_to_station": 3,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  },
+  {
+    "frame_number": "FR554433221",
+    "name": "Hurricane F5",
+    "station_id": "6st1o23x_8",
+    "top_speed": 70,
+    "range": 180,
+    "time_to_station": 2,
+    "images": [
+      "https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/source/mt-15-2-06613f885e681c.jpg"
+    ]
+  }
 ]
 ```
+
+## Notes
+
+- Ensure that every bike has a unique `frame_number`.
+- Each bike must be associated with a valid `station_id`.
+- The `images` array should contain valid URLs pointing to images representing the bike.

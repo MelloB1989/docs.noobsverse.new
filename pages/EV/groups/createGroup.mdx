@@ -1,37 +1,34 @@
 ---
-title: Create Group API
+name: createGroup
+type: http
+seq: 1
 ---
 
-# Create Group API
+# createGroup API
 
-This endpoint allows you to create a new group by providing necessary details like the name and description of the group.
+This API endpoint allows you to create a new group by sending a POST request. Below are the details required to execute this API call.
 
-## Endpoint Details
+## HTTP Method
 
-- **Type:** HTTP
-- **Method:** POST
-- **URL:** `http://localhost:3000/v1/groups/create`
-- **Authentication:** Bearer Token
+`POST`
 
-## Authentication
+## Endpoint
 
-To access this endpoint, you need to include a Bearer token in the Authorization header of your request.
+`http://localhost:3000/v1/groups/create`
 
-### Bearer Token
+## Request Headers
 
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+- **Authorization**: Bearer token required
 
-Include this token in your request header as follows:
+  **Token**: 
 
-```
-Authorization: Bearer <token>
-```
+  ```
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+  ```
 
 ## Request Body
 
-The request body must be in JSON format and include the following fields:
+The body of the request should be in JSON format and must include the following fields:
 
 ```json
 {
@@ -42,21 +39,11 @@ The request body must be in JSON format and include the following fields:
 
 ### Fields
 
-- **name** (string): The name of the group.
-- **description** (string): A brief description of the group.
+- **name**: A string representing the name of the group.
+- **description**: A string providing a brief description of the group's purpose.
 
-## Sample Request
+## Authentication
 
-```http
-POST /v1/groups/create HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-Content-Type: application/json
+This API uses bearer token authentication. Ensure your requests include a valid bearer token in the request header to successfully authenticate. 
 
-{
-  "name": "Eco Blasters",
-  "description": "A group focused on being eco friendly."
-}
-```
-
-Utilize this endpoint to create new groups by following the structure and requirements outlined above. Make sure your request is properly authenticated using the provided Bearer token.
+Make sure to replace the example token with a valid one in a real scenario.

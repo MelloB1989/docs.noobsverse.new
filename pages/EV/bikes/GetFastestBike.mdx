@@ -2,47 +2,40 @@
 title: GetFastestBike API Documentation
 ---
 
-## GetFastestBike
+## Overview
 
-### Overview
+The `GetFastestBike` API endpoint is designed to retrieve information about the fastest bike available. This is an HTTP-based API that requires authentication via a bearer token.
 
-The `GetFastestBike` API endpoint is designed to retrieve information about the fastest bike. This endpoint is secured and requires authentication.
+## Endpoint Information
 
-### Endpoint Details
+- **Type:** HTTP
+- **Sequence ID:** 9
 
-- **Method**: GET
-- **URL**: `http://localhost:3000/v1/bikes/get/speed/fastest`
+## HTTP Request
 
-### Authentication
+- **GET** 
 
-This endpoint requires a Bearer token for authentication. Include the following token in the `Authorization` header of your request:
-
-```
-Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```plaintext
+http://localhost:3000/v1/bikes/get/speed/fastest
 ```
 
-### Request Body
+- **Request Body:** None
 
-This endpoint does not require a request body.
+## Authentication
 
-### Example Request
+- **Type:** Bearer Token
+- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
 
-```http
-GET /v1/bikes/get/speed/fastest HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+Make sure to include the bearer token in the `Authorization` header of your HTTP request:
+
+```plaintext
+Authorization: Bearer <token>
 ```
 
-### Response
+Replace `<token>` with the actual token provided above. This is necessary to authenticate and authorize your request to access the API.
 
-The response will contain details about the fastest bike. The response format and fields are currently unspecified.
+## Response
 
-### Error Handling
+On a successful request, the API will return data detailing the fastest bike available. The specifics of the response data are not detailed here, but typically expect information relevant to the speed and other characteristics of the bike.
 
-If authentication fails or any other error occurs, the appropriate HTTP status code and error message will be returned.
-
----
-
-### Summary
-
-The `GetFastestBike` API endpoint provides an authenticated means to obtain information about the fastest bike. Ensure that the Bearer token is included in the `Authorization` header when making requests to this endpoint.
+Note: For security reasons, keep the bearer token confidential and secure. Do not share it publicly or expose it in client-side code.

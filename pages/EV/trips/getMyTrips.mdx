@@ -1,34 +1,39 @@
 ---
-title: "getMyTrips API"
-meta:
-  - name: getMyTrips
-  - type: HTTP
-  - sequence: 3
+title: API Documentation for `getMyTrips`
 ---
 
-# getMyTrips API Documentation
+# `getMyTrips` API
 
-## Overview
+The `getMyTrips` API fetches the list of trips for the authenticated user.
 
-The `getMyTrips` endpoint is part of the HTTP API suite and is used to retrieve information about the user's trips. This is a secured endpoint that requires bearer authentication.
+## Endpoint Information
 
-## Endpoint Details
+- **Type:** HTTP
+- **Sequence:** 3
 
-- **HTTP Method**: GET
-- **URL**: `http://localhost:3000/v1/trips/mytrips`
+## HTTP GET Request
 
-## Authorization
+- **URL:** `http://localhost:3000/v1/trips/mytrips`
+- **Method:** GET
+- **Request Body:** None
 
-This endpoint requires a bearer token for authentication.
+## Authentication
 
-### Bearer Token
+This endpoint requires Bearer token authentication. Include the following token in the `Authorization` header of your HTTP request:
 
-- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+```plaintext
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
 
-## Request Body
+## Notes
 
-This endpoint does not require a request body.
+- Ensure your application has the required permissions to access this endpoint.
+- The token provided is sensitive and should be securely handled.
 
-## Response
+## Example Request
 
-Upon successful request, the response will contain information about the user's trips. Ensure that you have the correct bearer token to access this information.
+```http
+GET /v1/trips/mytrips HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
