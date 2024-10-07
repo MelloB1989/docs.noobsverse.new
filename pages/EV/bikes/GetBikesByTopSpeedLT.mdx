@@ -1,65 +1,47 @@
 ---
-title: GetBikesByTopSpeedLT API
+title: GetBikesByTopSpeedLT API Documentation
 ---
 
 ## Overview
 
-The `GetBikesByTopSpeedLT` API endpoint retrieves a list of bikes with a top speed less than a specified value. This API supports HTTP `GET` requests and requires authentication using a bearer token.
+The `GetBikesByTopSpeedLT` API is an HTTP-based service that retrieves a list of bikes with a top speed less than a specified limit. This document provides detailed information on how to interact with this API.
 
-## Endpoint Information
+## API Endpoint
 
 - **URL:** `http://localhost:3000/v1/bikes/get/speed_lt/50`
-- **Method:** `GET`
-- **Authentication:** Bearer token
+- **Method:** GET
+- **Authentication:** Bearer Token is required.
+
+## Authentication
+
+To access the `GetBikesByTopSpeedLT` endpoint, you must provide a Bearer Token in the request headers. Below is an example of the token structure:
+
+- **Bearer Token:**  
+  `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
+
+### Example of Authorization Header
+
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfXPMN2NnE0
+```
 
 ## Request Details
 
-### URL
+- **HTTP Method:** GET
+- **Request Body:** None
 
-```plaintext
-http://localhost:3000/v1/bikes/get/speed_lt/50
-```
+This endpoint does not require any parameters in the request body. It relies entirely on the URL and authentication header to retrieve the appropriate data.
 
-### Method
+## Usage
 
-```plaintext
-GET
-```
+Make a GET request to the specified URL with the appropriate Bearer Token in the authorization header to receive a list of bikes with top speeds below the specified threshold (in this case, 50).
 
-### Request Body
+## Sequence
 
-- **Body:** None. This endpoint does not require a request body.
+The sequence identifier for this endpoint is `7`.
 
-### Authentication
+## Notes
 
-This endpoint requires bearer token authentication. The client must include a valid authorization header with a bearer token in each request.
+Ensure that your token is valid and has not expired to maintain access to the `GetBikesByTopSpeedLT` service. Replace the example token with your actual token during implementation. 
 
-### Authentication Header Format
-
-```plaintext
-Authorization: Bearer <token>
-```
-
-### Example Bearer Token
-
-```plaintext
-Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
-
-## Response Details
-
-The response from the server will contain the list of bikes with a top speed less than the specified value of 50.
-
-## Example Request
-
-```http
-GET /v1/bikes/get/speed_lt/50 HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
-
-Make sure to replace the example bearer token with a valid token in your requests.
-
-## Additional Information
-
-This is the seventh API in the sequence and is primarily used to filter bikes by their top speed. Make sure to handle authentication errors and validate the response correctly.
+For any further assistance, please refer to the general API documentation or contact support.

@@ -1,48 +1,37 @@
 ---
-title: getTransactions API Documentation
+title: getTransactions API
+description: Retrieves all transactions using a HTTP GET request.
 ---
 
 # getTransactions API
 
-The `getTransactions` API endpoint is part of our HTTP based service that allows clients to retrieve all transaction records.
+`getTransactions` is an HTTP API that retrieves all transactions.
 
-## Endpoint Details
+## Endpoint
 
-- **Sequence:** 1
-- **Type:** HTTP
-
-## HTTP GET Request
-
+- **HTTP Method:** GET
 - **URL:** `http://localhost:3000/v1/transactions/getAll`
-- **Method:** GET
-- **Authentication:** Bearer Token (required)
 
-### Authentication
+## Authentication
 
-To access the `getTransactions` endpoint, you need to provide a valid bearer token in the Authorization header of your request.
+This endpoint requires Bearer Token authentication. You must include the token in the `Authorization` header of your request.
 
-- **Bearer Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+### Bearer Token
 
-### Request Body
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Request
 
 - **Body:** None
 
-## Usage Example
+### Headers
 
-To make a request to the `getTransactions` endpoint, send an HTTP GET request with the bearer token included in the authorization header.
+- `Authorization: Bearer <token>`
 
-### Example Request
+## Sequence
 
-```http
-GET /v1/transactions/getAll HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+- **Sequence ID:** 1
 
-This request will retrieve all transactions available on the server, provided that the token is valid and has the necessary permissions.
-
-## Notes
-
-- Ensure your token is kept secure and is not shared publicly.
-- Verify that the service running at `localhost:3000` is accessible and operational before making requests.
-- This endpoint does not require any payload in the request body.
+Utilize the `getTransactions` API to efficiently fetch transaction data with the above authentication mechanism. Ensure the bearer token is kept secure and included in all requests.

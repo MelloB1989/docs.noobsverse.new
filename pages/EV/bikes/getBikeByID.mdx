@@ -1,32 +1,57 @@
 ---
-title: API Reference - getBikeByID
+title: Get Bike by ID
+apiName: getBikeByID
+version: v1
+type: HTTP
+sequence: 2
 ---
 
-# getBikeByID
+## Overview
 
-This API call retrieves information about a specific bike using its unique ID.
+The `getBikeByID` API endpoint allows you to retrieve detailed information about a specific bike using its unique identifier.
 
-## Endpoint
+## HTTP Request
 
-- **Type:** HTTP GET
-- **URL:** `http://localhost:3000/v1/bikes/get/jruefu191e`
+### Method: GET
 
-## Authentication
+```plaintext
+GET http://localhost:3000/v1/bikes/get/jruefu191e
+```
 
-This endpoint requires bearer token authentication.
+### Authentication
 
-- **Bearer Token:**
-  ```
-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-  ```
+This endpoint requires Bearer Token authentication. Include the token in your request headers as shown below:
 
-## Request
+#### Header
 
-- **HTTP Method:** `GET`
-- **Request Body:** None
+```plaintext
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
 
-## Sequence
+### Request Body
 
-- **Sequence Number:** 2
+The `getBikeByID` endpoint does not require a request body.
 
-Use this API call to retrieve detailed information about a bike by providing its unique identifier in the URL path. Ensure that you include the bearer token in the request header for successful authentication.
+## Response
+
+On a successful request, the server will return the bike details in JSON format.
+
+### Status Codes
+
+- `200 OK`: The request was successful, and the bike details are returned.
+- `401 Unauthorized`: The request lacks valid authentication credentials.
+- `404 Not Found`: No bike found with the provided ID.
+
+## Example Request
+
+An example GET request for retrieving a bike by its ID:
+
+```http
+GET /v1/bikes/get/jruefu191e HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+## Notes
+
+Ensure your authentication token is kept secure and is refreshed before expiry to maintain access to the API.

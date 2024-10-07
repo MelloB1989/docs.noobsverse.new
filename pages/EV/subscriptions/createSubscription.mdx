@@ -1,14 +1,14 @@
-# createSubscription API Documentation
+---
+title: createSubscription API Documentation
+---
 
-## Overview
+# createSubscription API
 
-The `createSubscription` API is used to create new subscription plans in the system. This API supports multiple subscription options with different attributes for each plan.
+The `createSubscription` API is used to create new subscription plans for bikes. It is an HTTP POST request and does not require authentication.
 
 ## Endpoint
 
-- **URL**: `http://localhost:3000/v1/subscriptions/create`
-- **Method**: `POST`
-- **Authentication**: None required
+`POST http://localhost:3000/v1/subscriptions/create`
 
 ## Headers
 
@@ -16,36 +16,17 @@ The `createSubscription` API is used to create new subscription plans in the sys
 
 ## Request Body
 
-### Content Type
+The request body should be in JSON format and consist of an array of subscription objects. Each subscription object contains the following fields:
 
-- `application/json`
+- `id` (string): Unique identifier for the subscription.
+- `monthly_fee` (number): The monthly fee for the subscription plan.
+- `discount` (number): The discount applied to the subscription plan.
+- `name` (string): The name of the subscription plan.
+- `bike_id` (string): The identifier for the bike associated with the subscription.
+- `type` (string): The type of subscription, e.g., `monthly` or `annual`.
+- `security_deposit` (number): The security deposit amount for the subscription.
 
-### Body Structure
-
-The request body should contain an array of subscription objects. Each object must include the following fields:
-
-- **id**: `string`
-  - The unique identifier for the subscription.
-  
-- **monthly_fee**: `number`
-  - The monthly fee associated with the subscription plan.
-  
-- **discount**: `number`
-  - The discount amount applicable to the subscription.
-  
-- **name**: `string`
-  - The name of the subscription plan.
-  
-- **bike_id**: `string`
-  - The identifier for the bike associated with this subscription.
-  
-- **type**: `string`
-  - The type of subscription, can be either `monthly` or `annual`.
-  
-- **security_deposit**: `number`
-  - The security deposit amount required for the subscription.
-
-### Example Request Body
+### Sample Request Body
 
 ```json
 [
@@ -97,12 +78,6 @@ The request body should contain an array of subscription objects. Each object mu
 ]
 ```
 
-## Response
+## Usage
 
-The response from the server will contain the status of the subscription creation operation. Responses may vary depending on the server implementation and are not detailed here.
-
-## Notes
-
-- Ensure the `X-Karma-Admin-Auth` header value is correct to authorize the creation of subscriptions.
-- The API currently does not require user authentication beyond the provided header.
-- Check each field's data type to match the format specified above to avoid errors during the request.
+Use this API to create subscription plans for different bikes with varying fees, discounts, and types. No authentication is required to access this endpoint. Include the `X-Karma-Admin-Auth` header in your request.

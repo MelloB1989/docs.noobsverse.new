@@ -1,59 +1,60 @@
 ---
-title: "getAllGroups API"
+title: "Get All Groups API Documentation"
 ---
 
-import { Meta } from '@mdx-js/react'
+# Get All Groups API
 
-<Meta 
-  title="getAllGroups API Documentation"
-  type="Documentation"
-  version="1.0"
-/>
+This documentation provides the details for the `getAllGroups` API, which allows you to retrieve a list of all groups.
 
-## getAllGroups API
+## Metadata
 
-The `getAllGroups` API allows you to retrieve all groups from the server. This endpoint is part of our suite of APIs for managing group data.
+- **Name:** getAllGroups
+- **Type:** HTTP
+- **Sequence:** 8
 
-### Endpoint
+## Endpoint Details
 
-- **HTTP Method**: GET
-- **URL**: `http://localhost:3000/v1/groups/getAll`
-- **Authentication**: Bearer token is required
+- **HTTP Method:** GET
+- **URL:** `http://localhost:3000/v1/groups/getAll`
+- **Authentication Required:** Yes (Bearer token)
 
-### Authentication
+## Authentication
 
-To access the `getAllGroups` API, you must include a valid Bearer token in the request header. An example of a Bearer token is provided below:
+To access the `getAllGroups` API, you need to authenticate using a Bearer token.
 
-```plaintext
+- **Bearer Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+
+Include this token in the Authorization header of your request:
+
+```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Request Details
+## Request
 
-- **Body**: None (this is a GET request)
-- **Headers**:
-  - `Authorization`: Bearer token (as shown above)
+### No Request Body
 
-### Usage
+The `getAllGroups` endpoint does not require a request body. Simply make a GET request to the specified URL with the proper authentication.
 
-To use this API, simply make an HTTP GET request to the URL provided with the appropriate bearer token in the headers. The server will return a list of all groups if the token is valid.
+## Example Request
 
-### Response
-
-The response will contain details of all groups in JSON format. Handle the response data appropriately in your application to display or process the group information.
-
-### Error Handling
-
-If the request is unauthorized (e.g., missing or invalid token), the server will respond with an appropriate error message. Ensure that you handle such error responses in your application's logic.
-
-### Example Request
-
-```plaintext
-GET /v1/groups/getAll HTTP/1.1
-Host: localhost:3000
+```
+GET http://localhost:3000/v1/groups/getAll
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Ensure to replace the example bearer token with an actual valid token obtained from your application's authentication mechanism.
+## Response
 
-By following these guidelines, you can successfully integrate and utilize the `getAllGroups` API in your applications.
+The API will respond with a list of all groups. The structure of the response will depend on your application's data model and should be detailed in additional documentation specific to the returned data. 
+
+Ensure that the token used for authentication is valid and has the necessary permissions to access the groups data.
+
+## Error Handling
+
+Common errors include:
+
+- **401 Unauthorized:** The token is missing, invalid, or expired.
+- **403 Forbidden:** The token does not have sufficient permissions to access this resource.
+- **404 Not Found:** The endpoint is incorrect or the requested resource does not exist.
+
+For error handling, always check the status code of the response and handle errors gracefully in your application.

@@ -1,28 +1,24 @@
 ---
-title: leaveGroup API
-apiType: HTTP
-sequence: 3
+title: leaveGroup API Documentation
 ---
 
-# leaveGroup API Documentation
+## leaveGroup API
 
-This document provides the details for the `leaveGroup` API endpoint.
+The `leaveGroup` API allows a user to leave a specific group. This operation is performed using an HTTP GET request to a designated endpoint, and requires authentication via a bearer token.
 
-## Overview
+### Endpoint
 
-The `leaveGroup` API is designed for users to leave a specific group. It is a simple `HTTP GET` request that requires authentication via a bearer token.
+#### GET /v1/groups/2/leave
 
-## Endpoint Details
+- **URL:** `http://localhost:3000/v1/groups/2/leave`
+- **Method:** GET
+- **Authentication:** Bearer Token
 
-- **Method**: `GET`
-- **URL**: `http://localhost:3000/v1/groups/2/leave`
-- **Authentication**: Bearer Token
+### Authentication
 
-### Authentication Token
+This API requires a Bearer Token for authentication. Include the token in the `Authorization` header of your request.
 
-To access the `leaveGroup` API, you need to include a bearer token in the Authorization header of your request.
-
-#### Bearer Token Example
+**Example Authorization Header:**
 
 ```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
@@ -30,23 +26,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4M
 
 ### Request Body
 
-This endpoint does not require a request body.
+This API does not require a request body.
 
-## Usage
+### Sequence
 
-To successfully make a call to the `leaveGroup` endpoint, ensure you include the correct URL and Authentication header:
+The `leaveGroup` API is the third operation in the sequence of related API calls.
 
-```http
-GET /v1/groups/2/leave HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+### Conclusion
 
-Replace the placeholder `Bearer ey...` with your actual bearer token.
-
-## Notes
-
-- Ensure token validity to successfully interact with the API.
-- The request does not require any parameters other than those included in the URL and headers.
-
-For any questions or assistance, please refer to the API support or documentation team.
+Make sure to use the correct endpoint and authenticate using the provided bearer token when attempting to leave a group using the `leaveGroup` API.

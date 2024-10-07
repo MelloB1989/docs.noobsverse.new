@@ -1,36 +1,31 @@
 ---
-title: Get User Subscription
+title: Get User Subscription API
 type: HTTP
 sequence: 2
 ---
 
-# Get User Subscription API
+# Get User Subscription
 
-This document provides details about the Get User Subscription API, which allows you to retrieve user subscription information.
+The `Get User Subscription` endpoint allows you to retrieve the details of a specific user subscription using an HTTP GET request. Ensure you have the necessary authentication token to access this resource.
 
-## Endpoint
+## Endpoint Details
 
 - **URL**: `http://localhost:3000/v1/user_subscription/get`
 - **Method**: `GET`
+- **Content Type**: `application/json`
 - **Authentication**: Bearer Token
 
 ## Authentication
 
-This API requires a Bearer Token for authentication. Please use the following token for authenticated requests:
+To access this endpoint, you need to include a valid Bearer token in the Authorization header of your request.
 
-```plaintext
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ## Request Body
 
-The request must be in JSON format and include the following fields:
-
-- `subscription_id`: The ID of the subscription (e.g., `"ftx0li8efd"`).
-- `start_date`: The start date of the subscription in `DD/MM/YYYY` format (e.g., `"27/11/2004"`).
-- `end_date`: The end date of the subscription in `DD/MM/YYYY` format (e.g., `"27/11/2004"`).
-
-### Example Request Body
+The request body must be in JSON format and include the following fields:
 
 ```json
 {
@@ -40,12 +35,14 @@ The request must be in JSON format and include the following fields:
 }
 ```
 
+### Parameters
+
+- `subscription_id`: The unique identifier of the subscription you wish to retrieve.
+- `start_date`: The start date of the subscription.
+- `end_date`: The end date of the subscription.
+
 ## Response
 
-The API will return a JSON response with the details of the user subscription. The structure and content of the response will depend on the specific implementation details and data available.
+A successful response returns the details of the user subscription. The exact structure of the response depends on the server implementation and is not specified here.
 
-## Notes
-
-- Ensure that the Bearer Token is valid and has not expired before making a request.
-- Dates in the request body should follow the `DD/MM/YYYY` format to avoid errors.
-- For secure API access, keep the Bearer Token confidential and do not expose it in public or insecure environments.
+Ensure all date formats comply with the expected format as determined by the server, and always secure your Authorization keys.

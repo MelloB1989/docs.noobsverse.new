@@ -1,56 +1,51 @@
 ---
-title: Webhook API
-meta:
-  name: webhook
-  type: http
-  seq: 4
+title: Webhook API Documentation
+type: HTTP
+sequence: 4
 ---
 
-# Webhook API Documentation
+# Webhook API
 
-## Overview
-
-This document describes the **Webhook API**. The Webhook API is used to interact with a wallet service via HTTP. It requires bearer token authentication and involves querying user details such as `uid`, `balance`, and a `webhook_key`.
+This document provides details for the Webhook API endpoint.
 
 ## Endpoint
 
-- **Type:** GET
-- **URL:** `http://localhost:3000/v1/wallet/webhook`
+### HTTP Method
 
-### Query Parameters
+**GET**
 
-| Name          | Type   | Description                     | Example                                       |
-| ------------- | ------ | ------------------------------- | --------------------------------------------- |
-| `uid`         | String | Unique user identifier          | `5geapgapxs`                                  |
-| `balance`     | String | User's wallet balance           | `10000000000`                                 |
-| `webhook_key` | String | Secret key for webhook access   | `coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda` |
+### URL
 
-### Example URL
+```
+http://localhost:3000/v1/wallet/webhook
+```
 
-```plaintext
+## Query Parameters
+
+The following query parameters are used by this endpoint:
+
+- **uid**: User identifier. Example: `5geapgapxs`
+- **balance**: Balance amount. Example: `10000000000`
+- **webhook_key**: Key for webhook authentication. Example: `coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda`
+
+### Full Example
+
+```
 http://localhost:3000/v1/wallet/webhook?uid=5geapgapxs&balance=10000000000&webhook_key=coffeecodesEVBackendKarmafdmfbmd3brh4rfembvfadsadmbdbbvda
-```
-
-## Authentication
-
-This API requires **Bearer token** authentication. The token must be included in the HTTP `Authorization` header.
-
-### Bearer Token
-
-```plaintext
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
-```
-
-### Example Header
-
-```plaintext
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
 
 ## Request Body
 
-The GET request to this endpoint does not require a body.
+This request does not require a body.
+
+## Authentication
+
+This API uses Bearer token authentication. Include the following token in the `Authorization` header:
+
+```
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
+```
 
 ## Summary
 
-The Webhook API is intended to securely transmit user data, specifically the `uid`, `balance`, and `webhook_key`. Proper authorization using a bearer token is necessary for a successful API call. Ensure the query parameters are properly utilized to access the intended user data.
+The Webhook API is a GET endpoint that requires query parameters and bearer token authentication. It allows interaction with a user's wallet by providing information including user ID (`uid`), account balance (`balance`), and a specific webhook key (`webhook_key`).

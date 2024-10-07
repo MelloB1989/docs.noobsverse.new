@@ -1,36 +1,44 @@
 ---
-title: endTrip API
-description: Documentation for the endTrip API endpoint.
+name: endTrip
+type: http
+sequence: 2
 ---
 
-# endTrip API
+# End Trip API
 
-This document provides the necessary details to interact with the endTrip API endpoint, which marks the end of a trip.
+The `endTrip` API allows the client to mark the end of a trip. This endpoint is part of the trip management system.
 
-## API Information
+## Endpoint
 
-- **Name:** endTrip
-- **Type:** HTTP
-- **Sequence:** 2
+### HTTP Method
 
-## Endpoint Details
+`POST`
 
-- **Method:** POST
-- **URL:** `http://localhost:3000/v1/trips/end`
-- **Body Format:** JSON
-- **Authentication:** Bearer Token
+### URL
+
+```
+http://localhost:3000/v1/trips/end
+```
 
 ### Authentication
 
-The API requires a bearer token for authentication. Include the following token in the `Authorization` header of your request:
+This endpoint requires Bearer Token authentication.
+
+#### Bearer Token
 
 ```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+Ensure that the token is included in the `Authorization` header of the request:
+
+```
+Authorization: Bearer <token>
 ```
 
 ## Request Body
 
-The request body must be in JSON format with the following structure:
+The request body must be in JSON format. Below is the structure expected by the API:
 
 ```json
 {
@@ -46,18 +54,16 @@ The request body must be in JSON format with the following structure:
 }
 ```
 
-### Request Body Parameters
+### Field Descriptions
 
-- **id** (string): The unique identifier for the trip.
-- **bike_id** (string): The unique identifier for the bike used in the trip.
-- **station_id** (string): The unique identifier for the station where the trip ends.
-- **start_timestamp** (string): The ISO 8601 date-time string indicating when the trip started.
-- **end_timestamp** (string): The ISO 8601 date-time string indicating when the trip ended.
-- **distance** (number): The total distance traveled during the trip in kilometers.
-- **duration** (number): The duration of the trip in minutes.
-- **average_speed** (number): The average speed during the trip in kilometers per hour.
-- **path** (string): The base64-encoded path data of the trip.
+- **id**: The unique identifier of the trip.
+- **bike_id**: The identifier of the bike used during the trip.
+- **station_id**: The identifier of the station where the trip ended.
+- **start_timestamp**: The UTC timestamp indicating when the trip started.
+- **end_timestamp**: The UTC timestamp indicating when the trip ended.
+- **distance**: The total distance covered during the trip, measured in kilometers.
+- **duration**: The total duration of the trip in minutes.
+- **average_speed**: The average speed during the trip, measured in kilometers per hour.
+- **path**: A base64 encoded string representing the path of the trip.
 
-## Summary
-
-This endpoint allows you to mark the end of a trip by providing all relevant trip details. Ensure that the bearer token is properly included in the request for authentication, and that the body is structured as specified.
+This API is designed to provide a seamless experience in monitoring and managing trip completions. Ensure that all required fields are populated correctly to avoid errors.

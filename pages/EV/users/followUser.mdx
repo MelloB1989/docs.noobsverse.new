@@ -2,43 +2,38 @@
 title: followUser API Documentation
 ---
 
-# followUser API
+## API Name: `followUser`
 
-The `followUser` API allows a client to follow a specific user. This document provides details on how to authenticate and make a request to the endpoint.
+The `followUser` API allows clients to follow a specific user in the system. It is a part of the user relationship management functionality.
 
-## Metadata
+### API Type
 
-- **Name:** followUser
 - **Type:** HTTP
 - **Sequence:** 5
 
-## Endpoint
+## HTTP GET Request
 
-### HTTP GET Request
+### URL
 
-- **URL:** `http://localhost:3000/v1/user/follow/-sx7zvg7n1`
-- **Body:** None
-- **Authentication Required:** Yes, Bearer Token
-
-## Authentication
-
-To successfully call the `followUser` API, you must include a Bearer token in the request header. Below is the token to be used:
-
-### Bearer Token
-
+```plaintext
+http://localhost:3000/v1/user/follow/-sx7zvg7n1
 ```
+
+### Request Body
+
+- **Body:** None
+
+### Authentication
+
+This endpoint requires Bearer Token authentication. Ensure that your request includes the following token in the authorization header.
+
+#### Bearer Token
+
+```plaintext
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Include the token in your request as follows:
-
-```
-Authorization: Bearer {token}
-```
-
-Replace `{token}` with the actual token provided.
-
-## Example Request
+### Example Request
 
 ```http
 GET /v1/user/follow/-sx7zvg7n1 HTTP/1.1
@@ -46,6 +41,10 @@ Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Summary
+### Usage
 
-Ensure that your request includes the correct authentication token in the header to successfully use the `followUser` endpoint for following a particular user.
+To use this endpoint, send a GET request with the appropriate authorization header. Ensure the token has the necessary permissions to perform a follow action for the specified user.
+
+---
+
+This documentation provides the necessary information to interact with the `followUser` API endpoint securely and successfully. Ensure that the correct authorization measures are implemented during integration.

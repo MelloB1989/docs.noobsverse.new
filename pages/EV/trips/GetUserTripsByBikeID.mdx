@@ -1,53 +1,41 @@
 ---
-name: GetUserTripsByBikeID
-type: http
-sequence: 5
+title: GetUserTripsByBikeID API Documentation
 ---
 
-# GetUserTripsByBikeID API
+## Overview
 
-## Description
+The `GetUserTripsByBikeID` API allows you to retrieve user trip details associated with a specific bike ID. This document provides information on how to make requests to this endpoint.
 
-The `GetUserTripsByBikeID` API endpoint allows you to retrieve a list of trips associated with a specific bike ID.
+## API Endpoint
 
-## HTTP Request
+### HTTP GET Request
 
-- **Method**: `GET`
-- **URL**: `http://localhost:3000/v1/trips/bike/{bikeId}`
-
-  Replace `{bikeId}` with the actual bike ID.
+- **URL:** `http://localhost:3000/v1/trips/bike/i6bjwk0yhu`
+- **Method:** GET
+- **Authentication:** Bearer Token
 
 ## Authentication
 
-This endpoint requires Bearer token authentication.
+This API requires a bearer token for authentication. Include the token in the Authorization header of the HTTP request.
 
 ### Bearer Token
 
-You must include a valid bearer token in your request headers.
-
-- **Header**: `Authorization: Bearer {token}`
-
-#### Example Token
-
-```plaintext
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-Replace `{token}` with your actual token when making requests.
-
-## Request Body
-
-There is no request body required for this `GET` endpoint.
-
-## Response
-
-On success, the server will return a list of user trips associated with the specified bike ID.
-
-## Example Request
-
-```http
-GET http://localhost:3000/v1/trips/bike/i6bjwk0yhu
+```bash
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Ensure you replace the example values with actual data as required.
+### Note:
+Replace the token string above with a valid token for the API call to succeed.
+
+## Request Details
+
+- **Body:** None. This API does not require a request body.
+
+## Sequence Order
+
+This API is part of a sequence with an assigned order position:
+- **Sequence:** 5
+
+## Conclusion
+
+Ensure to use the correct endpoint URL and include the bearer token in the header for successful authentication. This API returns user trips related to the specified bike ID without requiring any request body. Make sure your token is valid and not expired before making the request.

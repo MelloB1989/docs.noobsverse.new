@@ -1,0 +1,42 @@
+---
+title: "API Documentation: checkHealth"
+---
+
+# API Documentation: checkHealth
+
+## Overview
+
+The `checkHealth` API is a simple HTTP endpoint that allows you to check the health status of the server. It is designed to be easy to use and requires no authentication or additional payload in the request body.
+
+## Endpoint Details
+
+- **Type**: HTTP
+- **Sequence**: 2
+
+### HTTP Method: GET
+
+- **URL**: `http://localhost:3000/health`
+
+This endpoint is accessed via a GET request to the provided URL. The endpoint is publicly accessible and does not require any form of authentication.
+
+## Request Details
+
+- **Body**: None
+
+The request body should be empty when making a GET request to this endpoint.
+
+- **Authentication**: None
+
+No authentication is needed to access this endpoint.
+
+## Usage
+
+To use the `checkHealth` API, perform a GET request to the specified URL:
+
+```
+GET http://localhost:3000/health
+```
+
+## Response
+
+The response from the server will generally indicate the health status of the server. The specifics of the response will depend on the server's configuration and logic.

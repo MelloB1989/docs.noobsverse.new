@@ -1,38 +1,41 @@
 ---
-title: "Get All Users API"
-description: "Retrieve a list of all users from the server."
+title: API Documentation for getAllUsers
 ---
 
-### Overview
+# getAllUsers API
 
-The `getAllUsers` API endpoint allows you to retrieve a list of all users. This endpoint is part of the HTTP-based API services.
+This document provides details about the `getAllUsers` API endpoint, which is used to fetch all user records from the system.
 
-### Endpoint
+## API Type
 
-- **HTTP Method**: GET
-- **URL**: `http://localhost:3000/v1/user/getAll`
+- **Type:** HTTP
+- **Sequence:** 8
 
-### Authorization
+## HTTP GET Request
 
-This endpoint requires Bearer Token authentication.
+- **URL:** `http://localhost:3000/v1/user/getAll`
+- **Request Body:** None
+- **Authentication:** Bearer Token
 
-- **Type**: Bearer Token
-- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+### Authentication
 
-### Request
+In order to successfully call this API, a valid Bearer token must be included in the request headers.
 
-- **Body**: None
+- ** Authorization:** `Bearer`
 
-### Response
+#### Token
 
-The response will contain a list of users. The format will typically be JSON, detailing each user's information.
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
 
-### Notes
+Include this token in the `Authorization` header of your HTTP request:
 
-- Ensure to include the Bearer Token in the Authorization header of your request.
-- This endpoint is designed for developers to manage and retrieve user data from the server efficiently.
+```plaintext
+Authorization: Bearer <your-token-here>
+```
 
-### Example Request
+## Example Request
 
 ```http
 GET /v1/user/getAll HTTP/1.1
@@ -40,26 +43,8 @@ Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Example Response
+This request will return a list of all users from the system in JSON format, assuming the provided token is valid and has the necessary permissions.
 
-```json
-{
-  "users": [
-    {
-      "id": "1",
-      "name": "John Doe",
-      "email": "john.doe@example.com"
-    },
-    {
-      "id": "2",
-      "name": "Jane Smith",
-      "email": "jane.smith@example.com"
-    }
-    // Further user objects
-  ]
-}
-```
+## Conclusion
 
-### Conclusion
-
-Use this endpoint to retrieve a comprehensive list of users. Make sure to handle authentication correctly to ensure access.
+The `getAllUsers` API endpoint is a simple yet powerful tool to retrieve user data, and it requires a Bearer token for authentication. By following the outline provided, you can make requests to this endpoint and integrate it into your system with ease.

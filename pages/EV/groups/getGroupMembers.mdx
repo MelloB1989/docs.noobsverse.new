@@ -1,43 +1,58 @@
 ---
-title: getGroupMembers API
-api_type: HTTP
-sequence: 4
+title: `getGroupMembers` API Documentation
 ---
 
-# getGroupMembers API
+## Overview
 
-The `getGroupMembers` API provides access to the members of a specific group.
+The `getGroupMembers` API provides a way to retrieve members of a specific group. This HTTP endpoint requires authentication and returns member information for group ID `2`.
 
-## HTTP Request
+## Endpoint
 
-### Method: GET
+### HTTP Method
 
-- **URL**: `http://localhost:3000/v1/groups/2/members`
-- **Body**: None
-- **Authentication**: Bearer Token
+**GET**
 
-## Authentication
-
-This API requires Bearer Token authentication. You need to include the following token in the `Authorization` header of your HTTP request:
+### URL
 
 ```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+http://localhost:3000/v1/groups/2/members
 ```
 
-Make sure to replace the token if necessary for authentication in different environments.
+### Authentication
 
-## Example Request
+This endpoint requires a Bearer token for authentication.
+
+**Bearer Token:**
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Request Details
+
+- **HTTP Method**: `GET`
+- **Request Body**: None
+- **Authorization**: Bearer token as described above.
+
+## Response
+
+The API will return the member details of the specified group. Ensure a valid token is provided to access the group information successfully.
+
+## Usage
+
+Use this endpoint to obtain a list of members belonging to group ID `2`. Include the provided Bearer token in your request headers for authentication.
+
+### Example Request
 
 ```http
-GET /v1/groups/2/members HTTP/1.1
-Host: localhost:3000
+GET http://localhost:3000/v1/groups/2/members
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Responses
+## Notes
 
-- **200 OK**: Successfully retrieved the list of group members.
-- **401 Unauthorized**: Authentication failed. Ensure the token is correctly set.
-- **404 Not Found**: The specified group does not exist.
+- Ensure the Bearer token is kept secure and not shared publicly.
+- This API does not require any request body data.
+- Check for status codes and error messages to handle exceptions appropriately.
 
-Use this endpoint to get detailed information about the members of a group quickly and efficiently.
+For further details or questions, refer to the API documentation or contact support.

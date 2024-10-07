@@ -1,41 +1,42 @@
 ---
-title: GetBikesByTopSpeedRange API
+title: GetBikesByTopSpeedRange API Documentation
+meta:
+  - name: "GetBikesByTopSpeedRange"
+  - type: "http"
+  - seq: "6"
 ---
 
-# GetBikesByTopSpeedRange
+## GetBikesByTopSpeedRange
 
-The `GetBikesByTopSpeedRange` API allows you to retrieve a list of bikes within a specified top speed range. This API is accessed via a `GET` request and requires bearer token authentication.
+This API endpoint allows you to retrieve a list of bikes that fall within a specified top speed range.
 
-## Endpoint
+### Endpoint
 
-- **HTTP Method**: GET
 - **URL**: `http://localhost:3000/v1/bikes/get/speed/50/47`
-- **Body**: None
+- **Method**: GET
 
-## Authentication
+### Authorization
 
-This API uses bearer token authentication. You need to include a valid token in the `Authorization` header of your request.
+This endpoint requires Bearer Token authentication.
 
-### Bearer Token
+- **Bearer Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
 
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
+### Request
 
-## Authorization Header Example
+- **URL Parameters**:
+  - The URL parameters define the speed range, in this specific example, the speed range is between 47 and 50.
 
-Include the following header in your request:
+- **Request Body**: None
 
-```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
-```
+### Response
 
-## Sequence
+Upon a successful request, the API will return a JSON response containing a list of bikes that match the given top speed range criteria.
 
-This API is part of a sequence of APIs and is numbered as step `6`.
+### Errors
 
-## Usage
+If the request fails, the response will include an error message detailing the cause of the failure, such as unauthorized access or invalid parameters.
 
-To use this API, make a `GET` request to the endpoint specified, including the required authorization header. The API will return a list of bikes within the top speed range specified in the URL.
+### Notes
 
-For any issues or questions regarding this API, contact the API provider.
+- Ensure your request header contains a valid Bearer token to authenticate the request.
+- The specified speed range is inclusive, meaning bikes with a top speed of 47 or 50 are included in the response list.

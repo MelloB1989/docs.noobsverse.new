@@ -1,39 +1,37 @@
 ---
-title: Update User API
-meta:
-  name: updateUser
-  type: http
-  seq: 4
+title: API Documentation - updateUser
+description: Detailed documentation for the updateUser API endpoint.
 ---
 
-import { Tabs, TabItem } from '@theme/Tabs';
+# updateUser API
 
-# Update User API
+## Overview
 
-The Update User API allows you to modify user details such as age and weight.
+The `updateUser` API endpoint allows clients to update user information. This endpoint is part of a sequence and is identified by `seq: 4`.
 
-## HTTP Request
+### Type
 
-Make a `POST` request to the following URL:
+- **Type:** HTTP
 
-```
-POST http://localhost:3000/v1/user/update
-```
+## Endpoint Details
+
+### Method: POST
+
+- **URL:** `http://localhost:3000/v1/user/update`
+- **Request Format:** JSON
+- **Authentication:** Bearer Token
 
 ## Authentication
 
-This endpoint requires Bearer Token authentication. Use the following token in the `Authorization` header of your request:
+The `updateUser` endpoint requires a bearer token for authentication. Ensure your request includes the following token in the `Authorization` header:
 
-```
+```plaintext
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ## Request Body
 
-The request body should be in JSON format and include the following fields:
-
-<Tabs>
-<TabItem value="JSON" label="JSON" default>
+The request body must include the user's age and weight in JSON format. An example request body is provided below:
 
 ```json
 {
@@ -42,9 +40,18 @@ The request body should be in JSON format and include the following fields:
 }
 ```
 
-</TabItem>
-</Tabs>
+Ensure that the content-type of your request is set to `application/json`.
 
-## Summary
+## Response
 
-When you send a `POST` request to the `/v1/user/update` endpoint with the required authentication and JSON body, you can update the user's information such as age and weight. Ensure that you include the correct authentication token in the `Authorization` header to successfully authenticate your request.
+Upon successful request, the endpoint will return a response confirming the update. The specifics of the response are implementation-dependent and should be checked in the server documentation.
+
+## Usage
+
+To call the `updateUser` endpoint, construct a POST request to the specified URL, include the bearer token in the headers for authorization, and pass the JSON object containing the user's age and weight in the request body.
+
+## Notes
+
+- Ensure that the bearer token is kept secure to prevent unauthorized access.
+- Parameters such as user's age and weight should be appropriately validated before sending the request.
+- Check server response codes and messages for successful operation and error handling.

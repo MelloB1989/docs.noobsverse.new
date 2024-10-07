@@ -4,37 +4,41 @@ title: "getUserGroups API Documentation"
 
 # getUserGroups API
 
-The `getUserGroups` API is used to retrieve the groups associated with a user. This is a HTTP-based API.
+The `getUserGroups` API is an HTTP-based API used to retrieve the groups that a user belongs to. Authorization is required to access this API.
 
-## Overview
+## Request
 
-- **Name**: getUserGroups
-- **Type**: HTTP
-- **API Sequence**: 2
-
-## HTTP GET Request
-
+- **Method**: GET
 - **URL**: `http://localhost:3000/v1/user/groups`
-- **Request Body**: None
-- **Authentication**: Bearer Token
+- **Body**: None
+- **Authentication**: Bearer token
 
 ### Authentication
 
-This API requires a Bearer Token for authentication. 
-
-**Bearer Token**:
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-Ensure your HTTP request includes the token in the `Authorization` header as follows:
+To access this endpoint, a valid bearer token must be provided in the request header. Below is an example of the required authorization header:
 
 ```
-Authorization: Bearer {token}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Replace `{token}` with the actual token provided above when making the HTTP request.
+Ensure that the token used is kept secure and is not shared publicly.
 
-## Conclusion
+## Response
 
-The `getUserGroups` API is an essential endpoint for accessing user group information and requires proper authorization via a bearer token. Make sure to replace the placeholder token with the actual token provided to authenticate successfully.
+On success, the API will return a list of groups associated with the user. The exact structure of the response will depend on the implementation details of the API.
+
+## Example Request
+
+```http
+GET /v1/user/groups HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Error Handling
+
+- **401 Unauthorized**: Returned if the authorization token is missing or invalid.
+
+Please ensure your requests include the correct authorization token to avoid unauthorized errors. 
+
+Use this API responsibly to manage user group data securely.

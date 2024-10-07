@@ -1,44 +1,33 @@
 ---
-title: API Documentation - `getStations`
+title: Get Stations API
 ---
 
-## Overview
+## Meta Information
 
-The `getStations` API is an HTTP service designed to retrieve information about stations. This API does not require any authentication and can be accessed using a simple GET request.
+- **Name:** getStations
+- **Type:** HTTP
+- **Sequence:** 2
 
-- **Name**: `getStations`
-- **Type**: HTTP
-- **Sequence**: 2
+## API Endpoint
 
-## Endpoint
+### GET Request
 
-- **Method**: GET
-- **URL**: `http://localhost:3000/v1/stations/get`
-- **Body**: None
-- **Authentication**: None
+- **URL:** `http://localhost:3000/v1/stations/get`
+- **Body:** None
+- **Authentication:** None
 
-## Headers
+### Required Headers
 
-When making requests to the `getStations` API, include the following header for authorization purposes:
+- **X-Karma-Admin-Auth:** `ajbkbakweiuy387yeuqqwfahdjhsabd`
 
-- `X-Karma-Admin-Auth`: `ajbkbakweiuy387yeuqqwfahdjhsabd`
+## Description
 
-## Usage Example
-
-To use the `getStations` API, perform a GET request to the provided URL with the specified header:
-
-```
-GET /v1/stations/get HTTP/1.1
-Host: localhost:3000
-X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
-```
-
-Make sure the request includes the `X-Karma-Admin-Auth` header with the appropriate token value to ensure proper access to the API.
+The `getStations` API endpoint is used to retrieve a list of stations. It does not require any request body or authentication. However, a specific header is required for the request to be processed.
 
 ## Response
 
-The API will respond with data related to the stations. The response structure and details would depend on the server’s implementation and specific dataset provided by the `getStations` endpoint.
+The response will contain the list of stations available. The exact structure of the response and the data returned can vary depending on the implementation details on the server.
 
-## Conclusion
+## Notes
 
-The `getStations` API provides an easy method to retrieve station data without the need for additional authentication. Ensure the correct header is used in your request for it to be processed successfully.
+Ensure that the correct header is included with your request to successfully interact with this endpoint. Failure to include the `X-Karma-Admin-Auth` header may result in the request being rejected or an unexpected response.

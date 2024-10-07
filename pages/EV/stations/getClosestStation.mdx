@@ -1,74 +1,48 @@
 ---
-title: Get Closest Station API
-apiName: getClosestStation
-apiType: http
-sequence: 4
+title: getClosestStation API
 ---
 
-# Get Closest Station
+## Overview
 
-This API retrieves the closest electric vehicle charging stations based on the provided latitude and longitude.
+The **getClosestStation** API is a part of the HTTP-based services designed to retrieve information about nearby stations based on specified latitude and longitude. This endpoint offers a simple yet effective means of fetching up to a set number of nearby stations.
 
-## HTTP Method
+### Endpoint
 
-`GET`
+- **URL**: `https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby`
+- **Method**: GET
+- **Auth**: None required
 
-## Endpoint
+### Parameters
 
-`https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby`
+The API uses query parameters to determine the search criteria for nearby stations:
 
-## Query Parameters
+- **lat**: Latitude of the location (e.g., `40`)
+- **lon**: Longitude of the location (e.g., `-70`)
+- **limit**: The maximum number of nearby stations to return (e.g., `2`)
 
-- **lat**: Latitude for the location around which to search (e.g., `40`).
-- **lon**: Longitude for the location around which to search (e.g., `-70`).
-- **limit**: Number of stations to return (e.g., `2`).
+Example:
 
-## Request Headers
-
-- **X-Karma-Admin-Auth**: `ajbkbakweiuy387yeuqqwfahdjhsabd` (Authentication token required for accessing the API).
-
-## Request Body
-
-None
-
-## Authentication
-
-No additional authentication is required beyond the header provided.
-
-## Example Request
-
-```http
-GET /v1/stations/get_nearby?lat=40&lon=-70&limit=2 HTTP/1.1
-Host: ev-backend.app.k8s.coffeecodes.in
-X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
+```
+https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby?lat=40&lon=-70&limit=2
 ```
 
-## Example Response
+### Headers
 
-The API will typically return a JSON response with the closest stations based on the provided coordinates. Here is a mock response:
+To access the API, include the following header:
 
-```json
-{
-  "stations": [
-    {
-      "id": "station_1",
-      "name": "Charging Station 1",
-      "latitude": 40.001,
-      "longitude": -70.002,
-      "available_ports": 5
-    },
-    {
-      "id": "station_2",
-      "name": "Charging Station 2",
-      "latitude": 40.002,
-      "longitude": -70.003,
-      "available_ports": 3
-    }
-  ]
-}
+- **X-Karma-Admin-Auth**: Authentication token. Example: `ajbkbakweiuy387yeuqqwfahdjhsabd`
+
+### Response
+
+The API returns a list of the closest stations, limited by the `limit` parameter in the query.
+
+### Usage Example 
+
+Here’s a simple example of how to call the **getClosestStation** API:
+
+```shell
+curl -X GET "https://ev-backend.app.k8s.coffeecodes.in/v1/stations/get_nearby?lat=40&lon=-70&limit=2" \
+  -H "X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd"
 ```
 
-## Additional Notes
-
-- Ensure that the proper authentication token is included in the request headers to access the API.
-- Adjust the query parameters (`lat`, `lon`, `limit`) as per your use case needs to fetch the relevant data.
+This command will return JSON data containing details of up to 2 nearby stations at or near the specified latitude and longitude.

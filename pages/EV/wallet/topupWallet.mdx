@@ -1,34 +1,42 @@
-# API Documentation: Topup Wallet
+---
+title: "Topup Wallet API Documentation"
+---
 
-## Overview
+# Topup Wallet API
 
-The `topupWallet` API allows users to add funds to their wallet. This operation is executed via an HTTP POST request.
+This document provides detailed information about the Topup Wallet API.
 
-- **Type**: HTTP
-- **Sequence**: 3
+## Endpoint Description
 
-## Endpoint
+- **Name:** topupWallet
+- **Type:** HTTP
+- **Sequence:** 3
 
-- **URL**: `http://localhost:3000/v1/wallet/topup`
-- **Method**: POST
+## HTTP Request
+
+- **Method:** POST
+- **URL:** `http://localhost:3000/v1/wallet/topup`
+- **Body Format:** JSON
 
 ## Authentication
 
-This API requires Bearer token authentication. Ensure that you include a valid token in the authorization header while making the request.
+This API requires Bearer Token authentication. Include the following token in your request headers:
 
-Example auth header:
+- **Authorization:** `Bearer <token>`
 
-```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
+### Example Bearer Token
+
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiIwXzZpaGFjanJyIn0.Rf1ZUJpJdBBbep4cGCqwBQ2A8IyETp2UTrnecGHdi6I
 ```
 
 ## Request Body
 
-The body of the request should be in JSON format. It must contain the following field:
+The request body should be in JSON format and include the following field:
 
-- `balance`: The amount to be added to the wallet. It is a string representing the monetary value.
+- **balance:** (string) The amount to top up the wallet.
 
-### Example
+### Example Request Body
 
 ```json
 {
@@ -36,12 +44,4 @@ The body of the request should be in JSON format. It must contain the following 
 }
 ```
 
-## Response
-
-On successful top up, the server will respond with the updated balance and a success message. The specific response structure is not detailed here; refer to API response documentation for more details.
-
-Make sure to handle possible errors, such as authentication failure or invalid balance input, based on your application's requirements and server responses.
-
----
-
-For further details or clarifications, refer to the complete API documentation or contact the API development team.
+Make sure to provide a valid JSON object with the `balance` field when making the POST request to the above URL.

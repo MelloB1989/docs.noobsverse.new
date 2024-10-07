@@ -1,45 +1,59 @@
 ---
-title: Get Station API
+title: "getStation API Documentation"
 ---
 
-# Get Station API
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-This document provides details for the `getStation` API endpoint, used to retrieve information about a specific station.
+# getStation API
+
+This document provides detailed information about the `getStation` API endpoint, which is used to perform a specific operation related to station data retrieval.
 
 ## Meta Information
 
-- **Name**: `getStation`
+- **Name**: getStation
 - **Type**: HTTP
 - **Sequence**: 3
 
-## HTTP Method
-
-This API uses the `GET` HTTP method.
-
 ## Endpoint
 
-```
-http://localhost:3000/v1/stations/get/wxyoqxff83
-```
+### HTTP GET
 
-## Description
+<Tabs>
+  <TabItem value="get" label="GET" default>
 
-The `getStation` API is designed to fetch details about a specific station. No request body or authentication is required to access this endpoint.
+- **URL**: `http://localhost:3000/v1/stations/get/wxyoqxff83`
+- **Method**: GET
+- **Request Body**: None
+- **Authentication**: None required
+
+  </TabItem>
+</Tabs>
 
 ## Request Headers
 
-Although not required for authentication, the following header can be optionally used:
+To access the `getStation` API, the following headers must be included in the request:
 
-- **X-Karma-Admin-Auth**: `ajbkbakweiuy387yeuqqwfahdjhsabd`
+- `X-Karma-Admin-Auth`: `ajbkbakweiuy387yeuqqwfahdjhsabd`
+
+Ensure that you replace the header value as per your environment configuration or requirements.
 
 ## Response
 
-The API will return the details of the requested station. The structure of the response will depend on the implementation specifics, which may include details such as the station's name, location, and operational status.
+The API does not have any documented request body or authentication requirements. However, ensure that the mandatory headers are set as described above before making the request.
 
-## Usage
+### Example Request
 
-To use the `getStation` endpoint, make an HTTP `GET` request to the provided URL. The station identifier (`wxyoqxff83` in this case) should be adjusted to match the specific station you wish to inquire about.
+```http
+GET /v1/stations/get/wxyoqxff83 HTTP/1.1
+Host: localhost:3000
+X-Karma-Admin-Auth: ajbkbakweiuy387yeuqqwfahdjhsabd
+```
+
+### Example Response
+
+The exact structure of the response object or any examples are not provided in this documentation. Please refer to the system's API documentation or backend services for accurate response details.
 
 ---
 
-For further information, refer to the API documentation or contact the API support team.
+For any further assistance on using the `getStation` API, please reach out to the development or API support team.

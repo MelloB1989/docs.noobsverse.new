@@ -4,31 +4,25 @@ type: http
 seq: 1
 ---
 
-# createGroup API
+# CreateGroup API
 
-This API endpoint allows you to create a new group by sending a POST request. Below are the details required to execute this API call.
-
-## HTTP Method
-
-`POST`
+This document describes the `createGroup` API, which is used to create a new group.
 
 ## Endpoint
 
-`http://localhost:3000/v1/groups/create`
+**POST** `http://localhost:3000/v1/groups/create`
 
-## Request Headers
+## Authentication
 
-- **Authorization**: Bearer token required
+This API requires Bearer Token authentication. Include the following token in your request header:
 
-  **Token**: 
-
-  ```
-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-  ```
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
 
 ## Request Body
 
-The body of the request should be in JSON format and must include the following fields:
+The request body should be in JSON format and include the following fields:
 
 ```json
 {
@@ -37,13 +31,7 @@ The body of the request should be in JSON format and must include the following 
 }
 ```
 
-### Fields
+- `name` (string): The name of the group.
+- `description` (string): A brief description of the group's purpose or mission.
 
-- **name**: A string representing the name of the group.
-- **description**: A string providing a brief description of the group's purpose.
-
-## Authentication
-
-This API uses bearer token authentication. Ensure your requests include a valid bearer token in the request header to successfully authenticate. 
-
-Make sure to replace the example token with a valid one in a real scenario.
+Ensure the request body is correctly structured as JSON when making the API call.

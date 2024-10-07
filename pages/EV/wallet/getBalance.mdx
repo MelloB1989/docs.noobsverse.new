@@ -1,39 +1,48 @@
 ---
-title: "Get Balance API"
+title: Get Balance API
 ---
 
 ## Overview
 
-The **Get Balance** API is part of the wallet service suite. It provides functionality to retrieve the current balance of a specific wallet.
+The `getBalance` API is a part of the HTTP-based services that allow users to retrieve their wallet balance information.
 
-- **API Name:** getBalance
-- **Type:** HTTP
-- **Sequence:** 2
+## Sequence
 
-## Endpoint Details
+- **Sequence Number**: 2
 
-### HTTP GET Request
+## Endpoint Information
 
-- **URL:** `http://localhost:3000/v1/wallet/get`
-- **Request Body:** None
-- **Authentication:** Bearer Token
+- **Type**: HTTP
+- **Method**: GET
+- **URL**: `http://localhost:3000/v1/wallet/get`
+- **Request Body**: None
 
 ## Authentication
 
-The API requires a Bearer token for authentication. Ensure you include the following token in your request headers:
+This API requires Bearer Token authentication.
 
-```plaintext
+### Bearer Token
+
+To authenticate requests, you'll need to include a bearer token in the request header. The token format is as follows:
+
+- **Authorization Header**: `Bearer <token>`
+
+Example token:
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
+```
+
+## Example Request
+
+Below is an example of how to make a request to the `getBalance` endpoint using a bearer token:
+
+```http
+GET /v1/wallet/get HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4
 ```
 
-## Usage Example
+## Conclusion
 
-When making a request to get the balance, use the following cURL command:
-
-```bash
-curl -X GET "http://localhost:3000/v1/wallet/get" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJyMmt2bzNqaGE1In0.pXhPxKd4kX1l80jbgNsJD233cYkIQMG9dJA8yM_PON4"
-```
-
-## Response
-
-A successful response returns the current balance details of the wallet. Ensure you have the proper permissions and a valid token to access this endpoint successfully.
+The `getBalance` API enables the retrieval of wallet balance by using a simple HTTP GET request, secured via bearer token authentication. Ensure the token is valid and included in each request to successfully access the balance information.

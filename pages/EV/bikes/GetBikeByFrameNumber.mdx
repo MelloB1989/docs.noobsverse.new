@@ -4,27 +4,46 @@ title: GetBikeByFrameNumber API Documentation
 
 # GetBikeByFrameNumber API
 
-The `GetBikeByFrameNumber` API allows you to retrieve information about a bike using its frame number.
+The `GetBikeByFrameNumber` API allows you to retrieve information about a bike using its frame number. The API uses HTTP for communication and requires bearer token authentication.
 
-## API Sequence
+## Endpoint
 
-- **Sequence**: 4
+### HTTP Request
 
-## HTTP Request
+`GET http://localhost:3000/v1/bikes/get/frame/{frameNumber}`
 
-### GET
-
-- **URL**: `http://localhost:3000/v1/bikes/get/frame/FR123456789`
-- **Method**: `GET`
-- **Request Body**: None
+- Replace `{frameNumber}` with the actual frame number of the bike you are querying. For example, `FR123456789`.
 
 ### Authentication
 
-- **Type**: Bearer Token
-- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
+This endpoint requires a bearer token for authentication. You must include the token in the `Authorization` header of your HTTP request.
 
-## Description
+#### Bearer Token
 
-This endpoint retrieves data related to a bike identified by its unique frame number `FR123456789`. The request must include a valid bearer token to authorize access to the bike's data.
+Below is an example of an authorization token. Ensure you replace it with a valid token that you have:
 
-Make sure to replace the frame number and token with the actual data you need to query and authenticate your requests.
+```plaintext
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
+
+### Request Body
+
+This endpoint does not require a request body. All necessary information is provided in the URL and authorization header.
+
+## Example Request
+
+```http
+GET /v1/bikes/get/frame/FR123456789 HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer YOUR_BEARER_TOKEN
+```
+
+## Summary
+
+- **API Name**: GetBikeByFrameNumber
+- **Type**: HTTP
+- **Sequence**: 4
+- **Method**: GET
+- **Authentication**: Bearer Token
+
+This API is designed to be simple and requires only the frame number of the bike and proper authentication to function. Make sure to handle the token securely and do not expose it in unsecured environments.

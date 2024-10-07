@@ -1,27 +1,27 @@
 ---
-title: Signup API
-description: Documentation for the Signup API endpoint.
-tags:
-  - signup
-  - authentication
-  - API
+title: Signup API Documentation
 ---
 
 # Signup API
 
-The Signup API allows users to create a new account by providing necessary personal details and account credentials.
+The Signup API allows users to create a new account by providing their personal information and credentials. This API endpoint handles the registration process.
 
-## Endpoint
+## Endpoint Overview
 
-### POST
+- **Name**: Signup
+- **Type**: HTTP
+- **Sequence**: 3
 
+## HTTP Request
+
+- **Method**: POST
 - **URL**: `http://localhost:3000/v1/auth/signup`
 - **Body Format**: JSON
 - **Authentication**: None required
 
 ## Request Body
 
-The following JSON object should be sent in the body of the request:
+The following JSON payload should be included in the body of the request:
 
 ```json
 {
@@ -40,27 +40,21 @@ The following JSON object should be sent in the body of the request:
 }
 ```
 
-### Fields
+### Parameters
 
-- **phone**: The user's phone number for verification.
-- **otp**: One-time password for authentication.
-- **email**: User's email address.
-- **first_name**: The first name of the user.
-- **last_name**: The last name of the user.
-- **date_of_birth**: The user's date of birth in `DD/MM/YYYY` format.
-- **password**: Password for the new account.
-- **type**: User type, can be `student`.
-- **employee_id**: Optional. The employee identification number, if applicable.
-- **company**: Optional. The company the user is affiliated with, if applicable.
-- **college**: The college the user is attending or affiliated with.
-- **student_id**: The student identification number.
+- **phone**: The user's phone number, including the country code (e.g., `+918266187862`).
+- **otp**: The One Time Password (OTP) sent to the user's phone.
+- **email**: The user's email address.
+- **first_name**: The user's first name.
+- **last_name**: The user's last name.
+- **date_of_birth**: The user's date of birth, formatted as `DD/MM/YYYY`.
+- **password**: The user's chosen password for the account.
+- **type**: The type of user account. Possible value is `"student"`.
+- **employee_id**: The employee ID, if applicable. Empty for students.
+- **company**: The company name, if applicable. Empty for students.
+- **college**: The user's college name (e.g., `"AU"` for Andhra University).
+- **student_id**: The student's identification number.
 
 ## Response
 
-The response will confirm the successful creation of the account or provide error details if the signup fails. 
-
-## Notes
-
-- Ensure that the OTP is valid and matches the one sent to the phone number provided.
-- Validate the password strength according to your application's password policy.
-- Required fields must be filled out; optional fields can be left empty if not applicable.
+This section should detail what response to expect from the server after a successful request, typically including information about the status code and any JSON payload returned. Ensure this is implemented on the server side and documented accordingly.

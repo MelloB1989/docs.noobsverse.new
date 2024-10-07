@@ -1,39 +1,46 @@
 ---
-title: API Documentation for `getMyTrips`
+title: "getMyTrips API Documentation"
 ---
 
-# `getMyTrips` API
+## Overview
 
-The `getMyTrips` API fetches the list of trips for the authenticated user.
+The `getMyTrips` API allows clients to retrieve a list of their trips. This is an HTTP API that requires authentication via a bearer token.
 
-## Endpoint Information
-
-- **Type:** HTTP
-- **Sequence:** 3
-
-## HTTP GET Request
+## Endpoint
 
 - **URL:** `http://localhost:3000/v1/trips/mytrips`
 - **Method:** GET
-- **Request Body:** None
+- **Authentication:** Bearer token
 
 ## Authentication
 
-This endpoint requires Bearer token authentication. Include the following token in the `Authorization` header of your HTTP request:
+The API requires a bearer token to be included in the request header for authentication. Below is an example token:
 
-```plaintext
+```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Notes
+:::warning
+The above token is an example and should not be used in a production environment. Ensure to replace it with a valid token.
+:::
 
-- Ensure your application has the required permissions to access this endpoint.
-- The token provided is sensitive and should be securely handled.
+## Request Details
 
-## Example Request
+- **HTTP Method:** GET
+- **URL:** `/v1/trips/mytrips`
+- **Headers:**
+  - `Authorization: Bearer <your_token>`
 
-```http
-GET /v1/trips/mytrips HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+## Request Body
+
+No request body is needed for this API.
+
+## Response
+
+Upon successful authentication, the API will respond with a list of trips associated with the authenticated user. The response format and content may vary based on implementation.
+
+## Sequence
+
+This API call has a sequence number of `3`, which could be relevant if calling multiple APIs in a particular order is required.
+
+Ensure to handle all potential errors appropriately, such as incorrect tokens or server errors, to provide a smooth user experience.

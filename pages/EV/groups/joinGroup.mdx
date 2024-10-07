@@ -1,47 +1,32 @@
 ---
-title: Join Group API
+title: API Documentation - joinGroup
 ---
 
-# Join Group API
+## Endpoint: joinGroup
 
-This document provides the details for the `joinGroup` API, which allows a user to join a specific group.
+**Type**: HTTP  
+**Sequence**: 2
 
-## Metadata
+### POST Request
 
-- **Name:** joinGroup
-- **Type:** HTTP
-- **Sequence:** 2
+**URL**: `http://localhost:3000/v1/groups/vDLvtaMVs7zAVXZWkX0lL/join`  
+**Request Body**: None
 
-## Endpoint
+### Authorization
 
-This API uses a HTTP POST request.
+This endpoint requires Bearer token authentication.
 
-- **URL:** `http://localhost:3000/v1/groups/vDLvtaMVs7zAVXZWkX0lL/join`
-- **Method:** POST
+**Authorization Method**: Bearer  
+**Token**: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 
-## Request
+### Description
 
-### Body
+The `joinGroup` API is used to join a specific group identified by its ID `vDLvtaMVs7zAVXZWkX0lL`. You must provide a valid Bearer token in the Authorization header to access this endpoint.
 
-- **Body:** None
+### Usage
 
-### Authentication
+To join the group, send a POST request to the specified URL with the Bearer token included in the Authorization header. The request does not require a body. Ensure the token is kept secure and not exposed in your client-side applications.
 
-This API requires Bearer token authentication.
+---
 
-- **Type:** Bearer Token
-- **Token:** 
-  ```
-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-  ```
-
-## Usage
-
-To use this API, make a POST request to the specified URL, including the bearer token in the request headers for authorization. No body content is needed for this request.
-
-- **Authorization Header:**
-  ```
-  Authorization: Bearer <token>
-  ```
-
-Replace `<token>` with the actual bearer token provided.
+This documentation provides the necessary information to authenticate and access the `joinGroup` endpoint. Make sure to replace the sample token with a dynamic one from your authentication server for production use.

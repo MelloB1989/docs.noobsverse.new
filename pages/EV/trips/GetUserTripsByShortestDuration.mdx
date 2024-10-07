@@ -1,55 +1,53 @@
 ---
-name: GetUserTripsByShortestDuration
-type: http
-seq: 9
+title: GetUserTripsByShortestDuration API Documentation
 ---
 
 # GetUserTripsByShortestDuration
 
-Retrieves a list of user trips ordered by the shortest duration.
+## Overview
 
-## HTTP Request
+The `GetUserTripsByShortestDuration` API endpoint retrieves a list of user trips sorted by the shortest duration. This documentation provides details on how to use this API endpoint.
 
-### GET
+## Endpoint Details
 
-`http://localhost:3000/v1/trips/duration/shortest?limit=10`
-
-## Query Parameters
-
-- `limit` (optional, default: 10): The maximum number of trips to return.
+- **Type**: HTTP
+- **Method**: `GET`
+- **URL**: `http://localhost:3000/v1/trips/duration/shortest?limit=10`
+- **Authentication**: Bearer Token
 
 ## Authentication
 
-This endpoint requires a bearer token for authentication.
+This API requires a Bearer Token for authentication. The token should be included in the Authorization header of the HTTP request.
 
 ### Bearer Token
 
-```
+```plaintext
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Ensure to include this token in the `Authorization` header of your request:
+## Request Parameters
 
-```
-Authorization: Bearer <token>
-```
+### Query Parameters
 
-Replace `<token>` with the provided token string for access.
+- **limit**: *(integer)* The maximum number of trips to return. Default value is `10`.
+
+## Request Example
+
+```http
+GET /v1/trips/duration/shortest?limit=10 HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
 
 ## Response
 
-Returns a JSON array of trips, each containing trip details ordered by the shortest duration.
+The response will include a JSON object with a list of trips sorted by the shortest duration.
 
-## Example Curl Request
+## Status Codes
 
-```bash
-curl -X GET "http://localhost:3000/v1/trips/duration/shortest?limit=10" \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
-```
+- **200 OK**: The request was successful, and the response body contains the list of trips.
+- **401 Unauthorized**: The request lacks valid authentication credentials.
+- **400 Bad Request**: The request parameters are invalid.
+- **500 Internal Server Error**: An error occurred on the server.
 
-## Additional Information
-
-- Ensure your token is kept secret and secure. If compromised, regenerate and update it immediately.
-- If the `limit` query parameter is omitted, the default value of 10 will be used.
-
-For further clarification or issues, please contact the API support team.
+Please ensure that your request includes the necessary bearer token and query parameters to successfully retrieve the trips.

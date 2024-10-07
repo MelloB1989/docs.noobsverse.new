@@ -1,40 +1,35 @@
 ---
-title: API Documentation for `getUserGroupData`
+title: API Documentation - getUserGroupData
 ---
+
+# getUserGroupData
 
 ## Overview
 
-The `getUserGroupData` API is an HTTP GET request designed to retrieve data related to user groups.
+The `getUserGroupData` API endpoint retrieves data about a specific user group. It is an HTTP GET endpoint that requires authentication.
 
-### Sequence
+## HTTP Method
 
-- This API call is part of a sequence and is indexed as #3.
+- **Type**: `GET`
 
-## HTTP Request
+## Endpoint
 
-- **Method**: GET
 - **URL**: `http://localhost:3000/v1/user/groups/data`
-
-### Query Parameters
-
-- `group_id`: A required query parameter to specify the ID of the group for which data is being requested.
-  - **Example**: `group_id=2`
+- **Description**: This endpoint returns data related to a user group specified by the `group_id`.
 
 ## Authentication
 
-- The `getUserGroupData` API requires Bearer token authentication.
+- **Type**: Bearer Token
+- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
-### Bearer Token
+## Query Parameters
 
-Include the following Bearer token in the Authorization header of your request:
+- **group_id**: `2`
+  - **Description**: The ID of the user group for which data is being requested.
 
-```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
+## Request Example
 
-## Example Request
-
-```plaintext
+```http
 GET /v1/user/groups/data?group_id=2 HTTP/1.1
 Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
@@ -42,4 +37,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4M
 
 ## Response
 
-The response will typically include the data related to the specified user group. The specific structure of the response will depend on the implementation details of the API server.
+- **Content-Type**: `application/json`
+- **Description**: The response will contain JSON data with information about the specified user group.
+
+## Notes
+
+- Ensure that the bearer token provided in the request header is valid, as it is required for authentication.
+- This endpoint does not accept a request body. 
+
+## Sequence
+
+- **Sequence**: 3 in the API call sequence.

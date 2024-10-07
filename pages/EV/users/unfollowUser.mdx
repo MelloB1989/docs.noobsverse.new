@@ -1,56 +1,30 @@
----
-title: unfollowUser API
----
+# unfollowUser API
 
-## Description
+## Overview
 
-The `unfollowUser` API endpoint allows a user to unfollow another user. This endpoint is part of the user management system and requires authentication via a bearer token.
+The `unfollowUser` API allows a client to unfollow a user by making an HTTP GET request. Authentication is required via a Bearer token.
 
-## Endpoint Information
+- **Type:** HTTP
+- **Sequence:** 6
 
-- **Type**: HTTP
-- **Sequence**: 6
+## Endpoint
 
-## HTTP Method
+### GET Request
 
-- **GET**
+- **URL:** `http://localhost:3000/v1/user/unfollow/{user_id}`
 
-## Endpoint URL
+  Replace `{user_id}` with the actual user ID to unfollow (e.g., `-sx7zvg7n1`).
 
-```
-http://localhost:3000/v1/user/unfollow/-sx7zvg7n1
-```
+- **Body:** None
+
+- **Authentication:** Bearer token is required.
 
 ## Authentication
 
-This endpoint requires a bearer token for authentication. Include the token in the request header as follows:
+The API uses Bearer token authentication. Include the following token in the `Authorization` header of your request:
 
-- **Authorization**: `Bearer {token}`
-
-Example of a bearer token:
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-## Request Body
-
-This endpoint does not require a request body.
-
-## Example Request
-
-```http
-GET /v1/user/unfollow/-sx7zvg7n1 HTTP/1.1
-Host: localhost:3000
+```plaintext
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Response
-
-The API will respond with appropriate status codes to indicate the result of the unfollow operation. For example:
-
-- **200 OK**: The request was successful, and the user has been unfollowed.
-- **401 Unauthorized**: Authentication failed, possibly due to an invalid or expired token.
-- **404 Not Found**: The specified user to unfollow does not exist. 
-
-Ensure to handle these response statuses when integrating this endpoint into your application.
+Make sure to keep the token secure and rotate it regularly as part of best security practices.

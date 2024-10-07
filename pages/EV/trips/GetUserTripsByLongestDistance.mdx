@@ -1,54 +1,53 @@
 ---
-title: GetUserTripsByLongestDistance API Documentation
+title: GetUserTripsByLongestDistance
+type: HTTP
+sequence: 6
 ---
 
-## Overview
+# GetUserTripsByLongestDistance API Documentation
 
-The `GetUserTripsByLongestDistance` API endpoint retrieves a list of user trips sorted by the longest distance. This endpoint is useful for fetching trips based on distance, providing insights into user travel patterns.
+This documentation provides details on the `GetUserTripsByLongestDistance` API. It is an HTTP-based API that retrieves user trips sorted by the longest distance.
 
-## HTTP Method and URL
+## HTTP Method
 
-- **Method**: `GET`
-- **URL**: `http://localhost:3000/v1/trips/distance/longest?limit=10`
+**GET**
 
-## Authentication
-
-This endpoint requires Bearer token authentication. Include the following token in the Authorization header:
+## Endpoint
 
 ```
+http://localhost:3000/v1/trips/distance/longest
+```
+
+### Query Parameters
+
+- **limit**: Specifies the maximum number of trips to return.  
+  - **Default value**: 10
+
+### Request Headers
+
+- **Authorization**: This API requires a Bearer token for authentication.
+  - Example token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
+
+### Request Body
+
+- None
+
+## Usage
+
+To retrieve user trips sorted by the longest distance, send a GET request to the endpoint with the necessary query parameter and authorization header.
+
+### Example Request
+
+```http
+GET /v1/trips/distance/longest?limit=10 HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Query Parameters
-
-- **limit**: Optional. Defines the number of trips to return. Default is `10`.
-
-Example: `?limit=10`
-
-## Request Body
-
-This endpoint does not require a request body.
-
 ## Response
 
-The response will include a JSON array of trips, sorted by distance in descending order.
+The response will be a JSON object containing a list of trips sorted by distance in descending order, limited by the specified number.
 
-```json
-[
-  {
-    "tripId": "string",
-    "distance": "number",
-    "startLocation": "string",
-    "endLocation": "string",
-    "date": "string"
-  }
-  // additional trip objects
-]
-```
+---
 
-## Notes
-
-- Ensure that the bearer token is valid and not expired, as this is required to authenticate and authorize the request.
-- Adjust the `limit` query parameter based on the number of trips you want returned in the response. The default is set to 10 if no value is specified.
-  
-This documentation provides all necessary details to successfully call the `GetUserTripsByLongestDistance` API endpoint. If you encounter any issues, please verify the token validity and the correct setting of the `limit` parameter.
+By following this documentation, you can efficiently use the `GetUserTripsByLongestDistance` API to access user trip data. Make sure to replace the example bearer token with a valid one when making requests.

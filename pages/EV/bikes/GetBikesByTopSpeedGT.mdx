@@ -1,70 +1,49 @@
 ---
-title: GetBikesByTopSpeedGT API Documentation
+name: GetBikesByTopSpeedGT
+type: HTTP
+sequence: 8
 ---
 
-# GetBikesByTopSpeedGT
+# GetBikesByTopSpeedGT API
 
-## Description
+This document provides the details for accessing the `GetBikesByTopSpeedGT` API. This API endpoint retrieves a list of bikes with a top speed greater than a specified value.
 
-The `GetBikesByTopSpeedGT` API endpoint retrieves a list of bikes with a top speed greater than a specified value. This API is useful for filtering bikes based on speed criteria.
+## Endpoint Information
 
-## Endpoint
-
-- **Type**: `GET`
+- **Method**: `GET`
 - **URL**: `http://localhost:3000/v1/bikes/get/speed_gt/50`
 
-## Authentication
+## Authorization
 
-This API requires Bearer Token authentication.
+This endpoint requires Bearer Token authentication. Ensure you include the following token in your request header.
 
-- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
+### Authorization Header
 
-Include the following in the `Authorization` header of your request:
+- **Authorization**: `Bearer [Your_Bearer_Token]`
+
+Replace `[Your_Bearer_Token]` with the actual token provided:
 
 ```
-Authorization: Bearer <token>
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
-
-Replace `<token>` with the actual token provided.
 
 ## Request
 
-- **HTTP Method**: `GET`
-- **Body**: No body required
-- **Authentication Method**: Bearer Token is required in the request header.
+No request body is needed for this endpoint.
 
 ## Response
 
-Upon success, the API will return a JSON response containing the list of bikes with top speeds greater than the specified value.
+On success, the API will return a list of bike objects that have a top speed greater than the specified value.
 
-## Example
+Remember to handle any HTTP status codes and potential errors as part of the client-side logic when integrating with this API.
 
-### Request
+## Usage Example
 
-```http
-GET /v1/bikes/get/speed_gt/50 HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+Below is an example of how you might call this endpoint using `curl`:
+
+```bash
+curl -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0" \
+http://localhost:3000/v1/bikes/get/speed_gt/50
 ```
 
-### Response
-
-```json
-[
-  {
-    "id": "bike1",
-    "name": "Speedster 3000",
-    "top_speed": 55
-  },
-  {
-    "id": "bike2",
-    "name": "FastRider 200",
-    "top_speed": 60
-  }
-]
-```
-
-## Notes
-
-- Ensure your bearer token is up-to-date and valid.
-- The current implementation only filters by a fixed speed of 50. Adjust the API as needed to specify different speed thresholds.
+This command sends a `GET` request to the specified URL with the necessary authorization token.

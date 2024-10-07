@@ -1,42 +1,45 @@
 ---
-title: GetUserTripsByFastestSpeed API Documentation
+name: GetUserTripsByFastestSpeed
+type: HTTP API
+sequence: 10
 ---
 
-## Overview
+# GetUserTripsByFastestSpeed API
 
-The `GetUserTripsByFastestSpeed` API endpoint retrieves a list of user trips sorted by fastest speed. This endpoint is part of version 1 of the API and adheres to HTTP protocol standards.
+This endpoint retrieves a list of user trips sorted by the fastest speed achieved. The data is limited to a specified number of trips.
 
-## Endpoint Details
+## HTTP Request
 
-- **Type**: HTTP
-- **Sequence**: 10
+### GET
+
+`GET http://localhost:3000/v1/trips/speed/fastest?limit=10`
+
 - **URL**: `http://localhost:3000/v1/trips/speed/fastest`
-
-## HTTP Method
-
-- **GET**
-
-## Query Parameters
-
-- **limit**: (optional) Number of records to return. Default is `10`.
-
-  Example:
-  ```
-  ?limit=10
-  ```
+- **Method**: `GET`
+- **Query Parameter**: `limit`
+  - **Type**: Integer
+  - **Default**: 10
 
 ## Authentication
 
-This endpoint requires Bearer Token authentication. You must include a valid token in the Authorization header of your request:
+This endpoint requires Bearer Token authentication.
 
-- **Authorization Header**: `Bearer <your_token>`
+### Bearer Token
 
-Example token:
+Ensure to include a valid Bearer Token in the request headers:
+
+```plaintext
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
 
-## Request Example
+## Query Parameters
+
+- **limit**: Limits the number of trips returned.
+  - **Required**: No
+  - **Default Value**: 10
+  - **Example**: `?limit=5`
+
+## Example Request
 
 ```http
 GET /v1/trips/speed/fastest?limit=10 HTTP/1.1
@@ -44,11 +47,4 @@ Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Response
-
-The response is a JSON array of trips, each object containing details about a user's trip and the speed data.
-
-## Additional Notes
-
-- Ensure the bearer token is kept secure and not exposed in public environments.
-- The endpoint's behavior with regards to data fidelity and consistency can vary based on the current load and state of the data back-end.
+Make sure to replace the token with a valid one and adjust the limit if you require a different number of trips.

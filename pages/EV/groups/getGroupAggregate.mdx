@@ -1,58 +1,49 @@
 ---
-title: Get Group Aggregate API
+title: Get Group Aggregate
 ---
 
-import { APIMeta } from '../components/APIMeta';
+# Get Group Aggregate
 
-<APIMeta 
-  name="getGroupAggregate"
-  type="HTTP"
-  sequence="7"
-/>
+The `getGroupAggregate` API is an HTTP endpoint used to retrieve aggregate data for a specific group.
 
-## Overview
+## Endpoint Information
 
-This document describes the `getGroupAggregate` API endpoint, which is used to retrieve aggregate data for a specific group. This endpoint requires authentication via a Bearer token.
+- **Type**: HTTP GET
+- **Endpoint**: `/v1/groups/2/aggregate`
 
-## HTTP Request
+## URL
 
-### GET
-
-`GET http://localhost:3000/v1/groups/2/aggregate`
-
-- **Authorization:** Bearer token
+```http
+http://localhost:3000/v1/groups/2/aggregate
+```
 
 ## Authentication
 
-To access this API endpoint, you need to include an authorization header with a valid Bearer token. The format of the header is:
+This endpoint requires Bearer token authentication. Ensure that you include the following token in the Authorization header of your request.
 
-```
-Authorization: Bearer <token>
-```
+### Bearer Token
 
-### Example Token
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```plaintext
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Request Parameters
+## Request
 
-- **URL Parameters:** None
-- **Request Body:** None
+- **Method**: `GET`
+- **Body**: None required.
+
+Make sure to set the appropriate Authorization header with the Bearer token when making requests.
+
+## Example Request
+
+```http
+GET /v1/groups/2/aggregate HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
 
 ## Response
 
-On a successful request, the server will return a JSON response containing the aggregate data for the specified group. The exact structure of the response will depend on the data available for the group.
+The response will contain the aggregated data of the specified group. The details of the response structure will depend on how the server is configured to return the data.
 
-## Error Handling
-
-In case of an error, the server will return an appropriate error message and HTTP status code. Possible errors include:
-
-- **401 Unauthorized:** If the provided token is missing or invalid.
-- **404 Not Found:** If the group ID does not exist.
-- **500 Internal Server Error:** If there is a problem on the server side.
-
-## Conclusion
-
-The `getGroupAggregate` API endpoint is a secure way to retrieve aggregated metrics for a particular group. Proper authentication with a Bearer token is crucial to access this resource.
+Please refer to the server documentation for specifics regarding the response format.

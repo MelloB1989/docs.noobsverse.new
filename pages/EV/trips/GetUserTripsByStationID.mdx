@@ -1,37 +1,39 @@
 ---
-title: GetUserTripsByStationID API Documentation
+title: GetUserTripsByStationID
+type: HTTP API
+sequence: 4
 ---
 
-## Overview
+# API: GetUserTripsByStationID
 
-The `GetUserTripsByStationID` API endpoint allows you to retrieve user trips associated with a specific station ID. This API is part of a collection of HTTP-based services.
+This API retrieves user trips associated with a specific station ID. It requires authentication via a Bearer token.
 
-## Endpoint Details
-
-- **Type**: HTTP
-- **Sequence**: 4
-
-### HTTP Method: GET
+## Endpoint
 
 - **URL**: `http://localhost:3000/v1/trips/station/a2m392c58f`
-- **Request Body**: None
+- **Method**: GET
 
-### Authentication
+## Authentication
 
-This endpoint requires Bearer Token authentication.
-
-- **Authorization Method**: Bearer token
-- **Bearer Token Example**:
-
+- **Type**: Bearer
+- **Token**: 
   ```
   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
   ```
+  
+  Ensure to replace this token with a valid one if it is used in a different context.
 
-## Usage
+## Request
 
-To successfully make a request to this endpoint, include the Bearer token in the `Authorization` header of your HTTP request.
+- **Body**: None
 
-### Example Request
+## Response
+
+The response will contain the details of the user's trips associated with the specified station ID. The structure of the response will vary based on the implementation and is typically in JSON format.
+
+## Example
+
+### Request
 
 ```http
 GET /v1/trips/station/a2m392c58f HTTP/1.1
@@ -39,4 +41,31 @@ Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-Please replace the example bearer token with a valid token obtained through your authentication process.
+### Response
+
+```json
+{
+  "trips": [
+    {
+      "tripId": "trip1",
+      "startTime": "2023-10-01T08:00:00Z",
+      "endTime": "2023-10-01T09:00:00Z",
+      "stationId": "a2m392c58f",
+      "userId": "5geapgapxs"
+    },
+    {
+      "tripId": "trip2",
+      "startTime": "2023-10-02T10:00:00Z",
+      "endTime": "2023-10-02T11:00:00Z",
+      "stationId": "a2m392c58f",
+      "userId": "5geapgapxs"
+    }
+  ]
+}
+```
+
+## Notes
+
+- Ensure that the Bearer token is kept secure and is not exposed publicly.
+- Make sure to change the station ID in the URL if querying a different station.
+- Handle different response scenarios such as 404 Not Found or 401 Unauthorized within your application logic.

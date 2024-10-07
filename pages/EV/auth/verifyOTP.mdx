@@ -1,32 +1,32 @@
 ---
-title: Verify OTP API
+title: "verifyOTP API"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+# verifyOTP API
+
 ## Overview
 
-The `verifyOTP` endpoint is used to verify the OTP (One Time Password) for a given phone number. This is part of the authentication process.
-
-## Endpoint
-
-- **Type**: HTTP
-- **Sequence**: 2
+The `verifyOTP` API is used to verify a one-time password (OTP) sent to a user's phone number. This is typically part of an authentication process to ensure secure and verified access.
 
 ## HTTP Request
 
-### Method: POST
-
+- **Method**: POST
 - **URL**: `http://localhost:3000/v1/auth/verify_otp`
-
-### Authentication
-
-- **Auth**: None
+- **Authentication**: None required
 
 ## Request Body
 
-The request body should be in JSON format. The following parameters must be included:
+The body of the request should be in JSON format and must contain the following parameters:
+
+| Parameter | Type   | Description                      |
+|-----------|--------|----------------------------------|
+| `phone`   | string | The user's phone number including country code. Example: `+919812940706`. |
+| `otp`     | string | The OTP received by the user. Example: `815897`. |
+
+### Example Request Body
 
 ```json
 {
@@ -35,34 +35,20 @@ The request body should be in JSON format. The following parameters must be incl
 }
 ```
 
-| Parameter | Type   | Description                |
-|-----------|--------|----------------------------|
-| `phone`   | String | The phone number with country code to verify the OTP for. |
-| `otp`     | String | The OTP (One Time Password) to be verified for the phone number. |
+## Sequence
 
-## Example Usage
-
-Here's an example on how to use the `verifyOTP` endpoint:
-
-<Tabs>
-  <TabItem value="bash" label="curl" default>
-
-```bash
-curl -X POST http://localhost:3000/v1/auth/verify_otp \
-  -H "Content-Type: application/json" \
-  -d '{
-    "phone": "+919812940706",
-    "otp": "815897"
-  }'
-```
-
-  </TabItem>
-</Tabs>
+This API request is the second step in the authentication sequence.
 
 ## Response
 
-The response structure will depend on the server implementation, typically indicating success or failure of OTP verification. Always ensure to check the API's specific documentation for response details.
+The response will depend on the implementation and isn't specified here, but it typically indicates whether the OTP verification was successful or not.
 
----
+## Usage
 
-Ensure to replace example values with actual data when implementing this in a production environment.
+To use the verifyOTP endpoint, ensure that you have the correct phone number and OTP that corresponds to a previously initiated authentication session. This typically follows a process where an OTP was sent to the user's phone number via an SMS or another channel.
+
+Ensure your request is correctly formatted in JSON and sent via a POST method to the specified URL.
+
+## Error Handling
+
+Errors may include invalid OTP, expired OTP, or wrong phone number format. Proper error messages should guide the endpoint consumer to rectify the request data.

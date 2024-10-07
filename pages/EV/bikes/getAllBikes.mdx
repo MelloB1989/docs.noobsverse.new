@@ -1,71 +1,50 @@
 ---
-name: getAllBikes
-type: http
-sequence: 3
+title: "getAllBikes API Documentation"
 ---
 
-# API Documentation: getAllBikes
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-The `getAllBikes` API endpoint allows you to retrieve a list of all bikes available in the system. This is an HTTP GET request that requires bearer token authentication.
+# getAllBikes API
 
-## Endpoint Details
+The `getAllBikes` API allows you to retrieve all available bike data from the server. It is a simple HTTP GET request that requires bearer token authentication.
 
-- **HTTP Method**: GET
-- **URL**: `http://localhost:3000/v1/bikes/get`
+## API Endpoint
+
+- **URL:** `http://localhost:3000/v1/bikes/get`
+- **Method:** `GET`
+- **Authentication:** Bearer Token
 
 ## Authentication
 
-This endpoint requires a bearer token for authentication. You must include the token in the request header to successfully access the endpoint.
+To use the `getAllBikes` API, you must include a bearer token in the request header for authentication purposes. Below is the bearer token you should use:
 
-- **Authentication Type**: Bearer Token
-- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0`
-
-## Request
-
-The request to this endpoint does not require a request body. All necessary authentication must be provided via the bearer token in the request headers.
-
-## Response
-
-A successful response will typically contain a list of bike objects. The structure and details of these objects depend on the server's exact implementation and data schema.
+```plaintext
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
+```
 
 ## Example Request
 
-```http
+Ensure your request includes the Authorization header:
+
+```plaintext
 GET /v1/bikes/get HTTP/1.1
 Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-Ensure that you replace the provided token with a valid one issued by your authentication server, as this example token might be expired or invalid for your use.
+## Parameters
 
-## Example Response
+This API does not require any body parameters.
 
-A successful response might look like this:
+## Sequence
 
-```json
-HTTP/1.1 200 OK
-Content-Type: application/json
+This API is the third in sequence for the bike-related operations.
 
-[
-  {
-    "id": "bike_123",
-    "model": "Mountain Master",
-    "brand": "CyclePro",
-    "available": true
-  },
-  {
-    "id": "bike_456",
-    "model": "City Explorer",
-    "brand": "Urban Bikes",
-    "available": false
-  }
-]
-```
+## Response
 
-## Error Handling
+The `getAllBikes` API will respond with a list of all bikes available on the server. The format and structure of the response may vary depending on the server implementation. Typically, it should be in JSON format, providing the necessary details for each bike.
 
-Should the request fail, possible error responses include:
+---
 
-- **401 Unauthorized**: Invalid or missing authentication token.
-- **404 Not Found**: If the endpoint does not exist.
-- **500 Internal Server Error**: If an unexpected error occurs on the server side.
+Make sure to replace `localhost:3000` with the correct server domain when deploying or testing in different environments.

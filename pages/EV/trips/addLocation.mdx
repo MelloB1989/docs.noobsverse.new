@@ -1,27 +1,40 @@
 ---
-title: "addLocation API Documentation"
+title: API Documentation - Add Location
 ---
 
-# addLocation API
+# Add Location API
 
-## Overview
-The `addLocation` API is an HTTP endpoint used to add a location to a specific trip. It is designed to handle `POST` requests and requires authentication via a bearer token.
+The `addLocation` endpoint allows you to add a new location to an existing trip.
 
-## Endpoint
-- **URL**: `http://localhost:3000/v1/trips/ulj1iq0-0w/location`
-- **Method**: `POST`
-- **Authentication**: Bearer Token
+## Endpoint Details
+
+- **Type:** HTTP
+- **Sequence:** 13
+- **Method:** POST
+
+### URL
+
+`http://localhost:3000/v1/trips/ulj1iq0-0w/location`
 
 ## Authentication
-To access the `addLocation` API, a valid bearer token must be included in the request headers. 
 
-### Bearer Token
-```text
+This endpoint requires Bearer token authentication.
+
+- **Token:**
+
+```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
+Ensure to include the token in the `Authorization` header as follows:
+
+```
+Authorization: Bearer <token>
+```
+
 ## Request Body
-The request must include a JSON payload with the following structure:
+
+The request body should be in JSON format and must include the following fields:
 
 ```json
 {
@@ -30,10 +43,25 @@ The request must include a JSON payload with the following structure:
 }
 ```
 
-- **lat**: Latitude of the location (e.g., `37.776`).
-- **long**: Longitude of the location (e.g., `-122.426`).
+- **lat**: Latitude of the location.
+- **long**: Longitude of the location.
 
-## Response
-The API will provide a response indicating the success or failure of the location addition. The response format and status codes will depend on the implementation details not provided here.
+## Usage Example
 
-Please ensure that the endpoint and the token used are correctly configured for your environment and use case.
+Here is an example of how to make a request to this endpoint:
+
+```bash
+curl -X POST http://localhost:3000/v1/trips/ulj1iq0-0w/location \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "lat": 37.776,
+        "long": -122.426
+      }'
+```
+
+Ensure that you replace the token in the `Authorization` header with a valid Bearer token.
+
+---
+
+This concludes the documentation for the `addLocation` API endpoint. If you encounter any issues or require further assistance, please refer to the official API documentation or contact support.

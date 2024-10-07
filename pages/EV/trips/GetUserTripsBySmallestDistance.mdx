@@ -4,29 +4,32 @@ title: GetUserTripsBySmallestDistance API
 
 # GetUserTripsBySmallestDistance API
 
-This API endpoint retrieves user trips sorted by the shortest distance. It is designed to return a list of trips with the option to specify the number of records via query parameters.
+This API endpoint allows you to retrieve a list of user trips sorted by the shortest distance.
 
-## Endpoint Details
+## Endpoint
 
-- **Type:** HTTP GET
 - **URL:** `http://localhost:3000/v1/trips/distance/shortest`
+- **Method:** GET
+- **Authentication:** Bearer Token
 
 ## Query Parameters
 
-- **`limit`:** *(optional)* Specifies the maximum number of trips to return. Default is 10.
-
-Example: `?limit=10`
+- **limit**: (optional) Specifies the maximum number of trips to return. Defaults to 10 if not specified.
 
 ## Authentication
 
-This API uses Bearer Token authentication. You must include a valid token in the Authorization header of your request.
+This endpoint requires a Bearer token to authenticate requests.
 
-- **Token:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
-
-Include the token as follows:
+### Bearer Token
 
 ```
-Authorization: Bearer <token>
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+Include this token in the `Authorization` header of your request as follows:
+
+```
+Authorization: Bearer your_token_here
 ```
 
 ## Example Request
@@ -37,13 +40,31 @@ Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
+Ensure that you replace `your_token_here` with the actual bearer token provided.
+
 ## Response
 
-The response will contain a JSON array of user trips sorted by the shortest distance.
+The response will contain a list of user trips sorted by the shortest distance, limited to the specified number of trips.
 
-## Notes
+### Success Response
 
-- Ensure your token is valid and not expired.
-- Adjust the `limit` parameter to control the number of trips returned.
+- **Content Type:** application/json
+- **Status Code:** 200 OK
 
-This API call is useful for applications requiring information about the closest or most convenient trips for a user based on distance.
+```json
+[
+  {
+    "tripId": "12345",
+    "distance": "5.3 km",
+    "startLocation": "Location A",
+    "endLocation": "Location B",
+    "startTime": "2023-10-01T10:00:00Z",
+    "endTime": "2023-10-01T10:30:00Z"
+  }
+  // more trip objects...
+]
+```
+
+This endpoint does not accept a request body. 
+
+Remember to replace the URL, authentication token, and limit query parameter as necessary for your testing or deployment environment.

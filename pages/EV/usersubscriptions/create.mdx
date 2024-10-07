@@ -1,31 +1,33 @@
----
-title: User Subscription API - Create
----
+# API Documentation: Create User Subscription
 
-# User Subscription - Create API
+This document provides details on how to use the `create` API endpoint to add a new user subscription.
 
-The **Create API** allows you to create a new user subscription. This document details the necessary endpoints, authentication, headers, and body requirements to make a request.
+## Endpoint Type
 
-## Endpoint
+- **Type**: HTTP
+- **Method Sequence**: 1
+
+## HTTP Method
+
+### POST
 
 - **URL**: `http://localhost:3000/v1/user_subscription/create`
-- **Method**: `POST`
+- **Body Format**: JSON
+- **Authentication**: Bearer token
 
 ## Authentication
 
-This API requires Bearer Token authentication.
+To access this endpoint, a valid Bearer token must be provided in the Authorization header.
 
 ### Bearer Token
 
-Make sure to include the following Bearer token in your request header for successful authentication:
-
-```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```plaintext
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ## Request Body
 
-The request body must be in JSON format and include the following fields:
+The body of the request must be in JSON format and include the following fields:
 
 ```json
 {
@@ -35,27 +37,10 @@ The request body must be in JSON format and include the following fields:
 }
 ```
 
-### Body Parameters
+- **subscription_id**: A unique identifier for the subscription.
+- **start_date**: The date when the subscription starts, in `dd/mm/yyyy` format.
+- **end_date**: The date when the subscription ends, in `dd/mm/yyyy` format.
 
-- **subscription_id**: A unique identifier for the subscription. *(String)*
-- **start_date**: The start date of the subscription in the format `dd/mm/yyyy`. *(String)*
-- **end_date**: The end date of the subscription in the format `dd/mm/yyyy`. *(String)*
+## Notes
 
-## Example Request
-
-Below is an example of how to structure your HTTP POST request to the Create API:
-
-```http
-POST /v1/user_subscription/create HTTP/1.1
-Host: localhost:3000
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-Content-Type: application/json
-
-{
-  "subscription_id": "qcxt0ky6xg",
-  "start_date": "27/11/2004",
-  "end_date": "27/11/2004"
-}
-```
-
-Ensure that the JSON body is properly formatted and includes all required fields for the request to be successful.
+Ensure that the Bearer token is kept secure and replaced with a valid token as necessary. The provided token is for demonstration purposes only and may not be valid for actual API requests.

@@ -1,39 +1,63 @@
 ---
-title: "GetBikesByStationID API Documentation"
+title: GetBikesByStationID API Documentation
 ---
 
 # GetBikesByStationID API
 
-The `GetBikesByStationID` API allows you to retrieve a list of bikes available at a specific station.
+This document provides details about the `GetBikesByStationID` API endpoint, including how to authenticate and make a request.
 
-## Sequence
+## Overview
 
-- Sequence: 5
+- **API Name**: GetBikesByStationID
+- **Type**: HTTP
+- **Sequence**: 5
 
-## HTTP Request
+## Endpoint
 
-- **Method**: GET
-- **URL**: `https://ev-backend.app.k8s.coffeecodes.in/v1/bikes/get/station/e6j_2fyc23`
-- **Body**: None
+- **HTTP Method**: GET
+- **URL**: `https://ev-backend.app.k8s.coffeecodes.in/v1/bikes/get/station/{station_id}`
+
+### Parameters
+
+- **station_id**: The unique identifier for the station where you want to retrieve bikes.
 
 ## Authentication
 
-This API requires Bearer token authentication. You must include the following token in your request header:
+This endpoint requires a Bearer token for authentication.
 
-```plaintext
+### Bearer Token
+
+You must include the following Bearer token in the Authorization header of your request:
+
+```
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
+## Request
+
+### Headers
+
+- `Authorization`: Bearer token as described above.
+
+### Body
+
+- **None**: This GET request does not require a request body.
+
+## Response
+
+A successful request to this endpoint will return information about the bikes available at the specified station. The structure and example of the response should include details about each bike, such as its ID, status, and availability. However, the exact response format is not detailed in this documentation.
+
 ## Example Request
 
-```http
+```
 GET /v1/bikes/get/station/e6j_2fyc23 HTTP/1.1
 Host: ev-backend.app.k8s.coffeecodes.in
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJhZnJ3dXZkXzFqIn0.se2WRRJhST9uvOyhTwunvJiiMYD-RYfKqfXPMN2NnE0
 ```
 
-## Response
+Make sure to replace `{station_id}` with the actual ID of the station you are querying.
 
-A successful response contains the list of bikes available at the specified station.
+## Notes
 
-Note: Detailed response format and examples are not provided in this documentation. Please refer to the specific implementation details for response structure.
+- Ensure that your Bearer token is valid and has not expired.
+- If you encounter issues, verify that the station ID is correct and that the token is accurately specified.

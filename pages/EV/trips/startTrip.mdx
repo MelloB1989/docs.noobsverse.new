@@ -4,28 +4,27 @@ title: Start Trip API
 
 # Start Trip API
 
-The `startTrip` API is an HTTP endpoint for initiating a trip in the system. Below are the details required to successfully call this API.
+This document outlines the details for the `startTrip` API endpoint, which is responsible for beginning a new bike trip.
+
+## HTTP Method
+
+**POST** 
 
 ## Endpoint
 
-- **URL:** `http://localhost:3000/v1/trips/start`
-- **Method:** `POST`
+**URL:** `http://localhost:3000/v1/trips/start`
 
-## Authorization
+## Authentication
 
-This endpoint requires Bearer Token authorization.
-
-### Bearer Token
-
-You need to include the following bearer token in the header of your request:
+This API requires a bearer token for authentication. Ensure that you include the following token in the `Authorization` header of your request:
 
 ```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
 ## Request Body
 
-The body of the request should be in JSON format. Below is the required structure:
+The body of the request should be in JSON format with the following structure:
 
 ```json
 {
@@ -35,8 +34,16 @@ The body of the request should be in JSON format. Below is the required structur
 }
 ```
 
-- **bike_id**: The identifier of the bike being used for the trip.
-- **station_id**: The identifier of the station where the trip starts.
-- **start_timestamp**: The timestamp indicating when the trip starts, in ISO 8601 format.
+### Parameters
 
-Ensure that all required fields are included and correctly formatted in your request to successfully start a trip.
+- `bike_id`: The unique identifier for the bike being rented. *(String)*
+- `station_id`: The unique identifier for the station where the trip is starting. *(String)*
+- `start_timestamp`: The ISO 8601 formatted date-time string representing when the trip begins. *(String)*
+
+## Sequence
+
+This is the first call in the sequence to initialize a bike trip: **seq: 1**.
+
+---
+
+Ensure all requests have the correct authorization token and a properly formatted JSON body to start a trip successfully.

@@ -1,32 +1,27 @@
 ---
-title: API Documentation - getGroupDetails
+title: "getGroupDetails API Documentation"
+type: http
+sequence: 5
 ---
 
 # getGroupDetails API
 
-## Overview
-
-The `getGroupDetails` API is an HTTP GET request designed to retrieve details about a specific group. This request is made to the local server and requires authentication via a bearer token.
+The `getGroupDetails` API is responsible for retrieving details about a specific group. It requires authentication via a bearer token.
 
 ## HTTP Request
 
 - **Method**: GET
 - **URL**: `http://localhost:3000/v1/groups/2`
 - **Body**: None
+- **Authorization Required**: Yes (Bearer token)
 
-## Authentication
+## Authorization
 
-This API endpoint requires bearer token authentication. You must include a valid bearer token in the request header to successfully access the group details.
-
-### Bearer Token Format
+To access this API, a bearer token is required. Include the following token in the header of your request:
 
 ```plaintext
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-
-## Sequence
-
-This is sequence number 5 in the API documentation. Ensure that previous steps or related APIs are understood for better integration and usage.
 
 ## Example Request
 
@@ -38,4 +33,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4M
 
 ## Response
 
-Upon successful authentication and request, details about the specified group will be returned. Ensure error handling is in place for situations where the token is invalid or the group ID does not exist.
+The response will contain the details of the requested group. Ensure that your application logic handles the response appropriately.
+
+## Error Handling
+
+If the authorization token is missing or invalid, the API will return an error. Ensure proper token management and handle unauthorized errors gracefully in your application.

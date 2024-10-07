@@ -1,45 +1,40 @@
 ---
-title: Get Locations API
+title: API Documentation - getLocations
 ---
 
-# Get Locations API
+# getLocations API
 
-## Overview
+The `getLocations` API is an HTTP GET endpoint that retrieves location data for a given trip.
 
-The `getLocations` API endpoint allows you to retrieve a list of locations associated with a specific trip. This endpoint is part of the Trip Management service, with the HTTP sequence number 12.
+## Endpoint Details
 
-## Endpoint
+- **Type**: HTTP
+- **Sequence**: 12
 
-- **URL:** `http://localhost:3000/v1/trips/ulj1iq0-0w/locations`
-- **Method:** GET
+### HTTP GET Request
+
+- **URL**: `http://localhost:3000/v1/trips/ulj1iq0-0w/locations`
+- **Body**: None
+- **Authentication**: Bearer Token
 
 ## Authentication
 
-This endpoint requires Bearer Token authentication.
+To access this endpoint, you must provide a valid bearer token. Include the token in the `Authorization` header of your request.
 
-### Bearer Token
+- **Token**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw`
 
-Include the following Bearer Token in the `Authorization` header of your request:
+### Example
 
-```
+```http
+GET /v1/trips/ulj1iq0-0w/locations HTTP/1.1
+Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Request
-
-- **Body:** None.
-
 ## Response
 
-The response will contain a list of locations associated with the specified trip. Each location will have its own set of properties that describe it.
+The API response contains location data associated with the specified trip. You need to handle and parse the response according to your application's requirements.
 
-## Usage Example
+---
 
-Here is an example of how to call the `getLocations` endpoint using curl:
-
-```bash
-curl -X GET http://localhost:3000/v1/trips/ulj1iq0-0w/locations \
-     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw"
-```
-
-This will return a JSON response with the details of the locations for the trip with the ID `ulj1iq0-0w`.
+This concludes the `getLocations` API documentation. Use the provided token responsibly and ensure secure handling in your requests.

@@ -1,11 +1,10 @@
 ---
 title: Create Bikes API
-description: Documentation for the Create Bikes API endpoint
 ---
 
-# Create Bikes API
+# Create Bikes API Documentation
 
-The **Create Bikes API** allows you to add new bikes to the database. Here's how to use the endpoint effectively.
+The `createBikes` API allows you to add new bikes to the system. This HTTP endpoint accepts a JSON payload containing the bike details.
 
 ## Endpoint
 
@@ -15,19 +14,21 @@ The **Create Bikes API** allows you to add new bikes to the database. Here's how
 
 ## Headers
 
+Include the following header in your request:
+
 - `X-Karma-Admin-Auth`: `CoffeeCodesMelloBxAparnaEewqjbdkwqbkdjoehui3r7328grehjvdjvchjiuiudhsjkhkjsadab`
 
 ## Request Body
 
-The request body should be in JSON format, containing an array of bike objects. Each bike object must have the following fields:
+The request body should be in JSON format. It needs to be an array of bike objects, with each object containing the following properties:
 
-- `frame_number` (string): Unique identifier for the bike.
-- `name` (string): Name of the bike.
-- `station_id` (string): Identifier for the station where the bike is located.
-- `top_speed` (number): Maximum speed the bike can achieve (in km/h).
-- `range` (number): The maximum distance the bike can cover on a full charge (in km).
-- `time_to_station` (number): Estimated time in minutes to reach the nearest station.
-- `images` (array of strings): URLs of the images representing the bike.
+- `frame_number`: (string) The unique identifier for the bike's frame.
+- `name`: (string) The name of the bike model.
+- `station_id`: (string) The ID of the station where the bike is located.
+- `top_speed`: (number) The bike's maximum speed in km/h.
+- `range`: (number) The maximum distance the bike can travel on a full charge in km.
+- `time_to_station`: (number) The time in minutes to move to the associated station.
+- `images`: (array of strings) URLs of the bike's images.
 
 ### Example Request Body
 
@@ -102,8 +103,12 @@ The request body should be in JSON format, containing an array of bike objects. 
 ]
 ```
 
+## Response
+
+The API will return a success message with the details of the bikes created if the request is successful. An error message will be provided if there are any issues with the request.
+
 ## Notes
 
-- Ensure that every bike has a unique `frame_number`.
-- Each bike must be associated with a valid `station_id`.
-- The `images` array should contain valid URLs pointing to images representing the bike.
+- Ensure that each `frame_number` is unique.
+- Check that the `station_id` corresponds to a valid station in your system.
+- Validate the structure and data types in the request payload to avoid errors.

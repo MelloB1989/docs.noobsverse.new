@@ -1,39 +1,40 @@
 ---
 title: API Documentation - getGroupMembersData
+meta:
+  - name: getGroupMembersData
+  - type: HTTP
+  - seq: 6
 ---
 
 # getGroupMembersData
 
-## Overview
+This API endpoint retrieves data for members of a specific group.
 
-The `getGroupMembersData` API endpoint retrieves data on members within a specific group.
+## HTTP Request
 
-- **Type**: HTTP
-- **Sequence**: 6
+**GET** `http://localhost:3000/v1/groups/2/members/data`
 
-## GET Request
+## Authentication
 
-### URL
+This endpoint requires Bearer Token authentication. Ensure you include the following token in the request headers:
 
-`http://localhost:3000/v1/groups/2/members/data`
+```
+Authorization: Bearer <token>
+```
 
-### Method
-
-`GET`
-
-### Authorization
-
-This endpoint requires Bearer token authentication.
-
-#### Token
+Replace `<token>` with the actual Bearer Token provided below:
 
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-### Request Body
+## Request Body
 
-None.
+This request does not require a body.
+
+## Response
+
+The response will contain the data for the members of the specified group.
 
 ## Example Request
 
@@ -43,10 +44,4 @@ Host: localhost:3000
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
 
-## Responses
-
-The response will be a JSON object containing data about the group members.
-
----
-
-Please ensure that the Bearer token is kept secure and not exposed in client-side code.
+Ensure you have the proper authorization and access rights to retrieve the data from this endpoint.

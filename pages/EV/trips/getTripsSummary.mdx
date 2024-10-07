@@ -1,43 +1,50 @@
 ---
-title: "API Documentation: getTripsSummary"
+title: API Documentation for `getTripsSummary`
 ---
 
-# getTripsSummary
+# `getTripsSummary` API
 
-## Overview
+The `getTripsSummary` API is an HTTP-based API used to retrieve a summary of trips for the authenticated user.
 
-The `getTripsSummary` endpoint provides a summary of trips associated with the user. This is an HTTP GET request requiring a bearer token for authorization.
+## Endpoint
 
-## Request
+### GET
 
-### HTTP Method
+- **URL:** `http://localhost:3000/v1/trips/mytrips`
+- **Authentication:** Bearer Token
+- **Request Body:** None
 
-`GET`
+## Authentication
 
-### URL
+This endpoint requires a bearer token for authentication. Ensure you include the following token in the Authorization header when making requests:
 
+```plaintext
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
 ```
-http://localhost:3000/v1/trips/mytrips
-```
-
-### Authentication
-
-This endpoint requires authentication via a bearer token.
-
-#### Bearer Token
-
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
-```
-
-### Request Body
-
-No request body is required for this endpoint.
 
 ## Sequence
 
-This endpoint is associated with sequence number: 14.
+- **Sequence Number:** 14
 
----
+## Usage Example
 
-Ensure you replace the sample bearer token with a valid token before making a production request.
+To access the trips summary, make a GET request to the specified URL with the bearer token included in the request headers.
+
+### Example Request
+
+```http
+GET /v1/trips/mytrips HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiI1Z2VhcGdhcHhzIn0.yNyKfoOQouzSNDwp_5rJ9CAEMVJo5uqueJHNpG-a3Aw
+```
+
+## Response
+
+The response will contain the summary of trips for the user. The exact structure of the response data will be determined by the server logic.
+
+## Notes
+
+- Ensure the server is running and accessible at `localhost:3000`.
+- The provided bearer token is for demonstration purposes only and should be replaced with a valid token specific to your authenticated session.
+
+This API call doesn't require a request body as it uses the token to determine the user and fetch their trips summary accordingly.
