@@ -148,7 +148,7 @@ if err != nil {
 1. **Struct Fields**: Must be in CamelCase
    ```go
    type Product struct {
-       ProductID   int     `json:"product_id"`
+       ProductId   int     `json:"product_id"`
        ProductName string  `json:"product_name"`
        Price       float64 `json:"price"`
    }
@@ -170,7 +170,7 @@ For complex field types like arrays, maps, structs, or interfaces, you must add 
 
 ```go
 type Post struct {
-    ID        int       `json:"id"`
+    Id        int       `json:"id"`
     Title     string    `json:"title"`
     Tags      []string  `json:"tags" db:"json"`     // Array
     Metadata  map[string]interface{} `json:"metadata" db:"json"`  // Map
@@ -188,7 +188,7 @@ If you're using the Karma ORM (`github.com/MelloB1989/karma/orm`), add a `TableN
 ```go
 type User struct {
     TableName string  `karma_table:"users" json:"-"` // Marks this struct as mapping to "users" table
-    ID        int     `json:"id"`
+    Id        int     `json:"id"`
     Username  string  `json:"username"`
     Email     string  `json:"email"`
     Metadata  map[string]interface{} `json:"metadata" db:"json"`
